@@ -6,12 +6,18 @@ Public Class Ed_ManageECourse
         ' Create labels and set properties
         For i As Integer = 0 To 20
             labels(i) = New Ed_Teacher_CourseraItem()
+            labels(i).CourseID = i
+
         Next
 
         ' Add labels to the FlowLayoutPanel
         For Each Ed_Teacher_CourseraItem As Ed_Teacher_CourseraItem In labels
             FlowLayoutPanel1.Controls.Add(Ed_Teacher_CourseraItem)
         Next
+
+
+
+
     End Sub
 
 

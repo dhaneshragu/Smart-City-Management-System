@@ -24,18 +24,15 @@ Partial Class UserDetails
     Private Sub InitializeComponent()
         Me.childformPanel = New System.Windows.Forms.Panel()
         Me.Button9 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
@@ -49,20 +46,17 @@ Partial Class UserDetails
         Me.Label3 = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.childformPanel.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'childformPanel
         '
         Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.childformPanel.Controls.Add(Me.Button9)
-        Me.childformPanel.Controls.Add(Me.ComboBox1)
         Me.childformPanel.Controls.Add(Me.TextBox8)
         Me.childformPanel.Controls.Add(Me.Label11)
-        Me.childformPanel.Controls.Add(Me.Label12)
         Me.childformPanel.Controls.Add(Me.Button3)
         Me.childformPanel.Controls.Add(Me.PictureBox2)
         Me.childformPanel.Controls.Add(Me.Label10)
@@ -70,8 +64,6 @@ Partial Class UserDetails
         Me.childformPanel.Controls.Add(Me.Label9)
         Me.childformPanel.Controls.Add(Me.TextBox7)
         Me.childformPanel.Controls.Add(Me.Label8)
-        Me.childformPanel.Controls.Add(Me.TextBox6)
-        Me.childformPanel.Controls.Add(Me.Label7)
         Me.childformPanel.Controls.Add(Me.TextBox5)
         Me.childformPanel.Controls.Add(Me.Label6)
         Me.childformPanel.Controls.Add(Me.TextBox4)
@@ -102,16 +94,6 @@ Partial Class UserDetails
         Me.Button9.Text = "Save"
         Me.Button9.UseVisualStyleBackColor = False
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.BackColor = System.Drawing.Color.Linen
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Child", "Adult", "Senior Citizen"})
-        Me.ComboBox1.Location = New System.Drawing.Point(1026, 394)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(352, 30)
-        Me.ComboBox1.TabIndex = 23
-        '
         'TextBox8
         '
         Me.TextBox8.BackColor = System.Drawing.Color.SeaShell
@@ -131,16 +113,6 @@ Partial Class UserDetails
         Me.Label11.TabIndex = 21
         Me.Label11.Text = "Guardian UID"
         '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(823, 396)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(124, 28)
-        Me.Label12.TabIndex = 19
-        Me.Label12.Text = "Age Group"
-        '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.BlanchedAlmond
@@ -148,12 +120,22 @@ Partial Class UserDetails
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.Maroon
-        Me.Button3.Location = New System.Drawing.Point(1113, 327)
+        Me.Button3.Location = New System.Drawing.Point(1088, 363)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(189, 45)
         Me.Button3.TabIndex = 18
         Me.Button3.Text = "Upload Picture"
         Me.Button3.UseVisualStyleBackColor = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.student_default
+        Me.PictureBox2.Location = New System.Drawing.Point(998, 30)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(380, 327)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 17
+        Me.PictureBox2.TabStop = False
         '
         'Label10
         '
@@ -181,9 +163,9 @@ Partial Class UserDetails
         Me.Label9.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(163, 96)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(151, 28)
+        Me.Label9.Size = New System.Drawing.Size(168, 28)
         Me.Label9.TabIndex = 14
-        Me.Label9.Text = "Date of Birth"
+        Me.Label9.Text = "Date of Birth *"
         '
         'TextBox7
         '
@@ -204,32 +186,13 @@ Partial Class UserDetails
         Me.Label8.TabIndex = 12
         Me.Label8.Text = "Occupation"
         '
-        'TextBox6
-        '
-        Me.TextBox6.BackColor = System.Drawing.Color.SeaShell
-        Me.TextBox6.Location = New System.Drawing.Point(366, 390)
-        Me.TextBox6.Multiline = True
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(352, 34)
-        Me.TextBox6.TabIndex = 11
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(163, 396)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(158, 28)
-        Me.Label7.TabIndex = 10
-        Me.Label7.Text = "Ward Number"
-        '
         'TextBox5
         '
         Me.TextBox5.BackColor = System.Drawing.Color.SeaShell
-        Me.TextBox5.Location = New System.Drawing.Point(366, 330)
+        Me.TextBox5.Location = New System.Drawing.Point(366, 336)
         Me.TextBox5.Multiline = True
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(352, 34)
+        Me.TextBox5.Size = New System.Drawing.Size(352, 88)
         Me.TextBox5.TabIndex = 9
         '
         'Label6
@@ -238,9 +201,9 @@ Partial Class UserDetails
         Me.Label6.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(163, 336)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(170, 28)
+        Me.Label6.Size = New System.Drawing.Size(113, 28)
         Me.Label6.TabIndex = 8
-        Me.Label6.Text = "House Number"
+        Me.Label6.Text = "Address *"
         '
         'TextBox4
         '
@@ -257,9 +220,9 @@ Partial Class UserDetails
         Me.Label5.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(163, 276)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(172, 28)
+        Me.Label5.Size = New System.Drawing.Size(189, 28)
         Me.Label5.TabIndex = 6
-        Me.Label5.Text = "Phone Number"
+        Me.Label5.Text = "Phone Number *"
         '
         'TextBox3
         '
@@ -276,9 +239,9 @@ Partial Class UserDetails
         Me.Label4.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(163, 216)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(90, 28)
+        Me.Label4.Size = New System.Drawing.Size(107, 28)
         Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Gender"
+        Me.Label4.Text = "Gender *"
         '
         'TextBox2
         '
@@ -295,9 +258,9 @@ Partial Class UserDetails
         Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(163, 156)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(52, 28)
+        Me.Label2.Size = New System.Drawing.Size(69, 28)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Age"
+        Me.Label2.Text = "Age *"
         '
         'TextBox1
         '
@@ -314,9 +277,9 @@ Partial Class UserDetails
         Me.Label1.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(163, 36)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(119, 28)
+        Me.Label1.Size = New System.Drawing.Size(136, 28)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Full Name"
+        Me.Label1.Text = "Full Name *"
         '
         'Label3
         '
@@ -346,16 +309,6 @@ Partial Class UserDetails
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.student_default
-        Me.PictureBox2.Location = New System.Drawing.Point(1026, 30)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(352, 282)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 17
-        Me.PictureBox2.TabStop = False
-        '
         'UserDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -372,8 +325,8 @@ Partial Class UserDetails
         Me.Text = "Transportation"
         Me.childformPanel.ResumeLayout(False)
         Me.childformPanel.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -387,8 +340,6 @@ Partial Class UserDetails
     Friend WithEvents Label9 As Label
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents Label7 As Label
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBox4 As TextBox
@@ -401,9 +352,7 @@ Partial Class UserDetails
     Friend WithEvents Label10 As Label
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Button3 As Button
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents TextBox8 As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents Label12 As Label
     Friend WithEvents Button9 As Button
 End Class

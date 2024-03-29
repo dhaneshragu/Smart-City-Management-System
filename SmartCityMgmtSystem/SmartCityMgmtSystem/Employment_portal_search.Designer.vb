@@ -187,6 +187,54 @@ Partial Class Employment_portal_search
         Me.srchSelect.TabIndex = 10
         Me.srchSelect.Text = "Select"
         '
+        'Button6
+        '
+        Me.Button6.CausesValidation = False
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ForeColor = System.Drawing.Color.Ivory
+        Me.Button6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_back_arrow_25
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button6.Location = New System.Drawing.Point(1388, 0)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button6.Size = New System.Drawing.Size(163, 39)
+        Me.Button6.TabIndex = 7
+        Me.Button6.Text = "      Home Page"
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'Button5
+        '
+        Me.Button5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_exit_50
+        Me.Button5.Location = New System.Drawing.Point(1217, 9)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(52, 44)
+        Me.Button5.TabIndex = 15
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_job_48
+        Me.PictureBox1.Location = New System.Drawing.Point(399, 23)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(66, 60)
+        Me.PictureBox1.TabIndex = 16
+        Me.PictureBox1.TabStop = False
+        '
+        'RichTextBox2
+        '
+        Me.RichTextBox2.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RichTextBox2.Location = New System.Drawing.Point(156, 105)
+        Me.RichTextBox2.Name = "RichTextBox2"
+        Me.RichTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
+        Me.RichTextBox2.Size = New System.Drawing.Size(950, 39)
+        Me.RichTextBox2.TabIndex = 17
+        Me.RichTextBox2.Text = "Welcome to our Advanced Job Hunt Page, please select the available option from th" &
+    "e box below to speed-up your job search"
+        '
         'Label2
         '
         Me.Label2.AutoSize = True

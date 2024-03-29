@@ -81,6 +81,7 @@ Partial Class HomePage
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.Button2.ForeColor = System.Drawing.Color.Maroon
+        Me.Button2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_services_64
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button2.Location = New System.Drawing.Point(400, 69)
         Me.Button2.Name = "Button2"

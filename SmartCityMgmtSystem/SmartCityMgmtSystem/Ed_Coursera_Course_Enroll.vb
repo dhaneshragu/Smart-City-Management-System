@@ -7,6 +7,7 @@ Public Class Ed_Coursera_Course_Enroll
     Public Property ResourceName As String
     Public Property VideoLink As String
     Public Property TextContent As String
+    Public Property eCourseAdmin As Boolean
 
 
     ' Constructor that accepts a Panel parameter
@@ -14,8 +15,18 @@ Public Class Ed_Coursera_Course_Enroll
         InitializeComponent()
         courseID = courseID
         callingPanel = panel
+        eCourseAdmin = False
+    End Sub
+    Public Sub New(courseID As Integer, panel As Panel, isCourseAdmin As Boolean)
+        InitializeComponent()
+        courseID = courseID
+        callingPanel = panel
+        eCourseAdmin = isCourseAdmin
     End Sub
     Private Sub Ed_Coursera_CourseContent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If (eCourseAdmin) Then
+            Button2.Hide()
+        End If
         ResourceName = "Testing 123"
         VideoLink = "https://www.youtube.com/watch?v=I0czvJ_jikg&list=RDI0czvJ_jikg&start_radio=1"
         Dim youtubeUrl As String = "https://www.youtube.com/watch?v=WVOiDcFUg_I" ' Your YouTube video URL
@@ -60,7 +71,12 @@ Public Class Ed_Coursera_Course_Enroll
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Globals.viewChildForm(Ed_GlobalDashboard.innerpanel, New Ed_Stud_Coursera_Home())
+        If (eCourseAdmin) Then
+            Globals.viewChildForm(Ed_GlobalDashboard.innerpanel, New Ed_EcourseApproveCourses())
+        Else
+            Globals.viewChildForm(Ed_GlobalDashboard.innerpanel, New Ed_Stud_Coursera_Home())
+        End If
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

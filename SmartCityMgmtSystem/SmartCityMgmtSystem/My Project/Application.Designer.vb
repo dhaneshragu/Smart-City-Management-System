@@ -23,11 +23,11 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>
         Public Sub New()
-            MyBase.New(Global.Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.Windows)
-            Me.IsSingleInstance = True
-            Me.EnableVisualStyles = True
-            Me.SaveMySettingsOnExit = True
-            Me.ShutdownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterAllFormsClose
+            MyBase.New(Global.Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.ApplicationDefined)
+            Me.IsSingleInstance = true
+            Me.EnableVisualStyles = true
+            Me.SaveMySettingsOnExit = true
+            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterAllFormsClose
         End Sub
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>
@@ -35,6 +35,7 @@ Namespace My
             Me.MainForm = Global.SmartCityMgmtSystem.Employment_portal_search
             Me.MainForm = Global.SmartCityMgmtSystem.TransportationDashboard
             Me.MainForm = Global.SmartCityMgmtSystem.Employment_portal
+            Me.MainForm = Global.SmartCityMgmtSystem.EventDashboard
         End Sub
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>

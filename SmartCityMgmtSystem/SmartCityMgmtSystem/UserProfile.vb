@@ -1,5 +1,10 @@
 ﻿Public Class UserProfile
+    Private uid As Integer
 
+    Public Sub New(uid As Integer)
+        InitializeComponent()
+        Me.uid = uid ' Store the passed email ID in a private field
+    End Sub
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
     End Sub
@@ -10,8 +15,8 @@
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        Dim home = New HomePageDashboard()
-        home.Show()
+        'Dim home = New HomePageDashboard(uid)
+        'home.Show()
         Me.Close()
     End Sub
 

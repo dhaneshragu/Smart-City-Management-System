@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Header
+Imports MySql.Data.MySqlClient
 Public Class ElectionInnerScreen2
 
     Dim lstviewItem As ListViewItem
@@ -24,13 +25,35 @@ Public Class ElectionInnerScreen2
             ListView1.SmallImageList = lstviewItemImageList
 
             Dim image_list() As String
-            image_list = New String() {"icons8-commodity-100.png", "icons8-complain-100.png", "icons8-taj-mahal-100.png", "icons8-transportation-100.png", "icons8-health-100.png", "icons8-student-center-100.png", "icons8-permanent-job-100.png", "icons8-active-directory-100.png", "icons8-live-video-on-100.png", "icons8-system-information-100.png"}
+            image_list = New String() {"icons8-commodity-100.png", "icons8-complain-100.png", "icons8-taj-mahal-100.png", "icons8-transportation-100.png", "icons8-health-100.png", "icons8-student-center-100.png", "icons8-active-directory-100.png", "icons8-live-video-on-100.png", "icons8-system-information-100.png"}
 
             Dim text_list() As String
-            text_list = New String() {"Ministry of Finance", "Ministry of Power", "Ministry of Culture", " Ministry of Transport", "Ministry of Health", "Ministry of Education", "Ministry of Labor & Employement", "Ministry of Administrative Hierarchy", "Ministry of Information & Broadcasting", "Ministry of Information Technology"}
+            text_list = New String() {"Ministry of Finance", "Ministry of Power", "Ministry of Culture", " Ministry of Transport", "Ministry of Health", "Ministry of Education", "Ministry of Labor & Employement", "Ministry of Information & Broadcasting", "Ministry of Information Technology"}
 
             Dim minister_list() As String ' Add minister names
             minister_list = New String() {"John Doe", "Jane Smith", "Mike Johnson", "Chris Brown", "Emily White", "David Lee", "Jessica Taylor", "Matthew Davis", "Sarah Clark", "Kevin Miller"}
+
+            'backend logic
+            'Get connection from globals
+            Dim Con = Globals.GetDBConnection()
+            Dim reader As MySqlDataReader
+            Dim cmd As MySqlCommand
+
+            Try
+                Con.Open()
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+
+            cmd = New MySqlCommand("SELECT ministries.ministry_name, users.name AS minister_name FROM ministries INNER JOIN users ON ministries.minister_uid = users.user_id", Con)
+            reader = cmd.ExecuteReader
+            ' Create a DataTable to store the data
+            Dim dataTable As New DataTable()
+
+            'Fill the DataTable with data from the SQL table
+            dataTable.Load(reader)
+            reader.Close()
+            Con.Close()
 
             Dim text_index As Integer = 0
 
@@ -45,12 +68,19 @@ Public Class ElectionInnerScreen2
                     listItem.ImageIndex = lstviewItemImageList.Images.Count - 1
                     listItem.UseItemStyleForSubItems = False
 
+
+                    ' Retrieve department and minister names from the dataTable
+                    Dim departmentName As String = ""
+                    Dim ministerName As String = ""
+                    departmentName = dataTable.Rows(text_index)("ministry_name").ToString()
+                    ministerName = dataTable.Rows(text_index)("minister_name").ToString()
+
                     ' Add Department and Minister as sub-items
-                    Dim departmentSubItem = listItem.SubItems.Add(text_list(text_index))
+                    Dim departmentSubItem = listItem.SubItems.Add(departmentName)
                     departmentSubItem.Font = New Font("Verdana", 14, FontStyle.Regular)
                     departmentSubItem.ForeColor = Color.White
 
-                    Dim ministerSubItem = listItem.SubItems.Add(minister_list(text_index))
+                    Dim ministerSubItem = listItem.SubItems.Add(ministerName)
                     ministerSubItem.Font = New Font("Verdana", 14, FontStyle.Regular)
                     ministerSubItem.ForeColor = Color.White
 

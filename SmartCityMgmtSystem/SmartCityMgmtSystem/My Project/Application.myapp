@@ -10,10 +10,11 @@
   <MainForm>Employment_portal_search</MainForm>
 >>>>>>> 3e96ee1f9205a53dfd02950fedf9984558e6f4c6
 >>>>>>> e343516526a88b812c33b902f1b8ad78a3dfe89c
+  <MainForm>EventDashboard</MainForm>
   <SingleInstance>true</SingleInstance>
   <ShutdownMode>1</ShutdownMode>
   <EnableVisualStyles>true</EnableVisualStyles>
-  <AuthenticationMode>0</AuthenticationMode>
+  <AuthenticationMode>1</AuthenticationMode>
   <MinimumSplashScreenDisplayTime>0</MinimumSplashScreenDisplayTime>
   <SaveMySettingsOnExit>true</SaveMySettingsOnExit>
   <HighDpiMpde>false</HighDpiMpde>

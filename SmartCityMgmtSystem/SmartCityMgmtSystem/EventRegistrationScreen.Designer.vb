@@ -31,24 +31,34 @@ Partial Class EventRegistrationScreen
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EventRegistrationScreen))
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EventRegistrationScreen))
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DeleteBut = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.EditBut = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
@@ -62,17 +72,7 @@ Partial Class EventRegistrationScreen
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn4 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.DeleteBut = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.EditBut = New System.Windows.Forms.DataGridViewImageColumn()
         Button2 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -92,6 +92,7 @@ Partial Class EventRegistrationScreen
         Button2.TabIndex = 24
         Button2.Text = "Register"
         Button2.UseVisualStyleBackColor = False
+        AddHandler Button2.Click, AddressOf Me.Button2_Click
         '
         'DataGridView1
         '
@@ -209,6 +210,45 @@ Partial Class EventRegistrationScreen
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         '
+        'DeleteBut
+        '
+        Me.DeleteBut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle6.NullValue = CType(resources.GetObject("DataGridViewCellStyle6.NullValue"), Object)
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DeleteBut.DefaultCellStyle = DataGridViewCellStyle6
+        Me.DeleteBut.HeaderText = ""
+        Me.DeleteBut.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_delete_40
+        Me.DeleteBut.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.DeleteBut.MinimumWidth = 6
+        Me.DeleteBut.Name = "DeleteBut"
+        Me.DeleteBut.ReadOnly = True
+        Me.DeleteBut.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DeleteBut.ToolTipText = "Delete"
+        Me.DeleteBut.Width = 6
+        '
+        'EditBut
+        '
+        Me.EditBut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.PaleGreen
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle7.NullValue = CType(resources.GetObject("DataGridViewCellStyle7.NullValue"), Object)
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Maroon
+        Me.EditBut.DefaultCellStyle = DataGridViewCellStyle7
+        Me.EditBut.HeaderText = ""
+        Me.EditBut.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_edit_40
+        Me.EditBut.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.EditBut.MinimumWidth = 6
+        Me.EditBut.Name = "EditBut"
+        Me.EditBut.ReadOnly = True
+        Me.EditBut.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.EditBut.ToolTipText = "Delete"
+        Me.EditBut.Width = 6
+        '
         'DataGridViewImageColumn1
         '
         Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -277,6 +317,51 @@ Partial Class EventRegistrationScreen
         Me.TextBox1.Size = New System.Drawing.Size(179, 30)
         Me.TextBox1.TabIndex = 23
         '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label6.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
+        Me.Label6.ForeColor = System.Drawing.Color.BlanchedAlmond
+        Me.Label6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_calendar_25
+        Me.Label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label6.Location = New System.Drawing.Point(45, 255)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(188, 22)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "    Event End Date"
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
+        Me.Label2.ForeColor = System.Drawing.Color.BlanchedAlmond
+        Me.Label2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_person_201
+        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label2.Location = New System.Drawing.Point(49, 62)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(92, 22)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "    Name"
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label3.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
+        Me.Label3.ForeColor = System.Drawing.Color.BlanchedAlmond
+        Me.Label3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_identity_card_25
+        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label3.Location = New System.Drawing.Point(45, 109)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(206, 22)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "    Aadhaar Number"
+        '
         'TextBox5
         '
         Me.TextBox5.BackColor = System.Drawing.Color.BlanchedAlmond
@@ -284,6 +369,21 @@ Partial Class EventRegistrationScreen
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(179, 30)
         Me.TextBox5.TabIndex = 19
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label1.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
+        Me.Label1.ForeColor = System.Drawing.Color.BlanchedAlmond
+        Me.Label1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_phone_25
+        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label1.Location = New System.Drawing.Point(45, 157)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(151, 22)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "    Contact No."
         '
         'TextBox4
         '
@@ -293,6 +393,51 @@ Partial Class EventRegistrationScreen
         Me.TextBox4.Size = New System.Drawing.Size(179, 30)
         Me.TextBox4.TabIndex = 18
         '
+        'Label5
+        '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label5.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
+        Me.Label5.ForeColor = System.Drawing.Color.BlanchedAlmond
+        Me.Label5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_calendar_25
+        Me.Label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label5.Location = New System.Drawing.Point(45, 207)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(200, 22)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "    Event Start Date"
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label9.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
+        Me.Label9.ForeColor = System.Drawing.Color.BlanchedAlmond
+        Me.Label9.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_vendor_25
+        Me.Label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label9.Location = New System.Drawing.Point(43, 357)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(144, 22)
+        Me.Label9.TabIndex = 17
+        Me.Label9.Text = "     Vendor ID"
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label7.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
+        Me.Label7.ForeColor = System.Drawing.Color.BlanchedAlmond
+        Me.Label7.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_hall_25
+        Me.Label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label7.Location = New System.Drawing.Point(45, 302)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(146, 22)
+        Me.Label7.TabIndex = 6
+        Me.Label7.Text = "    Event Type"
+        '
         'ComboBox1
         '
         Me.ComboBox1.BackColor = System.Drawing.Color.BlanchedAlmond
@@ -301,6 +446,21 @@ Partial Class EventRegistrationScreen
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(179, 30)
         Me.ComboBox1.TabIndex = 16
+        '
+        'Label8
+        '
+        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label8.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
+        Me.Label8.ForeColor = System.Drawing.Color.BlanchedAlmond
+        Me.Label8.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_password_25
+        Me.Label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label8.Location = New System.Drawing.Point(43, 412)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(133, 22)
+        Me.Label8.TabIndex = 7
+        Me.Label8.Text = "    Password"
         '
         'DateTimePicker2
         '
@@ -317,6 +477,7 @@ Partial Class EventRegistrationScreen
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(179, 30)
         Me.TextBox2.TabIndex = 8
+        Me.TextBox2.Text = " "
         '
         'DateTimePicker1
         '
@@ -343,16 +504,16 @@ Partial Class EventRegistrationScreen
         Me.Panel3.Controls.Add(Me.Label10)
         Me.Panel3.Controls.Add(Me.Label14)
         Me.Panel3.Controls.Add(Me.Label13)
-        Me.Panel3.Location = New System.Drawing.Point(975, 549)
+        Me.Panel3.Location = New System.Drawing.Point(962, 549)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(240, 162)
+        Me.Panel3.Size = New System.Drawing.Size(253, 162)
         Me.Panel3.TabIndex = 29
         '
         'Label16
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.Label16.Location = New System.Drawing.Point(154, 27)
+        Me.Label16.Location = New System.Drawing.Point(139, 27)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(84, 26)
         Me.Label16.TabIndex = 33
@@ -362,7 +523,7 @@ Partial Class EventRegistrationScreen
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.Label15.Location = New System.Drawing.Point(154, 133)
+        Me.Label15.Location = New System.Drawing.Point(139, 133)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(84, 26)
         Me.Label15.TabIndex = 32
@@ -416,7 +577,7 @@ Partial Class EventRegistrationScreen
         Me.DataGridViewImageColumn3.ReadOnly = True
         Me.DataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn3.Width = 6
+        Me.DataGridViewImageColumn3.Width = 125
         '
         'DataGridViewImageColumn4
         '
@@ -436,7 +597,7 @@ Partial Class EventRegistrationScreen
         Me.DataGridViewImageColumn4.ReadOnly = True
         Me.DataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn4.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn4.Width = 6
+        Me.DataGridViewImageColumn4.Width = 125
         '
         'Label11
         '
@@ -449,126 +610,6 @@ Partial Class EventRegistrationScreen
         Me.Label11.Size = New System.Drawing.Size(185, 36)
         Me.Label11.TabIndex = 30
         Me.Label11.Text = "       Vendor List"
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label6.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.Label6.ForeColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_calendar_25
-        Me.Label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label6.Location = New System.Drawing.Point(45, 255)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(188, 22)
-        Me.Label6.TabIndex = 5
-        Me.Label6.Text = "    Event End Date"
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.Label2.ForeColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_person_201
-        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label2.Location = New System.Drawing.Point(49, 62)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(92, 22)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "    Name"
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label3.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.Label3.ForeColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_identity_card_25
-        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label3.Location = New System.Drawing.Point(45, 109)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(206, 22)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "    Aadhaar Number"
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.Label1.ForeColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_phone_25
-        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label1.Location = New System.Drawing.Point(45, 157)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(151, 22)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "    Contact No."
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label5.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.Label5.ForeColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_calendar_25
-        Me.Label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label5.Location = New System.Drawing.Point(45, 207)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(200, 22)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "    Event Start Date"
-        '
-        'Label9
-        '
-        Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label9.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.Label9.ForeColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label9.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_vendor_25
-        Me.Label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label9.Location = New System.Drawing.Point(43, 357)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(144, 22)
-        Me.Label9.TabIndex = 17
-        Me.Label9.Text = "     Vendor ID"
-        '
-        'Label7
-        '
-        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label7.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.Label7.ForeColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label7.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_hall_25
-        Me.Label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label7.Location = New System.Drawing.Point(45, 302)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(146, 22)
-        Me.Label7.TabIndex = 6
-        Me.Label7.Text = "    Event Type"
-        '
-        'Label8
-        '
-        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label8.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.Label8.ForeColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label8.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_password_25
-        Me.Label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label8.Location = New System.Drawing.Point(43, 412)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(133, 22)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "    Password"
         '
         'Label4
         '
@@ -584,45 +625,6 @@ Partial Class EventRegistrationScreen
         Me.Label4.Size = New System.Drawing.Size(317, 50)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "      Event Registration"
-        '
-        'DeleteBut
-        '
-        Me.DeleteBut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle6.NullValue = CType(resources.GetObject("DataGridViewCellStyle6.NullValue"), Object)
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DeleteBut.DefaultCellStyle = DataGridViewCellStyle6
-        Me.DeleteBut.HeaderText = ""
-        Me.DeleteBut.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_delete_40
-        Me.DeleteBut.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
-        Me.DeleteBut.MinimumWidth = 6
-        Me.DeleteBut.Name = "DeleteBut"
-        Me.DeleteBut.ReadOnly = True
-        Me.DeleteBut.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DeleteBut.ToolTipText = "Delete"
-        Me.DeleteBut.Width = 6
-        '
-        'EditBut
-        '
-        Me.EditBut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.PaleGreen
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle7.NullValue = CType(resources.GetObject("DataGridViewCellStyle7.NullValue"), Object)
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Maroon
-        Me.EditBut.DefaultCellStyle = DataGridViewCellStyle7
-        Me.EditBut.HeaderText = ""
-        Me.EditBut.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_edit_40
-        Me.EditBut.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
-        Me.EditBut.MinimumWidth = 6
-        Me.EditBut.Name = "EditBut"
-        Me.EditBut.ReadOnly = True
-        Me.EditBut.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.EditBut.ToolTipText = "Delete"
-        Me.EditBut.Width = 6
         '
         'EventRegistrationScreen
         '

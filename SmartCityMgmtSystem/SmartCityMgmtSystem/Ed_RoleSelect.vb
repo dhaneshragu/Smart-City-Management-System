@@ -56,18 +56,18 @@ Public Class Ed_RoleSelect
         loginHandle.GetEdProfileByUserID(Ed_GlobalDashboard.userID)
         If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Type = Ed_GlobalDashboard.UserType.Admin) Then
             ' Handle different cases inside
-            If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Role = Ed_GlobalDashboard.UserRole.Principal) Then
-                Ed_GlobalDashboard.innerpanel = Ed_Institute_AdminDashboard.childformPanel
-                Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_Institute_AdminDashboard)
-            End If
-            If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Role = Ed_GlobalDashboard.UserRole.EcourseAdmin) Then
-                Ed_GlobalDashboard.innerpanel = Ed_Coursera_AdminDashboard.childformPanel
-                Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_Coursera_AdminDashboard)
-            End If
-            If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Role = Ed_GlobalDashboard.UserRole.Minister) Then
-                Ed_GlobalDashboard.innerpanel = Ed_MinisterDashboard.childformPanel
-                Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_MinisterDashboard)
-            End If
+            'If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Role = Ed_GlobalDashboard.UserRole.Principal) Then
+            'Ed_GlobalDashboard.innerpanel = Ed_Institute_AdminDashboard.childformPanel
+            'Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_Institute_AdminDashboard)
+            'End If
+            '   If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Role = Ed_GlobalDashboard.UserRole.EcourseAdmin) Then
+            Ed_GlobalDashboard.innerpanel = Ed_Coursera_AdminDashboard.childformPanel
+            Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_Coursera_AdminDashboard)
+            'End If
+            '   If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Role = Ed_GlobalDashboard.UserRole.Minister) Then
+            'Ed_GlobalDashboard.innerpanel = Ed_MinisterDashboard.childformPanel
+            'Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_MinisterDashboard)
+            ' End If
         Else
             Dim message As String = "Sorry, you are not qualified to enter as an admin."
             Dim title As String = "Access Denied"
@@ -89,9 +89,11 @@ Public Class Ed_RoleSelect
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim homepage = New HomePageDashboard With {
+            .uid = Ed_GlobalDashboard.userID
+        }
         Me.ParentForm.Close()
         Me.Close()
-        Dim homepage = New HomePageDashboard
         homepage.Show()
     End Sub
 
