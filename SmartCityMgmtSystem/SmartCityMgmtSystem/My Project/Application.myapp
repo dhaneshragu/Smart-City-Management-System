@@ -1,16 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <MyApplicationData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <MySubMain>true</MySubMain>
-<<<<<<< HEAD
-  <MainForm>Employment_portal</MainForm>
-=======
-<<<<<<< HEAD
-  <MainForm>TransportationDashboard</MainForm>
-=======
-  <MainForm>Employment_portal_search</MainForm>
->>>>>>> 3e96ee1f9205a53dfd02950fedf9984558e6f4c6
->>>>>>> e343516526a88b812c33b902f1b8ad78a3dfe89c
-  <MainForm>EventDashboard</MainForm>
+  <MainForm>UserLandingPage</MainForm>
   <SingleInstance>true</SingleInstance>
   <ShutdownMode>1</ShutdownMode>
   <EnableVisualStyles>true</EnableVisualStyles>
