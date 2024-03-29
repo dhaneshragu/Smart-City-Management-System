@@ -1,7 +1,7 @@
 ﻿Public Class Employment_portal_apply
 
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        Me.Text = "Employment Portal"
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)

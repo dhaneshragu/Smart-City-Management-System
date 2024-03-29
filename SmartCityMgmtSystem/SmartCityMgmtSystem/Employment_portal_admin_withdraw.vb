@@ -1,7 +1,7 @@
 ﻿Public Class Employment_portal_admin_withdraw
 
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        Me.Text = "Employment Portal"
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
