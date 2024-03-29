@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{911117A9-8F55-492B-A323-7D950BE7FEFF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SmartCityMgmtSystem.UserLandingPage</StartupObject>
+    <StartupObject>SmartCityMgmtSystem.My.MyApplication</StartupObject>
     <RootNamespace>SmartCityMgmtSystem</RootNamespace>
     <AssemblyName>SmartCityMgmtSystem</AssemblyName>
     <FileAlignment>512</FileAlignment>
