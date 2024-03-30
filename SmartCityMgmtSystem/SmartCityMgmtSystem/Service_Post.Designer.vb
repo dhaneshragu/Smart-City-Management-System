@@ -23,6 +23,7 @@ Partial Class Service_Post
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim Button1 As System.Windows.Forms.Button
+        Dim Button2 As System.Windows.Forms.Button
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Service_Post))
@@ -30,8 +31,8 @@ Partial Class Service_Post
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -56,6 +57,7 @@ Partial Class Service_Post
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Button1 = New System.Windows.Forms.Button()
+        Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -68,7 +70,7 @@ Partial Class Service_Post
         '
         'Button1
         '
-        Button1.BackColor = System.Drawing.Color.Maroon
+        Button1.BackColor = System.Drawing.Color.DarkOliveGreen
         Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Button1.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Button1.ForeColor = System.Drawing.Color.Linen
@@ -80,9 +82,24 @@ Partial Class Service_Post
         Button1.Text = "Post"
         Button1.UseVisualStyleBackColor = False
         '
+        'Button2
+        '
+        Button2.BackColor = System.Drawing.Color.Maroon
+        Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Button2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Button2.ForeColor = System.Drawing.Color.Linen
+        Button2.Location = New System.Drawing.Point(799, 307)
+        Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Button2.Name = "Button2"
+        Button2.Size = New System.Drawing.Size(122, 37)
+        Button2.TabIndex = 8
+        Button2.Text = "Cancel"
+        Button2.UseVisualStyleBackColor = False
+        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
+        Me.Panel1.Controls.Add(Button2)
         Me.Panel1.Controls.Add(Me.Panel6)
         Me.Panel1.Controls.Add(Me.Panel7)
         Me.Panel1.Controls.Add(Me.Panel5)
@@ -100,14 +117,21 @@ Partial Class Service_Post
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.Panel6.Controls.Add(Me.DateTimePicker2)
         Me.Panel6.Controls.Add(Me.Label7)
-        Me.Panel6.Controls.Add(Me.TextBox4)
         Me.Panel6.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel6.Location = New System.Drawing.Point(27, 255)
         Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(543, 51)
+        Me.Panel6.Size = New System.Drawing.Size(378, 51)
         Me.Panel6.TabIndex = 7
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(125, 10)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(230, 27)
+        Me.DateTimePicker2.TabIndex = 8
         '
         'Label7
         '
@@ -115,18 +139,9 @@ Partial Class Service_Post
         Me.Label7.Location = New System.Drawing.Point(4, 13)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(279, 27)
+        Me.Label7.Size = New System.Drawing.Size(114, 27)
         Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Start Time(24Hr format)"
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(308, 13)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(208, 27)
-        Me.TextBox4.TabIndex = 2
+        Me.Label7.Text = "End Time"
         '
         'Panel7
         '
@@ -134,15 +149,15 @@ Partial Class Service_Post
         Me.Panel7.Controls.Add(Me.DateTimePicker1)
         Me.Panel7.Controls.Add(Me.Label8)
         Me.Panel7.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel7.Location = New System.Drawing.Point(847, 174)
+        Me.Panel7.Location = New System.Drawing.Point(809, 174)
         Me.Panel7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(369, 51)
+        Me.Panel7.Size = New System.Drawing.Size(424, 51)
         Me.Panel7.TabIndex = 6
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(91, 10)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(159, 11)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(252, 27)
         Me.DateTimePicker1.TabIndex = 5
@@ -150,12 +165,12 @@ Partial Class Service_Post
         'Label8
         '
         Me.Label8.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(20, 11)
+        Me.Label8.Location = New System.Drawing.Point(4, 11)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(64, 27)
+        Me.Label8.Size = New System.Drawing.Size(136, 27)
         Me.Label8.TabIndex = 4
-        Me.Label8.Text = "Date"
+        Me.Label8.Text = "Start Time"
         '
         'Panel5
         '
@@ -163,7 +178,7 @@ Partial Class Service_Post
         Me.Panel5.Controls.Add(Me.Label6)
         Me.Panel5.Controls.Add(Me.TextBox3)
         Me.Panel5.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel5.Location = New System.Drawing.Point(432, 174)
+        Me.Panel5.Location = New System.Drawing.Point(419, 174)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(369, 51)
@@ -417,7 +432,6 @@ Partial Class Service_Post
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
@@ -458,5 +472,5 @@ Partial Class Service_Post
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents DateTimePicker2 As DateTimePicker
 End Class

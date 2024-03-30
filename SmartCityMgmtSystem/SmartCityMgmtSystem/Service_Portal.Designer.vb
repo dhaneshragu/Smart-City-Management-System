@@ -23,28 +23,29 @@ Partial Class Service_Portal
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.childformPanel = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.childformPanel.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -63,138 +64,6 @@ Partial Class Service_Portal
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(282, 783)
         Me.Panel1.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.13559!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.MistyRose
-        Me.Label1.Location = New System.Drawing.Point(10, 159)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(260, 140)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "SmartGhy" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Service Department"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'childformPanel
-        '
-        Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.childformPanel.Controls.Add(Me.DataGridView1)
-        Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.childformPanel.Location = New System.Drawing.Point(278, 42)
-        Me.childformPanel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.childformPanel.Name = "childformPanel"
-        Me.childformPanel.Size = New System.Drawing.Size(1276, 740)
-        Me.childformPanel.TabIndex = 1
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.BlanchedAlmond
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 0)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(993, 737)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "ProviderID"
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.Width = 150
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Description"
-        Me.Column2.MinimumWidth = 6
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 200
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Service Offered"
-        Me.Column3.MinimumWidth = 6
-        Me.Column3.Name = "Column3"
-        Me.Column3.Width = 150
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Department"
-        Me.Column4.MinimumWidth = 6
-        Me.Column4.Name = "Column4"
-        Me.Column4.Width = 150
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Charge/Hr"
-        Me.Column5.MinimumWidth = 6
-        Me.Column5.Name = "Column5"
-        Me.Column5.Width = 150
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Start/End Time"
-        Me.Column6.MinimumWidth = 6
-        Me.Column6.Name = "Column6"
-        Me.Column6.Width = 200
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.CausesValidation = False
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Ivory
-        Me.Label2.Location = New System.Drawing.Point(292, 4)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(165, 29)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Ashish Bharti"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.CausesValidation = False
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Ivory
-        Me.Label3.Location = New System.Drawing.Point(862, 4)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(195, 29)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "9999 9999 9999"
-        '
-        'Button5
-        '
-        Me.Button5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_exit_50
-        Me.Button5.Location = New System.Drawing.Point(1184, 0)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(52, 44)
-        Me.Button5.TabIndex = 1
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.CausesValidation = False
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.ForeColor = System.Drawing.Color.Ivory
-        Me.Button6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_back_arrow_25
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(1388, 0)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button6.Size = New System.Drawing.Size(163, 39)
-        Me.Button6.TabIndex = 7
-        Me.Button6.Text = "      Home Page"
-        Me.Button6.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -279,6 +148,143 @@ Partial Class Service_Portal
         Me.Button1.Text = "  Login As Provider"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.13559!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.MistyRose
+        Me.Label1.Location = New System.Drawing.Point(10, 159)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(260, 140)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "SmartGhy" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Service Department"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'childformPanel
+        '
+        Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.childformPanel.Controls.Add(Me.DataGridView1)
+        Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.childformPanel.Location = New System.Drawing.Point(278, 42)
+        Me.childformPanel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.childformPanel.Name = "childformPanel"
+        Me.childformPanel.Size = New System.Drawing.Size(1276, 740)
+        Me.childformPanel.TabIndex = 1
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.BlanchedAlmond
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 0)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowHeadersWidth = 51
+        Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.Size = New System.Drawing.Size(993, 737)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.CausesValidation = False
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Ivory
+        Me.Label2.Location = New System.Drawing.Point(292, 4)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(165, 29)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Ashish Bharti"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.CausesValidation = False
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Ivory
+        Me.Label3.Location = New System.Drawing.Point(862, 4)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(195, 29)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "9999 9999 9999"
+        '
+        'Button5
+        '
+        Me.Button5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_exit_50
+        Me.Button5.Location = New System.Drawing.Point(1184, 0)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(52, 44)
+        Me.Button5.TabIndex = 1
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.CausesValidation = False
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ForeColor = System.Drawing.Color.Ivory
+        Me.Button6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_back_arrow_25
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button6.Location = New System.Drawing.Point(1388, 0)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button6.Size = New System.Drawing.Size(163, 39)
+        Me.Button6.TabIndex = 7
+        Me.Button6.Text = "      Home Page"
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "ProviderID"
+        Me.Column1.MinimumWidth = 6
+        Me.Column1.Name = "Column1"
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Description"
+        Me.Column2.MinimumWidth = 6
+        Me.Column2.Name = "Column2"
+        Me.Column2.Width = 200
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Service Offered"
+        Me.Column3.MinimumWidth = 6
+        Me.Column3.Name = "Column3"
+        Me.Column3.Width = 150
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Department"
+        Me.Column4.MinimumWidth = 6
+        Me.Column4.Name = "Column4"
+        Me.Column4.Width = 150
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Charge/Hr"
+        Me.Column5.MinimumWidth = 6
+        Me.Column5.Name = "Column5"
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Start Time"
+        Me.Column6.MinimumWidth = 6
+        Me.Column6.Name = "Column6"
+        Me.Column6.Width = 150
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "End Time"
+        Me.Column7.MinimumWidth = 6
+        Me.Column7.Name = "Column7"
+        Me.Column7.Width = 140
+        '
         'Service_Portal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -297,9 +303,9 @@ Partial Class Service_Portal
         Me.Name = "Service_Portal"
         Me.Text = "Transportation"
         Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.childformPanel.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -316,11 +322,12 @@ Partial Class Service_Portal
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Button5 As Button
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Button5 As Button
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
 End Class

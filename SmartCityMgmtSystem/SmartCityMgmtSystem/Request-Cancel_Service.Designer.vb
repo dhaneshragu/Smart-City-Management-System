@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Service_Scheduled
+Partial Class Request_Cancel_Service
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,9 +22,10 @@ Partial Class Service_Scheduled
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim Button1 As System.Windows.Forms.Button
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Service_Scheduled))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Request_Cancel_Service))
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -37,25 +38,48 @@ Partial Class Service_Scheduled
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.RichTextBox10 = New System.Windows.Forms.RichTextBox()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.RichTextBox6 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox7 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox8 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox9 = New System.Windows.Forms.RichTextBox()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Column6 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Button1 = New System.Windows.Forms.Button()
+        Me.Panel1.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'Button1
+        '
+        Button1.BackColor = System.Drawing.Color.Maroon
+        Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Button1.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Button1.ForeColor = System.Drawing.Color.Linen
+        Button1.Location = New System.Drawing.Point(880, 139)
+        Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Button1.Name = "Button1"
+        Button1.Size = New System.Drawing.Size(122, 37)
+        Button1.TabIndex = 0
+        Button1.Text = "Request"
+        Button1.UseVisualStyleBackColor = False
         '
         'DataGridViewImageColumn1
         '
@@ -110,39 +134,153 @@ Partial Class Service_Scheduled
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
         Me.DataGridViewImageColumn3.Width = 125
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_user_shield_48
-        Me.PictureBox1.Location = New System.Drawing.Point(15, 11)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(48, 48)
-        Me.PictureBox1.TabIndex = 16
-        Me.PictureBox1.TabStop = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(78, 17)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(188, 34)
-        Me.Label9.TabIndex = 15
-        Me.Label9.Text = "ProviderID"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.SandyBrown
+        Me.Label4.BackColor = System.Drawing.Color.LightCyan
         Me.Label4.Font = New System.Drawing.Font("Verdana", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label4.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_secretary_48
+        Me.Label4.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_services_64
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label4.Location = New System.Drawing.Point(411, 9)
+        Me.Label4.Location = New System.Drawing.Point(13, 9)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(542, 48)
-        Me.Label4.TabIndex = 14
-        Me.Label4.Text = "      Scheduled Services"
+        Me.Label4.Size = New System.Drawing.Size(688, 48)
+        Me.Label4.TabIndex = 5
+        Me.Label4.Text = "       Request / Cancel Service"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Panel6)
+        Me.Panel1.Controls.Add(Me.Panel3)
+        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Controls.Add(Button1)
+        Me.Panel1.Location = New System.Drawing.Point(13, 113)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1237, 191)
+        Me.Panel1.TabIndex = 6
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.Panel6.Controls.Add(Me.DateTimePicker1)
+        Me.Panel6.Controls.Add(Me.Label7)
+        Me.Panel6.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel6.Location = New System.Drawing.Point(834, 52)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(369, 51)
+        Me.Panel6.TabIndex = 5
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(88, 11)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(278, 27)
+        Me.DateTimePicker1.TabIndex = 5
+        '
+        'Label7
+        '
+        Me.Label7.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(11, 12)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(70, 27)
+        Me.Label7.TabIndex = 4
+        Me.Label7.Text = "Date"
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.TextBox2)
+        Me.Panel3.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel3.Location = New System.Drawing.Point(434, 52)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(369, 51)
+        Me.Panel3.TabIndex = 3
+        '
+        'Label5
+        '
+        Me.Label5.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(11, 12)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(131, 27)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "User ID"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(147, 11)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(208, 27)
+        Me.TextBox2.TabIndex = 1
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Maroon
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.Linen
+        Me.Button2.Location = New System.Drawing.Point(1078, 139)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(122, 37)
+        Me.Button2.TabIndex = 4
+        Me.Button2.Text = "Cancel"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Verdana", 19.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Tomato
+        Me.Label3.Location = New System.Drawing.Point(494, 5)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(306, 38)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Request Service"
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.TextBox1)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel2.Location = New System.Drawing.Point(33, 52)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(369, 51)
+        Me.Panel2.TabIndex = 2
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(147, 11)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(208, 27)
+        Me.TextBox1.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(5, 12)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(146, 27)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Service ID"
         '
         'DataGridView1
         '
@@ -186,7 +324,7 @@ Partial Class Service_Scheduled
         DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridView1.GridColor = System.Drawing.Color.DimGray
-        Me.DataGridView1.Location = New System.Drawing.Point(15, 282)
+        Me.DataGridView1.Location = New System.Drawing.Point(13, 373)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(6)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -215,65 +353,8 @@ Partial Class Service_Scheduled
         Me.DataGridView1.RowTemplate.Height = 40
         Me.DataGridView1.RowTemplate.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1240, 418)
-        Me.DataGridView1.TabIndex = 17
-        '
-        'RichTextBox10
-        '
-        Me.RichTextBox10.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox10.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox10.Location = New System.Drawing.Point(84, 111)
-        Me.RichTextBox10.Name = "RichTextBox10"
-        Me.RichTextBox10.Size = New System.Drawing.Size(511, 42)
-        Me.RichTextBox10.TabIndex = 23
-        Me.RichTextBox10.Text = "your current scheduled service is"
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(718, 190)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(276, 30)
-        Me.DateTimePicker2.TabIndex = 22
-        '
-        'RichTextBox6
-        '
-        Me.RichTextBox6.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox6.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox6.Location = New System.Drawing.Point(484, 190)
-        Me.RichTextBox6.Name = "RichTextBox6"
-        Me.RichTextBox6.Size = New System.Drawing.Size(178, 42)
-        Me.RichTextBox6.TabIndex = 21
-        Me.RichTextBox6.Text = "On the Day"
-        '
-        'RichTextBox7
-        '
-        Me.RichTextBox7.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox7.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox7.Location = New System.Drawing.Point(143, 192)
-        Me.RichTextBox7.Name = "RichTextBox7"
-        Me.RichTextBox7.Size = New System.Drawing.Size(313, 42)
-        Me.RichTextBox7.TabIndex = 20
-        Me.RichTextBox7.Text = "Placeholder"
-        '
-        'RichTextBox8
-        '
-        Me.RichTextBox8.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox8.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox8.Location = New System.Drawing.Point(856, 111)
-        Me.RichTextBox8.Name = "RichTextBox8"
-        Me.RichTextBox8.Size = New System.Drawing.Size(210, 42)
-        Me.RichTextBox8.TabIndex = 19
-        Me.RichTextBox8.Text = "for Customer"
-        '
-        'RichTextBox9
-        '
-        Me.RichTextBox9.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox9.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox9.Location = New System.Drawing.Point(609, 111)
-        Me.RichTextBox9.Name = "RichTextBox9"
-        Me.RichTextBox9.Size = New System.Drawing.Size(227, 42)
-        Me.RichTextBox9.TabIndex = 18
-        Me.RichTextBox9.Text = "Placeholder"
+        Me.DataGridView1.Size = New System.Drawing.Size(1240, 361)
+        Me.DataGridView1.TabIndex = 7
         '
         'Column1
         '
@@ -284,7 +365,7 @@ Partial Class Service_Scheduled
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke
         Me.Column1.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column1.FillWeight = 50.16042!
-        Me.Column1.HeaderText = "UserID"
+        Me.Column1.HeaderText = "Service ID"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -337,33 +418,46 @@ Partial Class Service_Scheduled
         '
         'Column6
         '
-        Me.Column6.HeaderText = "Start Time"
+        Me.Column6.FillWeight = 81.83695!
+        Me.Column6.HeaderText = "Cancel"
         Me.Column6.MinimumWidth = 6
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
         '
-        'Service_Scheduled
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 19.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.LightCoral
+        Me.Label2.Location = New System.Drawing.Point(524, 329)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(278, 38)
+        Me.Label2.TabIndex = 8
+        Me.Label2.Text = "Cancel Service"
+        '
+        'Request_Cancel_Service
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.ClientSize = New System.Drawing.Size(1270, 736)
-        Me.Controls.Add(Me.RichTextBox10)
-        Me.Controls.Add(Me.DateTimePicker2)
-        Me.Controls.Add(Me.RichTextBox6)
-        Me.Controls.Add(Me.RichTextBox7)
-        Me.Controls.Add(Me.RichTextBox8)
-        Me.Controls.Add(Me.RichTextBox9)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label4)
         Me.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "Service_Scheduled"
+        Me.Name = "Request_Cancel_Service"
         Me.Text = "Home Page"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -372,20 +466,25 @@ Partial Class Service_Scheduled
     Friend WithEvents DataGridViewImageColumn1 As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents DataGridViewImageColumn2 As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents DataGridViewImageColumn3 As DataGridViewImageColumn
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label9 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label5 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label1 As Label
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents RichTextBox10 As RichTextBox
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents RichTextBox6 As RichTextBox
-    Friend WithEvents RichTextBox7 As RichTextBox
-    Friend WithEvents RichTextBox8 As RichTextBox
-    Friend WithEvents RichTextBox9 As RichTextBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewCheckBoxColumn
+    Friend WithEvents Label2 As Label
 End Class
