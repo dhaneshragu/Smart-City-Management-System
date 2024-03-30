@@ -421,6 +421,12 @@
     <Compile Include="Employment_portal_admin_add.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Employment_portal_admin_usercredentials.Designer.vb">
+      <DependentUpon>Employment_portal_admin_usercredentials.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employment_portal_admin_usercredentials.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Employment_portal_admin_withdraw.Designer.vb">
       <DependentUpon>Employment_portal_admin_withdraw.vb</DependentUpon>
     </Compile>
@@ -1320,6 +1326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employment_portal_admin_add.resx">
       <DependentUpon>Employment_portal_admin_add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment_portal_admin_usercredentials.resx">
+      <DependentUpon>Employment_portal_admin_usercredentials.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employment_portal_admin_withdraw.resx">
       <DependentUpon>Employment_portal_admin_withdraw.vb</DependentUpon>

@@ -56,7 +56,6 @@ Partial Class Employment_portal_admin
         Me.Panel1.BackColor = System.Drawing.Color.NavajoWhite
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Controls.Add(Me.Button5)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Button4)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -106,7 +105,7 @@ Partial Class Employment_portal_admin
         Me.Button5.ForeColor = System.Drawing.Color.Black
         Me.Button5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_paybills
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button5.Location = New System.Drawing.Point(-12, 506)
+        Me.Button5.Location = New System.Drawing.Point(41, 599)
         Me.Button5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button5.Name = "Button5"
         Me.Button5.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
@@ -162,6 +161,7 @@ Partial Class Employment_portal_admin
         Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.childformPanel.Controls.Add(Me.Button3)
         Me.childformPanel.Controls.Add(Me.Button2)
+        Me.childformPanel.Controls.Add(Me.Button5)
         Me.childformPanel.Controls.Add(Me.DataGridView1)
         Me.childformPanel.Controls.Add(Me.RichTextBox1)
         Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -180,7 +180,7 @@ Partial Class Employment_portal_admin
         Me.Button3.ForeColor = System.Drawing.Color.Black
         Me.Button3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_delete_40
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button3.Location = New System.Drawing.Point(481, 599)
+        Me.Button3.Location = New System.Drawing.Point(685, 599)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button3.Name = "Button3"
         Me.Button3.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
@@ -198,7 +198,7 @@ Partial Class Employment_portal_admin
         Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_approval_48
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button2.Location = New System.Drawing.Point(163, 599)
+        Me.Button2.Location = New System.Drawing.Point(362, 599)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)

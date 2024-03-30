@@ -25,9 +25,9 @@ Partial Class Employment_portal_admin_add
         Me.childformPanel = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -40,7 +40,7 @@ Partial Class Employment_portal_admin_add
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.childformPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -92,6 +92,17 @@ Partial Class Employment_portal_admin_add
         Me.Panel1.Size = New System.Drawing.Size(446, 468)
         Me.Panel1.TabIndex = 6
         '
+        'RichTextBox2
+        '
+        Me.RichTextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
+        Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RichTextBox2.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox2.Location = New System.Drawing.Point(16, 15)
+        Me.RichTextBox2.Name = "RichTextBox2"
+        Me.RichTextBox2.Size = New System.Drawing.Size(427, 59)
+        Me.RichTextBox2.TabIndex = 6
+        Me.RichTextBox2.Text = "Become a proactive job creator today." & Global.Microsoft.VisualBasic.ChrW(10) & "       Enter new Job details below:"
+        '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.Maroon
@@ -110,7 +121,7 @@ Partial Class Employment_portal_admin_add
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
-        Me.Panel7.Controls.Add(Me.DateTimePicker2)
+        Me.Panel7.Controls.Add(Me.DateTimePicker1)
         Me.Panel7.Controls.Add(Me.Label8)
         Me.Panel7.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel7.Location = New System.Drawing.Point(33, 328)
@@ -118,18 +129,6 @@ Partial Class Employment_portal_admin_add
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(380, 51)
         Me.Panel7.TabIndex = 6
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.CustomFormat = "hh:mm tt"
-        Me.DateTimePicker2.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker2.Location = New System.Drawing.Point(147, 11)
-        Me.DateTimePicker2.MinDate = New Date(2024, 3, 12, 0, 0, 0, 0)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.ShowUpDown = True
-        Me.DateTimePicker2.Size = New System.Drawing.Size(204, 26)
-        Me.DateTimePicker2.TabIndex = 4
         '
         'Label8
         '
@@ -269,16 +268,12 @@ Partial Class Employment_portal_admin_add
         Me.Button6.Text = "      Home Page"
         Me.Button6.UseVisualStyleBackColor = False
         '
-        'RichTextBox2
+        'DateTimePicker1
         '
-        Me.RichTextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
-        Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox2.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox2.Location = New System.Drawing.Point(16, 15)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(427, 59)
-        Me.RichTextBox2.TabIndex = 6
-        Me.RichTextBox2.Text = "Become a proactive job creator today." & Global.Microsoft.VisualBasic.ChrW(10) & "       Enter new Job details below:"
+        Me.DateTimePicker1.Location = New System.Drawing.Point(149, 11)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(202, 27)
+        Me.DateTimePicker1.TabIndex = 5
         '
         'Employment_portal_admin_add
         '
@@ -312,7 +307,6 @@ Partial Class Employment_portal_admin_add
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Label8 As Label
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents Label6 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label5 As Label
@@ -324,4 +318,5 @@ Partial Class Employment_portal_admin_add
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents RichTextBox2 As RichTextBox
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class

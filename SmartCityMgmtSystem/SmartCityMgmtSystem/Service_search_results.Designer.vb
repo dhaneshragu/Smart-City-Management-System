@@ -185,9 +185,9 @@ Partial Class Service_search_results
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_job_48
-        Me.PictureBox1.Location = New System.Drawing.Point(263, 15)
+        Me.PictureBox1.Location = New System.Drawing.Point(289, 15)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(66, 60)
+        Me.PictureBox1.Size = New System.Drawing.Size(49, 48)
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
