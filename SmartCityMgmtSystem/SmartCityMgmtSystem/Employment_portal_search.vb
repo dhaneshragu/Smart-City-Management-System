@@ -46,6 +46,7 @@ Public Class Employment_portal_search
 
                     Dim adapter As New MySqlDataAdapter(cmd)
                     adapter.Fill(dataTable)
+                    MessageBox.Show("Read Success")
                 End Using
             End Using
         Catch ex As Exception
