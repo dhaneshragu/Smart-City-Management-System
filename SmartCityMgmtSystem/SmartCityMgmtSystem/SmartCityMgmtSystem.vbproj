@@ -565,10 +565,10 @@
     <Compile Include="EventVendorRegistrationScreen.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Request_Cancel_Service.Designer.vb">
-      <DependentUpon>Request_Cancel_Service.vb</DependentUpon>
+    <Compile Include="Request-Cancel_Service.Designer.vb">
+      <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
     </Compile>
-    <Compile Include="Request_Cancel_Service.vb">
+    <Compile Include="Request-Cancel_Service.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NewsDashboard.Designer.vb">
@@ -1396,8 +1396,8 @@
     <EmbeddedResource Include="EventVendorRegistrationScreen.resx">
       <DependentUpon>EventVendorRegistrationScreen.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Request_Cancel_Service.resx">
-      <DependentUpon>Request_Cancel_Service.vb</DependentUpon>
+    <EmbeddedResource Include="Request-Cancel_Service.resx">
+      <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewsDashboard.resx">
       <DependentUpon>NewsDashboard.vb</DependentUpon>

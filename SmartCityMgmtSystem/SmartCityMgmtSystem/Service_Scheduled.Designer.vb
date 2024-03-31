@@ -37,23 +37,20 @@ Partial Class Service_Scheduled
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.RichTextBox10 = New System.Windows.Forms.RichTextBox()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.RichTextBox6 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox7 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox8 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox9 = New System.Windows.Forms.RichTextBox()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.RichTextBox10 = New System.Windows.Forms.RichTextBox()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.RichTextBox6 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox7 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox8 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox9 = New System.Windows.Forms.RichTextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -109,25 +106,6 @@ Partial Class Service_Scheduled
         Me.DataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
         Me.DataGridViewImageColumn3.Width = 125
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_user_shield_48
-        Me.PictureBox1.Location = New System.Drawing.Point(15, 11)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(48, 48)
-        Me.PictureBox1.TabIndex = 16
-        Me.PictureBox1.TabStop = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(78, 17)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(188, 34)
-        Me.Label9.TabIndex = 15
-        Me.Label9.Text = "ProviderID"
         '
         'Label4
         '
@@ -215,65 +193,8 @@ Partial Class Service_Scheduled
         Me.DataGridView1.RowTemplate.Height = 40
         Me.DataGridView1.RowTemplate.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1240, 418)
+        Me.DataGridView1.Size = New System.Drawing.Size(1093, 418)
         Me.DataGridView1.TabIndex = 17
-        '
-        'RichTextBox10
-        '
-        Me.RichTextBox10.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox10.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox10.Location = New System.Drawing.Point(84, 111)
-        Me.RichTextBox10.Name = "RichTextBox10"
-        Me.RichTextBox10.Size = New System.Drawing.Size(511, 42)
-        Me.RichTextBox10.TabIndex = 23
-        Me.RichTextBox10.Text = "your current scheduled service is"
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(718, 190)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(276, 30)
-        Me.DateTimePicker2.TabIndex = 22
-        '
-        'RichTextBox6
-        '
-        Me.RichTextBox6.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox6.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox6.Location = New System.Drawing.Point(484, 190)
-        Me.RichTextBox6.Name = "RichTextBox6"
-        Me.RichTextBox6.Size = New System.Drawing.Size(178, 42)
-        Me.RichTextBox6.TabIndex = 21
-        Me.RichTextBox6.Text = "On the Day"
-        '
-        'RichTextBox7
-        '
-        Me.RichTextBox7.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox7.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox7.Location = New System.Drawing.Point(143, 192)
-        Me.RichTextBox7.Name = "RichTextBox7"
-        Me.RichTextBox7.Size = New System.Drawing.Size(313, 42)
-        Me.RichTextBox7.TabIndex = 20
-        Me.RichTextBox7.Text = "Placeholder"
-        '
-        'RichTextBox8
-        '
-        Me.RichTextBox8.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox8.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox8.Location = New System.Drawing.Point(856, 111)
-        Me.RichTextBox8.Name = "RichTextBox8"
-        Me.RichTextBox8.Size = New System.Drawing.Size(210, 42)
-        Me.RichTextBox8.TabIndex = 19
-        Me.RichTextBox8.Text = "for Customer"
-        '
-        'RichTextBox9
-        '
-        Me.RichTextBox9.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox9.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox9.Location = New System.Drawing.Point(609, 111)
-        Me.RichTextBox9.Name = "RichTextBox9"
-        Me.RichTextBox9.Size = New System.Drawing.Size(227, 42)
-        Me.RichTextBox9.TabIndex = 18
-        Me.RichTextBox9.Text = "Placeholder"
         '
         'Column1
         '
@@ -342,6 +263,63 @@ Partial Class Service_Scheduled
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
         '
+        'RichTextBox10
+        '
+        Me.RichTextBox10.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox10.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox10.Location = New System.Drawing.Point(84, 111)
+        Me.RichTextBox10.Name = "RichTextBox10"
+        Me.RichTextBox10.Size = New System.Drawing.Size(511, 42)
+        Me.RichTextBox10.TabIndex = 23
+        Me.RichTextBox10.Text = "your current scheduled service is"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(718, 190)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(276, 30)
+        Me.DateTimePicker2.TabIndex = 22
+        '
+        'RichTextBox6
+        '
+        Me.RichTextBox6.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox6.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox6.Location = New System.Drawing.Point(484, 190)
+        Me.RichTextBox6.Name = "RichTextBox6"
+        Me.RichTextBox6.Size = New System.Drawing.Size(178, 42)
+        Me.RichTextBox6.TabIndex = 21
+        Me.RichTextBox6.Text = "On the Day"
+        '
+        'RichTextBox7
+        '
+        Me.RichTextBox7.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox7.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox7.Location = New System.Drawing.Point(143, 192)
+        Me.RichTextBox7.Name = "RichTextBox7"
+        Me.RichTextBox7.Size = New System.Drawing.Size(313, 42)
+        Me.RichTextBox7.TabIndex = 20
+        Me.RichTextBox7.Text = "Placeholder"
+        '
+        'RichTextBox8
+        '
+        Me.RichTextBox8.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox8.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox8.Location = New System.Drawing.Point(856, 111)
+        Me.RichTextBox8.Name = "RichTextBox8"
+        Me.RichTextBox8.Size = New System.Drawing.Size(210, 42)
+        Me.RichTextBox8.TabIndex = 19
+        Me.RichTextBox8.Text = "for Customer"
+        '
+        'RichTextBox9
+        '
+        Me.RichTextBox9.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox9.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox9.Location = New System.Drawing.Point(609, 111)
+        Me.RichTextBox9.Name = "RichTextBox9"
+        Me.RichTextBox9.Size = New System.Drawing.Size(227, 42)
+        Me.RichTextBox9.TabIndex = 18
+        Me.RichTextBox9.Text = "Placeholder"
+        '
         'Service_Scheduled
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
@@ -355,15 +333,12 @@ Partial Class Service_Scheduled
         Me.Controls.Add(Me.RichTextBox8)
         Me.Controls.Add(Me.RichTextBox9)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label4)
         Me.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Service_Scheduled"
         Me.Text = "Home Page"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -372,8 +347,6 @@ Partial Class Service_Scheduled
     Friend WithEvents DataGridViewImageColumn1 As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents DataGridViewImageColumn2 As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents DataGridViewImageColumn3 As DataGridViewImageColumn
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label9 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents RichTextBox10 As RichTextBox

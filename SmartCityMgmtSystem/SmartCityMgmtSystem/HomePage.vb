@@ -65,4 +65,14 @@ Public Class HomePage
     Private Sub HomePage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'MessageBox.Show(uid.ToString + " " + u_name)
     End Sub
+
+    Private Sub Service_dept_Click(sender As Object, e As EventArgs) Handles Service_dept.Click
+        Dim service_portal = New Service_Portal() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        service_portal.Show()
+        Me.ParentForm.Close()
+        Me.Close()
+    End Sub
 End Class
