@@ -33,11 +33,6 @@ Partial Class Employment_portal_admin
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.checkboxcolumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,6 +40,11 @@ Partial Class Employment_portal_admin
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.childformPanel.SuspendLayout()
@@ -220,6 +220,57 @@ Partial Class Employment_portal_admin
         Me.DataGridView1.Size = New System.Drawing.Size(1023, 517)
         Me.DataGridView1.TabIndex = 1
         '
+        'checkboxcolumn
+        '
+        Me.checkboxcolumn.HeaderText = ""
+        Me.checkboxcolumn.MinimumWidth = 6
+        Me.checkboxcolumn.Name = "checkboxcolumn"
+        Me.checkboxcolumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.checkboxcolumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.checkboxcolumn.Width = 60
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Job ID"
+        Me.Column2.MinimumWidth = 6
+        Me.Column2.Name = "Column2"
+        Me.Column2.Width = 125
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Job Description"
+        Me.Column3.MinimumWidth = 6
+        Me.Column3.Name = "Column3"
+        Me.Column3.Width = 210
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Applicant ID"
+        Me.Column4.MinimumWidth = 6
+        Me.Column4.Name = "Column4"
+        Me.Column4.Width = 125
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Department"
+        Me.Column5.MinimumWidth = 6
+        Me.Column5.Name = "Column5"
+        Me.Column5.Width = 150
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Apply Date & Time"
+        Me.Column7.MinimumWidth = 6
+        Me.Column7.Name = "Column7"
+        Me.Column7.Width = 200
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Status"
+        Me.Column6.MinimumWidth = 6
+        Me.Column6.Name = "Column6"
+        Me.Column6.Width = 150
+        '
         'RichTextBox1
         '
         Me.RichTextBox1.BackColor = System.Drawing.Color.BlanchedAlmond
@@ -290,57 +341,6 @@ Partial Class Employment_portal_admin
         Me.Button6.TabIndex = 7
         Me.Button6.Text = "      Home Page"
         Me.Button6.UseVisualStyleBackColor = False
-        '
-        'checkboxcolumn
-        '
-        Me.checkboxcolumn.HeaderText = ""
-        Me.checkboxcolumn.MinimumWidth = 6
-        Me.checkboxcolumn.Name = "checkboxcolumn"
-        Me.checkboxcolumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.checkboxcolumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.checkboxcolumn.Width = 60
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Job ID"
-        Me.Column2.MinimumWidth = 6
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 125
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Job Description"
-        Me.Column3.MinimumWidth = 6
-        Me.Column3.Name = "Column3"
-        Me.Column3.Width = 210
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Applicant ID"
-        Me.Column4.MinimumWidth = 6
-        Me.Column4.Name = "Column4"
-        Me.Column4.Width = 125
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Department"
-        Me.Column5.MinimumWidth = 6
-        Me.Column5.Name = "Column5"
-        Me.Column5.Width = 150
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Apply Date & Time"
-        Me.Column7.MinimumWidth = 6
-        Me.Column7.Name = "Column7"
-        Me.Column7.Width = 200
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Status"
-        Me.Column6.MinimumWidth = 6
-        Me.Column6.Name = "Column6"
-        Me.Column6.Width = 150
         '
         'Employment_portal_admin
         '

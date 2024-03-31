@@ -89,4 +89,70 @@ Public Class Employment_portal_admin
         usercredentials.userid = userid
         usercredentials.Show()
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim jobid As Integer = -1
+        Dim userid As Integer = -1
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            Dim isSelected As Boolean = Convert.ToBoolean(row.Cells("checkboxcolumn").Value)
+            If isSelected Then
+                userid = row.Cells("Column4").Value
+                jobid = row.Cells("Column2").Value
+            End If
+        Next
+
+        Dim cmd As New MySqlCommand
+        Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
+
+            Dim stmnt As String = "UPDATE employment_applications
+    SET status_application = @status
+    WHERE job_id = @jobid AND applicant_id = @applicant"
+
+            cmd = New MySqlCommand(stmnt, con)
+            cmd.Parameters.AddWithValue("@jobid", jobid)
+            cmd.Parameters.AddWithValue("@applicant", userid)
+            cmd.Parameters.AddWithValue("@status", "Accepted")
+            Try
+                con.Open()
+                cmd.ExecuteNonQuery()
+
+                MessageBox.Show("Candidate Accepted")
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message)
+            End Try
+        End Using
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim jobid As Integer = -1
+        Dim userid As Integer = -1
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            Dim isSelected As Boolean = Convert.ToBoolean(row.Cells("checkboxcolumn").Value)
+            If isSelected Then
+                userid = row.Cells("Column4").Value
+                jobid = row.Cells("Column2").Value
+            End If
+        Next
+
+        Dim cmd As New MySqlCommand
+        Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
+
+            Dim stmnt As String = "UPDATE employment_applications
+    SET status_application = @status
+    WHERE job_id = @jobid AND applicant_id = @applicant"
+
+            cmd = New MySqlCommand(stmnt, con)
+            cmd.Parameters.AddWithValue("@jobid", jobid)
+            cmd.Parameters.AddWithValue("@applicant", userid)
+            cmd.Parameters.AddWithValue("@status", "Rejected")
+            Try
+                con.Open()
+                cmd.ExecuteNonQuery()
+
+                MessageBox.Show("Candidate Rejected")
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message)
+            End Try
+        End Using
+    End Sub
 End Class
