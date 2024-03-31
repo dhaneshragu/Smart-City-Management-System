@@ -25,15 +25,15 @@ Partial Class Employment_portal_admin
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.childformPanel = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.checkboxcolumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -96,24 +96,6 @@ Partial Class Employment_portal_admin
         Me.TextBox1.TabIndex = 10
         Me.TextBox1.Text = "You have logged in as Admin"
         '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.NavajoWhite
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.Black
-        Me.Button5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_paybills
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button5.Location = New System.Drawing.Point(41, 599)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button5.Size = New System.Drawing.Size(292, 74)
-        Me.Button5.TabIndex = 8
-        Me.Button5.Text = "    Check Applicant Credentials"
-        Me.Button5.UseVisualStyleBackColor = False
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.SMART_CITY___GUWAHATI
@@ -155,6 +137,24 @@ Partial Class Employment_portal_admin
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "SmartGhy Employment Portal"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.Color.Black
+        Me.Button5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_paybills
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button5.Location = New System.Drawing.Point(41, 599)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button5.Size = New System.Drawing.Size(292, 74)
+        Me.Button5.TabIndex = 8
+        Me.Button5.Text = "    Check Applicant Credentials"
+        Me.Button5.UseVisualStyleBackColor = False
         '
         'childformPanel
         '
@@ -211,7 +211,7 @@ Partial Class Employment_portal_admin
         '
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.BlanchedAlmond
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column7, Me.Column6})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.checkboxcolumn, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column7, Me.Column6})
         Me.DataGridView1.Location = New System.Drawing.Point(7, 52)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
@@ -220,14 +220,14 @@ Partial Class Employment_portal_admin
         Me.DataGridView1.Size = New System.Drawing.Size(1023, 517)
         Me.DataGridView1.TabIndex = 1
         '
-        'Column1
+        'checkboxcolumn
         '
-        Me.Column1.HeaderText = ""
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Column1.Width = 60
+        Me.checkboxcolumn.HeaderText = ""
+        Me.checkboxcolumn.MinimumWidth = 6
+        Me.checkboxcolumn.Name = "checkboxcolumn"
+        Me.checkboxcolumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.checkboxcolumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.checkboxcolumn.Width = 60
         '
         'Column2
         '
@@ -383,12 +383,12 @@ Partial Class Employment_portal_admin
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Column1 As DataGridViewCheckBoxColumn
+    Friend WithEvents Button7 As Button
+    Friend WithEvents checkboxcolumn As DataGridViewCheckBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Button7 As Button
 End Class

@@ -23,28 +23,25 @@ Partial Class Employment_portal_admin_withdraw
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.childformPanel = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.srchSelect = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Column1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.checkboxcolumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.childformPanel.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'childformPanel
@@ -55,9 +52,6 @@ Partial Class Employment_portal_admin_withdraw
         Me.childformPanel.Controls.Add(Me.RichTextBox2)
         Me.childformPanel.Controls.Add(Me.PictureBox1)
         Me.childformPanel.Controls.Add(Me.Label4)
-        Me.childformPanel.Controls.Add(Me.RichTextBox1)
-        Me.childformPanel.Controls.Add(Me.btnSearch)
-        Me.childformPanel.Controls.Add(Me.srchSelect)
         Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.childformPanel.Location = New System.Drawing.Point(1, 59)
         Me.childformPanel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -65,17 +59,47 @@ Partial Class Employment_portal_admin_withdraw
         Me.childformPanel.Size = New System.Drawing.Size(1313, 721)
         Me.childformPanel.TabIndex = 1
         '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.Black
+        Me.Button3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_delete_40
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button3.Location = New System.Drawing.Point(491, 621)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button3.Size = New System.Drawing.Size(292, 74)
+        Me.Button3.TabIndex = 19
+        Me.Button3.Text = " Withdraw Job"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.BlanchedAlmond
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.checkboxcolumn, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
+        Me.DataGridView1.Location = New System.Drawing.Point(135, 140)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowHeadersWidth = 51
+        Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.Size = New System.Drawing.Size(1036, 447)
+        Me.DataGridView1.TabIndex = 18
+        '
         'RichTextBox2
         '
         Me.RichTextBox2.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox2.Location = New System.Drawing.Point(156, 87)
+        Me.RichTextBox2.Location = New System.Drawing.Point(412, 77)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-        Me.RichTextBox2.Size = New System.Drawing.Size(950, 57)
+        Me.RichTextBox2.Size = New System.Drawing.Size(453, 57)
         Me.RichTextBox2.TabIndex = 17
-        Me.RichTextBox2.Text = "Too bad that you have decided to withdraw job openings, please select the availab" &
-    "le option from the box below to speed-up the withdrawal process."
+        Me.RichTextBox2.Text = "Too bad that you have decided to withdraw job openings."
         '
         'PictureBox1
         '
@@ -95,45 +119,6 @@ Partial Class Employment_portal_admin_withdraw
         Me.Label4.Size = New System.Drawing.Size(355, 48)
         Me.Label4.TabIndex = 15
         Me.Label4.Text = "Withdraw Jobs"
-        '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.RichTextBox1.Location = New System.Drawing.Point(428, 150)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(431, 39)
-        Me.RichTextBox1.TabIndex = 13
-        Me.RichTextBox1.Text = ""
-        '
-        'btnSearch
-        '
-        Me.btnSearch.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.btnSearch.ForeColor = System.Drawing.Color.White
-        Me.btnSearch.Location = New System.Drawing.Point(881, 150)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(225, 38)
-        Me.btnSearch.TabIndex = 12
-        Me.btnSearch.Text = "Search"
-        Me.btnSearch.UseVisualStyleBackColor = False
-        '
-        'srchSelect
-        '
-        Me.srchSelect.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.srchSelect.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.srchSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.srchSelect.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.srchSelect.ForeColor = System.Drawing.Color.White
-        Me.srchSelect.FormattingEnabled = True
-        Me.srchSelect.Items.AddRange(New Object() {"Job ID", "Job Description", "Job Poster ID", "Department"})
-        Me.srchSelect.Location = New System.Drawing.Point(194, 150)
-        Me.srchSelect.Margin = New System.Windows.Forms.Padding(0)
-        Me.srchSelect.Name = "srchSelect"
-        Me.srchSelect.Size = New System.Drawing.Size(221, 39)
-        Me.srchSelect.TabIndex = 10
-        Me.srchSelect.Text = "Select"
         '
         'Label2
         '
@@ -188,87 +173,56 @@ Partial Class Employment_portal_admin_withdraw
         Me.Button6.Text = "      Home Page"
         Me.Button6.UseVisualStyleBackColor = False
         '
-        'DataGridView1
+        'checkboxcolumn
         '
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.BlanchedAlmond
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column7, Me.Column6})
-        Me.DataGridView1.Location = New System.Drawing.Point(165, 204)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(964, 393)
-        Me.DataGridView1.TabIndex = 18
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.NavajoWhite
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.Black
-        Me.Button3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_delete_40
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button3.Location = New System.Drawing.Point(538, 621)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button3.Size = New System.Drawing.Size(292, 74)
-        Me.Button3.TabIndex = 19
-        Me.Button3.Text = " Withdraw Job"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.checkboxcolumn.HeaderText = ""
+        Me.checkboxcolumn.MinimumWidth = 6
+        Me.checkboxcolumn.Name = "checkboxcolumn"
+        Me.checkboxcolumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.checkboxcolumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.checkboxcolumn.Width = 60
         '
         'Column1
         '
-        Me.Column1.HeaderText = ""
+        Me.Column1.HeaderText = "Job ID"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
-        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Column1.Width = 60
+        Me.Column1.Width = 150
         '
         'Column2
         '
-        Me.Column2.HeaderText = "Job ID"
+        Me.Column2.HeaderText = "Job Description"
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
-        Me.Column2.Width = 110
+        Me.Column2.Width = 225
         '
         'Column3
         '
-        Me.Column3.HeaderText = "Job Description"
+        Me.Column3.HeaderText = "Department"
         Me.Column3.MinimumWidth = 6
         Me.Column3.Name = "Column3"
-        Me.Column3.Width = 200
+        Me.Column3.Width = 175
         '
         'Column4
         '
-        Me.Column4.HeaderText = "Applicant ID"
+        Me.Column4.HeaderText = "Salary"
         Me.Column4.MinimumWidth = 6
         Me.Column4.Name = "Column4"
-        Me.Column4.Width = 110
+        Me.Column4.Width = 125
         '
         'Column5
         '
-        Me.Column5.HeaderText = "Department"
+        Me.Column5.HeaderText = "Qualification"
         Me.Column5.MinimumWidth = 6
         Me.Column5.Name = "Column5"
-        Me.Column5.Width = 130
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Apply Date & Time"
-        Me.Column7.MinimumWidth = 6
-        Me.Column7.Name = "Column7"
-        Me.Column7.Width = 200
+        Me.Column5.Width = 175
         '
         'Column6
         '
-        Me.Column6.HeaderText = "Status"
+        Me.Column6.HeaderText = "Deadline"
         Me.Column6.MinimumWidth = 6
         Me.Column6.Name = "Column6"
-        Me.Column6.Width = 150
+        Me.Column6.Width = 125
         '
         'Employment_portal_admin_withdraw
         '
@@ -288,17 +242,14 @@ Partial Class Employment_portal_admin_withdraw
         Me.Text = "Transportation"
         Me.childformPanel.ResumeLayout(False)
         Me.childformPanel.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents childformPanel As System.Windows.Forms.Panel
     Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents srchSelect As ComboBox
-    Friend WithEvents btnSearch As Button
-    Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents Button5 As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents PictureBox1 As PictureBox
@@ -307,11 +258,11 @@ Partial Class Employment_portal_admin_withdraw
     Friend WithEvents Label3 As Label
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button3 As Button
-    Friend WithEvents Column1 As DataGridViewCheckBoxColumn
+    Friend WithEvents checkboxcolumn As DataGridViewCheckBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
 End Class

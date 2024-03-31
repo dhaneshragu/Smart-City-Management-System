@@ -26,22 +26,22 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.phone_number = New System.Windows.Forms.TextBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.gender = New System.Windows.Forms.TextBox()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.age = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.email = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.username = New System.Windows.Forms.TextBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.user_id = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -88,7 +88,7 @@ Partial Class Employment_portal_admin_usercredentials
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
         Me.Panel7.Controls.Add(Me.Label6)
-        Me.Panel7.Controls.Add(Me.TextBox5)
+        Me.Panel7.Controls.Add(Me.phone_number)
         Me.Panel7.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel7.Location = New System.Drawing.Point(33, 378)
         Me.Panel7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -106,21 +106,21 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Label6.TabIndex = 3
         Me.Label6.Text = "Phone Number:"
         '
-        'TextBox5
+        'phone_number
         '
-        Me.TextBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox5.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(147, 11)
-        Me.TextBox5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox5.TabIndex = 2
+        Me.phone_number.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.phone_number.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.phone_number.Location = New System.Drawing.Point(147, 11)
+        Me.phone_number.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.phone_number.Name = "phone_number"
+        Me.phone_number.Size = New System.Drawing.Size(204, 26)
+        Me.phone_number.TabIndex = 2
         '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
         Me.Panel5.Controls.Add(Me.Label5)
-        Me.Panel5.Controls.Add(Me.TextBox1)
+        Me.Panel5.Controls.Add(Me.gender)
         Me.Panel5.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel5.Location = New System.Drawing.Point(33, 311)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -138,21 +138,21 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Label5.TabIndex = 3
         Me.Label5.Text = "Gender:"
         '
-        'TextBox1
+        'gender
         '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(147, 11)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox1.TabIndex = 2
+        Me.gender.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.gender.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gender.Location = New System.Drawing.Point(147, 11)
+        Me.gender.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.gender.Name = "gender"
+        Me.gender.Size = New System.Drawing.Size(204, 26)
+        Me.gender.TabIndex = 2
         '
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
         Me.Panel6.Controls.Add(Me.Label4)
-        Me.Panel6.Controls.Add(Me.TextBox4)
+        Me.Panel6.Controls.Add(Me.age)
         Me.Panel6.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel6.Location = New System.Drawing.Point(33, 244)
         Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -170,21 +170,21 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Age:"
         '
-        'TextBox4
+        'age
         '
-        Me.TextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox4.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(147, 11)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox4.TabIndex = 2
+        Me.age.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.age.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.age.Location = New System.Drawing.Point(147, 11)
+        Me.age.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.age.Name = "age"
+        Me.age.Size = New System.Drawing.Size(204, 26)
+        Me.age.TabIndex = 2
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
         Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Controls.Add(Me.TextBox3)
+        Me.Panel3.Controls.Add(Me.email)
         Me.Panel3.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel3.Location = New System.Drawing.Point(33, 172)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -202,21 +202,21 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Email:"
         '
-        'TextBox3
+        'email
         '
-        Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox3.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(147, 11)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox3.TabIndex = 2
+        Me.email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.email.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.email.Location = New System.Drawing.Point(147, 11)
+        Me.email.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.email.Name = "email"
+        Me.email.Size = New System.Drawing.Size(204, 26)
+        Me.email.TabIndex = 2
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.TextBox2)
+        Me.Panel2.Controls.Add(Me.username)
         Me.Panel2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel2.Location = New System.Drawing.Point(33, 103)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -234,21 +234,21 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Name:"
         '
-        'TextBox2
+        'username
         '
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox2.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(147, 11)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox2.TabIndex = 2
+        Me.username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.username.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.username.Location = New System.Drawing.Point(147, 11)
+        Me.username.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.username.Name = "username"
+        Me.username.Size = New System.Drawing.Size(204, 26)
+        Me.username.TabIndex = 2
         '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
         Me.Panel4.Controls.Add(Me.Label2)
-        Me.Panel4.Controls.Add(Me.TextBox6)
+        Me.Panel4.Controls.Add(Me.user_id)
         Me.Panel4.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel4.Location = New System.Drawing.Point(33, 33)
         Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -266,15 +266,15 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "User ID:"
         '
-        'TextBox6
+        'user_id
         '
-        Me.TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox6.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(147, 11)
-        Me.TextBox6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox6.TabIndex = 2
+        Me.user_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.user_id.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.user_id.Location = New System.Drawing.Point(147, 11)
+        Me.user_id.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.user_id.Name = "user_id"
+        Me.user_id.Size = New System.Drawing.Size(204, 26)
+        Me.user_id.TabIndex = 2
         '
         'Employment_portal_admin_usercredentials
         '
@@ -310,20 +310,20 @@ Partial Class Employment_portal_admin_usercredentials
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents user_id As TextBox
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents gender As TextBox
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents age As TextBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents email As TextBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents username As TextBox
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents phone_number As TextBox
 End Class
