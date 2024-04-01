@@ -499,30 +499,6 @@
     <Compile Include="ElectionInnerScreenNominateNoElection.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="hc_B_Appointment.Designer.vb">
-      <DependentUpon>hc_B_Appointment.vb</DependentUpon>
-    </Compile>
-    <Compile Include="hc_B_Appointment.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="hc_Donate_Blood.Designer.vb">
-      <DependentUpon>hc_Donate_Blood.vb</DependentUpon>
-    </Compile>
-    <Compile Include="hc_Donate_Blood.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="hc_History.Designer.vb">
-      <DependentUpon>hc_History.vb</DependentUpon>
-    </Compile>
-    <Compile Include="hc_History.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="hc_Pharmacy.Designer.vb">
-      <DependentUpon>hc_Pharmacy.vb</DependentUpon>
-    </Compile>
-    <Compile Include="hc_Pharmacy.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="HealthcareAssignDoctorAdmin.Designer.vb">
       <DependentUpon>HealthcareAssignDoctorAdmin.vb</DependentUpon>
     </Compile>
@@ -1383,18 +1359,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ElectionInnerScreenNominateNoElection.resx">
       <DependentUpon>ElectionInnerScreenNominateNoElection.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="hc_B_Appointment.resx">
-      <DependentUpon>hc_B_Appointment.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="hc_Donate_Blood.resx">
-      <DependentUpon>hc_Donate_Blood.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="hc_History.resx">
-      <DependentUpon>hc_History.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="hc_Pharmacy.resx">
-      <DependentUpon>hc_Pharmacy.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HealthcareAssignDoctorAdmin.resx">
       <DependentUpon>HealthcareAssignDoctorAdmin.vb</DependentUpon>
