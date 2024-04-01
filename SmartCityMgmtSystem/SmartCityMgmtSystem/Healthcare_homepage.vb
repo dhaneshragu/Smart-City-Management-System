@@ -2,6 +2,7 @@
 
     'To be passed from Login Dashboard
     Public Property uid As Integer = 10
+
     Public Property u_name As String = "AdminHC"
     Private healthcare_BookAppointment As Healthcare_BookAppointment = Nothing
     Private healthcareAdminHome As HealthcareAdminHome = Nothing
@@ -14,29 +15,54 @@
         healthcare_BookAppointment?.Dispose()
         healthcare_BookAppointment = New Healthcare_BookAppointment()
         Globals.viewChildForm(childformPanel, healthcare_BookAppointment)
+        book_appointment.BackColor = Color.FromArgb(0, 180, 0)
+        donate_blood.BackColor = Color.FromArgb(88, 133, 175)
+        history.BackColor = Color.FromArgb(88, 133, 175)
+        pharmacy.BackColor = Color.FromArgb(88, 133, 175)
+        emergency.BackColor = Color.Red
     End Sub
 
     Private Sub donate_blood_Click(sender As Object, e As EventArgs) Handles donate_blood.Click
         healthcare_DonateBlood?.Dispose()
         healthcare_DonateBlood = New Healthcare_DonateBlood()
         Globals.viewChildForm(childformPanel, healthcare_DonateBlood)
+        book_appointment.BackColor = Color.FromArgb(88, 133, 175)
+        donate_blood.BackColor = Color.FromArgb(0, 180, 0)
+        history.BackColor = Color.FromArgb(88, 133, 175)
+        pharmacy.BackColor = Color.FromArgb(88, 133, 175)
+        emergency.BackColor = Color.Red
     End Sub
 
     Private Sub history_Click(sender As Object, e As EventArgs) Handles history.Click
         healthcare_History?.Dispose()
         healthcare_History = New Healthcare_History()
         Globals.viewChildForm(childformPanel, healthcare_History)
+        book_appointment.BackColor = Color.FromArgb(88, 133, 175)
+        donate_blood.BackColor = Color.FromArgb(88, 133, 175)
+        history.BackColor = Color.FromArgb(0, 180, 0)
+        pharmacy.BackColor = Color.FromArgb(88, 133, 175)
+        emergency.BackColor = Color.Red
     End Sub
 
     Private Sub pharmacy_Click(sender As Object, e As EventArgs) Handles pharmacy.Click
         healthcare_Pharmacy?.Dispose()
         healthcare_Pharmacy = New Healthcare_Pharmacy()
         Globals.viewChildForm(childformPanel, healthcare_Pharmacy)
+        book_appointment.BackColor = Color.FromArgb(88, 133, 175)
+        donate_blood.BackColor = Color.FromArgb(88, 133, 175)
+        history.BackColor = Color.FromArgb(88, 133, 175)
+        pharmacy.BackColor = Color.FromArgb(0, 180, 0)
+        emergency.BackColor = Color.Red
     End Sub
 
     Private Sub emergency_Click(sender As Object, e As EventArgs) Handles emergency.Click
         ' Navigate to hc_Emergency page (if you have one)
         ' Add similar logic for emergency page if needed
+        book_appointment.BackColor = Color.FromArgb(88, 133, 175)
+        donate_blood.BackColor = Color.FromArgb(88, 133, 175)
+        history.BackColor = Color.FromArgb(88, 133, 175)
+        pharmacy.BackColor = Color.FromArgb(88, 133, 175)
+        emergency.BackColor = Color.FromArgb(88, 133, 175)
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -53,6 +79,11 @@
             .innerPanel = childformPanel
         }
         Globals.viewChildForm(childformPanel, healthcareAdminHome)
+        book_appointment.BackColor = Color.FromArgb(88, 133, 175)
+        donate_blood.BackColor = Color.FromArgb(88, 133, 175)
+        history.BackColor = Color.FromArgb(88, 133, 175)
+        pharmacy.BackColor = Color.FromArgb(88, 133, 175)
+        emergency.BackColor = Color.Red
     End Sub
 
     Private Sub Healthcare_homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
