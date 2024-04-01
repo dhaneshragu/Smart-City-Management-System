@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.Globalization
+Imports System.IO
 Imports System.Security.Cryptography
 Imports MySql.Data.MySqlClient
 
@@ -6,6 +7,7 @@ Public Class UserDetails
     Private ReadOnly email As String
     Private ReadOnly password As String
     Dim imageBytes As Byte()
+    Dim age As Integer = 0
 
     Public Sub New(email As String, password As String)
         InitializeComponent()
@@ -13,7 +15,7 @@ Public Class UserDetails
         Me.password = password
     End Sub
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        TextBox2.Text = 0
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -34,12 +36,14 @@ Public Class UserDetails
         Dim selectedDate As DateTime = DateTimePicker1.Value
         ' Format the selected date to match MySQL date format ("YYYY-MM-DD")
         Dim formattedDate As String = selectedDate.ToString("yyyy-MM-dd")
+
         Dim voter As Integer = 0
         Dim voted As Integer = 0
         Dim gid As Integer? = Nothing
         If Not String.IsNullOrEmpty(TextBox8.Text) Then
             gid = Convert.ToInt32(TextBox8.Text)
         End If
+        Dim gender As String = ComboBox1.SelectedItem.ToString()
         cmd = "INSERT INTO users (name, email, dob, age, profile_photo, gender, password,
             phone_number, occupation, guardian_uid, voter, voted, address) 
             VALUES (@name, @email, @dob, @age, @profile, @gender, @pass,
@@ -50,9 +54,9 @@ Public Class UserDetails
                 sqlCommand.Parameters.AddWithValue("@name", TextBox1.Text)
                 sqlCommand.Parameters.AddWithValue("@email", email)
                 sqlCommand.Parameters.AddWithValue("@dob", formattedDate)
-                sqlCommand.Parameters.AddWithValue("@age", Convert.ToInt32(TextBox2.Text))
+                sqlCommand.Parameters.AddWithValue("@age", age)
                 sqlCommand.Parameters.AddWithValue("@profile", imageBytes)
-                sqlCommand.Parameters.AddWithValue("@gender", TextBox3.Text)
+                sqlCommand.Parameters.AddWithValue("@gender", gender)
                 sqlCommand.Parameters.AddWithValue("@pass", password)
                 sqlCommand.Parameters.AddWithValue("@phno", TextBox4.Text)
                 sqlCommand.Parameters.AddWithValue("@address", TextBox5.Text)
@@ -79,8 +83,9 @@ Public Class UserDetails
                     Dim home = New HomePageDashboard With {
                         .uid = uid
                     }
+                    MessageBox.Show("Your Unique Identification number is: " + uid.ToString)
                     home.Show()
-                        Me.Close()
+                    Me.Close()
                 Catch ex As Exception
                     MessageBox.Show("Error: " & ex.Message)
                 End Try
@@ -90,5 +95,20 @@ Public Class UserDetails
         'Dim home = New HomePageDashboard()
         'home.Show()
         'Me.Close()
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        Dim selectedDate As DateTime = DateTimePicker1.Value
+        ' Format the selected date to match MySQL date format ("YYYY-MM-DD")
+        Dim formattedDate As String = selectedDate.ToString("yyyy-MM-dd")
+        Dim birthDate As Date = DateTime.ParseExact(formattedDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)
+        ' Get the current date
+        Dim currentDate As Date = Date.Now
+        ' Calculate the age
+        age = currentDate.Year - birthDate.Year
+        If birthDate.Month > currentDate.Month Then
+            age -= 1
+        End If
+        TextBox2.Text = age.ToString
     End Sub
 End Class

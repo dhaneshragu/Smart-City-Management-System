@@ -30,17 +30,17 @@ Partial Class BankingCreateAccount
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.childformPanel.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -131,15 +131,26 @@ Partial Class BankingCreateAccount
         Me.TextBox2.Size = New System.Drawing.Size(432, 42)
         Me.TextBox2.TabIndex = 8
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.iconBankAccountProfile
+        Me.PictureBox3.Location = New System.Drawing.Point(386, 41)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(93, 89)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 7
+        Me.PictureBox3.TabStop = False
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(202, 140)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(121, 28)
+        Me.Label3.Size = New System.Drawing.Size(80, 28)
         Me.Label3.TabIndex = 1
-        Me.Label3.Text = "UserName"
+        Me.Label3.Text = "UserId"
         '
         'TextBox1
         '
@@ -189,17 +200,6 @@ Partial Class BankingCreateAccount
         Me.Panel1.Size = New System.Drawing.Size(766, 710)
         Me.Panel1.TabIndex = 8
         '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.iconBankAccountProfile
-        Me.PictureBox3.Location = New System.Drawing.Point(386, 41)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(93, 89)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 7
-        Me.PictureBox3.TabStop = False
-        '
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.banking_logo
@@ -238,8 +238,8 @@ Partial Class BankingCreateAccount
         Me.Text = "Transportation"
         Me.childformPanel.ResumeLayout(False)
         Me.childformPanel.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

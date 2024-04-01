@@ -42,6 +42,7 @@ Partial Class Ed_AddECourse
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,7 +87,8 @@ Partial Class Ed_AddECourse
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.White
         Me.Label8.Font = New System.Drawing.Font("Cambria", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(484, 452)
+        Me.Label8.Location = New System.Drawing.Point(485, 452)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(140, 21)
         Me.Label8.TabIndex = 46
@@ -96,6 +98,7 @@ Partial Class Ed_AddECourse
         '
         Me.TextBox7.BackColor = System.Drawing.Color.Gainsboro
         Me.TextBox7.Location = New System.Drawing.Point(531, 476)
+        Me.TextBox7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(298, 30)
         Me.TextBox7.TabIndex = 45
@@ -105,7 +108,8 @@ Partial Class Ed_AddECourse
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.White
         Me.Label7.Font = New System.Drawing.Font("Cambria", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(484, 378)
+        Me.Label7.Location = New System.Drawing.Point(485, 378)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(75, 21)
         Me.Label7.TabIndex = 44
@@ -115,6 +119,7 @@ Partial Class Ed_AddECourse
         '
         Me.TextBox6.BackColor = System.Drawing.Color.Gainsboro
         Me.TextBox6.Location = New System.Drawing.Point(531, 402)
+        Me.TextBox6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(298, 30)
         Me.TextBox6.TabIndex = 43
@@ -124,7 +129,8 @@ Partial Class Ed_AddECourse
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.White
         Me.Label6.Font = New System.Drawing.Font("Cambria", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(484, 514)
+        Me.Label6.Location = New System.Drawing.Point(485, 514)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(45, 21)
         Me.Label6.TabIndex = 42
@@ -134,6 +140,7 @@ Partial Class Ed_AddECourse
         '
         Me.TextBox5.BackColor = System.Drawing.Color.Gainsboro
         Me.TextBox5.Location = New System.Drawing.Point(532, 538)
+        Me.TextBox5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(298, 30)
         Me.TextBox5.TabIndex = 41
@@ -144,6 +151,7 @@ Partial Class Ed_AddECourse
         Me.Label4.BackColor = System.Drawing.Color.White
         Me.Label4.Font = New System.Drawing.Font("Cambria", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(485, 305)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(79, 21)
         Me.Label4.TabIndex = 38
@@ -153,6 +161,7 @@ Partial Class Ed_AddECourse
         '
         Me.TextBox3.BackColor = System.Drawing.Color.Gainsboro
         Me.TextBox3.Location = New System.Drawing.Point(532, 329)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(298, 30)
         Me.TextBox3.TabIndex = 37
@@ -163,6 +172,7 @@ Partial Class Ed_AddECourse
         Me.Label3.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(472, 39)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(415, 107)
         Me.Label3.TabIndex = 36
@@ -175,6 +185,7 @@ Partial Class Ed_AddECourse
         Me.Label2.BackColor = System.Drawing.Color.White
         Me.Label2.Font = New System.Drawing.Font("Cambria", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(485, 236)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 21)
         Me.Label2.TabIndex = 35
@@ -185,7 +196,8 @@ Partial Class Ed_AddECourse
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.White
         Me.Label9.Font = New System.Drawing.Font("Cambria", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(484, 172)
+        Me.Label9.Location = New System.Drawing.Point(485, 172)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(86, 21)
         Me.Label9.TabIndex = 34
@@ -195,7 +207,8 @@ Partial Class Ed_AddECourse
         '
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(582, 588)
+        Me.Button2.Location = New System.Drawing.Point(581, 647)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(195, 54)
         Me.Button2.TabIndex = 33
@@ -206,6 +219,7 @@ Partial Class Ed_AddECourse
         '
         Me.TextBox2.BackColor = System.Drawing.Color.Gainsboro
         Me.TextBox2.Location = New System.Drawing.Point(532, 260)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(298, 30)
         Me.TextBox2.TabIndex = 32
@@ -214,18 +228,31 @@ Partial Class Ed_AddECourse
         '
         Me.TextBox8.BackColor = System.Drawing.Color.Gainsboro
         Me.TextBox8.Location = New System.Drawing.Point(531, 196)
+        Me.TextBox8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(298, 30)
         Me.TextBox8.TabIndex = 31
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Button1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(581, 583)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(195, 38)
+        Me.Button1.TabIndex = 47
+        Me.Button1.Text = "Enter Summary"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Location = New System.Drawing.Point(472, 133)
-        Me.PictureBox1.MaximumSize = New System.Drawing.Size(415, 532)
-        Me.PictureBox1.MinimumSize = New System.Drawing.Size(415, 532)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(415, 532)
+        Me.PictureBox1.Size = New System.Drawing.Size(415, 581)
         Me.PictureBox1.TabIndex = 30
         Me.PictureBox1.TabStop = False
         '
@@ -254,6 +281,7 @@ Partial Class Ed_AddECourse
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1270, 736)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.TextBox7)
         Me.Controls.Add(Me.Label7)
@@ -271,7 +299,7 @@ Partial Class Ed_AddECourse
         Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Ed_AddECourse"
         Me.Text = "Home Page"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -297,4 +325,5 @@ Partial Class Ed_AddECourse
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox8 As TextBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button1 As Button
 End Class

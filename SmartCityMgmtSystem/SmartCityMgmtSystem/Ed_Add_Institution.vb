@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Public Class Service_Payment
+Public Class Ed_Add_Institution
 
 
 End Class

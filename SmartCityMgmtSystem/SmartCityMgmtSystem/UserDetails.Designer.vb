@@ -37,15 +37,15 @@ Partial Class UserDetails
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.childformPanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,6 +54,7 @@ Partial Class UserDetails
         'childformPanel
         '
         Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.childformPanel.Controls.Add(Me.ComboBox1)
         Me.childformPanel.Controls.Add(Me.Button9)
         Me.childformPanel.Controls.Add(Me.TextBox8)
         Me.childformPanel.Controls.Add(Me.Label11)
@@ -68,7 +69,6 @@ Partial Class UserDetails
         Me.childformPanel.Controls.Add(Me.Label6)
         Me.childformPanel.Controls.Add(Me.TextBox4)
         Me.childformPanel.Controls.Add(Me.Label5)
-        Me.childformPanel.Controls.Add(Me.TextBox3)
         Me.childformPanel.Controls.Add(Me.Label4)
         Me.childformPanel.Controls.Add(Me.TextBox2)
         Me.childformPanel.Controls.Add(Me.Label2)
@@ -224,15 +224,6 @@ Partial Class UserDetails
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Phone Number *"
         '
-        'TextBox3
-        '
-        Me.TextBox3.BackColor = System.Drawing.Color.SeaShell
-        Me.TextBox3.Location = New System.Drawing.Point(366, 210)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(352, 34)
-        Me.TextBox3.TabIndex = 5
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -243,24 +234,15 @@ Partial Class UserDetails
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Gender *"
         '
-        'TextBox2
-        '
-        Me.TextBox2.BackColor = System.Drawing.Color.SeaShell
-        Me.TextBox2.Location = New System.Drawing.Point(366, 150)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(352, 34)
-        Me.TextBox2.TabIndex = 3
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(163, 156)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(69, 28)
+        Me.Label2.Size = New System.Drawing.Size(52, 28)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Age *"
+        Me.Label2.Text = "Age"
         '
         'TextBox1
         '
@@ -309,6 +291,26 @@ Partial Class UserDetails
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.BackColor = System.Drawing.Color.SeaShell
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Male", "Female", "Other"})
+        Me.ComboBox1.Location = New System.Drawing.Point(366, 216)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(352, 30)
+        Me.ComboBox1.TabIndex = 25
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.SeaShell
+        Me.TextBox2.Location = New System.Drawing.Point(366, 150)
+        Me.TextBox2.Multiline = True
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.ReadOnly = True
+        Me.TextBox2.Size = New System.Drawing.Size(352, 34)
+        Me.TextBox2.TabIndex = 3
+        '
         'UserDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -344,9 +346,7 @@ Partial Class UserDetails
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label10 As Label
@@ -355,4 +355,6 @@ Partial Class UserDetails
     Friend WithEvents TextBox8 As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Button9 As Button
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents TextBox2 As TextBox
 End Class

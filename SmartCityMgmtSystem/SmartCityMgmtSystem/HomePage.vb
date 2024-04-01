@@ -9,6 +9,7 @@ Public Class HomePage
     Private Sub ed_dept_Click(sender As Object, e As EventArgs) Handles ed_dept.Click
         Dim ed = Ed_GlobalDashboard
         ed.userID = uid
+        ed.userName = u_name
         ed.Show()
         Me.ParentForm.Close()
         Me.Close()
@@ -42,14 +43,17 @@ Public Class HomePage
     End Sub
 
     Private Sub lib_dept_Click(sender As Object, e As EventArgs) Handles lib_dept.Click
-        Dim library = New lib_dash()
+        Dim library = New lib_dash() With {
+            .uid = uid,
+            .u_name = u_name
+        }
         library.Show()
         Me.ParentForm.Close()
         Me.Close()
     End Sub
 
     Private Sub bankDept_Click(sender As Object, e As EventArgs) Handles bankDept.Click
-        Dim bank = New BankingDashboard()
+        Dim bank = New BankingLogin()
         bank.Show()
         Me.ParentForm.Close()
         Me.Close()

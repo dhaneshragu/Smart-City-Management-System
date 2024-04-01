@@ -215,9 +215,9 @@ Partial Class BankingLogin
         Me.Label3.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(202, 140)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(121, 28)
+        Me.Label3.Size = New System.Drawing.Size(80, 28)
         Me.Label3.TabIndex = 1
-        Me.Label3.Text = "UserName"
+        Me.Label3.Text = "UserId"
         '
         'TextBox1
         '

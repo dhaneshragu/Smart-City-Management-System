@@ -136,7 +136,7 @@ Partial Class EventRegistrationScreen
         DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridView1.GridColor = System.Drawing.Color.DimGray
-        Me.DataGridView1.Location = New System.Drawing.Point(721, 105)
+        Me.DataGridView1.Location = New System.Drawing.Point(702, 92)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(6)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -304,7 +304,7 @@ Partial Class EventRegistrationScreen
         Me.Panel2.Controls.Add(Me.TextBox2)
         Me.Panel2.Controls.Add(Me.DateTimePicker1)
         Me.Panel2.Controls.Add(Me.TextBox3)
-        Me.Panel2.Location = New System.Drawing.Point(117, 105)
+        Me.Panel2.Location = New System.Drawing.Point(98, 92)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(517, 574)
         Me.Panel2.TabIndex = 25
@@ -504,7 +504,7 @@ Partial Class EventRegistrationScreen
         Me.Panel3.Controls.Add(Me.Label10)
         Me.Panel3.Controls.Add(Me.Label14)
         Me.Panel3.Controls.Add(Me.Label13)
-        Me.Panel3.Location = New System.Drawing.Point(962, 549)
+        Me.Panel3.Location = New System.Drawing.Point(943, 536)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(253, 162)
         Me.Panel3.TabIndex = 29
@@ -605,7 +605,7 @@ Partial Class EventRegistrationScreen
         Me.Label11.ForeColor = System.Drawing.Color.Maroon
         Me.Label11.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.pngtree_vendor_line_icon_vector_png_image_6701567__1_
         Me.Label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label11.Location = New System.Drawing.Point(895, 63)
+        Me.Label11.Location = New System.Drawing.Point(876, 50)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(185, 36)
         Me.Label11.TabIndex = 30

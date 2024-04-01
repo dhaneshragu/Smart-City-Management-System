@@ -1,25 +1,34 @@
 ﻿Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 Public Class TransportAdminRSReq
-
+    Private Property uid As Integer
+    Private Property u_name As String
 
 
     Private Sub LoadandBindDataGridView()
-        'Get connection String from globals
-        Dim conString = Globals.getdbConnectionString()
-        Dim Con = New SqlConnection(conString)
+        'Get connection from globals
+        Dim Con = Globals.GetDBConnection()
+        Dim reader As MySqlDataReader
+        Dim cmd As MySqlCommand
 
-        'Query for SQL table
-        Dim query = "enter your query"
-        Con.Open()
+        Try
+            Con.Open()
 
-        Dim cmd As New SqlCommand(query, Con)
-        Dim adapter As New SqlDataAdapter(cmd)
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
+        cmd = New MySqlCommand("SELECT uid as D_uid, vehicle_id, start_datetime, capacity, src_id, dest_id, status from ride_sharing_entries", Con)
+        reader = cmd.ExecuteReader
         ' Create a DataTable to store the data
         Dim dataTable As New DataTable()
 
         'Fill the DataTable with data from the SQL table
-        adapter.Fill(dataTable)
+        dataTable.Load(reader)
+        reader.Close()
+        Con.Close()
+
+
 
 
     End Sub

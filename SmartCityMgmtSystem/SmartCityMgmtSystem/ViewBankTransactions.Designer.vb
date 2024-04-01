@@ -43,6 +43,7 @@ Partial Class ViewBankTransactions
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn4 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -84,7 +85,7 @@ Partial Class ViewBankTransactions
         Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.ColumnHeadersHeight = 47
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column4, Me.Column3, Me.DeleteBut, Me.EditBut})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column5, Me.Column1, Me.Column2, Me.Column4, Me.Column3, Me.DeleteBut, Me.EditBut})
         DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle8.BackColor = System.Drawing.Color.DarkGoldenrod
         DataGridViewCellStyle8.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -139,7 +140,7 @@ Partial Class ViewBankTransactions
         Me.DataGridViewImageColumn1.ReadOnly = True
         Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn1.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn1.Width = 123
+        Me.DataGridViewImageColumn1.Width = 125
         '
         'DataGridViewImageColumn2
         '
@@ -158,7 +159,7 @@ Partial Class ViewBankTransactions
         Me.DataGridViewImageColumn2.ReadOnly = True
         Me.DataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn2.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn2.Width = 123
+        Me.DataGridViewImageColumn2.Width = 125
         '
         'DataGridViewImageColumn3
         '
@@ -177,7 +178,7 @@ Partial Class ViewBankTransactions
         Me.DataGridViewImageColumn3.Name = "DataGridViewImageColumn3"
         Me.DataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn3.Width = 123
+        Me.DataGridViewImageColumn3.Width = 125
         '
         'DataGridViewImageColumn4
         '
@@ -196,7 +197,7 @@ Partial Class ViewBankTransactions
         Me.DataGridViewImageColumn4.Name = "DataGridViewImageColumn4"
         Me.DataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn4.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn4.Width = 123
+        Me.DataGridViewImageColumn4.Width = 125
         '
         'Label4
         '
@@ -209,9 +210,16 @@ Partial Class ViewBankTransactions
         Me.Label4.Location = New System.Drawing.Point(65, 42)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(319, 46)
+        Me.Label4.Size = New System.Drawing.Size(335, 50)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "      Transaction History"
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Transaction ID"
+        Me.Column5.MinimumWidth = 80
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
         '
         'Column1
         '
@@ -222,7 +230,7 @@ Partial Class ViewBankTransactions
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke
         Me.Column1.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column1.HeaderText = "Sender Account"
-        Me.Column1.MinimumWidth = 250
+        Me.Column1.MinimumWidth = 80
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
         Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -237,14 +245,14 @@ Partial Class ViewBankTransactions
         Me.Column2.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column2.FillWeight = 70.0!
         Me.Column2.HeaderText = "Reciever Account"
-        Me.Column2.MinimumWidth = 250
+        Me.Column2.MinimumWidth = 100
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         '
         'Column4
         '
-        Me.Column4.HeaderText = "Transaction Amount"
-        Me.Column4.MinimumWidth = 300
+        Me.Column4.HeaderText = "Amount"
+        Me.Column4.MinimumWidth = 80
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
         '
@@ -256,8 +264,8 @@ Partial Class ViewBankTransactions
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.WhiteSmoke
         Me.Column3.DefaultCellStyle = DataGridViewCellStyle5
-        Me.Column3.HeaderText = "Time of Transaction"
-        Me.Column3.MinimumWidth = 250
+        Me.Column3.HeaderText = "Time"
+        Me.Column3.MinimumWidth = 80
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         '
@@ -325,6 +333,7 @@ Partial Class ViewBankTransactions
     Friend WithEvents DataGridViewImageColumn3 As DataGridViewImageColumn
     Friend WithEvents DataGridViewImageColumn4 As DataGridViewImageColumn
     Friend WithEvents Label4 As Label
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn

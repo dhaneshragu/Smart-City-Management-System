@@ -35,6 +35,9 @@ Public Class Ed_Teacher_Coursera_Course_Content
     End Sub
 
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Globals.viewChildForm(callingPanel, New Ed_EditECourse(callingPanel))
+    End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         Globals.viewChildForm(Ed_GlobalDashboard.innerpanel, New Ed_ManageECourse())
@@ -78,4 +81,10 @@ Public Class Ed_Teacher_Coursera_Course_Content
             MessageBox.Show("Invalid YouTube URL")
         End If
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim add_res_form As New Ed_Teacher_AddResource()
+        add_res_form.ShowDialog()
+    End Sub
+
 End Class

@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class TransportVehicleRegReq
-
+    Public Property uid = 11
+    Public Property u_name = "Dhanesh"
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         ' Check if the clicked cell is in the "Column3" column and not a header cell
         If e.ColumnIndex = DataGridView1.Columns("Column3").Index AndAlso e.RowIndex >= 0 Then
@@ -42,7 +43,7 @@ Public Class TransportVehicleRegReq
 
     End Sub
 
-    Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles Vehicle_picbtn.Click
         Dim openFileDialog As New OpenFileDialog()
         openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.jpeg;*.gif;*.png)|*.bmp;*.jpg;*.jpeg;*.gif;*.png"
         If openFileDialog.ShowDialog() = DialogResult.OK Then

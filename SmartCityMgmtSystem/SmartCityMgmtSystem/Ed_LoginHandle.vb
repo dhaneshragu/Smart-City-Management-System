@@ -76,6 +76,7 @@ Public Class Ed_LoginHandle
                     If Not reader.IsDBNull(reader.GetOrdinal("Ed_DOB")) Then
                         profile.Ed_DOB = reader.GetDateTime(reader.GetOrdinal("Ed_DOB"))
                     End If
+                    profile.Ed_User_Type = Ed_GlobalDashboard.UserType.Student
                     ' You need to determine how to set other fields like Ed_User_Type, Ed_User_Role, etc.
                     ' For now, I'm leaving them blank.
                 End If

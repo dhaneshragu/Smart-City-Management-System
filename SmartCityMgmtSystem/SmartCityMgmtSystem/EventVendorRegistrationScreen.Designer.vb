@@ -63,13 +63,13 @@ Partial Class EventVendorRegistrationScreen
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label4.Font = New System.Drawing.Font("Agency FB", 26.23729!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Agency FB", 30.79661!, System.Drawing.FontStyle.Bold)
         Me.Label4.ForeColor = System.Drawing.Color.Maroon
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label4.Location = New System.Drawing.Point(30, 33)
+        Me.Label4.Location = New System.Drawing.Point(35, 33)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(366, 53)
+        Me.Label4.Size = New System.Drawing.Size(444, 62)
         Me.Label4.TabIndex = 30
         Me.Label4.Text = "      Vendor Registration"
         '
@@ -95,50 +95,50 @@ Partial Class EventVendorRegistrationScreen
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.Label16.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
         Me.Label16.Location = New System.Drawing.Point(154, 27)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(72, 27)
+        Me.Label16.Size = New System.Drawing.Size(84, 26)
         Me.Label16.TabIndex = 33
         Me.Label16.Text = "₹0.00"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.Label15.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
         Me.Label15.Location = New System.Drawing.Point(154, 133)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(72, 27)
+        Me.Label15.Size = New System.Drawing.Size(84, 26)
         Me.Label15.TabIndex = 32
         Me.Label15.Text = "₹0.00"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.Label10.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
         Me.Label10.Location = New System.Drawing.Point(-2, -2)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(110, 27)
+        Me.Label10.Size = New System.Drawing.Size(130, 26)
         Me.Label10.TabIndex = 29
         Me.Label10.Text = "Payment:"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.Label14.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
         Me.Label14.Location = New System.Drawing.Point(3, 133)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(69, 27)
+        Me.Label14.Size = New System.Drawing.Size(84, 26)
         Me.Label14.TabIndex = 31
         Me.Label14.Text = "Total:"
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.Label13.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
         Me.Label13.Location = New System.Drawing.Point(3, 27)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(100, 27)
+        Me.Label13.Size = New System.Drawing.Size(118, 26)
         Me.Label13.TabIndex = 30
         Me.Label13.Text = "Amount:"
         '
@@ -210,11 +210,11 @@ Partial Class EventVendorRegistrationScreen
         Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label5.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label5.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
         Me.Label5.ForeColor = System.Drawing.Color.BlanchedAlmond
         Me.Label5.Location = New System.Drawing.Point(68, 205)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(180, 26)
+        Me.Label5.Size = New System.Drawing.Size(187, 22)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Availaibility From"
         '
@@ -223,24 +223,24 @@ Partial Class EventVendorRegistrationScreen
         Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label9.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label9.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
         Me.Label9.ForeColor = System.Drawing.Color.BlanchedAlmond
         Me.Label9.Location = New System.Drawing.Point(66, 355)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(108, 26)
+        Me.Label9.Size = New System.Drawing.Size(135, 22)
         Me.Label9.TabIndex = 17
-        Me.Label9.Text = "Username"
+        Me.Label9.Text = "Service Cost"
         '
         'Label7
         '
         Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label7.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label7.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
         Me.Label7.ForeColor = System.Drawing.Color.BlanchedAlmond
         Me.Label7.Location = New System.Drawing.Point(68, 300)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(142, 26)
+        Me.Label7.Size = New System.Drawing.Size(151, 22)
         Me.Label7.TabIndex = 6
         Me.Label7.Text = "Specialisation"
         '
@@ -317,11 +317,11 @@ Partial Class EventVendorRegistrationScreen
         Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label6.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label6.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
         Me.Label6.ForeColor = System.Drawing.Color.BlanchedAlmond
         Me.Label6.Location = New System.Drawing.Point(68, 253)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(145, 26)
+        Me.Label6.Size = New System.Drawing.Size(153, 22)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Availability To"
         '
@@ -330,11 +330,11 @@ Partial Class EventVendorRegistrationScreen
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.BlanchedAlmond
         Me.Label2.Location = New System.Drawing.Point(78, 58)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(65, 26)
+        Me.Label2.Size = New System.Drawing.Size(68, 22)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Name"
         '
@@ -343,11 +343,11 @@ Partial Class EventVendorRegistrationScreen
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label3.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label3.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
         Me.Label3.ForeColor = System.Drawing.Color.BlanchedAlmond
         Me.Label3.Location = New System.Drawing.Point(68, 107)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(172, 26)
+        Me.Label3.Size = New System.Drawing.Size(182, 22)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Aadhaar Number"
         '
@@ -356,11 +356,11 @@ Partial Class EventVendorRegistrationScreen
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label1.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.BlanchedAlmond
         Me.Label1.Location = New System.Drawing.Point(68, 155)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(121, 26)
+        Me.Label1.Size = New System.Drawing.Size(127, 22)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Contact No."
         '
@@ -378,11 +378,11 @@ Partial Class EventVendorRegistrationScreen
         Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Label8.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label8.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
         Me.Label8.ForeColor = System.Drawing.Color.BlanchedAlmond
         Me.Label8.Location = New System.Drawing.Point(72, 409)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(100, 26)
+        Me.Label8.Size = New System.Drawing.Size(109, 22)
         Me.Label8.TabIndex = 7
         Me.Label8.Text = "Password"
         '

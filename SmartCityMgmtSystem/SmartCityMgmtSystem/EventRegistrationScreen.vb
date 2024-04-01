@@ -137,6 +137,7 @@ Public Class EventRegistrationScreen
 
 
     Private Sub InsertEventBooking(ByVal specialisation As String, ByVal startDate As Date, ByVal endDate As Date, ByVal vendorID As Integer, ByVal customerID As Integer, ByVal password As String)
+        Dim TransactionID As String = "453518413251515"
         'Get connection from globals
         Dim Con = Globals.GetDBConnection()
         Dim cmd As MySqlCommand
@@ -145,8 +146,8 @@ Public Class EventRegistrationScreen
             Con.Open()
 
             ' Use parameterized query to prevent SQL injection
-            Dim query As String = "INSERT INTO eventBookings (specialisation, startdate, enddate, vendorID, customerID, password) " &
-                              "VALUES (@Specialisation, @StartDate, @EndDate, @VendorID, @CustomerID, @Password);"
+            Dim query As String = "INSERT INTO eventBookings (specialisation, startdate, enddate, vendorID, customerID, password,transactionID) " &
+                              "VALUES (@Specialisation, @StartDate, @EndDate, @VendorID, @CustomerID, @Password,@TransactionID);"
 
             cmd = New MySqlCommand(query, Con)
             cmd.Parameters.AddWithValue("@Specialisation", specialisation)
@@ -155,6 +156,7 @@ Public Class EventRegistrationScreen
             cmd.Parameters.AddWithValue("@VendorID", vendorID)
             cmd.Parameters.AddWithValue("@CustomerID", customerID)
             cmd.Parameters.AddWithValue("@Password", password)
+            cmd.Parameters.AddWithValue("@TransactionID", TransactionID)
 
             ' Execute the SQL command
             cmd.ExecuteNonQuery()
@@ -241,7 +243,7 @@ Public Class EventRegistrationScreen
         TextBox2.Text = uid
 
 
-
+        TextBox5.PasswordChar = "*"
 
         ' Dummy Data, Change it to LoadandBindDataGridView() 
         If False Then
@@ -304,7 +306,7 @@ Public Class EventRegistrationScreen
         InsertEventBooking(EventType, EventStartDate, EventEndDate, CInt(VendorID), CInt(CustomerID), Password)
 
 
-        EventDashboard.Show()
+        'EventDashboard.Show()
         Me.Close()
 
 

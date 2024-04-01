@@ -76,9 +76,9 @@ Partial Class FastagPlanItem
         Me.lblfare.Font = New System.Drawing.Font("Trebuchet MS", 10.98305!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfare.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_cash_30
         Me.lblfare.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.lblfare.Location = New System.Drawing.Point(421, 67)
+        Me.lblfare.Location = New System.Drawing.Point(383, 67)
         Me.lblfare.Name = "lblfare"
-        Me.lblfare.Size = New System.Drawing.Size(88, 33)
+        Me.lblfare.Size = New System.Drawing.Size(123, 33)
         Me.lblfare.TabIndex = 5
         Me.lblfare.Text = "       ₹150"
         Me.lblfare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft

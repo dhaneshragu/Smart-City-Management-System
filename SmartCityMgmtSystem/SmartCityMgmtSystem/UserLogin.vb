@@ -5,7 +5,7 @@ Imports System.Security.Cryptography
 Public Class UserLogin
 
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        TextBox3.PasswordChar = "*"
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

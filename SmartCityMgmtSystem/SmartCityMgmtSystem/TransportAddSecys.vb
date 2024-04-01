@@ -83,6 +83,8 @@ Public Class TransportAddSecys
                     Using reader As MySqlDataReader = command.ExecuteReader()
                         If reader.Read() Then
                             TextBox1.Text = reader.GetString("name")
+                        Else
+                            TextBox1.Text = "User Not Found"
                         End If
                     End Using
                 End Using
@@ -137,5 +139,13 @@ Public Class TransportAddSecys
             ComboBox1.SelectedIndex = -1
             NumericUpDown1.Value = 0
         End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Label3.Text = "Add Officers"
+        Button1.Text = "Add"
+        NumericUpDown1.Value = 0
+        ComboBox1.SelectedIndex = -1
+        TextBox1.Text = "User Not Found"
     End Sub
 End Class

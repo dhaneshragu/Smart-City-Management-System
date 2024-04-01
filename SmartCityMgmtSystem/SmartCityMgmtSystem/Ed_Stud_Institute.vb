@@ -22,4 +22,10 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Globals.viewChildForm(childformPanel, Ed_Inst_FeeDetails)
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim form As New Ed_CertificateList()
+        form.EC_Insti = "Institute"
+        Globals.viewChildForm(childformPanel, form)
+    End Sub
 End Class

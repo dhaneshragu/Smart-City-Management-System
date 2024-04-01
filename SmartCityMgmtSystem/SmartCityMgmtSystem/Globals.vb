@@ -1,4 +1,5 @@
 ﻿Imports System.Configuration
+Imports System.IO
 Imports MySql.Data.MySqlClient
 
 'To get the global variables/declarations to be used all over the project
@@ -118,6 +119,68 @@ Public Class Globals
             CType(childform, HomePage).SetMainForm(parentForm)
         End If
     End Sub
+    'To send notifications to the users, give uid as -1 if u want to send to all
+    'refer to your ministry id from ministries table in db
+    Public Shared Sub SendNotifications(ministry_id As Integer, to_uid As Integer, notif_title As String, notifmsg As String)
+        Dim currentTimeStamp As DateTime = DateTime.Now
+        Dim formattedTimeStamp As String = currentTimeStamp.ToString("yyyy-MM-dd HH:mm:ss")
+        Dim query As String = "INSERT INTO notifications (ministry_id, to_id, title, message, time_stamp) VALUES (@ministry_id, @to_uid, @notif_title, @notifmsg, @dt)"
+
+        Using connection As New MySqlConnection(getdbConnectionString())
+            Using command As New MySqlCommand(query, connection)
+                ' Add parameters
+                command.Parameters.AddWithValue("@ministry_id", ministry_id)
+                command.Parameters.AddWithValue("@to_uid", to_uid)
+                command.Parameters.AddWithValue("@notif_title", notif_title)
+                command.Parameters.AddWithValue("@notifmsg", notifmsg)
+                command.Parameters.AddWithValue("@dt", formattedTimeStamp)
+                Try
+                    connection.Open()
+                    If command.ExecuteNonQuery() > 0 Then
+                        'MessageBox.Show("Notification sent successfully", "Notification Sent", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show("Error sending notification: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End Using
+        End Using
+    End Sub
+
+    'Fetches the Picture from DB, given the query and field name
+    Public Shared Function GetPicture(query As String, fieldName As String) As Image
+        Dim profileImage As Image = Nothing
+
+        Try
+            Using connection As New MySqlConnection(getdbConnectionString())
+                connection.Open()
+                Using command As New MySqlCommand(query, connection)
+
+                    Using reader As MySqlDataReader = command.ExecuteReader()
+                        If reader.Read() Then
+                            ' Check if the photo data is not null
+                            If Not reader.IsDBNull(0) Then
+                                ' Retrieve the photo data as a byte array
+                                Dim photoData As Byte() = DirectCast(reader(fieldName), Byte())
+
+                                ' Load the photo data into a MemoryStream
+                                Using ms As New MemoryStream(photoData)
+                                    ' Create an Image object from the MemoryStream
+                                    profileImage = Image.FromStream(ms)
+                                End Using
+                            End If
+                        End If
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            ' Handle any exceptions
+            MessageBox.Show("Error fetching profile photo: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+        Return profileImage
+    End Function
 
 
 End Class
+
+

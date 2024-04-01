@@ -1,9 +1,12 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Web.UI.WebControls
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports MySql.Data.MySqlClient
 
 Public Class UserSignUp
 
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        TextBox3.PasswordChar = "*"
+        TextBox4.PasswordChar = "*"
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)

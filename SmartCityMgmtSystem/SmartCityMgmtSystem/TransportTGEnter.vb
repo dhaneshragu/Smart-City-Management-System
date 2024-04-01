@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class TransportTGEnter
-
+    Public Property uid As Integer = 11
+    Public Property u_name As String = "Dhanesh"
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub

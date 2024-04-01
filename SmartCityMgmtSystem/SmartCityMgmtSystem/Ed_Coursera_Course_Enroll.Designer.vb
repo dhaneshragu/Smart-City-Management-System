@@ -78,10 +78,10 @@ Partial Class Ed_Coursera_Course_Enroll
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox1.Font = New System.Drawing.Font("Cascadia Mono", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.RichTextBox1.Location = New System.Drawing.Point(61, 497)
+        Me.RichTextBox1.Location = New System.Drawing.Point(133, 525)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(567, 189)
+        Me.RichTextBox1.Size = New System.Drawing.Size(1028, 189)
         Me.RichTextBox1.TabIndex = 18
         Me.RichTextBox1.Text = "Summary" & Global.Microsoft.VisualBasic.ChrW(10)
         '
@@ -89,7 +89,7 @@ Partial Class Ed_Coursera_Course_Enroll
         '
         Me.Label3.Font = New System.Drawing.Font("Cascadia Mono", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(56, 462)
+        Me.Label3.Location = New System.Drawing.Point(128, 490)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(572, 31)
         Me.Label3.TabIndex = 17
@@ -99,7 +99,7 @@ Partial Class Ed_Coursera_Course_Enroll
         '
         Me.Label2.Font = New System.Drawing.Font("Cascadia Mono", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(56, 431)
+        Me.Label2.Location = New System.Drawing.Point(128, 459)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(572, 31)
         Me.Label2.TabIndex = 16
@@ -109,7 +109,7 @@ Partial Class Ed_Coursera_Course_Enroll
         '
         Me.Label1.Font = New System.Drawing.Font("Cascadia Mono", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(205, 57)
+        Me.Label1.Location = New System.Drawing.Point(205, 24)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(872, 50)
         Me.Label1.TabIndex = 15
@@ -118,10 +118,10 @@ Partial Class Ed_Coursera_Course_Enroll
         '
         'WebBrowser1
         '
-        Me.WebBrowser1.Location = New System.Drawing.Point(61, 130)
+        Me.WebBrowser1.Location = New System.Drawing.Point(133, 79)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(1156, 271)
+        Me.WebBrowser1.Size = New System.Drawing.Size(1028, 369)
         Me.WebBrowser1.TabIndex = 14
         '
         'Button2
@@ -130,7 +130,7 @@ Partial Class Ed_Coursera_Course_Enroll
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Cascadia Mono", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(1038, 426)
+        Me.Button2.Location = New System.Drawing.Point(982, 454)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(179, 43)
         Me.Button2.TabIndex = 32
@@ -146,7 +146,7 @@ Partial Class Ed_Coursera_Course_Enroll
         Me.Button6.ForeColor = System.Drawing.Color.Ivory
         Me.Button6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_back_arrow_25
         Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(51, 67)
+        Me.Button6.Location = New System.Drawing.Point(51, 34)
         Me.Button6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button6.Name = "Button6"
         Me.Button6.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)

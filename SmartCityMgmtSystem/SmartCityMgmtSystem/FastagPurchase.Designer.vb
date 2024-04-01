@@ -91,7 +91,7 @@ Partial Class FastagPurchase
         Me.lblfare.ImageAlign = System.Drawing.ContentAlignment.TopLeft
         Me.lblfare.Location = New System.Drawing.Point(352, 68)
         Me.lblfare.Name = "lblfare"
-        Me.lblfare.Size = New System.Drawing.Size(88, 33)
+        Me.lblfare.Size = New System.Drawing.Size(154, 33)
         Me.lblfare.TabIndex = 5
         Me.lblfare.Text = "       ₹150"
         Me.lblfare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft

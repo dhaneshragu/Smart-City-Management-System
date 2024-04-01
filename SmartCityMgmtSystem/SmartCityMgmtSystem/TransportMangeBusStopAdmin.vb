@@ -43,6 +43,7 @@ Public Class TransportMangeBusStopAdmin
 
         Try
             Con.Open()
+
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try

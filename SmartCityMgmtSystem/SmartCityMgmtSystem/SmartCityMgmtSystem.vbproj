@@ -146,6 +146,102 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Ed_Add_Institution.Designer.vb">
+      <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Add_Institution.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_EditECourse.Designer.vb">
+      <DependentUpon>Ed_EditECourse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_EditECourse.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Institute_Edit.Designer.vb">
+      <DependentUpon>Ed_Institute_Edit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Institute_Edit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_AddAssgn.Designer.vb">
+      <DependentUpon>Ed_Teacher_AddAssgn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_AddAssgn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_AddResource.Designer.vb">
+      <DependentUpon>Ed_Teacher_AddResource.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_AddResource.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_AddSummary.Designer.vb">
+      <DependentUpon>Ed_Teacher_AddSummary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_AddSummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_EditAssgn.Designer.vb">
+      <DependentUpon>Ed_Teacher_EditAssgn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_EditAssgn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_EditResource.Designer.vb">
+      <DependentUpon>Ed_Teacher_EditResource.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_EditResource.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenCitizenViolationPR.Designer.vb">
+      <DependentUpon>ElectionInnerScreenCitizenViolationPR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenCitizenViolationPR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventLoginWindow.Designer.vb">
+      <DependentUpon>EventLoginWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EventLoginWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventVendorLoginWindow.Designer.vb">
+      <DependentUpon>EventVendorLoginWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EventVendorLoginWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_CertificateList.Designer.vb">
+      <DependentUpon>Ed_CertificateList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_CertificateList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_CourseAss.Designer.vb">
+      <DependentUpon>Ed_Teacher_Moodle_CourseAss.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_CourseAss.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_CourseContent.Designer.vb">
+      <DependentUpon>Ed_Teacher_Moodle_CourseContent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_CourseContent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_CourseList.Designer.vb">
+      <DependentUpon>Ed_Teacher_Moodle_CourseList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_CourseList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_CourseResource.Designer.vb">
+      <DependentUpon>Ed_Teacher_Moodle_CourseResource.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_CourseResource.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HealthcareApproveAppointmentAdmin.Designer.vb">
       <DependentUpon>HealthcareApproveAppointmentAdmin.vb</DependentUpon>
     </Compile>
@@ -583,13 +679,18 @@
     <Compile Include="NotificationBubble.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TransportGlobals.vb" />
-    <Compile Include="Service_History.Designer.vb">
-      <DependentUpon>Service_History.vb</DependentUpon>
+    <Compile Include="NotificationInnerScreen.Designer.vb">
+      <DependentUpon>NotificationInnerScreen.vb</DependentUpon>
     </Compile>
-    <Compile Include="Service_History.vb">
+    <Compile Include="NotificationInnerScreen.vb">
       <SubType>Form</SubType>
     </Compile>
+	  <Compile Include="Service_History.Designer.vb">
+		  <DependentUpon>Service_History.vb</DependentUpon>
+	  </Compile>
+	  <Compile Include="Service_History.vb">
+		  <SubType>Form</SubType>
+	  </Compile>
     <Compile Include="Service_Payment.Designer.vb">
       <DependentUpon>Service_Payment.vb</DependentUpon>
     </Compile>
@@ -638,7 +739,8 @@
     <Compile Include="Service_Withdraw.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransportManageTollGatesAdmin.Designer.vb">
+	  <Compile Include="TransportGlobals.vb" />
+	  <Compile Include="TransportManageTollGatesAdmin.Designer.vb">
       <DependentUpon>TransportManageTollGatesAdmin.vb</DependentUpon>
     </Compile>
     <Compile Include="TransportManageTollGatesAdmin.vb">
@@ -1192,6 +1294,54 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Ed_Add_Institution.resx">
+      <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_EditECourse.resx">
+      <DependentUpon>Ed_EditECourse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Institute_Edit.resx">
+      <DependentUpon>Ed_Institute_Edit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_AddAssgn.resx">
+      <DependentUpon>Ed_Teacher_AddAssgn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_AddResource.resx">
+      <DependentUpon>Ed_Teacher_AddResource.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_AddSummary.resx">
+      <DependentUpon>Ed_Teacher_AddSummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_EditAssgn.resx">
+      <DependentUpon>Ed_Teacher_EditAssgn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_EditResource.resx">
+      <DependentUpon>Ed_Teacher_EditResource.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenCitizenViolationPR.resx">
+      <DependentUpon>ElectionInnerScreenCitizenViolationPR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventLoginWindow.resx">
+      <DependentUpon>EventLoginWindow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventVendorLoginWindow.resx">
+      <DependentUpon>EventVendorLoginWindow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_CertificateList.resx">
+      <DependentUpon>Ed_CertificateList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_Moodle_CourseAss.resx">
+      <DependentUpon>Ed_Teacher_Moodle_CourseAss.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_Moodle_CourseContent.resx">
+      <DependentUpon>Ed_Teacher_Moodle_CourseContent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_Moodle_CourseList.resx">
+      <DependentUpon>Ed_Teacher_Moodle_CourseList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_Moodle_CourseResource.resx">
+      <DependentUpon>Ed_Teacher_Moodle_CourseResource.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HealthcareApproveAppointmentAdmin.resx">
       <DependentUpon>HealthcareApproveAppointmentAdmin.vb</DependentUpon>
     </EmbeddedResource>
@@ -1396,6 +1546,11 @@
     <EmbeddedResource Include="EventVendorRegistrationScreen.resx">
       <DependentUpon>EventVendorRegistrationScreen.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="lib_borrowed.resx">
+      <DependentUpon>lib_borrowed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib_request.resx">
+      <DependentUpon>lib_request.vb</DependentUpon>
     <EmbeddedResource Include="Request-Cancel_Service.resx">
       <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
     </EmbeddedResource>
@@ -1431,6 +1586,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NotificationBubble.resx">
       <DependentUpon>NotificationBubble.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotificationInnerScreen.resx">
+      <DependentUpon>NotificationInnerScreen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransportManageTollGatesAdmin.resx">
       <DependentUpon>TransportManageTollGatesAdmin.vb</DependentUpon>

@@ -12,7 +12,7 @@
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        Globals.viewChildForm(childformPanel, Ed_AddECourse)
+        Globals.viewChildForm(childformPanel, New Ed_AddECourse(childformPanel))
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -21,5 +21,12 @@
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Globals.viewChildForm(childformPanel, Ed_AddMoodleCourse)
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
+        Dim cur_course As New Ed_Teacher_Moodle_CourseList()
+        cur_course.Cur_All = "Current"
+        Globals.viewChildForm(childformPanel, cur_course)
+
     End Sub
 End Class

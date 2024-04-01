@@ -1,51 +1,44 @@
 ﻿Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 Public Class TransportAdminTGLog
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
-
     Private Sub LoadandBindDataGridView()
-        'Get connection String from globals
-        Dim conString = Globals.getdbConnectionString()
-        Dim Con = New SqlConnection(conString)
+        'Get connection from globals
+        Dim Con = Globals.GetDBConnection()
+        Dim reader As MySqlDataReader
+        Dim cmd As MySqlCommand
 
-        'Query for SQL table
-        Dim query = "enter your query"
-        Con.Open()
+        Try
+            Con.Open()
 
-        Dim cmd As New SqlCommand(query, Con)
-        Dim adapter As New SqlDataAdapter(cmd)
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
+        cmd = New MySqlCommand("SELECT toll_entries.vehicle_id, toll_entries.ft_id AS Fastag_ID, vehicle_reg.vehicle_type, toll_entries.lane_id, toll_entries.timestamp FROM toll_entries JOIN vehicle_reg ON toll_entries.vehicle_id = vehicle_reg.vehicle_id", Con)
+        reader = cmd.ExecuteReader
         ' Create a DataTable to store the data
         Dim dataTable As New DataTable()
 
         'Fill the DataTable with data from the SQL table
-        adapter.Fill(dataTable)
+        dataTable.Load(reader)
+        reader.Close()
+        Con.Close()
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "Column Name in SQL table"
-        DataGridView1.Columns(1).DataPropertyName = "Column Name in SQL table"
+        DataGridView1.Columns(0).DataPropertyName = "vehicle_id"
+        DataGridView1.Columns(1).DataPropertyName = "Fastag_ID"
+        DataGridView1.Columns(2).DataPropertyName = "vehicle_type"
+        DataGridView1.Columns(3).DataPropertyName = "lane_id"
+        DataGridView1.Columns(4).DataPropertyName = "timestamp"
 
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
     End Sub
 
     Private Sub TransportationInnerScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        ' Dummy Data, Change it to LoadandBindDataGridView() 
-        For i As Integer = 1 To 8
-            ' Add an empty row to the DataGridView
-            Dim row As New DataGridViewRow()
-            DataGridView1.Rows.Add(row)
-
-            ' Set values for the first three columns in the current row
-            DataGridView1.Rows(i - 1).Cells("Column1").Value = "DummyVal"
-            DataGridView1.Rows(i - 1).Cells("Column2").Value = "DummyVal"
-            DataGridView1.Rows(i - 1).Cells("Column3").Value = "DummyVal"
-            DataGridView1.Rows(i - 1).Cells("Column4").Value = "DummyVal"
-            DataGridView1.Rows(i - 1).Cells("Column5").Value = "DummyVal"
-        Next
+        LoadandBindDataGridView()
     End Sub
 
 End Class

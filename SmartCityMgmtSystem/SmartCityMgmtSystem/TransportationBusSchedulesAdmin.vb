@@ -323,29 +323,67 @@ Public Class TransportationBusSchedulesAdmin
                 bitString = bitString.Remove(6, 1).Insert(6, "1")
             End If
 
+            Dim arr(6) As Integer
+            If bitString(0) = "1" Then
+                arr(0) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(0) = 0
+            End If
+            If bitString(1) = "1" Then
+                arr(1) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(1) = 0
+            End If
+            If bitString(2) = "1" Then
+                arr(2) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(2) = 0
+            End If
+            If bitString(3) = "1" Then
+                arr(3) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(3) = 0
+            End If
+            If bitString(4) = "1" Then
+                arr(4) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(4) = 0
+            End If
+            If bitString(5) = "1" Then
+                arr(5) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(5) = 0
+            End If
+            If bitString(6) = "1" Then
+                arr(6) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(6) = 0
+            End If
+
             Dim decimalValue As Integer = Convert.ToInt32(bitString, 2)
 
             cmd = "UPDATE bus_schedules SET bus_no = '" & TextBox6.Text & "', starting_time = '" & DateTimePicker2.Value.TimeOfDay.ToString() & "', days_operating = " & decimalValue.ToString() & ", src_id = " & ComboBox1.SelectedValue & ", dest_id = " & ComboBox2.SelectedValue & ", bus_fare = '" & TextBox8.Text & "', capacity = '" & TextBox7.Text & "' WHERE bus_no = " & primaryKeyEdit
             Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
+            Globals.ExecuteUpdateQuery("Update bus_capacity set mon = " & arr(0) & ",tue = " & arr(1) & ", wed = " & arr(2) & ", thu = " & arr(3) & ", fri = " & arr(4) & ", sat = " & arr(5) & ", sun = " & arr(6) & " where bus_no = " & primaryKeyEdit)
             If success Then
-                    LoadandBindDataGridView()
-                End If
+                LoadandBindDataGridView()
+            End If
             Label3.Text = "Add New Bus Schedule"
             Button3.Text = "Add"
-                TextBox6.Clear()
+            TextBox6.Clear()
             DateTimePicker2.Value = DateTime.Now
             TextBox8.Clear()
-                TextBox7.Clear()
-                CheckBox1.Checked = False
-                CheckBox2.Checked = False
-                CheckBox3.Checked = False
-                CheckBox4.Checked = False
-                CheckBox5.Checked = False
-                CheckBox6.Checked = False
-                CheckBox7.Checked = False
-                ComboBox1.SelectedIndex = -1
-                ComboBox2.SelectedIndex = -1
-                Else
+            TextBox7.Clear()
+            CheckBox1.Checked = False
+            CheckBox2.Checked = False
+            CheckBox3.Checked = False
+            CheckBox4.Checked = False
+            CheckBox5.Checked = False
+            CheckBox6.Checked = False
+            CheckBox7.Checked = False
+            ComboBox1.SelectedIndex = -1
+            ComboBox2.SelectedIndex = -1
+        Else
             Dim cmd As String
 
             Dim bitString As String = "0000000"
@@ -371,25 +409,63 @@ Public Class TransportationBusSchedulesAdmin
                 bitString = bitString.Remove(6, 1).Insert(6, "1")
             End If
 
+            Dim arr(6) As Integer
+            If bitString(0) = "1" Then
+                arr(0) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(0) = 0
+            End If
+            If bitString(1) = "1" Then
+                arr(1) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(1) = 0
+            End If
+            If bitString(2) = "1" Then
+                arr(2) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(2) = 0
+            End If
+            If bitString(3) = "1" Then
+                arr(3) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(3) = 0
+            End If
+            If bitString(4) = "1" Then
+                arr(4) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(4) = 0
+            End If
+            If bitString(5) = "1" Then
+                arr(5) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(5) = 0
+            End If
+            If bitString(6) = "1" Then
+                arr(6) = Convert.ToInt32(TextBox7.Text)
+            Else
+                arr(6) = 0
+            End If
+
             Dim decimalValue As Integer = Convert.ToInt32(bitString, 2)
             cmd = "INSERT into bus_schedules (bus_no,starting_time,days_operating,src_id,dest_id,bus_fare,capacity) VALUES ('" & TextBox6.Text & "','" & DateTimePicker2.Value.TimeOfDay.ToString() & "'," & decimalValue.ToString() & "," & ComboBox1.SelectedValue & "," & ComboBox2.SelectedValue & ",'" & TextBox8.Text & "','" & TextBox7.Text & "')"
             Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
-                If success Then
-                    LoadandBindDataGridView()
-                End If
-                TextBox6.Clear()
+            Globals.ExecuteInsertQuery("Insert into bus_capacity values(" & Convert.ToInt32(TextBox6.Text) & "," & arr(0) & "," & arr(1) & "," & arr(2) & "," & arr(3) & "," & arr(4) & "," & arr(5) & "," & arr(6) & ")")
+            If success Then
+                LoadandBindDataGridView()
+            End If
+            TextBox6.Clear()
             DateTimePicker2.Value = DateTime.Now
             TextBox8.Clear()
-                TextBox7.Clear()
-                CheckBox1.Checked = False
-                CheckBox2.Checked = False
-                CheckBox3.Checked = False
-                CheckBox4.Checked = False
-                CheckBox5.Checked = False
-                CheckBox6.Checked = False
-                CheckBox7.Checked = False
-                ComboBox1.SelectedIndex = -1
-                ComboBox2.SelectedIndex = -1
+            TextBox7.Clear()
+            CheckBox1.Checked = False
+            CheckBox2.Checked = False
+            CheckBox3.Checked = False
+            CheckBox4.Checked = False
+            CheckBox5.Checked = False
+            CheckBox6.Checked = False
+            CheckBox7.Checked = False
+            ComboBox1.SelectedIndex = -1
+            ComboBox2.SelectedIndex = -1
         End If
     End Sub
 End Class

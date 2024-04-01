@@ -25,10 +25,10 @@ Public Class ElectionInnerScreen2
             ListView1.SmallImageList = lstviewItemImageList
 
             Dim image_list() As String
-            image_list = New String() {"icons8-commodity-100.png", "icons8-complain-100.png", "icons8-taj-mahal-100.png", "icons8-transportation-100.png", "icons8-health-100.png", "icons8-student-center-100.png", "icons8-active-directory-100.png", "icons8-live-video-on-100.png", "icons8-system-information-100.png"}
+            image_list = New String() {"icons8-active-directory-100.png", "icons8-student-center-100.png", "icons8-taj-mahal-100.png", "icons8-commodity-100.png", "icons8-transportation-100.png", "icons8-complain-100.png", "icons8-health-100.png", "icons8-live-video-on-100.png", "icons8-system-information-100.png"}
 
             Dim text_list() As String
-            text_list = New String() {"Ministry of Finance", "Ministry of Power", "Ministry of Culture", " Ministry of Transport", "Ministry of Health", "Ministry of Education", "Ministry of Labor & Employement", "Ministry of Information & Broadcasting", "Ministry of Information Technology"}
+            text_list = New String() {"Ministry of Labor & Employement", "Ministry of Finance", "Ministry of Power", "Ministry of Culture", " Ministry of Transport", "Ministry of Health", "Ministry of Education", "Ministry of Information & Broadcasting", "Ministry of Information Technology"}
 
             Dim minister_list() As String ' Add minister names
             minister_list = New String() {"John Doe", "Jane Smith", "Mike Johnson", "Chris Brown", "Emily White", "David Lee", "Jessica Taylor", "Matthew Davis", "Sarah Clark", "Kevin Miller"}

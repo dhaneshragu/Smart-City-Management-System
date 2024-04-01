@@ -1,6 +1,8 @@
 ﻿Public Class Ed_GlobalDashboard
     Public innerpanel As Panel
     Public userID As Integer
+    Public userName As String
+    Private hasLoaded As Boolean = False
     Public Structure Profile
         Public Ed_User_ID As Integer
         Public Ed_Username As String
@@ -46,6 +48,7 @@
         formToShow.Show()
     End Sub
     Private Sub Ed_GlobalDashboard_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        hasLoaded = True
         Globals.viewChildForm(Panel1, New Ed_RoleSelect())
     End Sub
 
@@ -67,5 +70,10 @@
         For Each form As Form In formsToClose
             form.Close()
         Next
+    End Sub
+    Private Sub Form1_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        If Not hasLoaded Then
+            Globals.viewChildForm(Panel1, New Ed_RoleSelect())
+        End If
     End Sub
 End Class

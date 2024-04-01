@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 Imports System.Security.Cryptography
 Imports MySql.Data.MySqlClient
 Public Class RideSharingMain
@@ -193,7 +194,7 @@ Public Class RideSharingMain
     Private Sub LoadPosts()
         ' Clear existing posts
         PostsPanel.Controls.Clear()
-        Dim query As String = "SELECT rs.req_id, rs.uid, users.name, rs.vehicle_id, rs.capacity, rs.note, rs.fare_per_person, CONCAT(DATE_FORMAT(rs.start_datetime, '%d-%m-%Y'), ', ', DATE_FORMAT(rs.start_datetime, '%h:%i %p')) AS start_datetime, src.place_name AS src, dest.place_name AS dest FROM ride_sharing_entries rs JOIN placedb src ON rs.src_id = src.id JOIN placedb dest ON rs.dest_id = dest.id JOIN users ON users.user_id = rs.uid WHERE rs.status='approved' ORDER BY rs.start_datetime ASC;"
+        Dim query As String = "SELECT rs.req_id, rs.uid, users.name, users.profile_photo, rs.vehicle_id, rs.capacity, rs.note, rs.fare_per_person, CONCAT(DATE_FORMAT(rs.start_datetime, '%d-%m-%Y'), ', ', DATE_FORMAT(rs.start_datetime, '%h:%i %p')) AS start_datetime, src.place_name AS src, dest.place_name AS dest FROM ride_sharing_entries rs JOIN placedb src ON rs.src_id = src.id JOIN placedb dest ON rs.dest_id = dest.id JOIN users ON users.user_id = rs.uid WHERE rs.status='approved' ORDER BY rs.start_datetime ASC;"
         Using connection As New MySqlConnection(Globals.getdbConnectionString())
             Using command As New MySqlCommand(query, connection)
                 connection.Open()
@@ -213,8 +214,15 @@ Public Class RideSharingMain
                         Dim src As String = reader("src").ToString()
                         Dim note As String = reader("note").ToString()
                         Dim dest As String = reader("dest").ToString()
+                        Dim picture As Image = Nothing
+                        If Not reader.IsDBNull(reader.GetOrdinal("profile_photo")) Then
+                            Dim photoData As Byte() = DirectCast(reader("profile_photo"), Byte())
+                            Using ms As New MemoryStream(photoData)
+                                picture = Image.FromStream(ms)
+                            End Using
+                        End If
                         'Add to PostsPanel
-                        AddPost(userName, poster_uid, vehicleId, note, startDatetime, src, dest, farePerPerson, capacity, reqId, Nothing)
+                        AddPost(userName, poster_uid, vehicleId, note, startDatetime, src, dest, farePerPerson, capacity, reqId, picture)
                     End While
 
                 End Using

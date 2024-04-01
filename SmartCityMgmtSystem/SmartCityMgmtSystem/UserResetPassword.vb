@@ -12,7 +12,8 @@ Public Class UserResetPassword
         Me.password = password
     End Sub
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        TextBox1.PasswordChar = "*"
+        TextBox2.PasswordChar = "*"
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)
