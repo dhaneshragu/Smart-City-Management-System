@@ -149,7 +149,7 @@ Partial Class hc_B_Appointment
         '
         'book_appointment
         '
-        Me.book_appointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.book_appointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.book_appointment.FlatAppearance.BorderSize = 0
         Me.book_appointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.book_appointment.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -399,7 +399,7 @@ Partial Class hc_B_Appointment
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1556, 783)
+        Me.ClientSize = New System.Drawing.Size(1444, 783)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button6)
