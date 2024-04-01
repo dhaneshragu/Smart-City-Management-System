@@ -1,5 +1,6 @@
 ﻿Public Class Employment_portal
-
+    Public uid As Integer
+    Public u_name As String
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Text = "Employment Portal"
     End Sub

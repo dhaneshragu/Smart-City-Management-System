@@ -685,16 +685,10 @@
     <Compile Include="NotificationInnerScreen.vb">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="Service_History.Designer.vb">
-		  <DependentUpon>Service_History.vb</DependentUpon>
-	  </Compile>
-	  <Compile Include="Service_History.vb">
-		  <SubType>Form</SubType>
-	  </Compile>
-    <Compile Include="Service_Payment.Designer.vb">
-      <DependentUpon>Service_Payment.vb</DependentUpon>
+    <Compile Include="Service_History.Designer.vb">
+      <DependentUpon>Service_History.vb</DependentUpon>
     </Compile>
-    <Compile Include="Service_Payment.vb">
+    <Compile Include="Service_History.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Service_Portal.Designer.vb">
@@ -739,8 +733,8 @@
     <Compile Include="Service_Withdraw.vb">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="TransportGlobals.vb" />
-	  <Compile Include="TransportManageTollGatesAdmin.Designer.vb">
+    <Compile Include="TransportGlobals.vb" />
+    <Compile Include="TransportManageTollGatesAdmin.Designer.vb">
       <DependentUpon>TransportManageTollGatesAdmin.vb</DependentUpon>
     </Compile>
     <Compile Include="TransportManageTollGatesAdmin.vb">
@@ -1551,6 +1545,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="lib_request.resx">
       <DependentUpon>lib_request.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Request-Cancel_Service.resx">
       <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
     </EmbeddedResource>
@@ -1559,9 +1554,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Service_History.resx">
       <DependentUpon>Service_History.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Service_Payment.resx">
-      <DependentUpon>Service_Payment.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Service_Portal.resx">
       <DependentUpon>Service_Portal.vb</DependentUpon>

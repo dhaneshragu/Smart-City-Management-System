@@ -79,4 +79,14 @@ Public Class HomePage
         Me.ParentForm.Close()
         Me.Close()
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim employment_portal = New Employment_portal() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        employment_portal.Show()
+        Me.ParentForm.Close()
+        Me.Close()
+    End Sub
 End Class
