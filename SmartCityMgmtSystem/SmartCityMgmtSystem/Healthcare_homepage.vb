@@ -19,7 +19,7 @@
         donate_blood.BackColor = Color.FromArgb(88, 133, 175)
         history.BackColor = Color.FromArgb(88, 133, 175)
         pharmacy.BackColor = Color.FromArgb(88, 133, 175)
-        emergency.BackColor = Color.Blue
+        emergency.BackColor = Color.Red
     End Sub
 
     Private Sub donate_blood_Click(sender As Object, e As EventArgs) Handles donate_blood.Click
