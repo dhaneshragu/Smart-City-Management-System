@@ -194,6 +194,12 @@
     <Compile Include="Ed_Teacher_EditResource.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ElectionInnerScreenCitizenViolationPR.Designer.vb">
+      <DependentUpon>ElectionInnerScreenCitizenViolationPR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenCitizenViolationPR.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="EventLoginWindow.Designer.vb">
       <DependentUpon>EventLoginWindow.vb</DependentUpon>
     </Compile>
@@ -535,10 +541,22 @@
     <Compile Include="HealthcareHealthRecordAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HealthcareManageDoctorAdmin.Designer.vb">
+      <DependentUpon>HealthcareManageDoctorAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HealthcareManageDoctorAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Healthcare_BookAppointment.Designer.vb">
       <DependentUpon>Healthcare_BookAppointment.vb</DependentUpon>
     </Compile>
     <Compile Include="Healthcare_BookAppointment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Healthcare_History.Designer.vb">
+      <DependentUpon>Healthcare_History.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Healthcare_History.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Healthcare_homepage.Designer.vb">
@@ -605,6 +623,18 @@
       <DependentUpon>EventVendorRegistrationScreen.vb</DependentUpon>
     </Compile>
     <Compile Include="EventVendorRegistrationScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Healthcare_DonateBlood.Designer.vb">
+      <DependentUpon>Healthcare_DonateBlood.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Healthcare_DonateBlood.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Healthcare_Pharmacy.Designer.vb">
+      <DependentUpon>Healthcare_Pharmacy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Healthcare_Pharmacy.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NewsDashboard.Designer.vb">
@@ -1204,6 +1234,9 @@
     <EmbeddedResource Include="Ed_Teacher_EditResource.resx">
       <DependentUpon>Ed_Teacher_EditResource.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenCitizenViolationPR.resx">
+      <DependentUpon>ElectionInnerScreenCitizenViolationPR.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EventLoginWindow.resx">
       <DependentUpon>EventLoginWindow.vb</DependentUpon>
     </EmbeddedResource>
@@ -1372,8 +1405,14 @@
     <EmbeddedResource Include="HealthcareHealthRecordAdmin.resx">
       <DependentUpon>HealthcareHealthRecordAdmin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HealthcareManageDoctorAdmin.resx">
+      <DependentUpon>HealthcareManageDoctorAdmin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Healthcare_BookAppointment.resx">
       <DependentUpon>Healthcare_BookAppointment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Healthcare_History.resx">
+      <DependentUpon>Healthcare_History.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Healthcare_homepage.resx">
       <DependentUpon>Healthcare_homepage.vb</DependentUpon>
@@ -1404,6 +1443,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EventVendorRegistrationScreen.resx">
       <DependentUpon>EventVendorRegistrationScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Healthcare_DonateBlood.resx">
+      <DependentUpon>Healthcare_DonateBlood.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Healthcare_Pharmacy.resx">
+      <DependentUpon>Healthcare_Pharmacy.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="lib_borrowed.resx">
       <DependentUpon>lib_borrowed.vb</DependentUpon>
@@ -2144,6 +2189,7 @@
     <Content Include="Resources\icons8-permanent-job-100.png" />
     <Content Include="Resources\icons8-person-80.png" />
     <None Include="Resources\icons8-person-801.png" />
+    <None Include="Resources\icons8-rupee-30.png" />
     <Content Include="Resources\icons8-student-center-100.png" />
     <Content Include="Resources\icons8-system-information-100.png" />
     <Content Include="Resources\icons8-taj-mahal-100.png" />

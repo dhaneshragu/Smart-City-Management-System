@@ -1,6 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
+
 Public Class ElectionInnerScreenCitizenViolation
+    Public Property LastElectionIDpass As Integer
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         helpOptionsAdd()
         ComboBox1.SelectedIndex = -1
@@ -28,7 +30,7 @@ Public Class ElectionInnerScreenCitizenViolation
         reader.Close()
 
         populateComboBox(lastElectionID)
-
+        LastElectionIDpass = lastElectionID
         MessageBox.Show("All nominated and approved candidates are provided in the drop down list. You can now report a violation against anyone of them.")
 
     End Sub
@@ -136,5 +138,9 @@ Public Class ElectionInnerScreenCitizenViolation
                                 "," & candidate_uid & "," & """" & RichTextBox1.Text.ToString & """," & " '' );"
 
         InsertQuery(insertReportQuery)
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenCitizenViolationPR)
     End Sub
 End Class

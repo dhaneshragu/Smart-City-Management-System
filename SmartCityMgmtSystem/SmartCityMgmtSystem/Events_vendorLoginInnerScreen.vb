@@ -19,7 +19,7 @@ Public Class Events_vendorLoginInnerScreen
         End Try
 
         ' Use parameterized query to prevent SQL injection and handle dates properly
-        Dim query As String = "SELECT  eb.customerID AS CustomerID, eb.transactionID AS TransactionID,eb.startdate AS EventStartDate  FROM eventBookings AS eb INNER JOIN  Vendor AS v ON eb.vendorID = v.vendorID WHERE v.vendorID = @VendorID AND v.password = @Password"
+        Dim query As String = "SELECT  eb.customerID AS CustomerID, eb.transactionID AS TransactionID FROM eventBookings AS eb INNER JOIN  Vendor AS v ON eb.vendorID = v.vendorID WHERE v.vendorID = @VendorID AND v.password = @Password"
 
         cmd = New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@VendorID", uid)
@@ -41,7 +41,7 @@ Public Class Events_vendorLoginInnerScreen
         DataGridView1.Columns(0).DataPropertyName = "CustomerID"
         'DataGridView1.Columns(2).DataPropertyName = "specialisation"
         DataGridView1.Columns(1).DataPropertyName = "TransactionID"
-        DataGridView1.Columns(2).DataPropertyName = "Date"
+        'DataGridView1.Columns(2).DataPropertyName = "Time"
 
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable

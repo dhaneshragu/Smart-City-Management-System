@@ -39,7 +39,6 @@ Partial Class Events_vendorLoginInnerScreen
         Me.Label4 = New System.Windows.Forms.Label()
         Me.CustomerID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TransactionID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Time = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -75,7 +74,7 @@ Partial Class Events_vendorLoginInnerScreen
         Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.ColumnHeadersHeight = 47
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CustomerID, Me.TransactionID, Me.Time})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CustomerID, Me.TransactionID})
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkGoldenrod
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -211,13 +210,6 @@ Partial Class Events_vendorLoginInnerScreen
         Me.TransactionID.Name = "TransactionID"
         Me.TransactionID.ReadOnly = True
         '
-        'Time
-        '
-        Me.Time.HeaderText = "Date and Time"
-        Me.Time.MinimumWidth = 6
-        Me.Time.Name = "Time"
-        Me.Time.ReadOnly = True
-        '
         'Events_vendorLoginInnerScreen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
@@ -243,5 +235,4 @@ Partial Class Events_vendorLoginInnerScreen
     Friend WithEvents DataGridViewImageColumn3 As DataGridViewImageColumn
     Friend WithEvents CustomerID As DataGridViewTextBoxColumn
     Friend WithEvents TransactionID As DataGridViewTextBoxColumn
-    Friend WithEvents Time As DataGridViewTextBoxColumn
 End Class

@@ -63,4 +63,12 @@ Public Class HealthcareAssignDoctorAdmin
     Private Sub DataGridView1_CellContentClick_2(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick_3(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
 End Class

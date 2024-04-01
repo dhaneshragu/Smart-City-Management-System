@@ -41,14 +41,15 @@ Public Class TransportManageTollGatesAdmin
 
     Private Function GetVehicles() As List(Of Vehicle)
         Dim vehicles As New List(Of Vehicle)()
-        For i As Integer = 1 To 7
-            Dim id As Integer = i
-            Dim name As String = GetVehicleType(i)
+        For Each kvp As KeyValuePair(Of Integer, String) In TransportGlobals.vehicleTypeMap
+            Dim id As Integer = kvp.Key
+            Dim name As String = kvp.Value
             Dim vehicle As New Vehicle(id, name)
             vehicles.Add(vehicle)
         Next
         Return vehicles
     End Function
+
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         ' Check if the clicked cell is in the "EditBut" column and not a header cell

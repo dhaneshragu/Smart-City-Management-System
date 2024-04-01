@@ -1,6 +1,6 @@
 ﻿Public Class TransportGlobals
     ' Dictionary to store vehicle ID to vehicle type mapping
-    Private Shared vehicleTypeMap As New Dictionary(Of Integer, String) From {
+    Public Shared vehicleTypeMap As New Dictionary(Of Integer, String) From {
         {1, "Sedan"},
         {2, "SUV"},
         {3, "Bike"},

@@ -33,7 +33,7 @@ Public Class RideSharingChats
                         If Globals.ExecuteInsertQuery(query) Then
                             query = "UPDATE ridesharing_chats_users SET status = 'not-added' WHERE req_id = " & req_id & " AND uid = " & Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value) & ";"
                             If Globals.ExecuteInsertQuery(query) Then
-                                Globals.SendNotifications(4, Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value), "Ride Sharing Request Rejected", "Your request to join " & u_name & "'s Ride Sharing has been rejected by them. You will be receiving the refund for your payment soon.")
+                                Globals.SendNotifications(5, Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value), "Ride Sharing Request Rejected", "Your request to join " & u_name & "'s Ride Sharing has been rejected by them. You will be receiving the refund for your payment soon.")
                                 LoadandBindDataGridView()
                             End If
                         End If
@@ -50,7 +50,7 @@ Public Class RideSharingChats
                                 If Globals.ExecuteInsertQuery(query) Then
                                     query = "UPDATE ridesharing_chats_users SET status = 'added' WHERE req_id = " & req_id & " AND uid = " & Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value) & ";"
                                     If Globals.ExecuteInsertQuery(query) Then
-                                        Globals.SendNotifications(4, Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value), "Ride Sharing Request Accepted", "Your request to join " & u_name & "'s Ride Sharing has been approved by them. Happy Car Pooling!")
+                                        Globals.SendNotifications(5, Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value), "Ride Sharing Request Accepted", "Your request to join " & u_name & "'s Ride Sharing has been approved by them. Happy Car Pooling!")
                                         LoadandBindDataGridView()
                                     End If
                                 End If

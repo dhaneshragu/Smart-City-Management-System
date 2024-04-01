@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Public Class HealthcareApproveAppointmentAdmin
+Public Class HealthcareManageDoctorAdmin
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
         ' Check if the clicked cell is in the "EditBut" column and not a header cell
@@ -52,8 +52,15 @@ Public Class HealthcareApproveAppointmentAdmin
             ' Set values for the first three columns in the current row
             DataGridView1.Rows(i - 1).Cells("Column1").Value = "DummyVal"
             DataGridView1.Rows(i - 1).Cells("Column2").Value = "DummyVal"
-            'DataGridView1.Rows(i - 1).Cells("Column3").Value = "DummyVal"
+            DataGridView1.Rows(i - 1).Cells("Column3").Value = "DummyVal"
         Next
     End Sub
 
+    Private Sub Panel5_Paint(sender As Object, e As PaintEventArgs) Handles Panel5.Paint
+
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
 End Class
