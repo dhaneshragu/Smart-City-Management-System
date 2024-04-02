@@ -3,6 +3,7 @@
     Public userID As Integer
     Public userName As String
     Private hasLoaded As Boolean = False
+    Public PreviousVisibility As Boolean = False
     Public Structure Profile
         Public Ed_User_ID As Integer
         Public Ed_Username As String
@@ -71,9 +72,10 @@
             form.Close()
         Next
     End Sub
-    Private Sub Form1_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        If Not hasLoaded Then
+    Private Sub Form1_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+        If Me.Visible AndAlso hasLoaded AndAlso Me.PreviousVisibility = False Then
             Globals.viewChildForm(Panel1, New Ed_RoleSelect())
         End If
+        Me.PreviousVisibility = Me.Visible
     End Sub
 End Class

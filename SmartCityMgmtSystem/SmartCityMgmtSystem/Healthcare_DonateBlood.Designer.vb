@@ -22,7 +22,6 @@ Partial Class Healthcare_DonateBlood
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Healthcare_DonateBlood))
         Me.d1 = New System.Windows.Forms.Button()
         Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
@@ -30,11 +29,8 @@ Partial Class Healthcare_DonateBlood
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.h5 = New System.Windows.Forms.Button()
-        Me.h3 = New System.Windows.Forms.Button()
-        Me.h4 = New System.Windows.Forms.Button()
-        Me.h1 = New System.Windows.Forms.Button()
-        Me.h2 = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'd1
@@ -42,17 +38,17 @@ Partial Class Healthcare_DonateBlood
         Me.d1.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.d1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.d1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.d1.Location = New System.Drawing.Point(556, 581)
+        Me.d1.Location = New System.Drawing.Point(679, 541)
         Me.d1.Margin = New System.Windows.Forms.Padding(2)
         Me.d1.Name = "d1"
-        Me.d1.Size = New System.Drawing.Size(101, 56)
+        Me.d1.Size = New System.Drawing.Size(109, 70)
         Me.d1.TabIndex = 41
         Me.d1.Text = "Send"
         Me.d1.UseVisualStyleBackColor = False
         '
         'RichTextBox3
         '
-        Me.RichTextBox3.Location = New System.Drawing.Point(470, 501)
+        Me.RichTextBox3.Location = New System.Drawing.Point(460, 562)
         Me.RichTextBox3.Name = "RichTextBox3"
         Me.RichTextBox3.Size = New System.Drawing.Size(187, 49)
         Me.RichTextBox3.TabIndex = 40
@@ -60,7 +56,7 @@ Partial Class Healthcare_DonateBlood
         '
         'RichTextBox2
         '
-        Me.RichTextBox2.Location = New System.Drawing.Point(470, 428)
+        Me.RichTextBox2.Location = New System.Drawing.Point(460, 482)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.Size = New System.Drawing.Size(187, 49)
         Me.RichTextBox2.TabIndex = 39
@@ -68,7 +64,7 @@ Partial Class Healthcare_DonateBlood
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(470, 364)
+        Me.RichTextBox1.Location = New System.Drawing.Point(460, 397)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(187, 49)
         Me.RichTextBox1.TabIndex = 38
@@ -77,9 +73,9 @@ Partial Class Healthcare_DonateBlood
         'Label6
         '
         Me.Label6.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.Label6.Location = New System.Drawing.Point(271, 501)
+        Me.Label6.Location = New System.Drawing.Point(255, 565)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(156, 46)
+        Me.Label6.Size = New System.Drawing.Size(176, 46)
         Me.Label6.TabIndex = 37
         Me.Label6.Text = "Age"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -87,9 +83,9 @@ Partial Class Healthcare_DonateBlood
         'Label5
         '
         Me.Label5.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.Label5.Location = New System.Drawing.Point(267, 364)
+        Me.Label5.Location = New System.Drawing.Point(251, 397)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(160, 49)
+        Me.Label5.Size = New System.Drawing.Size(180, 49)
         Me.Label5.TabIndex = 36
         Me.Label5.Text = "Date and Time"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -97,91 +93,36 @@ Partial Class Healthcare_DonateBlood
         'Label3
         '
         Me.Label3.BackColor = System.Drawing.Color.Crimson
-        Me.Label3.Location = New System.Drawing.Point(271, 428)
+        Me.Label3.Location = New System.Drawing.Point(251, 480)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(156, 51)
+        Me.Label3.Size = New System.Drawing.Size(180, 51)
         Me.Label3.TabIndex = 35
         Me.Label3.Text = "Blood Group"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'h5
+        'Panel1
         '
-        Me.h5.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.h5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.h5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.h5.Image = CType(resources.GetObject("h5.Image"), System.Drawing.Image)
-        Me.h5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.h5.Location = New System.Drawing.Point(1018, 114)
-        Me.h5.Margin = New System.Windows.Forms.Padding(2)
-        Me.h5.Name = "h5"
-        Me.h5.Size = New System.Drawing.Size(168, 177)
-        Me.h5.TabIndex = 34
-        Me.h5.Text = "abc"
-        Me.h5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.h5.UseVisualStyleBackColor = False
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.Location = New System.Drawing.Point(79, 131)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1099, 216)
+        Me.Panel1.TabIndex = 42
         '
-        'h3
+        'Label2
         '
-        Me.h3.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.h3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.h3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.h3.Image = CType(resources.GetObject("h3.Image"), System.Drawing.Image)
-        Me.h3.Location = New System.Drawing.Point(568, 111)
-        Me.h3.Margin = New System.Windows.Forms.Padding(2)
-        Me.h3.Name = "h3"
-        Me.h3.Size = New System.Drawing.Size(164, 192)
-        Me.h3.TabIndex = 32
-        Me.h3.Text = "xyz"
-        Me.h3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.h3.UseVisualStyleBackColor = False
-        '
-        'h4
-        '
-        Me.h4.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.h4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.h4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.h4.Image = CType(resources.GetObject("h4.Image"), System.Drawing.Image)
-        Me.h4.Location = New System.Drawing.Point(795, 114)
-        Me.h4.Margin = New System.Windows.Forms.Padding(2)
-        Me.h4.Name = "h4"
-        Me.h4.Size = New System.Drawing.Size(171, 177)
-        Me.h4.TabIndex = 33
-        Me.h4.Text = "Life line"
-        Me.h4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.h4.UseVisualStyleBackColor = False
-        '
-        'h1
-        '
-        Me.h1.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.h1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.h1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.h1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.h1.Image = CType(resources.GetObject("h1.Image"), System.Drawing.Image)
-        Me.h1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.h1.Location = New System.Drawing.Point(84, 99)
-        Me.h1.Margin = New System.Windows.Forms.Padding(2)
-        Me.h1.Name = "h1"
-        Me.h1.Size = New System.Drawing.Size(161, 204)
-        Me.h1.TabIndex = 30
-        Me.h1.Text = "24hrs"
-        Me.h1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.h1.UseVisualStyleBackColor = False
-        '
-        'h2
-        '
-        Me.h2.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.h2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.h2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.h2.Image = CType(resources.GetObject("h2.Image"), System.Drawing.Image)
-        Me.h2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.h2.Location = New System.Drawing.Point(316, 99)
-        Me.h2.Margin = New System.Windows.Forms.Padding(2)
-        Me.h2.Name = "h2"
-        Me.h2.Size = New System.Drawing.Size(172, 204)
-        Me.h2.TabIndex = 31
-        Me.h2.Text = "Care"
-        Me.h2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.h2.UseVisualStyleBackColor = False
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_drop_of_blood_96
+        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Label2.Location = New System.Drawing.Point(30, 0)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(382, 101)
+        Me.Label2.TabIndex = 47
+        Me.Label2.Text = "     Donate Blood"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Healthcare_DonateBlood
         '
@@ -190,6 +131,8 @@ Partial Class Healthcare_DonateBlood
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.healthcare_bg
         Me.ClientSize = New System.Drawing.Size(1270, 736)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.d1)
         Me.Controls.Add(Me.RichTextBox3)
         Me.Controls.Add(Me.RichTextBox2)
@@ -197,11 +140,6 @@ Partial Class Healthcare_DonateBlood
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.h5)
-        Me.Controls.Add(Me.h3)
-        Me.Controls.Add(Me.h4)
-        Me.Controls.Add(Me.h1)
-        Me.Controls.Add(Me.h2)
         Me.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -218,9 +156,6 @@ Partial Class Healthcare_DonateBlood
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents h5 As Button
-    Friend WithEvents h3 As Button
-    Friend WithEvents h4 As Button
-    Friend WithEvents h1 As Button
-    Friend WithEvents h2 As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label2 As Label
 End Class

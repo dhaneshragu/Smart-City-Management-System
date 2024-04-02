@@ -23,6 +23,7 @@ Partial Class UserDetails
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.childformPanel = New System.Windows.Forms.Panel()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -38,14 +39,13 @@ Partial Class UserDetails
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.childformPanel.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,6 +80,16 @@ Partial Class UserDetails
         Me.childformPanel.Name = "childformPanel"
         Me.childformPanel.Size = New System.Drawing.Size(1555, 651)
         Me.childformPanel.TabIndex = 1
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.BackColor = System.Drawing.Color.SeaShell
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Male", "Female", "Other"})
+        Me.ComboBox1.Location = New System.Drawing.Point(366, 216)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(352, 30)
+        Me.ComboBox1.TabIndex = 25
         '
         'Button9
         '
@@ -154,7 +164,7 @@ Partial Class UserDetails
         Me.DateTimePicker1.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Location = New System.Drawing.Point(366, 94)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(352, 31)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(352, 30)
         Me.DateTimePicker1.TabIndex = 15
         '
         'Label9
@@ -234,6 +244,16 @@ Partial Class UserDetails
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Gender *"
         '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.SeaShell
+        Me.TextBox2.Location = New System.Drawing.Point(366, 150)
+        Me.TextBox2.Multiline = True
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.ReadOnly = True
+        Me.TextBox2.Size = New System.Drawing.Size(352, 34)
+        Me.TextBox2.TabIndex = 3
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -291,26 +311,6 @@ Partial Class UserDetails
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.BackColor = System.Drawing.Color.SeaShell
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Male", "Female", "Other"})
-        Me.ComboBox1.Location = New System.Drawing.Point(366, 216)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(352, 30)
-        Me.ComboBox1.TabIndex = 25
-        '
-        'TextBox2
-        '
-        Me.TextBox2.BackColor = System.Drawing.Color.SeaShell
-        Me.TextBox2.Location = New System.Drawing.Point(366, 150)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(352, 34)
-        Me.TextBox2.TabIndex = 3
-        '
         'UserDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -324,6 +324,7 @@ Partial Class UserDetails
         Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MaximizeBox = False
         Me.Name = "UserDetails"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Transportation"
         Me.childformPanel.ResumeLayout(False)
         Me.childformPanel.PerformLayout()

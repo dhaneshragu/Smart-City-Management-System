@@ -314,4 +314,7 @@ Public Class ElectionInnerScreen1
 
     End Sub
 
+    Private Sub Panel6_Click(sender As Object, e As EventArgs) Handles Panel6.Click
+        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatistics)
+    End Sub
 End Class

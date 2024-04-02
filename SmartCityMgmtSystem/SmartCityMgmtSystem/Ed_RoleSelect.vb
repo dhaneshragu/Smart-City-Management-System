@@ -9,7 +9,7 @@ Public Class Ed_RoleSelect
         ' Call the GetEdProfileByUserID function
         loginHandle.GetEdProfileByUserID(Ed_GlobalDashboard.userID)
         Ed_GlobalDashboard.innerpanel = Ed_StudentDashboard.childformPanel
-        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_StudentDashboard)
+        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(New Ed_StudentDashboard())
     End Sub
 
     Private Sub pictureButtonvb1_Hover(sender As Object, e As EventArgs) Handles PictureButtonvb1.Hover
@@ -28,7 +28,7 @@ Public Class Ed_RoleSelect
         loginHandle.GetEdProfileByUserID(Ed_GlobalDashboard.userID)
         If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Type = Ed_GlobalDashboard.UserType.Teacher) Then
             Ed_GlobalDashboard.innerpanel = Ed_TeacherDashboard.childformPanel
-            Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_TeacherDashboard)
+            Ed_GlobalDashboard.OpenFormInGlobalEdPanel(New Ed_TeacherDashboard())
         Else
             Dim message As String = "Sorry, you are not qualified to enter as a teacher."
             Dim title As String = "Access Denied"
@@ -58,15 +58,15 @@ Public Class Ed_RoleSelect
             ' Handle different cases inside
             If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Role = Ed_GlobalDashboard.UserRole.Principal) Then
                 Ed_GlobalDashboard.innerpanel = Ed_Institute_AdminDashboard.childformPanel
-                Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_Institute_AdminDashboard)
+                Ed_GlobalDashboard.OpenFormInGlobalEdPanel(New Ed_Institute_AdminDashboard())
             End If
             If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Role = Ed_GlobalDashboard.UserRole.EcourseAdmin) Then
                 Ed_GlobalDashboard.innerpanel = Ed_Coursera_AdminDashboard.childformPanel
-                Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_Coursera_AdminDashboard)
+                Ed_GlobalDashboard.OpenFormInGlobalEdPanel(New Ed_Coursera_AdminDashboard())
             End If
             If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Role = Ed_GlobalDashboard.UserRole.Minister) Then
                 Ed_GlobalDashboard.innerpanel = Ed_MinisterDashboard.childformPanel
-                Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_MinisterDashboard)
+                Ed_GlobalDashboard.OpenFormInGlobalEdPanel(New Ed_MinisterDashboard())
             End If
         Else
                 Dim message As String = "Sorry, you are not qualified to enter as an admin."

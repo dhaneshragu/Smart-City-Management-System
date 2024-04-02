@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 Public Class HealthcareApproveAppointmentAdmin
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
@@ -16,44 +17,50 @@ Public Class HealthcareApproveAppointmentAdmin
     End Sub
 
     Private Sub LoadandBindDataGridView()
-        'Get connection String from globals
-        Dim conString = Globals.getdbConnectionString()
-        Dim Con = New SqlConnection(conString)
+        'Get connection from globals
+        Dim Con = Globals.GetDBConnection()
+        Dim reader As MySqlDataReader
+        Dim cmd As MySqlCommand
 
-        'Query for SQL table
-        Dim query = "enter your query"
-        Con.Open()
+        Try
+            Con.Open()
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
-        Dim cmd As New SqlCommand(query, Con)
-        Dim adapter As New SqlDataAdapter(cmd)
-
+        cmd = New MySqlCommand("SELECT * FROM appointments", Con)
+        reader = cmd.ExecuteReader
         ' Create a DataTable to store the data
         Dim dataTable As New DataTable()
 
         'Fill the DataTable with data from the SQL table
-        adapter.Fill(dataTable)
+        dataTable.Load(reader)
+        reader.Close()
+        Con.Close()
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "Column Name in SQL table"
-        DataGridView1.Columns(1).DataPropertyName = "Column Name in SQL table"
+        DataGridView1.Columns(0).DataPropertyName = "Appointment_id"
+        DataGridView1.Columns(1).DataPropertyName = "status"
+
 
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
     End Sub
 
     Private Sub TransportationInnerScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        ' Dummy Data, Change it to LoadandBindDataGridView() 
-        For i As Integer = 1 To 8
-            ' Add an empty row to the DataGridView
-            Dim row As New DataGridViewRow()
-            DataGridView1.Rows.Add(row)
+        '' Dummy Data, Change it to LoadandBindDataGridView() 
+        'For i As Integer = 1 To 8
+        '    ' Add an empty row to the DataGridView
+        '    Dim row As New DataGridViewRow()
+        '    DataGridView1.Rows.Add(row)
 
-            ' Set values for the first three columns in the current row
-            DataGridView1.Rows(i - 1).Cells("Column1").Value = "DummyVal"
-            DataGridView1.Rows(i - 1).Cells("Column2").Value = "DummyVal"
-            'DataGridView1.Rows(i - 1).Cells("Column3").Value = "DummyVal"
-        Next
+        '    ' Set values for the first three columns in the current row
+        '    DataGridView1.Rows(i - 1).Cells("Column1").Value = "DummyVal"
+        '    DataGridView1.Rows(i - 1).Cells("Column2").Value = "DummyVal"
+        '    'DataGridView1.Rows(i - 1).Cells("Column3").Value = "DummyVal"
+        'Next
+        LoadandBindDataGridView()
     End Sub
 
 End Class

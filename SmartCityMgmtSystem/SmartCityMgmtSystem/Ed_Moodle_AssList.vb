@@ -1,24 +1,32 @@
 ﻿Imports System.Data.SqlClient
+Imports SmartCityMgmtSystem.Ed_Moodle_Handler
 Public Class Ed_Moodle_AssList
     Public RoomID As Integer
     Public Seq_no As Integer
+    Dim handler As New Ed_Moodle_Handler()
     Private Sub Ed_Stud_Coursera_Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim labels As Ed_LeftPanelItem() = New Ed_LeftPanelItem(8) {}
 
-        ' Create labels and set properties
-        For i As Integer = 0 To 7
-            labels(i) = New Ed_LeftPanelItem()
-            labels(i).Label1.Text = "CA " & (i + 1)
-            AddHandler labels(i).Label1.Click, AddressOf Label_Click ' Add click event handler
-        Next
-        ' Add labels to the FlowLayoutPanel
-        For Each Label As Ed_LeftPanelItem In labels
-            FlowLayoutPanel1.Controls.Add(Label)
-        Next
+        Dim contents As RoomContent()
+        contents = handler.GetEnrolledAssignments(Ed_GlobalDashboard.userID)
+
+        ' Check if there are any contents
+        If contents IsNot Nothing AndAlso contents.Length > 0 Then
+            ' Create labels and set properties based on content details
+            For Each content As RoomContent In contents
+                Dim contentItem As New Ed_MoodleResouceLinkItem()
+                contentItem.callingPanel = Panel1
+                contentItem.Label1.Text = content.ContentName ' Assuming Label1 is used to display content names
+                ' Set other properties of contentItem based on content details if needed
+                contentItem.content = content
+                ' Add contentItem to the FlowLayoutPanel
+                FlowLayoutPanel1.Controls.Add(contentItem)
+            Next
+        Else
+            MessageBox.Show("No course content found for the specified Room_ID.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+
     End Sub
-    Private Sub Label_Click(sender As Object, e As EventArgs)
-        Globals.viewChildForm(Panel1, New Ed_Moodle_CourseAss(Panel1))
-    End Sub
+
 
     Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs)
 

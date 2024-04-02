@@ -49,8 +49,6 @@ Public Class Ed_CourseResource
             Dim form As New Ed_Coursera_CourseContent(content.CourseID, callingPanel)
             form.CourseItem = CourseItem
             Globals.viewChildForm(callingPanel, form)
-        Else
-            Globals.viewChildForm(callingPanel, New Ed_Moodle_CourseContent(CourseID, callingPanel))
         End If
 
     End Sub

@@ -1,9 +1,45 @@
-﻿Public Class Ed_EntranceInnerScreen
+﻿Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
+
+Public Class Ed_EntranceInnerScreen
     Private WithEvents marqueeTimer As New Timer()
     Private currentIndex As Integer = 0
     Public labelText As String = ""
-    Private marqueeText As String = "This is a sample ticker text for demonstration purposes. You can replace it with your own news headlines.                                                                                                  "
+    Public examID As Integer
+    Private marqueeText As String = "Applications for the upcoming exam are now open! Apply now to secure your spot!                                                                            "
     Private Sub Ed_EntranceInnerScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim Con = Globals.GetDBConnection()
+        Try
+            Con.Open()
+
+            ' Check if an entry corresponding to the userID exists in the ee_details table
+            Dim query As String = "SELECT Syllabus, About FROM ee_details WHERE Exam_ID = @examID"
+            Dim cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@examID", examID)
+
+            Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+            If reader.Read() Then
+                ' Populate syllabus and about from the database query result
+                If Not reader.IsDBNull(reader.GetOrdinal("Syllabus")) Then
+                    Dim syllabus As String = reader.GetString(reader.GetOrdinal("Syllabus"))
+                    RichTextBox1.Rtf = syllabus
+                End If
+
+                If Not reader.IsDBNull(reader.GetOrdinal("About")) Then
+                    Dim about As String = reader.GetString(reader.GetOrdinal("About"))
+                    RichTextBox2.Rtf = about
+                End If
+            End If
+
+            reader.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            Con.Close()
+        End Try
+
+
         Label1.Text = labelText
         ' Configure the Timer
         marqueeTimer.Interval = 100 ' Adjust the interval as needed for desired scrolling speed
@@ -57,4 +93,9 @@
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
 
     End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
 End Class

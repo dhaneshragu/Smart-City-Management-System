@@ -1,7 +1,7 @@
 ﻿Public Class ElectionDashboard
 
     Public Property LoggedInUserId As Integer = 2
-
+    Public Property ElectionCommissionerId As Integer = 8
     Private Sub election_Click(sender As Object, e As EventArgs) Handles election.Click
         Globals.viewChildForm(childformPanel, ElectionInnerScreen1)
     End Sub
@@ -11,7 +11,13 @@
     End Sub
 
     Private Sub admin_Click(sender As Object, e As EventArgs) Handles admin.Click
-        Globals.viewChildForm(childformPanel, ElectionInnerScreenAdmin)
+        If LoggedInUserId = ElectionCommissionerId Then
+            ' If the logged-in user is the election commissioner, open one page
+            Globals.viewChildForm(childformPanel, ElectionInnerScreenAdmin)
+        Else
+            ' Otherwise, open a different page
+            Globals.viewChildForm(childformPanel, ElectionInnerScreenAdminAccDenied)
+        End If
     End Sub
 
     Private Sub rti_Click(sender As Object, e As EventArgs) Handles rti.Click

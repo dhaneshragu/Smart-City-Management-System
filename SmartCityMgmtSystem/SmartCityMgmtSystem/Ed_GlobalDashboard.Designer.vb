@@ -43,6 +43,7 @@ Partial Class Ed_GlobalDashboard
         Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MaximizeBox = False
         Me.Name = "Ed_GlobalDashboard"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Education"
         Me.ResumeLayout(False)
 
