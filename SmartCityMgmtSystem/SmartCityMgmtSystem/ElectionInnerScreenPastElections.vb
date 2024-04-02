@@ -45,7 +45,7 @@ Public Class ElectionInnerScreenPastElections
             populateComboBox(index)
         Next
 
-        MessageBox.Show("All options are loaded. You can now vote.")
+        MessageBox.Show("You can now search for previous elections data.")
 
     End Sub
 
