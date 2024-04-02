@@ -43,9 +43,8 @@
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Me.Close()
 
-        Dim homepage = New HomePage() With {
-            .uid = uid,
-            .u_name = u_name
+        Dim homepage = New HomePageDashboard() With {
+            .uid = uid
         }
         homepage.Show()
     End Sub

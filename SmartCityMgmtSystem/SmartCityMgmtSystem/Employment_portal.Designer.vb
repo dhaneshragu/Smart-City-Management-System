@@ -31,14 +31,15 @@ Partial Class Employment_portal
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.childformPanel = New System.Windows.Forms.Panel()
+        Me.RichTextBox4 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox4 = New System.Windows.Forms.RichTextBox()
         Me.Button7 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.childformPanel.SuspendLayout()
@@ -183,6 +184,50 @@ Partial Class Employment_portal
         Me.childformPanel.Size = New System.Drawing.Size(1276, 733)
         Me.childformPanel.TabIndex = 1
         '
+        'RichTextBox4
+        '
+        Me.RichTextBox4.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RichTextBox4.Font = New System.Drawing.Font("Trebuchet MS", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox4.Location = New System.Drawing.Point(152, 454)
+        Me.RichTextBox4.Name = "RichTextBox4"
+        Me.RichTextBox4.Size = New System.Drawing.Size(678, 131)
+        Me.RichTextBox4.TabIndex = 3
+        Me.RichTextBox4.Text = """Connect. Discover. Succeed: Your Path to" & Global.Microsoft.VisualBasic.ChrW(10) & "               Professional Growth"""
+        '
+        'RichTextBox3
+        '
+        Me.RichTextBox3.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RichTextBox3.Font = New System.Drawing.Font("Trebuchet MS", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox3.Location = New System.Drawing.Point(269, 329)
+        Me.RichTextBox3.Name = "RichTextBox3"
+        Me.RichTextBox3.Size = New System.Drawing.Size(407, 158)
+        Me.RichTextBox3.TabIndex = 2
+        Me.RichTextBox3.Text = "PORTAL"
+        '
+        'RichTextBox2
+        '
+        Me.RichTextBox2.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RichTextBox2.Font = New System.Drawing.Font("Trebuchet MS", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox2.Location = New System.Drawing.Point(101, 197)
+        Me.RichTextBox2.Name = "RichTextBox2"
+        Me.RichTextBox2.Size = New System.Drawing.Size(878, 158)
+        Me.RichTextBox2.TabIndex = 1
+        Me.RichTextBox2.Text = "EMPLOYMENT"
+        '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RichTextBox1.Font = New System.Drawing.Font("Trebuchet MS", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox1.Location = New System.Drawing.Point(269, 98)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(386, 93)
+        Me.RichTextBox1.TabIndex = 0
+        Me.RichTextBox1.Text = "WELCOME TO "
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -202,7 +247,7 @@ Partial Class Employment_portal
         Me.Label3.CausesValidation = False
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Ivory
-        Me.Label3.Location = New System.Drawing.Point(862, 4)
+        Me.Label3.Location = New System.Drawing.Point(848, 9)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(195, 29)
@@ -227,50 +272,6 @@ Partial Class Employment_portal
         Me.Button6.Text = "      Home Page"
         Me.Button6.UseVisualStyleBackColor = False
         '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox1.Font = New System.Drawing.Font("Trebuchet MS", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.Location = New System.Drawing.Point(269, 98)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(386, 93)
-        Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = "WELCOME TO "
-        '
-        'RichTextBox2
-        '
-        Me.RichTextBox2.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox2.Font = New System.Drawing.Font("Trebuchet MS", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox2.Location = New System.Drawing.Point(101, 197)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(878, 158)
-        Me.RichTextBox2.TabIndex = 1
-        Me.RichTextBox2.Text = "EMPLOYMENT"
-        '
-        'RichTextBox3
-        '
-        Me.RichTextBox3.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox3.Font = New System.Drawing.Font("Trebuchet MS", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox3.Location = New System.Drawing.Point(269, 329)
-        Me.RichTextBox3.Name = "RichTextBox3"
-        Me.RichTextBox3.Size = New System.Drawing.Size(407, 158)
-        Me.RichTextBox3.TabIndex = 2
-        Me.RichTextBox3.Text = "PORTAL"
-        '
-        'RichTextBox4
-        '
-        Me.RichTextBox4.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.RichTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox4.Font = New System.Drawing.Font("Trebuchet MS", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox4.Location = New System.Drawing.Point(152, 454)
-        Me.RichTextBox4.Name = "RichTextBox4"
-        Me.RichTextBox4.Size = New System.Drawing.Size(678, 131)
-        Me.RichTextBox4.TabIndex = 3
-        Me.RichTextBox4.Text = """Connect. Discover. Succeed: Your Path to" & Global.Microsoft.VisualBasic.ChrW(10) & "               Professional Growth"""
-        '
         'Button7
         '
         Me.Button7.CausesValidation = False
@@ -289,12 +290,26 @@ Partial Class Employment_portal
         Me.Button7.Text = "      Home Page"
         Me.Button7.UseVisualStyleBackColor = False
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.CausesValidation = False
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Ivory
+        Me.Label4.Location = New System.Drawing.Point(784, 9)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(70, 29)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "UID: "
+        '
         'Employment_portal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.ClientSize = New System.Drawing.Size(1269, 779)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Label3)
@@ -331,4 +346,5 @@ Partial Class Employment_portal
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents RichTextBox4 As RichTextBox
     Friend WithEvents Button7 As Button
+    Friend WithEvents Label4 As Label
 End Class

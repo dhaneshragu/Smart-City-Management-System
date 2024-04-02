@@ -47,6 +47,7 @@ Partial Class Employment_portal_search
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.childformPanel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,7 +81,7 @@ Partial Class Employment_portal_search
         '
         Me.RichTextBox10.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox10.Location = New System.Drawing.Point(249, 96)
+        Me.RichTextBox10.Location = New System.Drawing.Point(70, 93)
         Me.RichTextBox10.Name = "RichTextBox10"
         Me.RichTextBox10.Size = New System.Drawing.Size(116, 39)
         Me.RichTextBox10.TabIndex = 31
@@ -90,7 +91,7 @@ Partial Class Employment_portal_search
         '
         Me.RichTextBox9.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox9.Location = New System.Drawing.Point(249, 153)
+        Me.RichTextBox9.Location = New System.Drawing.Point(88, 148)
         Me.RichTextBox9.Name = "RichTextBox9"
         Me.RichTextBox9.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
         Me.RichTextBox9.Size = New System.Drawing.Size(131, 37)
@@ -106,7 +107,7 @@ Partial Class Employment_portal_search
         Me.Qual.ForeColor = System.Drawing.Color.White
         Me.Qual.FormattingEnabled = True
         Me.Qual.Items.AddRange(New Object() {"10th Pass", "12th Pass", "UG", "PG", "0-2 yrs Experience", "2+ yrs Experience"})
-        Me.Qual.Location = New System.Drawing.Point(398, 318)
+        Me.Qual.Location = New System.Drawing.Point(868, 148)
         Me.Qual.Margin = New System.Windows.Forms.Padding(0)
         Me.Qual.Name = "Qual"
         Me.Qual.Size = New System.Drawing.Size(375, 39)
@@ -116,7 +117,7 @@ Partial Class Employment_portal_search
         '
         Me.RichTextBox8.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox8.Location = New System.Drawing.Point(249, 211)
+        Me.RichTextBox8.Location = New System.Drawing.Point(127, 211)
         Me.RichTextBox8.Name = "RichTextBox8"
         Me.RichTextBox8.Size = New System.Drawing.Size(116, 39)
         Me.RichTextBox8.TabIndex = 28
@@ -126,9 +127,9 @@ Partial Class Employment_portal_search
         '
         Me.RichTextBox7.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox7.Location = New System.Drawing.Point(249, 267)
+        Me.RichTextBox7.Location = New System.Drawing.Point(719, 93)
         Me.RichTextBox7.Name = "RichTextBox7"
-        Me.RichTextBox7.Size = New System.Drawing.Size(116, 39)
+        Me.RichTextBox7.Size = New System.Drawing.Size(75, 39)
         Me.RichTextBox7.TabIndex = 27
         Me.RichTextBox7.Text = "Salary:"
         '
@@ -136,7 +137,7 @@ Partial Class Employment_portal_search
         '
         Me.RichTextBox6.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox6.Location = New System.Drawing.Point(249, 319)
+        Me.RichTextBox6.Location = New System.Drawing.Point(738, 151)
         Me.RichTextBox6.Name = "RichTextBox6"
         Me.RichTextBox6.Size = New System.Drawing.Size(116, 39)
         Me.RichTextBox6.TabIndex = 26
@@ -145,7 +146,7 @@ Partial Class Employment_portal_search
         'Job_ID
         '
         Me.Job_ID.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Job_ID.Location = New System.Drawing.Point(398, 93)
+        Me.Job_ID.Location = New System.Drawing.Point(156, 93)
         Me.Job_ID.Name = "Job_ID"
         Me.Job_ID.Size = New System.Drawing.Size(375, 39)
         Me.Job_ID.TabIndex = 21
@@ -154,7 +155,7 @@ Partial Class Employment_portal_search
         'Salary
         '
         Me.Salary.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Salary.Location = New System.Drawing.Point(398, 267)
+        Me.Salary.Location = New System.Drawing.Point(800, 90)
         Me.Salary.Name = "Salary"
         Me.Salary.Size = New System.Drawing.Size(375, 39)
         Me.Salary.TabIndex = 19
@@ -163,7 +164,7 @@ Partial Class Employment_portal_search
         'Dept
         '
         Me.Dept.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Dept.Location = New System.Drawing.Point(398, 208)
+        Me.Dept.Location = New System.Drawing.Point(273, 208)
         Me.Dept.Name = "Dept"
         Me.Dept.Size = New System.Drawing.Size(375, 39)
         Me.Dept.TabIndex = 18
@@ -172,7 +173,7 @@ Partial Class Employment_portal_search
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_job_48
-        Me.PictureBox1.Location = New System.Drawing.Point(427, 23)
+        Me.PictureBox1.Location = New System.Drawing.Point(450, 11)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(50, 48)
         Me.PictureBox1.TabIndex = 16
@@ -182,7 +183,7 @@ Partial Class Employment_portal_search
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Verdana", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(483, 23)
+        Me.Label4.Location = New System.Drawing.Point(521, 11)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(290, 48)
         Me.Label4.TabIndex = 15
@@ -193,12 +194,13 @@ Partial Class Employment_portal_search
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.BlanchedAlmond
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column4, Me.Column5, Me.Column6, Me.Column3})
-        Me.DataGridView1.Location = New System.Drawing.Point(165, 382)
+        Me.DataGridView1.Location = New System.Drawing.Point(199, 298)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(918, 336)
+        Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.DataGridView1.Size = New System.Drawing.Size(918, 410)
         Me.DataGridView1.TabIndex = 14
         '
         'Column1
@@ -246,7 +248,7 @@ Partial Class Employment_portal_search
         'Job_Desc
         '
         Me.Job_Desc.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Job_Desc.Location = New System.Drawing.Point(398, 148)
+        Me.Job_Desc.Location = New System.Drawing.Point(225, 148)
         Me.Job_Desc.Name = "Job_Desc"
         Me.Job_Desc.Size = New System.Drawing.Size(375, 39)
         Me.Job_Desc.TabIndex = 13
@@ -258,7 +260,7 @@ Partial Class Employment_portal_search
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.btnSearch.ForeColor = System.Drawing.Color.White
-        Me.btnSearch.Location = New System.Drawing.Point(817, 94)
+        Me.btnSearch.Location = New System.Drawing.Point(1018, 226)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(0)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(225, 38)
@@ -285,7 +287,7 @@ Partial Class Employment_portal_search
         Me.Label3.CausesValidation = False
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Ivory
-        Me.Label3.Location = New System.Drawing.Point(813, 24)
+        Me.Label3.Location = New System.Drawing.Point(803, 13)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(163, 29)
@@ -319,12 +321,26 @@ Partial Class Employment_portal_search
         Me.Button6.Text = "      Home Page"
         Me.Button6.UseVisualStyleBackColor = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.CausesValidation = False
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Ivory
+        Me.Label1.Location = New System.Drawing.Point(725, 13)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(70, 29)
+        Me.Label1.TabIndex = 18
+        Me.Label1.Text = "UID: "
+        '
         'Employment_portal_search
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.ClientSize = New System.Drawing.Size(1312, 779)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button5)
@@ -368,4 +384,5 @@ Partial Class Employment_portal_search
     Friend WithEvents Dept As RichTextBox
     Friend WithEvents RichTextBox10 As RichTextBox
     Friend WithEvents RichTextBox9 As RichTextBox
+    Friend WithEvents Label1 As Label
 End Class
