@@ -22,12 +22,20 @@
 
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
         'View the TransportationAdminHome screen by default - first argument, name of the panel in the parent panel, second - name of the child form
-        Globals.viewChildForm(childformPanel, Employment_portal_apply)
+        Dim apply = New Employment_portal_apply() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(childformPanel, apply)
     End Sub
 
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
         'View the TransportationAdminHome screen by default - first argument, name of the panel in the parent panel, second - name of the child form
-        Globals.viewChildForm(childformPanel, Employment_portal_applicationstatus)
+        Dim applicationstatus = New Employment_portal_applicationstatus() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(childformPanel, applicationstatus)
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click

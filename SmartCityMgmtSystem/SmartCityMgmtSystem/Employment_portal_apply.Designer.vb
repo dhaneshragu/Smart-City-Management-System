@@ -31,16 +31,12 @@ Partial Class Employment_portal_apply
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.user_id = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.childformPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'childformPanel
@@ -73,12 +69,11 @@ Partial Class Employment_portal_apply
         Me.Panel1.Controls.Add(Me.Panel4)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Location = New System.Drawing.Point(49, 186)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(418, 267)
+        Me.Panel1.Size = New System.Drawing.Size(418, 246)
         Me.Panel1.TabIndex = 6
         '
         'Panel4
@@ -87,16 +82,16 @@ Partial Class Employment_portal_apply
         Me.Panel4.Controls.Add(Me.job_id)
         Me.Panel4.Controls.Add(Me.Label2)
         Me.Panel4.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel4.Location = New System.Drawing.Point(25, 133)
+        Me.Panel4.Location = New System.Drawing.Point(25, 65)
         Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(369, 51)
+        Me.Panel4.Size = New System.Drawing.Size(369, 81)
         Me.Panel4.TabIndex = 3
         '
         'job_id
         '
         Me.job_id.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.job_id.Location = New System.Drawing.Point(147, 11)
+        Me.job_id.Location = New System.Drawing.Point(147, 22)
         Me.job_id.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.job_id.Name = "job_id"
         Me.job_id.Size = New System.Drawing.Size(208, 27)
@@ -105,7 +100,7 @@ Partial Class Employment_portal_apply
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(20, 11)
+        Me.Label2.Location = New System.Drawing.Point(20, 22)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(119, 35)
@@ -119,7 +114,7 @@ Partial Class Employment_portal_apply
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.Linen
-        Me.Button2.Location = New System.Drawing.Point(272, 204)
+        Me.Button2.Location = New System.Drawing.Point(272, 176)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(122, 37)
@@ -139,44 +134,13 @@ Partial Class Employment_portal_apply
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Application Form"
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.user_id)
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(25, 61)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(369, 51)
-        Me.Panel2.TabIndex = 2
-        '
-        'user_id
-        '
-        Me.user_id.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.user_id.Location = New System.Drawing.Point(147, 11)
-        Me.user_id.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.user_id.Name = "user_id"
-        Me.user_id.Size = New System.Drawing.Size(208, 27)
-        Me.user_id.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(16, 11)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(165, 27)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "User ID:"
-        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Maroon
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Linen
-        Me.Button1.Location = New System.Drawing.Point(25, 204)
+        Me.Button1.Location = New System.Drawing.Point(25, 176)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(122, 37)
@@ -236,8 +200,6 @@ Partial Class Employment_portal_apply
         Me.Panel1.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -249,9 +211,6 @@ Partial Class Employment_portal_apply
     Friend WithEvents Label2 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Label3 As Label
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents user_id As TextBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents job_id As TextBox

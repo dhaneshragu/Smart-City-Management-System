@@ -1,8 +1,56 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Globalization
+Imports System.IO
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports MySql.Data.MySqlClient
 
 Public Class Employment_portal_admin_usercredentials
 
     Public Property userid As Integer
+
+    Public Sub Fill_Details(uid As Integer)
+        'Me.userid = uid ' Store the passed email ID in a private field
+        Dim cmd As String = "SELECT * FROM users WHERE user_id = @uid"
+        Dim conStr As String = Globals.getdbConnectionString()
+        Using connection As New MySqlConnection(conStr)
+            Using sqlCommand As New MySqlCommand(cmd, connection)
+                sqlCommand.Parameters.AddWithValue("@uid", uid)
+                ' Execute the query and retrieve the user ID
+                connection.Open()
+                Using reader As MySqlDataReader = sqlCommand.ExecuteReader()
+                    If reader.Read() Then
+                        username.Text = reader("name").ToString()
+                        If reader("gender") IsNot Nothing AndAlso Not IsDBNull(reader("gender")) Then
+                            gender.Text = reader("gender").ToString()
+                        End If
+                        user_id.Text = uid
+                        If reader("email") IsNot Nothing AndAlso Not IsDBNull(reader("email")) Then
+                            email.Text = reader("email").ToString()
+                        End If
+                        If reader("phone_number") IsNot Nothing AndAlso Not IsDBNull(reader("phone_number")) Then
+                            phone_number.Text = reader("phone_number").ToString()
+                        End If
+                        If reader("address") IsNot Nothing AndAlso Not IsDBNull(reader("address")) Then
+                            address.Text = reader("address").ToString()
+                        End If
+                        Dim res As Object = reader("profile_photo")
+                        If res IsNot Nothing AndAlso Not IsDBNull(res) Then
+                            ' Convert the byte array retrieved from the database to an Image
+                            Dim imageBytes As Byte() = DirectCast(res, Byte())
+                            Using ms As New MemoryStream(imageBytes)
+                                PictureBox1.Image = Image.FromStream(ms)
+                            End Using
+                        End If
+                        If reader("age") IsNot Nothing AndAlso Not IsDBNull(reader("age")) Then
+                            age.Text = reader("age").ToString()
+                        End If
+                    Else
+                        MessageBox.Show("Invalid UID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+
+                End Using
+            End Using
+        End Using
+    End Sub
 
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         ' Calculate the center position of the screen
@@ -19,34 +67,7 @@ Public Class Employment_portal_admin_usercredentials
         Me.Location = New System.Drawing.Point(posX, posY)
         Me.Text = "User Credentials"
 
-        Try
-            Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
-                con.Open()
-
-                Dim sql As String = "SELECT * from users
-            WHERE user_id = @userid"
-
-                Using cmd As New MySqlCommand(sql, con)
-                    cmd.Parameters.AddWithValue("@userid", userid)
-
-                    Using reader As MySqlDataReader = cmd.ExecuteReader()
-                        If reader.Read() Then
-                            MessageBox.Show("Read Success")
-                            user_id.Text = reader.GetString("user_id")
-                            username.Text = reader.GetString("name")
-                            email.Text = reader.GetString("email")
-                            age.Text = reader.GetString("age")
-                            gender.Text = reader.GetString("gender")
-                            phone_number.Text = reader.GetString("phone_number")
-
-
-                        End If
-                    End Using
-                End Using
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
-        End Try
+        Fill_Details(userid)
 
     End Sub
 

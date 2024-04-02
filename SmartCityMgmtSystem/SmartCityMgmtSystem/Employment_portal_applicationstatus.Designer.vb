@@ -56,7 +56,7 @@ Partial Class Employment_portal_applicationstatus
         'StatusBox
         '
         Me.StatusBox.FormattingEnabled = True
-        Me.StatusBox.Items.AddRange(New Object() {"Approved", "Rejected", "Pending"})
+        Me.StatusBox.Items.AddRange(New Object() {"Approved", "Rejected", "Applied"})
         Me.StatusBox.Location = New System.Drawing.Point(342, 106)
         Me.StatusBox.Name = "StatusBox"
         Me.StatusBox.Size = New System.Drawing.Size(197, 30)
@@ -83,7 +83,7 @@ Partial Class Employment_portal_applicationstatus
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(639, 463)
+        Me.DataGridView1.Size = New System.Drawing.Size(561, 463)
         Me.DataGridView1.TabIndex = 8
         '
         'Column1

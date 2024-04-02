@@ -24,6 +24,9 @@ Partial Class Employment_portal_admin_usercredentials
     Private Sub InitializeComponent()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.address = New System.Windows.Forms.TextBox()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.phone_number = New System.Windows.Forms.TextBox()
@@ -42,13 +45,16 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.user_id = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        Me.Panel8.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button6
@@ -72,6 +78,7 @@ Partial Class Employment_portal_admin_usercredentials
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Panel8)
         Me.Panel1.Controls.Add(Me.Panel7)
         Me.Panel1.Controls.Add(Me.Panel5)
         Me.Panel1.Controls.Add(Me.Panel6)
@@ -81,8 +88,40 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Panel1.Location = New System.Drawing.Point(13, 12)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(446, 468)
+        Me.Panel1.Size = New System.Drawing.Size(446, 525)
         Me.Panel1.TabIndex = 8
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.Panel8.Controls.Add(Me.Label7)
+        Me.Panel8.Controls.Add(Me.address)
+        Me.Panel8.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel8.Location = New System.Drawing.Point(33, 445)
+        Me.Panel8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(380, 51)
+        Me.Panel8.TabIndex = 7
+        '
+        'Label7
+        '
+        Me.Label7.Font = New System.Drawing.Font("Verdana", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.Label7.Location = New System.Drawing.Point(14, 10)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(92, 27)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "Address:"
+        '
+        'address
+        '
+        Me.address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.address.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.address.Location = New System.Drawing.Point(139, 10)
+        Me.address.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.address.Name = "address"
+        Me.address.Size = New System.Drawing.Size(204, 26)
+        Me.address.TabIndex = 2
         '
         'Panel7
         '
@@ -276,12 +315,22 @@ Partial Class Employment_portal_admin_usercredentials
         Me.user_id.Size = New System.Drawing.Size(204, 26)
         Me.user_id.TabIndex = 2
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Location = New System.Drawing.Point(475, 45)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(381, 329)
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
+        '
         'Employment_portal_admin_usercredentials
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(478, 499)
+        Me.ClientSize = New System.Drawing.Size(878, 549)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button6)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
@@ -291,6 +340,8 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Name = "Employment_portal_admin_usercredentials"
         Me.Text = "Transportation"
         Me.Panel1.ResumeLayout(False)
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.Panel5.ResumeLayout(False)
@@ -303,6 +354,7 @@ Partial Class Employment_portal_admin_usercredentials
         Me.Panel2.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -326,4 +378,8 @@ Partial Class Employment_portal_admin_usercredentials
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Label6 As Label
     Friend WithEvents phone_number As TextBox
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents Label7 As Label
+    Friend WithEvents address As TextBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
