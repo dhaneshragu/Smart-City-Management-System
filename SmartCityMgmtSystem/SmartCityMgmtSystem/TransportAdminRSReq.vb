@@ -108,6 +108,7 @@ Public Class TransportAdminRSReq
                     'MessageBox.Show("Number of Posts :" & row, "", MessageBoxButtons.OK)
 
                 End Using
+                connection.Close()
             End Using
         End Using
 

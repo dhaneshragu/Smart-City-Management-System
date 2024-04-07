@@ -212,6 +212,7 @@ Public Class TransportDrivingLicenseReq
                     End If
                     payClicked = False
                 End If
+                connection.Close()
             End Using
 
         Catch ex As Exception

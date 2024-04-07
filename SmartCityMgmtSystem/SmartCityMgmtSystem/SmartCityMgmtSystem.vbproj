@@ -703,6 +703,12 @@
     <Compile Include="NotificationInnerScreen.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PaymentGateway.Designer.vb">
+      <DependentUpon>PaymentGateway.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentGateway.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TransportGlobals.vb" />
     <Compile Include="TransportManageTollGatesAdmin.Designer.vb">
       <DependentUpon>TransportManageTollGatesAdmin.vb</DependentUpon>
@@ -1533,6 +1539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NotificationInnerScreen.resx">
       <DependentUpon>NotificationInnerScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentGateway.resx">
+      <DependentUpon>PaymentGateway.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransportManageTollGatesAdmin.resx">
       <DependentUpon>TransportManageTollGatesAdmin.vb</DependentUpon>
