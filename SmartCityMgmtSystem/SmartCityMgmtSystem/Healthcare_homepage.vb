@@ -99,6 +99,10 @@
     End Sub
 
     Private Sub Healthcare_homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If uid = 4 Then
+            hc_admin.Visible = True
+        End If
+
         Label2.Text = u_name
     End Sub
 
