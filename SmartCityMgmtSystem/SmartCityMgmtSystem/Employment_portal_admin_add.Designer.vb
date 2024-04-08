@@ -115,7 +115,7 @@ Partial Class Employment_portal_admin_add
         Me.Qualification.BackColor = System.Drawing.SystemColors.Window
         Me.Qualification.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Qualification.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.Qualification.ForeColor = System.Drawing.Color.White
+        Me.Qualification.ForeColor = System.Drawing.Color.Black
         Me.Qualification.FormattingEnabled = True
         Me.Qualification.Items.AddRange(New Object() {"10th Pass", "12th Pass", "UG", "PG", "0-2 yrs Experience", "2+ yrs Experience"})
         Me.Qualification.Location = New System.Drawing.Point(147, 6)

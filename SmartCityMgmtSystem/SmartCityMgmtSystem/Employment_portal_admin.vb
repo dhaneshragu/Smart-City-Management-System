@@ -3,9 +3,13 @@ Imports Org.BouncyCastle.Bcpg
 
 Public Class Employment_portal_admin
 
-    Public Property uid As Integer = 4
+    Public uid As Integer
+    Public u_name As String
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Text = "Employment Portal"
+        Label2.Text = u_name
+        Label3.Text = uid
+
         Dim dataTable As New DataTable()
         Try
             Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
@@ -73,7 +77,10 @@ Public Class Employment_portal_admin
         Me.Hide()
 
         ' Create an instance of employment_portal_admin_withdraw.vb and display it
-        Dim employmentPortalAdminWithdrawForm As New Employment_portal_admin_withdraw()
+        Dim employmentPortalAdminWithdrawForm As New Employment_portal_admin_withdraw() With {
+            .uid = uid,
+            .u_name = u_name
+        }
         employmentPortalAdminWithdrawForm.Show()
     End Sub
 
@@ -154,5 +161,15 @@ Public Class Employment_portal_admin
                 MessageBox.Show("Error: " & ex.Message)
             End Try
         End Using
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Me.Close()
+
+        Dim employment_portal = New Employment_portal() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        employment_portal.Show()
     End Sub
 End Class

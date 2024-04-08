@@ -2,15 +2,23 @@
 
 Public Class Employment_portal_search
 
+    Public uid As Integer
+    Public u_name As String
+
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Text = "Employment Portal"
+        Label2.Text = u_name
+        Label3.Text = uid
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Me.Close()
 
         ' Create an instance of employment_portal.vb and display it
-        Dim employmentPortalForm As New Employment_portal()
+        Dim employmentPortalForm As New Employment_portal() With {
+            .uid = uid,
+            .u_name = u_name
+        }
         employmentPortalForm.Show()
     End Sub
 

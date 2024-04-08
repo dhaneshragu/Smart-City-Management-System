@@ -1,7 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class Employment_portal_applicationstatus
-    Public Property uid As Integer = 10
+
+    Public uid As Integer
+    Public u_name As String
+
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Text = "Employment Portal"
     End Sub
