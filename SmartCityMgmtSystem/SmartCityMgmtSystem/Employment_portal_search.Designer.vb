@@ -31,7 +31,6 @@ Partial Class Employment_portal_search
         Me.RichTextBox6 = New System.Windows.Forms.RichTextBox()
         Me.Job_ID = New System.Windows.Forms.RichTextBox()
         Me.Salary = New System.Windows.Forms.RichTextBox()
-        Me.Dept = New System.Windows.Forms.RichTextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -41,13 +40,14 @@ Partial Class Employment_portal_search
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Job_Desc = New System.Windows.Forms.RichTextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Job_Desc = New System.Windows.Forms.ComboBox()
+        Me.Dept = New System.Windows.Forms.ComboBox()
         Me.childformPanel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,6 +56,8 @@ Partial Class Employment_portal_search
         'childformPanel
         '
         Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.childformPanel.Controls.Add(Me.Dept)
+        Me.childformPanel.Controls.Add(Me.Job_Desc)
         Me.childformPanel.Controls.Add(Me.RichTextBox10)
         Me.childformPanel.Controls.Add(Me.RichTextBox9)
         Me.childformPanel.Controls.Add(Me.Qual)
@@ -64,11 +66,9 @@ Partial Class Employment_portal_search
         Me.childformPanel.Controls.Add(Me.RichTextBox6)
         Me.childformPanel.Controls.Add(Me.Job_ID)
         Me.childformPanel.Controls.Add(Me.Salary)
-        Me.childformPanel.Controls.Add(Me.Dept)
         Me.childformPanel.Controls.Add(Me.PictureBox1)
         Me.childformPanel.Controls.Add(Me.Label4)
         Me.childformPanel.Controls.Add(Me.DataGridView1)
-        Me.childformPanel.Controls.Add(Me.Job_Desc)
         Me.childformPanel.Controls.Add(Me.btnSearch)
         Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.childformPanel.Location = New System.Drawing.Point(1, 59)
@@ -161,15 +161,6 @@ Partial Class Employment_portal_search
         Me.Salary.TabIndex = 19
         Me.Salary.Text = ""
         '
-        'Dept
-        '
-        Me.Dept.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Dept.Location = New System.Drawing.Point(273, 208)
-        Me.Dept.Name = "Dept"
-        Me.Dept.Size = New System.Drawing.Size(375, 39)
-        Me.Dept.TabIndex = 18
-        Me.Dept.Text = ""
-        '
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_job_48
@@ -244,15 +235,6 @@ Partial Class Employment_portal_search
         Me.Column3.MinimumWidth = 6
         Me.Column3.Name = "Column3"
         Me.Column3.Width = 140
-        '
-        'Job_Desc
-        '
-        Me.Job_Desc.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Job_Desc.Location = New System.Drawing.Point(225, 148)
-        Me.Job_Desc.Name = "Job_Desc"
-        Me.Job_Desc.Size = New System.Drawing.Size(375, 39)
-        Me.Job_Desc.TabIndex = 13
-        Me.Job_Desc.Text = ""
         '
         'btnSearch
         '
@@ -334,6 +316,38 @@ Partial Class Employment_portal_search
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "UID: "
         '
+        'Job_Desc
+        '
+        Me.Job_Desc.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Job_Desc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.Job_Desc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.Job_Desc.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Job_Desc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Job_Desc.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.Job_Desc.ForeColor = System.Drawing.Color.White
+        Me.Job_Desc.FormattingEnabled = True
+        Me.Job_Desc.Location = New System.Drawing.Point(232, 151)
+        Me.Job_Desc.Margin = New System.Windows.Forms.Padding(0)
+        Me.Job_Desc.Name = "Job_Desc"
+        Me.Job_Desc.Size = New System.Drawing.Size(375, 39)
+        Me.Job_Desc.TabIndex = 32
+        '
+        'Dept
+        '
+        Me.Dept.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Dept.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.Dept.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.Dept.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Dept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Dept.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.Dept.ForeColor = System.Drawing.Color.White
+        Me.Dept.FormattingEnabled = True
+        Me.Dept.Location = New System.Drawing.Point(246, 211)
+        Me.Dept.Margin = New System.Windows.Forms.Padding(0)
+        Me.Dept.Name = "Dept"
+        Me.Dept.Size = New System.Drawing.Size(375, 39)
+        Me.Dept.TabIndex = 33
+        '
         'Employment_portal_search
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -362,7 +376,6 @@ Partial Class Employment_portal_search
     Friend WithEvents childformPanel As System.Windows.Forms.Panel
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents btnSearch As Button
-    Friend WithEvents Job_Desc As RichTextBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button5 As Button
     Friend WithEvents Label4 As Label
@@ -381,8 +394,9 @@ Partial Class Employment_portal_search
     Friend WithEvents RichTextBox6 As RichTextBox
     Friend WithEvents Job_ID As RichTextBox
     Friend WithEvents Salary As RichTextBox
-    Friend WithEvents Dept As RichTextBox
     Friend WithEvents RichTextBox10 As RichTextBox
     Friend WithEvents RichTextBox9 As RichTextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Job_Desc As ComboBox
+    Friend WithEvents Dept As ComboBox
 End Class
