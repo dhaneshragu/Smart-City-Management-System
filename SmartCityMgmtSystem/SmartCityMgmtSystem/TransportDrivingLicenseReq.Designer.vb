@@ -22,9 +22,9 @@ Partial Class TransportDrivingLicenseReq
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
@@ -53,21 +53,22 @@ Partial Class TransportDrivingLicenseReq
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.LabelValidTill = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LabelIssuedD = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LabelValidTill = New System.Windows.Forms.Label()
+        Me.LabelGender = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.LabelDLID = New System.Windows.Forms.Label()
         Me.LabelAge = New System.Windows.Forms.Label()
         Me.LabelName = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.LabelGender = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel8.SuspendLayout()
         Me.PanelAddress.SuspendLayout()
         Me.PanelVType.SuspendLayout()
@@ -77,15 +78,16 @@ Partial Class TransportDrivingLicenseReq
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel7.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridViewImageColumn1
         '
         Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle16.NullValue = "System.Drawing.Bitmap"
-        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.NullValue = "System.Drawing.Bitmap"
+        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewImageColumn1.HeaderText = "  "
         Me.DataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn1.MinimumWidth = 6
@@ -98,13 +100,13 @@ Partial Class TransportDrivingLicenseReq
         'DataGridViewImageColumn2
         '
         Me.DataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle17.BackColor = System.Drawing.Color.PaleGreen
-        DataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle17.NullValue = Nothing
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Maroon
-        Me.DataGridViewImageColumn2.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.PaleGreen
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle2.NullValue = Nothing
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Maroon
+        Me.DataGridViewImageColumn2.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewImageColumn2.HeaderText = ""
         Me.DataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn2.MinimumWidth = 6
@@ -117,13 +119,13 @@ Partial Class TransportDrivingLicenseReq
         'DataGridViewImageColumn3
         '
         Me.DataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.PaleGreen
-        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle18.NullValue = Nothing
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Maroon
-        Me.DataGridViewImageColumn3.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.PaleGreen
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle3.NullValue = Nothing
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Maroon
+        Me.DataGridViewImageColumn3.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewImageColumn3.HeaderText = ""
         Me.DataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn3.MinimumWidth = 6
@@ -143,10 +145,10 @@ Partial Class TransportDrivingLicenseReq
         Me.Panel8.Controls.Add(Me.PanelAge)
         Me.Panel8.Controls.Add(Me.PanelName)
         Me.Panel8.Controls.Add(Me.Canceltb)
-        Me.Panel8.Location = New System.Drawing.Point(13, 60)
+        Me.Panel8.Location = New System.Drawing.Point(13, 56)
         Me.Panel8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(1237, 251)
+        Me.Panel8.Size = New System.Drawing.Size(1237, 255)
         Me.Panel8.TabIndex = 6
         '
         'Label3
@@ -154,7 +156,7 @@ Partial Class TransportDrivingLicenseReq
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Maroon
-        Me.Label3.Location = New System.Drawing.Point(500, 0)
+        Me.Label3.Location = New System.Drawing.Point(535, 7)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(175, 37)
@@ -167,7 +169,7 @@ Partial Class TransportDrivingLicenseReq
         Me.PanelAddress.Controls.Add(Me.Label1)
         Me.PanelAddress.Controls.Add(Me.Addresstb)
         Me.PanelAddress.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PanelAddress.Location = New System.Drawing.Point(672, 40)
+        Me.PanelAddress.Location = New System.Drawing.Point(672, 50)
         Me.PanelAddress.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PanelAddress.Name = "PanelAddress"
         Me.PanelAddress.Size = New System.Drawing.Size(482, 102)
@@ -200,7 +202,7 @@ Partial Class TransportDrivingLicenseReq
         Me.Paytb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Paytb.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Paytb.ForeColor = System.Drawing.Color.Linen
-        Me.Paytb.Location = New System.Drawing.Point(897, 193)
+        Me.Paytb.Location = New System.Drawing.Point(897, 203)
         Me.Paytb.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Paytb.Name = "Paytb"
         Me.Paytb.Size = New System.Drawing.Size(122, 37)
@@ -214,7 +216,7 @@ Partial Class TransportDrivingLicenseReq
         Me.PanelVType.Controls.Add(Me.VTypeCb)
         Me.PanelVType.Controls.Add(Me.Label9)
         Me.PanelVType.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PanelVType.Location = New System.Drawing.Point(216, 156)
+        Me.PanelVType.Location = New System.Drawing.Point(216, 166)
         Me.PanelVType.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PanelVType.Name = "PanelVType"
         Me.PanelVType.Size = New System.Drawing.Size(424, 51)
@@ -222,10 +224,11 @@ Partial Class TransportDrivingLicenseReq
         '
         'VTypeCb
         '
+        Me.VTypeCb.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VTypeCb.FormattingEnabled = True
         Me.VTypeCb.Location = New System.Drawing.Point(175, 11)
         Me.VTypeCb.Name = "VTypeCb"
-        Me.VTypeCb.Size = New System.Drawing.Size(229, 26)
+        Me.VTypeCb.Size = New System.Drawing.Size(229, 30)
         Me.VTypeCb.TabIndex = 12
         '
         'Label9
@@ -241,14 +244,15 @@ Partial Class TransportDrivingLicenseReq
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
-        Me.PictureBox1.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_person_80
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.ErrorImage = Nothing
-        Me.PictureBox1.ImageLocation = "stretch"
+        Me.PictureBox1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_administrator_male_100
+        Me.PictureBox1.ImageLocation = ""
         Me.PictureBox1.InitialImage = Nothing
-        Me.PictureBox1.Location = New System.Drawing.Point(19, 16)
+        Me.PictureBox1.Location = New System.Drawing.Point(22, 29)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(177, 200)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
@@ -258,7 +262,7 @@ Partial Class TransportDrivingLicenseReq
         Me.PanelAge.Controls.Add(Me.Label10)
         Me.PanelAge.Controls.Add(Me.Agetb)
         Me.PanelAge.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PanelAge.Location = New System.Drawing.Point(216, 99)
+        Me.PanelAge.Location = New System.Drawing.Point(216, 109)
         Me.PanelAge.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PanelAge.Name = "PanelAge"
         Me.PanelAge.Size = New System.Drawing.Size(424, 51)
@@ -290,7 +294,7 @@ Partial Class TransportDrivingLicenseReq
         Me.PanelName.Controls.Add(Me.Label11)
         Me.PanelName.Controls.Add(Me.Nametb)
         Me.PanelName.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PanelName.Location = New System.Drawing.Point(216, 40)
+        Me.PanelName.Location = New System.Drawing.Point(216, 50)
         Me.PanelName.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PanelName.Name = "PanelName"
         Me.PanelName.Size = New System.Drawing.Size(424, 52)
@@ -324,7 +328,7 @@ Partial Class TransportDrivingLicenseReq
         Me.Canceltb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Canceltb.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Canceltb.ForeColor = System.Drawing.Color.Linen
-        Me.Canceltb.Location = New System.Drawing.Point(1064, 193)
+        Me.Canceltb.Location = New System.Drawing.Point(1064, 203)
         Me.Canceltb.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Canceltb.Name = "Canceltb"
         Me.Canceltb.Size = New System.Drawing.Size(122, 37)
@@ -346,6 +350,7 @@ Partial Class TransportDrivingLicenseReq
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.White
+        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel4.Controls.Add(Me.LabelAddress)
         Me.Panel4.Controls.Add(Me.VTypeLB)
         Me.Panel4.Controls.Add(Me.Label5)
@@ -358,70 +363,73 @@ Partial Class TransportDrivingLicenseReq
         '
         'LabelAddress
         '
-        Me.LabelAddress.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelAddress.Location = New System.Drawing.Point(160, 37)
+        Me.LabelAddress.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.LabelAddress.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelAddress.Location = New System.Drawing.Point(234, 34)
         Me.LabelAddress.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelAddress.Name = "LabelAddress"
-        Me.LabelAddress.Size = New System.Drawing.Size(320, 91)
+        Me.LabelAddress.Size = New System.Drawing.Size(333, 107)
         Me.LabelAddress.TabIndex = 19
         Me.LabelAddress.Text = "{Address}"
         '
         'VTypeLB
         '
-        Me.VTypeLB.Font = New System.Drawing.Font("Verdana", 9.762712!)
+        Me.VTypeLB.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.VTypeLB.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VTypeLB.FormattingEnabled = True
-        Me.VTypeLB.ItemHeight = 18
-        Me.VTypeLB.Location = New System.Drawing.Point(147, 165)
+        Me.VTypeLB.ItemHeight = 26
+        Me.VTypeLB.Location = New System.Drawing.Point(234, 175)
         Me.VTypeLB.Name = "VTypeLB"
-        Me.VTypeLB.Size = New System.Drawing.Size(333, 94)
+        Me.VTypeLB.Size = New System.Drawing.Size(333, 134)
         Me.VTypeLB.TabIndex = 18
         '
         'Label5
         '
-        Me.Label5.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(46, 37)
+        Me.Label5.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Maroon
+        Me.Label5.Location = New System.Drawing.Point(32, 34)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(93, 27)
+        Me.Label5.Size = New System.Drawing.Size(168, 27)
         Me.Label5.TabIndex = 3
         Me.Label5.Text = "Address :"
         '
         'Label14
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Bodoni MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.BackColor = System.Drawing.Color.LightGray
+        Me.Label14.Font = New System.Drawing.Font("Agency FB", 15.86441!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label14.Location = New System.Drawing.Point(275, 318)
+        Me.Label14.Location = New System.Drawing.Point(0, 330)
         Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(293, 23)
+        Me.Label14.Size = New System.Drawing.Size(602, 40)
         Me.Label14.TabIndex = 9
         Me.Label14.Text = "Issued by SmartGhy Transport Department"
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label15
         '
-        Me.Label15.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(16, 162)
+        Me.Label15.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.Maroon
+        Me.Label15.Location = New System.Drawing.Point(32, 175)
         Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(133, 27)
+        Me.Label15.Size = New System.Drawing.Size(195, 65)
         Me.Label15.TabIndex = 14
         Me.Label15.Text = "Vehicle Type :"
         '
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.White
+        Me.Panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel7.Controls.Add(Me.Panel1)
         Me.Panel7.Controls.Add(Me.LabelGender)
         Me.Panel7.Controls.Add(Me.Label16)
-        Me.Panel7.Controls.Add(Me.LabelValidTill)
-        Me.Panel7.Controls.Add(Me.LabelIssuedD)
         Me.Panel7.Controls.Add(Me.LabelDLID)
         Me.Panel7.Controls.Add(Me.LabelAge)
         Me.Panel7.Controls.Add(Me.LabelName)
         Me.Panel7.Controls.Add(Me.Label2)
-        Me.Panel7.Controls.Add(Me.Label13)
         Me.Panel7.Controls.Add(Me.Label12)
-        Me.Panel7.Controls.Add(Me.Label6)
         Me.Panel7.Controls.Add(Me.Label8)
         Me.Panel7.Controls.Add(Me.Label7)
         Me.Panel7.Controls.Add(Me.PictureBox2)
@@ -430,40 +438,93 @@ Partial Class TransportDrivingLicenseReq
         Me.Panel7.Size = New System.Drawing.Size(611, 370)
         Me.Panel7.TabIndex = 10
         '
-        'LabelValidTill
+        'Panel1
         '
-        Me.LabelValidTill.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelValidTill.Location = New System.Drawing.Point(122, 314)
-        Me.LabelValidTill.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LabelValidTill.Name = "LabelValidTill"
-        Me.LabelValidTill.Size = New System.Drawing.Size(132, 27)
-        Me.LabelValidTill.TabIndex = 22
-        Me.LabelValidTill.Text = "{Valid Till}"
+        Me.Panel1.BackColor = System.Drawing.Color.LightGray
+        Me.Panel1.Controls.Add(Me.LabelIssuedD)
+        Me.Panel1.Controls.Add(Me.Label13)
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.LabelValidTill)
+        Me.Panel1.Location = New System.Drawing.Point(-1, 330)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(615, 40)
+        Me.Panel1.TabIndex = 25
         '
         'LabelIssuedD
         '
-        Me.LabelIssuedD.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelIssuedD.Location = New System.Drawing.Point(148, 266)
+        Me.LabelIssuedD.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelIssuedD.Location = New System.Drawing.Point(123, 10)
         Me.LabelIssuedD.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelIssuedD.Name = "LabelIssuedD"
-        Me.LabelIssuedD.Size = New System.Drawing.Size(154, 27)
+        Me.LabelIssuedD.Size = New System.Drawing.Size(133, 27)
         Me.LabelIssuedD.TabIndex = 21
         Me.LabelIssuedD.Text = "{Issued Date}"
         '
+        'Label13
+        '
+        Me.Label13.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(360, 10)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(100, 27)
+        Me.Label13.TabIndex = 14
+        Me.Label13.Text = "Valid Till :"
+        '
+        'Label6
+        '
+        Me.Label6.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(5, 10)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(110, 27)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "Issued date :"
+        '
+        'LabelValidTill
+        '
+        Me.LabelValidTill.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelValidTill.Location = New System.Drawing.Point(464, 10)
+        Me.LabelValidTill.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabelValidTill.Name = "LabelValidTill"
+        Me.LabelValidTill.Size = New System.Drawing.Size(142, 27)
+        Me.LabelValidTill.TabIndex = 22
+        Me.LabelValidTill.Text = "{Valid Till}"
+        '
+        'LabelGender
+        '
+        Me.LabelGender.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGender.Location = New System.Drawing.Point(320, 240)
+        Me.LabelGender.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabelGender.Name = "LabelGender"
+        Me.LabelGender.Size = New System.Drawing.Size(117, 36)
+        Me.LabelGender.TabIndex = 24
+        Me.LabelGender.Text = "{Gender}"
+        '
+        'Label16
+        '
+        Me.Label16.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.Maroon
+        Me.Label16.Location = New System.Drawing.Point(208, 240)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(123, 27)
+        Me.Label16.TabIndex = 23
+        Me.Label16.Text = "Gender :"
+        '
         'LabelDLID
         '
-        Me.LabelDLID.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelDLID.Location = New System.Drawing.Point(333, 185)
+        Me.LabelDLID.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelDLID.Location = New System.Drawing.Point(399, 95)
         Me.LabelDLID.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelDLID.Name = "LabelDLID"
-        Me.LabelDLID.Size = New System.Drawing.Size(90, 27)
+        Me.LabelDLID.Size = New System.Drawing.Size(174, 27)
         Me.LabelDLID.TabIndex = 20
         Me.LabelDLID.Text = "{DL ID}"
         '
         'LabelAge
         '
-        Me.LabelAge.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelAge.Location = New System.Drawing.Point(262, 124)
+        Me.LabelAge.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelAge.Location = New System.Drawing.Point(320, 190)
         Me.LabelAge.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelAge.Name = "LabelAge"
         Me.LabelAge.Size = New System.Drawing.Size(90, 27)
@@ -472,75 +533,74 @@ Partial Class TransportDrivingLicenseReq
         '
         'LabelName
         '
-        Me.LabelName.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelName.Location = New System.Drawing.Point(262, 94)
+        Me.LabelName.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelName.Location = New System.Drawing.Point(322, 142)
         Me.LabelName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelName.Name = "LabelName"
-        Me.LabelName.Size = New System.Drawing.Size(90, 27)
+        Me.LabelName.Size = New System.Drawing.Size(284, 27)
         Me.LabelName.TabIndex = 18
         Me.LabelName.Text = "{Name}"
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.BackColor = System.Drawing.Color.LightGray
+        Me.Label2.Font = New System.Drawing.Font("Agency FB", 18.30509!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label2.Location = New System.Drawing.Point(17, 11)
+        Me.Label2.Location = New System.Drawing.Point(1, 0)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(285, 37)
+        Me.Label2.Size = New System.Drawing.Size(610, 48)
         Me.Label2.TabIndex = 9
-        Me.Label2.Text = "SmartGhy DRiving License"
-        '
-        'Label13
-        '
-        Me.Label13.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(30, 314)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(133, 27)
-        Me.Label13.TabIndex = 14
-        Me.Label13.Text = "Valid Till :"
+        Me.Label2.Text = "SmartGhy Driving License"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label12
         '
-        Me.Label12.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(170, 185)
+        Me.Label12.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.Maroon
+        Me.Label12.Location = New System.Drawing.Point(207, 95)
         Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(168, 27)
+        Me.Label12.Size = New System.Drawing.Size(203, 31)
         Me.Label12.TabIndex = 13
         Me.Label12.Text = "Driving License ID:"
         '
-        'Label6
-        '
-        Me.Label6.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(30, 266)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(133, 27)
-        Me.Label6.TabIndex = 3
-        Me.Label6.Text = "Issued date :"
-        '
         'Label8
         '
-        Me.Label8.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(184, 94)
+        Me.Label8.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Maroon
+        Me.Label8.Location = New System.Drawing.Point(228, 142)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(90, 27)
+        Me.Label8.Size = New System.Drawing.Size(101, 35)
         Me.Label8.TabIndex = 4
         Me.Label8.Text = "Name :"
         '
         'Label7
         '
-        Me.Label7.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(201, 124)
+        Me.Label7.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Maroon
+        Me.Label7.Location = New System.Drawing.Point(245, 190)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(53, 27)
+        Me.Label7.Size = New System.Drawing.Size(84, 27)
         Me.Label7.TabIndex = 3
         Me.Label7.Text = "Age :"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox2.ErrorImage = Nothing
+        Me.PictureBox2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_administrator_male_100
+        Me.PictureBox2.ImageLocation = ""
+        Me.PictureBox2.InitialImage = Nothing
+        Me.PictureBox2.Location = New System.Drawing.Point(32, 95)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(146, 172)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
         '
         'Label4
         '
@@ -556,40 +616,6 @@ Partial Class TransportDrivingLicenseReq
         Me.Label4.Size = New System.Drawing.Size(478, 50)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "       Driving License Request Form"
-        '
-        'Label16
-        '
-        Me.Label16.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(173, 151)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(81, 27)
-        Me.Label16.TabIndex = 23
-        Me.Label16.Text = "Gender :"
-        '
-        'LabelGender
-        '
-        Me.LabelGender.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelGender.Location = New System.Drawing.Point(262, 151)
-        Me.LabelGender.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LabelGender.Name = "LabelGender"
-        Me.LabelGender.Size = New System.Drawing.Size(90, 27)
-        Me.LabelGender.TabIndex = 24
-        Me.LabelGender.Text = "{Gender}"
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.PictureBox2.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_person_80
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox2.ErrorImage = Nothing
-        Me.PictureBox2.ImageLocation = "stretch"
-        Me.PictureBox2.InitialImage = Nothing
-        Me.PictureBox2.Location = New System.Drawing.Point(17, 67)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(146, 172)
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
         '
         'TransportDrivingLicenseReq
         '
@@ -617,9 +643,8 @@ Partial Class TransportDrivingLicenseReq
         Me.PanelName.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
         Me.Panel7.ResumeLayout(False)
-        Me.Panel7.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -668,4 +693,5 @@ Partial Class TransportDrivingLicenseReq
     Friend WithEvents Label16 As Label
     Friend WithEvents LabelGender As Label
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Panel1 As Panel
 End Class

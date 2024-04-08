@@ -4,10 +4,9 @@ Public Class Ed_Coursera_Course_Enroll
 
     Private CourseID As Integer
     Private callingPanel As Panel
-    Public Property ResourceName As String
-    Public Property VideoLink As String
-    Public Property TextContent As String
+    Public CourseItem As Ed_Coursera_Handler.Course
     Public Property eCourseAdmin As Boolean
+
 
 
     ' Constructor that accepts a Panel parameter
@@ -23,18 +22,28 @@ Public Class Ed_Coursera_Course_Enroll
         callingPanel = panel
         eCourseAdmin = isCourseAdmin
     End Sub
+    Private Sub RichTextBox_ContentsResized(sender As Object, e As ContentsResizedEventArgs)
+        ' Adjust the size of the RichTextBox to fit its content
+        Dim richTextBox As RichTextBox = DirectCast(sender, RichTextBox)
+        richTextBox.Height = e.NewRectangle.Height
+    End Sub
     Private Sub Ed_Coursera_CourseContent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.AutoScroll = True
+        AddHandler RichTextBox1.ContentsResized, AddressOf RichTextBox_ContentsResized
+
         If (eCourseAdmin) Then
             Button2.Hide()
         End If
-        ResourceName = "Testing 123"
-        VideoLink = "https://www.youtube.com/watch?v=I0czvJ_jikg&list=RDI0czvJ_jikg&start_radio=1"
-        Dim youtubeUrl As String = "https://www.youtube.com/watch?v=WVOiDcFUg_I" ' Your YouTube video URL
+        Label1.Text = CourseItem.Name
+        Label2.Text = CourseItem.TeacherName
+        Label3.Text = CourseItem.Institution
+        RichTextBox1.Text = CourseItem.Syllabus
+        Dim youtubeUrl As String = CourseItem.IntroVideoLink
         Dim videoId As String = ExtractYouTubeVideoId(youtubeUrl)
 
         If Not String.IsNullOrEmpty(videoId) Then
             Dim embedUrl As String = $"https://www.youtube.com/embed/{videoId}"
-            Dim html As String = $"<!DOCTYPE html><html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'></head><body style='margin:0'><iframe width='1150' height='265' src='{embedUrl}' frameborder='0' allowfullscreen></iframe></body></html>"
+            Dim html As String = $"<!DOCTYPE html><html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'></head><body style='margin:0'><iframe width='1022' height='363' src='{embedUrl}' frameborder='0' allowfullscreen></iframe></body></html>"
             WebBrowser1.DocumentText = html
         Else
             MessageBox.Show("Invalid YouTube URL")

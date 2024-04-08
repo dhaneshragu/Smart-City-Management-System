@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class Ed_AddECourse
     Private callingPanel As Panel
-
+    Public summary As String
     Public Sub New(panel As Panel)
         InitializeComponent()
         callingPanel = panel

@@ -1,16 +1,56 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
+Imports SmartCityMgmtSystem.TransportGlobals
 Public Class TransportManageTollGatesAdmin
     Private primaryKeyEdit As String
+
+    Public Class Vehicle
+        Public Property ID As Integer
+        Public Property Name As String
+
+        Public Sub New(ByVal id As Integer, ByVal name As String)
+            Me.ID = id
+            Me.Name = name
+        End Sub
+
+        Public Overrides Function ToString() As String
+            Return Name
+        End Function
+    End Class
 
     Private Sub ShowEditOption(ByVal txt1 As String, ByVal txt2 As String, ByVal txt3 As String, ByVal txt4 As String)
         Label3.Text = "Update Toll Booth"
         Button3.Text = "Update"
         TextBox1.Text = txt1
         TextBox6.Text = txt2
-        TextBox2.Text = txt3
+        ' Iterate through the items in the ComboBox
+        For Each item As Object In ComboBox1.Items
+            ' Assuming your display member property is "DisplayMember"
+            ' You might need to replace it with the actual property name
+            Dim displayMemberValue As String = item.GetType().GetProperty("Name").GetValue(item).ToString()
+
+            ' Check if the display member value matches the desired value
+            If displayMemberValue = txt3 Then
+                ' Set the item as the selected item
+                ComboBox1.SelectedItem = item
+                Exit For ' Exit the loop once the value is found
+            End If
+        Next
         TextBox3.Text = txt4
     End Sub
+
+    Private Function GetVehicles() As List(Of Vehicle)
+        Dim vehicles As New List(Of Vehicle)()
+        For Each kvp As KeyValuePair(Of Integer, String) In TransportGlobals.vehicleTypeMap
+            Dim id As Integer = kvp.Key
+            Dim name As String = kvp.Value
+            Dim vehicle As New Vehicle(id, name)
+            vehicles.Add(vehicle)
+        Next
+        Return vehicles
+    End Function
+
+
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         ' Check if the clicked cell is in the "EditBut" column and not a header cell
         If e.ColumnIndex = DataGridView1.Columns("EditBut").Index AndAlso e.RowIndex >= 0 Then
@@ -70,6 +110,16 @@ Public Class TransportManageTollGatesAdmin
     End Sub
 
     Private Sub TransportationInnerScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        'Load the places from database and populate the combobox
+        Dim vehicles As List(Of Vehicle) = GetVehicles()
+
+        'To bind the places as their names in the combobox and their IDs as values
+        ComboBox1.DataSource = vehicles.ToList()
+        ComboBox1.DisplayMember = "Name"
+        ComboBox1.ValueMember = "ID"
+
+        ComboBox1.SelectedIndex = -1
+
         LoadandBindDataGridView()
     End Sub
 
@@ -78,7 +128,7 @@ Public Class TransportManageTollGatesAdmin
         Button3.Text = "Add"
         TextBox1.Clear()
         TextBox6.Clear()
-        TextBox2.Clear()
+        ComboBox1.SelectedIndex = -1
         TextBox3.Clear()
     End Sub
 
@@ -89,7 +139,7 @@ Public Class TransportManageTollGatesAdmin
             Button3.Text = "Add"
             TextBox1.Clear()
             TextBox6.Clear()
-            TextBox2.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox3.Clear()
             Return
         End If
@@ -99,17 +149,17 @@ Public Class TransportManageTollGatesAdmin
             Button3.Text = "Add"
             TextBox1.Clear()
             TextBox6.Clear()
-            TextBox2.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox3.Clear()
             Return
         End If
-        If String.IsNullOrWhiteSpace(TextBox2.Text) Then
-            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If ComboBox1.SelectedIndex = -1 Then
+            MessageBox.Show("Please enter some input in the comboBox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add Toll Booth"
             Button3.Text = "Add"
             TextBox1.Clear()
             TextBox6.Clear()
-            TextBox2.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox3.Clear()
             Return
         End If
@@ -119,13 +169,13 @@ Public Class TransportManageTollGatesAdmin
             Button3.Text = "Add"
             TextBox1.Clear()
             TextBox6.Clear()
-            TextBox2.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox3.Clear()
             Return
         End If
         If Button3.Text = "Update" Then
             Dim cmd As String
-            cmd = "UPDATE tollboothdb SET lane_id = " & Convert.ToInt32(TextBox1.Text) & " , description = '" & TextBox6.Text & "' , allowed_vehicle_types ='" & TextBox2.Text & "' , fare_per_vehicle = '" & TextBox3.Text & "' WHERE lane_id =" & primaryKeyEdit
+            cmd = "UPDATE tollboothdb SET lane_id = " & Convert.ToInt32(TextBox1.Text) & " , description = '" & TextBox6.Text & "' , allowed_vehicle_types ='" & ComboBox1.SelectedItem.Name & "' , fare_per_vehicle = '" & TextBox3.Text & "' WHERE lane_id =" & primaryKeyEdit
             Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
             If success Then
                 LoadandBindDataGridView()
@@ -135,18 +185,18 @@ Public Class TransportManageTollGatesAdmin
             Button3.Text = "Add"
             TextBox1.Clear()
             TextBox6.Clear()
-            TextBox2.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox3.Clear()
         Else
             Dim cmd As String
-            cmd = "INSERT into tollboothdb VALUES (" & Convert.ToInt32(TextBox1.Text) & ",'" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "')"
+            cmd = "INSERT into tollboothdb VALUES (" & Convert.ToInt32(TextBox1.Text) & ",'" & TextBox6.Text & "','" & ComboBox1.SelectedItem.Name & "','" & TextBox3.Text & "')"
             Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
             If success Then
                 LoadandBindDataGridView()
             End If
             TextBox1.Clear()
             TextBox6.Clear()
-            TextBox2.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox3.Clear()
         End If
     End Sub

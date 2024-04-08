@@ -19,14 +19,12 @@ Public Class Ed_Institute_Edit
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Dim ed_list As New Ed_Institute_List(callingPanel)
-        ed_list.user_type = "Admin"
+        Dim ed_list As New Ed_Institute_List(callingPanel, "Admin")
         Globals.viewChildForm(callingPanel, ed_list)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim ed_list As New Ed_Institute_List(callingPanel)
-        ed_list.user_type = "Admin"
+        Dim ed_list As New Ed_Institute_List(callingPanel, "Admin")
         Globals.viewChildForm(callingPanel, ed_list)
     End Sub
 End Class

@@ -33,7 +33,7 @@ Partial Class Ed_LeftPanelItem
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(259, 29)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Resource"
+        Me.Label1.Text = "Course Name"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Ed_LeftPanelItem

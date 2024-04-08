@@ -43,8 +43,9 @@ Public Class HomePageDashboard
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim notif As New NotificationInnerScreen
-        NotificationInnerScreen.uid = uid
+        Dim notif As New NotificationInnerScreen With {
+            .uid = uid
+        }
         Globals.viewChildForm(childformPanel, notif)
     End Sub
 End Class

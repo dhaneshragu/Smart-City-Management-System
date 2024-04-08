@@ -1,15 +1,55 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
+Imports SmartCityMgmtSystem.TransportGlobals
 Public Class TransportationManageFastagAdmin
     Private primaryKeyEdit As String ' Define a class-level variable to hold the primary key of the row being edited
+
+    Public Class Vehicle
+        Public Property ID As Integer
+        Public Property Name As String
+
+        Public Sub New(ByVal id As Integer, ByVal name As String)
+            Me.ID = id
+            Me.Name = name
+        End Sub
+
+        Public Overrides Function ToString() As String
+            Return Name
+        End Function
+    End Class
+
     Private Sub ShowEditOption(ByVal txt1 As String, ByVal txt2 As String, ByVal txt3 As String, ByVal txt4 As String)
         Label3.Text = "Update Fastag Plan"
         Button3.Text = "Update"
         TextBox1.Text = txt1
-        TextBox6.Text = txt2
+        ' Iterate through the items in the ComboBox
+        For Each item As Object In ComboBox1.Items
+            ' Assuming your display member property is "DisplayMember"
+            ' You might need to replace it with the actual property name
+            Dim displayMemberValue As String = item.GetType().GetProperty("ID").GetValue(item).ToString()
+
+            ' Check if the display member value matches the desired value
+            If displayMemberValue = txt2 Then
+                ' Set the item as the selected item
+                ComboBox1.SelectedItem = item
+                Exit For ' Exit the loop once the value is found
+            End If
+        Next
         TextBox2.Text = txt3
         TextBox3.Text = txt4
     End Sub
+
+    Private Function GetVehicles() As List(Of Vehicle)
+        Dim vehicles As New List(Of Vehicle)()
+        For i As Integer = 1 To 7
+            Dim id As Integer = i
+            Dim name As String = GetVehicleType(i)
+            Dim vehicle As New Vehicle(id, name)
+            vehicles.Add(vehicle)
+        Next
+        Return vehicles
+    End Function
+
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         ' Check if the clicked cell is in the "EditBut" column and not a header cell
         If e.ColumnIndex = DataGridView1.Columns("EditBut").Index AndAlso e.RowIndex >= 0 Then
@@ -70,6 +110,16 @@ Public Class TransportationManageFastagAdmin
     End Sub
 
     Private Sub TransportationInnerScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        'Load the places from database and populate the combobox
+        Dim vehicles As List(Of Vehicle) = GetVehicles()
+
+        'To bind the places as their names in the combobox and their IDs as values
+        ComboBox1.DataSource = vehicles.ToList()
+        ComboBox1.DisplayMember = "Name"
+        ComboBox1.ValueMember = "ID"
+
+        ComboBox1.SelectedIndex = -1
+
         LoadandBindDataGridView()
     End Sub
 
@@ -77,7 +127,7 @@ Public Class TransportationManageFastagAdmin
         Label3.Text = "Add Fastag Plan"
         Button3.Text = "Add"
         TextBox1.Clear()
-        TextBox6.Clear()
+        ComboBox1.SelectedIndex = -1
         TextBox2.Clear()
         TextBox3.Clear()
     End Sub
@@ -88,17 +138,17 @@ Public Class TransportationManageFastagAdmin
             Label3.Text = "Add Fastag Plan"
             Button3.Text = "Add"
             TextBox1.Clear()
-            TextBox6.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox2.Clear()
             TextBox3.Clear()
             Return
         End If
-        If String.IsNullOrWhiteSpace(TextBox6.Text) Then
-            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If ComboBox1.SelectedIndex = -1 Then
+            MessageBox.Show("Please enter some thing into comboBox", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add Fastag Plan"
             Button3.Text = "Add"
             TextBox1.Clear()
-            TextBox6.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox2.Clear()
             TextBox3.Clear()
             Return
@@ -108,7 +158,7 @@ Public Class TransportationManageFastagAdmin
             Label3.Text = "Add Fastag Plan"
             Button3.Text = "Add"
             TextBox1.Clear()
-            TextBox6.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox2.Clear()
             TextBox3.Clear()
             Return
@@ -118,14 +168,14 @@ Public Class TransportationManageFastagAdmin
             Label3.Text = "Add Fastag Plan"
             Button3.Text = "Add"
             TextBox1.Clear()
-            TextBox6.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox2.Clear()
             TextBox3.Clear()
             Return
         End If
         If Button3.Text = "Update" Then
             Dim cmd As String
-            cmd = "UPDATE fastag_plans SET id = " & Convert.ToInt32(TextBox1.Text) & " , vehicle_type = " & Convert.ToInt32(TextBox6.Text) & " , fee_amt =" & Convert.ToInt32(TextBox2.Text) & " , validity_months = " & Convert.ToInt32(TextBox3.Text) & " WHERE id =" & primaryKeyEdit
+            cmd = "UPDATE fastag_plans SET id = " & Convert.ToInt32(TextBox1.Text) & " , vehicle_type = " & ComboBox1.SelectedValue & " , fee_amt =" & Convert.ToInt32(TextBox2.Text) & " , validity_months = " & Convert.ToInt32(TextBox3.Text) & " WHERE id =" & primaryKeyEdit
             Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
             If success Then
                 LoadandBindDataGridView()
@@ -134,18 +184,18 @@ Public Class TransportationManageFastagAdmin
             Label3.Text = "Add Fastag Plan"
             Button3.Text = "Add"
             TextBox1.Clear()
-            TextBox6.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox2.Clear()
             TextBox3.Clear()
         Else
             Dim cmd As String
-            cmd = "INSERT into fastag_plans(id,vehicle_type,fee_amt,validity_months) VALUES (" & Convert.ToInt32(TextBox1.Text) & "," & Convert.ToInt32(TextBox6.Text) & "," & Convert.ToInt32(TextBox2.Text) & "," & Convert.ToInt32(TextBox3.Text) & ")"
+            cmd = "INSERT into fastag_plans(id,vehicle_type,fee_amt,validity_months) VALUES (" & Convert.ToInt32(TextBox1.Text) & "," & ComboBox1.SelectedValue & "," & Convert.ToInt32(TextBox2.Text) & "," & Convert.ToInt32(TextBox3.Text) & ")"
             Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
             If success Then
                 LoadandBindDataGridView()
             End If
             TextBox1.Clear()
-            TextBox6.Clear()
+            ComboBox1.SelectedIndex = -1
             TextBox2.Clear()
             TextBox3.Clear()
         End If

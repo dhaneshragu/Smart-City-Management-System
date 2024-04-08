@@ -272,7 +272,7 @@ Partial Class TransportMangeBusStopAdmin
         Me.Label4.Location = New System.Drawing.Point(21, 7)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(387, 46)
+        Me.Label4.Size = New System.Drawing.Size(411, 50)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "      Manage Public Bus Stops"
         '
@@ -368,9 +368,9 @@ Partial Class TransportMangeBusStopAdmin
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.ClientSize = New System.Drawing.Size(1270, 736)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4)

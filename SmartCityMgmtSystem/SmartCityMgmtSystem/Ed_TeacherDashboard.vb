@@ -1,32 +1,48 @@
 ﻿Public Class Ed_TeacherDashboard
-    Private Sub childformPanel_Paint(sender As Object, e As PaintEventArgs) Handles childformPanel.Paint
-
-    End Sub
+    Private currentlyOpenChildForm As Form = Nothing
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_RoleSelect)
+        CloseCurrentChildForm()
+        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(New Ed_RoleSelect())
+        Me.Close()
     End Sub
 
     Private Sub Ed_TeacherDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Globals.viewChildForm(childformPanel, Ed_ManageECourse)
+        currentlyOpenChildForm = New Ed_ManageECourse()
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        Globals.viewChildForm(childformPanel, New Ed_AddECourse(childformPanel))
+        CloseCurrentChildForm()
+        currentlyOpenChildForm = New Ed_AddECourse(childformPanel)
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Globals.viewChildForm(childformPanel, Ed_ManageECourse)
+        CloseCurrentChildForm()
+        currentlyOpenChildForm = New Ed_ManageECourse()
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Globals.viewChildForm(childformPanel, Ed_AddMoodleCourse)
+        CloseCurrentChildForm()
+        currentlyOpenChildForm = New Ed_AddMoodleCourse()
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs)
+        CloseCurrentChildForm()
         Dim cur_course As New Ed_Teacher_Moodle_CourseList()
         cur_course.Cur_All = "Current"
-        Globals.viewChildForm(childformPanel, cur_course)
-
+        currentlyOpenChildForm = cur_course
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
+    End Sub
+    Private Sub CloseCurrentChildForm()
+        ' Check if there's a currently open child form
+        If currentlyOpenChildForm IsNot Nothing Then
+            ' Close the currently open child form
+            currentlyOpenChildForm.Close()
+            currentlyOpenChildForm = Nothing
+        End If
     End Sub
 End Class

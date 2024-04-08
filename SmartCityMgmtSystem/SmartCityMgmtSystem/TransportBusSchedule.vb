@@ -3,6 +3,8 @@ Imports System.Numerics
 Imports MySql.Data.MySqlClient
 Imports SmartCityMgmtSystem.RideSharingMain
 Public Class TransportBusSchedule
+    Public Property uid = 11
+    Public Property u_name = "Dhanesh"
     Dim day As Integer
     Dim primaryKeyBuy As String
 

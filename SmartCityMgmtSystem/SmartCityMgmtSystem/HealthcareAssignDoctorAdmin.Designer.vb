@@ -41,6 +41,15 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -61,14 +70,22 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DeleteBut = New System.Windows.Forms.DataGridViewImageColumn()
         Me.EditBut = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridViewImageColumn1
@@ -84,7 +101,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.DataGridViewImageColumn1.ReadOnly = True
         Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn1.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn1.Width = 123
+        Me.DataGridViewImageColumn1.Width = 125
         '
         'DataGridViewImageColumn2
         '
@@ -103,7 +120,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.DataGridViewImageColumn2.ReadOnly = True
         Me.DataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn2.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn2.Width = 123
+        Me.DataGridViewImageColumn2.Width = 125
         '
         'DataGridViewImageColumn3
         '
@@ -122,26 +139,28 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.DataGridViewImageColumn3.Name = "DataGridViewImageColumn3"
         Me.DataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn3.Width = 123
+        Me.DataGridViewImageColumn3.Width = 125
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Agency FB", 23.79661!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("AgencyFB", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label4.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_medical_doctor_50
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label4.Location = New System.Drawing.Point(21, 7)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(259, 50)
+        Me.Label4.Size = New System.Drawing.Size(259, 46)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "      Assign Doctor"
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Panel7)
+        Me.Panel1.Controls.Add(Me.Panel8)
+        Me.Panel1.Controls.Add(Me.Panel6)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Panel5)
         Me.Panel1.Controls.Add(Me.Panel3)
@@ -152,8 +171,101 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Panel1.Location = New System.Drawing.Point(33, 103)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(435, 531)
+        Me.Panel1.Size = New System.Drawing.Size(435, 561)
         Me.Panel1.TabIndex = 7
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.Panel7.Controls.Add(Me.Label8)
+        Me.Panel7.Controls.Add(Me.TextBox5)
+        Me.Panel7.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel7.Location = New System.Drawing.Point(33, 361)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(369, 51)
+        Me.Panel7.TabIndex = 5
+        '
+        'Label8
+        '
+        Me.Label8.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(11, 14)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(128, 27)
+        Me.Label8.TabIndex = 3
+        Me.Label8.Text = "symptoms: "
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox5.Location = New System.Drawing.Point(147, 11)
+        Me.TextBox5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(208, 27)
+        Me.TextBox5.TabIndex = 2
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.Panel8.Controls.Add(Me.Label9)
+        Me.Panel8.Controls.Add(Me.TextBox7)
+        Me.Panel8.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel8.Location = New System.Drawing.Point(33, 304)
+        Me.Panel8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(369, 51)
+        Me.Panel8.TabIndex = 5
+        '
+        'Label9
+        '
+        Me.Label9.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(11, 14)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(128, 27)
+        Me.Label9.TabIndex = 3
+        Me.Label9.Text = "time: "
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox7.Location = New System.Drawing.Point(147, 11)
+        Me.TextBox7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(208, 27)
+        Me.TextBox7.TabIndex = 2
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.Panel6.Controls.Add(Me.Label7)
+        Me.Panel6.Controls.Add(Me.TextBox4)
+        Me.Panel6.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel6.Location = New System.Drawing.Point(33, 418)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(369, 51)
+        Me.Panel6.TabIndex = 6
+        '
+        'Label7
+        '
+        Me.Label7.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(11, 14)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(128, 27)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "status:"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(147, 11)
+        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(208, 27)
+        Me.TextBox4.TabIndex = 2
         '
         'Button2
         '
@@ -161,7 +273,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.Linen
-        Me.Button2.Location = New System.Drawing.Point(257, 470)
+        Me.Button2.Location = New System.Drawing.Point(280, 494)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(122, 37)
@@ -175,7 +287,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Panel5.Controls.Add(Me.Label6)
         Me.Panel5.Controls.Add(Me.TextBox3)
         Me.Panel5.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel5.Location = New System.Drawing.Point(33, 378)
+        Me.Panel5.Location = New System.Drawing.Point(33, 247)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(369, 51)
@@ -189,7 +301,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(128, 27)
         Me.Label6.TabIndex = 3
-        Me.Label6.Text = "Date"
+        Me.Label6.Text = "Patient_id: "
         '
         'TextBox3
         '
@@ -206,7 +318,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Controls.Add(Me.TextBox2)
         Me.Panel3.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel3.Location = New System.Drawing.Point(33, 287)
+        Me.Panel3.Location = New System.Drawing.Point(33, 190)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(369, 51)
@@ -220,7 +332,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(140, 27)
         Me.Label5.TabIndex = 4
-        Me.Label5.Text = "Department:"
+        Me.Label5.Text = "Hospital_id:"
         '
         'TextBox2
         '
@@ -237,7 +349,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Panel4.Controls.Add(Me.Label2)
         Me.Panel4.Controls.Add(Me.TextBox6)
         Me.Panel4.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel4.Location = New System.Drawing.Point(33, 195)
+        Me.Panel4.Location = New System.Drawing.Point(33, 133)
         Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(369, 51)
@@ -251,7 +363,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(129, 27)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Doctor Name:"
+        Me.Label2.Text = "Doctor id:"
         '
         'TextBox6
         '
@@ -270,7 +382,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Label3.Location = New System.Drawing.Point(83, 27)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(272, 37)
+        Me.Label3.Size = New System.Drawing.Size(252, 37)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Add Doctor Appointment"
         '
@@ -280,7 +392,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Panel2.Controls.Add(Me.TextBox1)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(33, 105)
+        Me.Panel2.Location = New System.Drawing.Point(33, 76)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(369, 51)
@@ -303,7 +415,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(134, 27)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Patient Name: "
+        Me.Label1.Text = "Appointment_id: "
         '
         'Button1
         '
@@ -311,7 +423,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Linen
-        Me.Button1.Location = New System.Drawing.Point(33, 470)
+        Me.Button1.Location = New System.Drawing.Point(33, 494)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(122, 37)
@@ -335,7 +447,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.LightSkyBlue
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -350,8 +462,7 @@ Partial Class HealthcareAssignDoctorAdmin
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.ColumnHeadersHeight = 47
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.DeleteBut, Me.EditBut})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.DeleteBut, Me.EditBut})
         DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle11.BackColor = System.Drawing.Color.DarkGoldenrod
         DataGridViewCellStyle11.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -361,7 +472,7 @@ Partial Class HealthcareAssignDoctorAdmin
         DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridView1.GridColor = System.Drawing.Color.DimGray
-        Me.DataGridView1.Location = New System.Drawing.Point(540, 103)
+        Me.DataGridView1.Location = New System.Drawing.Point(496, 103)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(6)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -390,7 +501,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.DataGridView1.RowTemplate.Height = 40
         Me.DataGridView1.RowTemplate.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(674, 531)
+        Me.DataGridView1.Size = New System.Drawing.Size(748, 561)
         Me.DataGridView1.TabIndex = 8
         '
         'Column1
@@ -402,11 +513,12 @@ Partial Class HealthcareAssignDoctorAdmin
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke
         Me.Column1.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column1.FillWeight = 75.23381!
-        Me.Column1.HeaderText = "Patient Name"
+        Me.Column1.HeaderText = "Appointment_id"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
         Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column1.Width = 213
         '
         'Column2
         '
@@ -417,10 +529,11 @@ Partial Class HealthcareAssignDoctorAdmin
         DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.WhiteSmoke
         Me.Column2.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column2.FillWeight = 169.0647!
-        Me.Column2.HeaderText = "Doctor Name"
+        Me.Column2.HeaderText = "doctor_id"
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
+        Me.Column2.Width = 141
         '
         'Column3
         '
@@ -431,18 +544,44 @@ Partial Class HealthcareAssignDoctorAdmin
         DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.WhiteSmoke
         Me.Column3.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column3.FillWeight = 150.4676!
-        Me.Column3.HeaderText = "Department"
+        Me.Column3.HeaderText = "Hospital_id"
         Me.Column3.MinimumWidth = 6
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
+        Me.Column3.Width = 162
         '
         'Column4
         '
         Me.Column4.FillWeight = 75.23381!
-        Me.Column4.HeaderText = "Date"
+        Me.Column4.HeaderText = "Patient_id"
         Me.Column4.MinimumWidth = 6
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
+        Me.Column4.Width = 152
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "time"
+        Me.Column5.MinimumWidth = 6
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 88
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "symptoms"
+        Me.Column6.MinimumWidth = 6
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 148
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "status"
+        Me.Column7.MinimumWidth = 6
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 106
         '
         'DeleteBut
         '
@@ -483,12 +622,25 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.EditBut.ToolTipText = "Delete"
         Me.EditBut.Width = 6
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_medical_doctor_50
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 7)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(47, 46)
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
+        '
         'HealthcareAssignDoctorAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
+        Me.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.healthcare_bg
         Me.ClientSize = New System.Drawing.Size(1270, 736)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label4)
@@ -499,6 +651,12 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Text = "Home Page"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel3.ResumeLayout(False)
@@ -508,6 +666,7 @@ Partial Class HealthcareAssignDoctorAdmin
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -531,12 +690,25 @@ Partial Class HealthcareAssignDoctorAdmin
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents Label8 As Label
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents Label9 As Label
+    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents DeleteBut As DataGridViewImageColumn
     Friend WithEvents EditBut As DataGridViewImageColumn
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

@@ -2,12 +2,15 @@
 Imports System.Text.RegularExpressions
 Public Class Ed_CourseResource
     Public Property CourseID As Integer
-    Public Property ResourceName As String
-    Public Property VideoLink As String
-    Public Property TextContent As String
 
     Private callingPanel As Panel
     Private Course_type As String
+
+    Public CourseItem As Ed_Coursera_Handler.Course
+
+    Public content As Ed_Coursera_Handler.CourseContent
+
+    Dim handler As New Ed_Coursera_Handler()
 
     ' Constructor that accepts a Panel parameter
     Public Sub New(panel As Panel, type As String)
@@ -23,23 +26,22 @@ Public Class Ed_CourseResource
     End Sub
     Private Sub Ed_CourseResource_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AutoScroll = True
-        TextContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit, enim vel dapibus lobortis, sem velit dapibus eros, vel tristique enim dolor ut sem. Fusce eget faucibus urna, vel vulputate felis. Ut condimentum euismod lacus, eget finibus turpis lobortis in. Proin sit amet justo eu felis porttitor consectetur a a libero. Maecenas in pulvinar quam. Cras dictum ligula nec eros congue, et porta orci fringilla. Curabitur a magna lacinia, accumsan mauris ac, suscipit urna. Curabitur commodo malesuada imperdiet. Quisque quis lorem quis diam congue blandit vitae quis purus. Sed vel mi suscipit, sagittis quam a, tempus nunc. Mauris vitae pharetra eros. Proin eget viverra mi. Aenean iaculis rhoncus massa. Maecenas ultricies semper est, ut vestibulum velit varius nec. Morbi non ipsum blandit, sollicitudin lectus sit amet, ultricies turpisPellentesque in dictum magna. In purus justo, commodo eget sapien vitae, mollis vehicula est. Etiam suscipit, mauris vel mollis iaculis, nisi metus porttitor erat, vel pretium leo sapien nec ligula. Ut tempor tortor et quam finibus tincidunt eu sed elit. Etiam et sagittis ex, vel rhoncus leo. Quisque elementum lacinia lorem in pulvinar. Donec libero metus, fringilla in ipsum quis, luctus facilisis arcu. Integer ultricies felis non erat pharetra, ac viverra erat fermentumSuspendisse imperdiet tempus pellentesque. Aliquam vestibulum, enim in hendrerit viverra, massa turpis tincidunt ipsum, sit amet sagittis leo arcu sed felis. Nulla interdum est sapien, vitae finibus eros tempor eu. Aenean libero eros, dapibus nec hendrerit non, vehicula id augue. Nulla condimentum porta lectus nec fermentum. Cras facilisis at est eu volutpat. Integer nisl libero, consectetur sed lorem eget, dictum varius turpis. Curabitur non lectus augue. Nulla eu sapien vitae ex dapibus tempor vel sed purus. Maecenas a ipsum sed leo elementum dictum eget finibus odio. Donec vulputate massa erat. Maecenas aliquam augue ultricies, euismod lorem eu, pretium magna. Curabitur sit amet lacus mi. Curabitur ultricies ornare magna vel congue. Proin id ante eget felis pretium varius sed ut magnaDonec lobortis ipsum id tristique cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur ipsum nisi, placerat vel massa a, consectetur viverra augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vestibulum sed tortor non imperdiet. Suspendisse eget viverra sem, vel hendrerit sapien. Proin posuere consectetur lorem sit amet pellentesque. Fusce pretium dui quis pretium cursus. Nulla ut diam venenatis lorem vestibulum finibus sit amet eget est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed pellentesque, ligula id ultricies porta, neque orci pharetra turpis, vel fringilla nunc nibh in neque. In feugiat condimentum odio eget lobortis. Aenean malesuada felis massa, quis rhoncus nunc dignissim a. Vivamus ut dui imperdiet, mollis nisi vel, sollicitudin nulla Donec tincidunt lacinia sem, sed maximus magna condimentum vitae. Phasellus a risus turpis. Praesent vehicula nisi sed enim mollis tincidunt viverra in nunc. Ut vitae viverra lectus, varius volutpat nibh. Phasellus porttitor ultrices lobortis. Proin eu ultrices ipsum. Maecenas aliquet leo at diam ultrices, hendrerit dictum ligula"
+        Dim completed_resources As Integer() = handler.GetStudentCourseCompletionRecords(Ed_GlobalDashboard.userID, content.CourseID)
+        If completed_resources.Contains(content.SeqNo) Then
+            Button2.Text = "Completed"
+            Button2.Enabled = False
+            Button2.BackColor = Color.Green
+        End If
 
         AddHandler RichTextBox1.ContentsResized, AddressOf RichTextBox_ContentsResized
-
-        RichTextBox1.Text = TextContent
-
-
-        ResourceName = "Testing 123"
-        VideoLink = "https://www.youtube.com/watch?v=I0czvJ_jikg&list=RDI0czvJ_jikg&start_radio=1"
-        Label1.Text = ResourceName
-        RichTextBox1.Text = TextContent
-        Dim youtubeUrl As String = "https://www.youtube.com/watch?v=WVOiDcFUg_I" ' Your YouTube video URL
+        RichTextBox1.Text = content.Content
+        Label1.Text = content.ContentName
+        Dim youtubeUrl As String = content.VideoLink
         Dim videoId As String = ExtractYouTubeVideoId(youtubeUrl)
 
         If Not String.IsNullOrEmpty(videoId) Then
             Dim embedUrl As String = $"https://www.youtube.com/embed/{videoId}"
-            Dim html As String = $"<!DOCTYPE html><html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'></head><body style='margin:0'><iframe width='1207' height='386' src='{embedUrl}' frameborder='0' allowfullscreen></iframe></body></html>"
+            Dim html As String = $"<!DOCTYPE html><html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'></head><body style='margin:0'><iframe width='1019' height='386' src='{embedUrl}' frameborder='0' allowfullscreen></iframe></body></html>"
             WebBrowser1.DocumentText = html
         Else
             MessageBox.Show("Invalid YouTube URL")
@@ -52,9 +54,10 @@ Public Class Ed_CourseResource
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         If Course_type = "Coursera" Then
-            Globals.viewChildForm(callingPanel, New Ed_Coursera_CourseContent(CourseID, callingPanel))
-        Else
-            Globals.viewChildForm(callingPanel, New Ed_Moodle_CourseContent(CourseID, callingPanel))
+            Dim form As New Ed_Coursera_CourseContent(content.CourseID, callingPanel)
+            form.CourseItem = CourseItem
+            Globals.viewChildForm(callingPanel, form)
+            Me.Close()
         End If
 
     End Sub
@@ -68,5 +71,11 @@ Public Class Ed_CourseResource
         End If
     End Function
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        handler.CompleteResource(Ed_GlobalDashboard.userID, content.CourseID, content.SeqNo)
+        Button2.Text = "Completed"
+        Button2.Enabled = False
+        Button2.BackColor = Color.Green
 
+    End Sub
 End Class

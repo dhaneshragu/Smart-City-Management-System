@@ -11,6 +11,11 @@ Public Class Ed_Moodle_CourseAss
     Private callingPanel As Panel
     Private Course_type As String
 
+    Public Property course As Ed_Moodle_Handler.MoodleCourse
+    Public Property content As Ed_Moodle_Handler.RoomContent
+
+    Dim handler As New Ed_Moodle_Handler()
+
     Public Sub New(panel As Panel)
         InitializeComponent()
         callingPanel = panel
@@ -40,6 +45,18 @@ Public Class Ed_Moodle_CourseAss
     End Sub
 
     Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
-        Globals.viewChildForm(callingPanel, New Ed_Moodle_CourseContent(RoomID, callingPanel))
+        course = handler.LoadCourseDetails(RoomID)
+        Dim form As New Ed_Moodle_CourseContent(callingPanel)
+        form.CourseContent = course
+        Globals.viewChildForm(callingPanel, form)
+    End Sub
+
+    Private Sub Ed_Moodle_CourseAss_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        course = handler.LoadCourseDetails(RoomID)
+
+        Label1.Text = course.Name
+        Label2.Text = content.ContentName
+        RichTextBox1.Text = content.Content
+
     End Sub
 End Class

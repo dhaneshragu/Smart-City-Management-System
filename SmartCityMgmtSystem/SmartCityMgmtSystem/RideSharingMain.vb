@@ -39,6 +39,7 @@ Public Class RideSharingMain
                     End While
                 End Using
             End Using
+            conn.Close()
         End Using
 
         Return places

@@ -19,7 +19,9 @@
         'View the TransportationAdminHome screen by default - first argument, name of the panel in the parent panel, second - name of the child form
         transportationAdminHome?.Dispose()
         transportationAdminHome = New TransportationAdminHome With {
-            .innerPanel = childformPanel
+            .innerPanel = childformPanel,
+            .uid = uid,
+            .u_name = u_name
         }
         Globals.viewChildForm(childformPanel, transportationAdminHome)
     End Sub
@@ -34,34 +36,47 @@
             .uid = uid,
             .u_name = u_name
         }
-        Globals.viewChildForm(childformPanel, RideSharingMainForm)
+        Globals.viewChildForm(childformPanel, rideSharingMainForm)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         'View the Bus Schedule Screen
         transportBusSchedule?.Dispose()
-        transportBusSchedule = New TransportBusSchedule()
+        transportBusSchedule = New TransportBusSchedule() With
+         {
+                .uid = uid,
+                .u_name = u_name
+        }
         Globals.viewChildForm(childformPanel, transportBusSchedule)
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        'View the Toll Plaza Screen
-        transportTollPlaza?.Dispose()
-        transportTollPlaza = New TransportTollPlaza()
-        Globals.viewChildForm(childformPanel, transportTollPlaza)
+        'View Enter TG Screen
+        transportEnterTG?.Dispose()
+        transportEnterTG = New TransportTGEnter() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(childformPanel, transportEnterTG)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'View DL req form
         transportdrivingLicenseReq?.Dispose()
-        transportdrivingLicenseReq = New TransportDrivingLicenseReq()
+        transportdrivingLicenseReq = New TransportDrivingLicenseReq() With {
+            .uid = uid,
+            .u_name = u_name
+        }
         Globals.viewChildForm(childformPanel, transportdrivingLicenseReq)
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         'View Veh Reg Form
         transportVehicleRegReq?.Dispose()
-        transportVehicleRegReq = New TransportVehicleRegReq()
+        transportVehicleRegReq = New TransportVehicleRegReq() With {
+            .uid = uid,
+            .u_name = u_name
+        }
         Globals.viewChildForm(childformPanel, transportVehicleRegReq)
     End Sub
 
@@ -81,10 +96,13 @@
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        'View Enter TG Screen
-        transportEnterTG?.Dispose()
-        transportEnterTG = New TransportTGEnter()
-        Globals.viewChildForm(childformPanel, transportEnterTG)
+        'View the Toll Plaza Screen
+        transportTollPlaza?.Dispose()
+        transportTollPlaza = New TransportTollPlaza() With {
+        .uid = uid,
+        .u_name = u_name
+        }
+        Globals.viewChildForm(childformPanel, transportTollPlaza)
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click

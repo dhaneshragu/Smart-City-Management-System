@@ -32,6 +32,10 @@ Public Class Ed_Teacher_EditResource
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Close()
+        TextBox2.Text = RichTextBox1.Rtf
+    End Sub
+
+    Private Sub Ed_Teacher_EditResource_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

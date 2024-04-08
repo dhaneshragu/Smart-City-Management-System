@@ -42,7 +42,7 @@ Partial Class Ed_Coursera_Course_ListItem
         Me.Label6.Location = New System.Drawing.Point(240, 19)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(569, 26)
+        Me.Label6.Size = New System.Drawing.Size(531, 26)
         Me.Label6.TabIndex = 4
         Me.Label6.Text = "{ Course Name }"
         '
@@ -54,7 +54,7 @@ Partial Class Ed_Coursera_Course_ListItem
         Me.Label1.Location = New System.Drawing.Point(240, 45)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(569, 26)
+        Me.Label1.Size = New System.Drawing.Size(531, 26)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "{ Course Instructor }"
         '
@@ -66,7 +66,7 @@ Partial Class Ed_Coursera_Course_ListItem
         Me.Label2.Location = New System.Drawing.Point(240, 71)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(569, 26)
+        Me.Label2.Size = New System.Drawing.Size(531, 26)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "{ Course Institution }"
         '
