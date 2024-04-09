@@ -12,6 +12,15 @@ Public Class Request_Cancel_Service
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
+        Dim entereddDate As Date = DateTimePicker1.Value.Date
+
+        Dim difference As TimeSpan = entereddDate - DateTime.Now.Date
+
+        If difference.TotalDays > 7 Or difference.TotalDays < 0 Then
+            MessageBox.Show("Please select a date within a week from the current date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
         Dim gstartTime As TimeSpan
         Dim gendTime As TimeSpan
         Dim Department1 As String
@@ -84,6 +93,7 @@ Public Class Request_Cancel_Service
                         MessageBox.Show("Service Requested Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End Using
                 End Using
+                ReloadDataGridView()
             Catch ex As Exception
                 MessageBox.Show("Error: " & ex.Message)
             End Try
@@ -186,6 +196,42 @@ Public Class Request_Cancel_Service
         TextBox2.Text = ""
         TextBox3.Text = ""
         DateTimePicker1.Value = DateTime.Now
+    End Sub
+    Private Sub ReloadDataGridView()
+        Dim dataTable As New DataTable()
+        Try
+            Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
+                con.Open()
+
+                Dim sql As String = "SELECT
+                provider_id AS serviceID,
+                service_charge AS charge,
+                Department AS depat,
+                start_time AS startTime,
+                schedule_date AS scheduleDate
+                From services_scheduled
+                WHERE requester_id = @userID;"
+
+                Using cmd As New MySqlCommand(sql, con)
+                    cmd.Parameters.AddWithValue("@userID", uid)
+                    Dim adapter As New MySqlDataAdapter(cmd)
+                    adapter.Fill(dataTable)
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
+
+        'IMP: Specify the Column Mappings from DataGridView to SQL Table
+        DataGridView1.AutoGenerateColumns = False
+        DataGridView1.Columns(0).DataPropertyName = "serviceID"
+        DataGridView1.Columns(1).DataPropertyName = "depat"
+        DataGridView1.Columns(2).DataPropertyName = "charge"
+        DataGridView1.Columns(3).DataPropertyName = "scheduleDate"
+        DataGridView1.Columns(4).DataPropertyName = "StartTime"
+
+        ' Bind the data to DataGridView
+        DataGridView1.DataSource = dataTable
     End Sub
 
     Private Sub Request_Cancel_Service_Load(sender As Object, e As EventArgs) Handles MyBase.Load
