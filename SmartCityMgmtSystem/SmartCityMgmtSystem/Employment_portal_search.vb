@@ -1,4 +1,6 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Web.UI.WebControls
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports MySql.Data.MySqlClient
 
 Public Class Employment_portal_search
 
@@ -9,6 +11,94 @@ Public Class Employment_portal_search
         Me.Text = "Employment Portal"
         Label2.Text = u_name
         Label3.Text = uid
+
+        Dim list As New List(Of String)
+        Try
+            Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
+                con.Open()
+
+                Dim sql As String = "Select DISTINCT
+                                  SUBSTRING_INDEX(SUBSTRING_INDEX(employment_jobs.job_desc, ' ', numbers.n), ' ', -1) desc_words FROM
+                                  (SELECT 1 n UNION ALL SELECT 2
+                                  UNION ALL SELECT 3 UNION ALL SELECT 4) numbers INNER JOIN employment_jobs
+                                  On CHAR_LENGTH(employment_jobs.job_desc)
+                                  -CHAR_LENGTH(REPLACE(employment_jobs.job_desc, ' ', ''))>=numbers.n-1
+                                  ORDER BY job_desc;"
+
+                Dim cmd As New MySqlCommand(sql, con)
+
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    While reader.Read()
+                        list.Add(reader.GetString(0))
+                    End While
+                    MessageBox.Show("Read Success")
+                End Using
+
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
+
+        ' Create a new AutoCompleteStringCollection
+        Dim autoCompleteSource As New AutoCompleteStringCollection()
+
+        ' Iterate through each string in the list, split it, and add the items to the AutoCompleteStringCollection
+        For Each item As String In list
+            Dim itemsArray As String() = item.Split(","c)
+            autoCompleteSource.AddRange(itemsArray)
+        Next
+
+        ' Set AutoCompleteCustomSource, AutoCompleteMode, and AutoCompleteSource properties of ComboBox
+        Job_Desc.AutoCompleteCustomSource = autoCompleteSource
+        Job_Desc.AutoCompleteMode = AutoCompleteMode.Suggest
+        Job_Desc.AutoCompleteSource = Windows.Forms.AutoCompleteSource.CustomSource
+
+
+
+        Dim list_dept As New List(Of String)
+        Try
+            Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
+                con.Open()
+
+                Dim sql As String = "SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(department, ',', n.digit+1), ',', -1) AS split_value
+FROM employment_jobs
+JOIN (
+    SELECT 0 AS digit UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL
+    SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+) AS n ON LENGTH(REPLACE(department, ',' , '')) <= LENGTH(department)-n.digit
+ORDER BY employment_jobs.department, n.digit;"
+
+                Dim cmd As New MySqlCommand(sql, con)
+
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    While reader.Read()
+                        list_dept.Add(reader.GetString(0))
+                    End While
+                    MessageBox.Show("Read Success")
+                End Using
+
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
+
+        ' Create a new AutoCompleteStringCollection
+        Dim autoCompleteSource2 As New AutoCompleteStringCollection()
+
+        ' Iterate through each string in the list, split it, and add the items to the AutoCompleteStringCollection
+        For Each item As String In list_dept
+            Dim itemsArray As String() = item.Split(","c)
+            autoCompleteSource2.AddRange(itemsArray)
+        Next
+
+        ' Set AutoCompleteCustomSource, AutoCompleteMode, and AutoCompleteSource properties of ComboBox
+        Dept.AutoCompleteCustomSource = autoCompleteSource2
+        Dept.AutoCompleteMode = AutoCompleteMode.Suggest
+        Dept.AutoCompleteSource = Windows.Forms.AutoCompleteSource.CustomSource
+
+
+
+
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -74,4 +164,6 @@ Public Class Employment_portal_search
         DataGridView1.DataSource = dataTable
         DataGridView1.Visible = True
     End Sub
+
+
 End Class
