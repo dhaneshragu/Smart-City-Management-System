@@ -76,6 +76,12 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="FastReport.Compat, Version=2024.1.10.0, Culture=neutral, PublicKeyToken=5ceb240df42bf6e8, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastReport.Compat.2024.1.10\lib\net462\FastReport.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.DataVisualization, Version=2024.1.10.0, Culture=neutral, PublicKeyToken=5ceb240df42bf6e8, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastReport.DataVisualization.2024.1.10\lib\net462\FastReport.DataVisualization.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -158,10 +164,40 @@
     <Compile Include="Ed_EditECourse.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ed_ExamApprvItem.Designer.vb">
+      <DependentUpon>Ed_ExamApprvItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_ExamApprvItem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ed_Institute_Edit.Designer.vb">
       <DependentUpon>Ed_Institute_Edit.vb</DependentUpon>
     </Compile>
     <Compile Include="Ed_Institute_Edit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_ManageEntrExam.Designer.vb">
+      <DependentUpon>Ed_ManageEntrExam.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_ManageEntrExam.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_ManageEntrHome.Designer.vb">
+      <DependentUpon>Ed_ManageEntrHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_ManageEntrHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_MoodleResouceLinkItem.Designer.vb">
+      <DependentUpon>Ed_MoodleResouceLinkItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_MoodleResouceLinkItem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ed_newVenue.Designer.vb">
+      <DependentUpon>Ed_newVenue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_newVenue.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ed_Teacher_AddAssgn.Designer.vb">
@@ -194,10 +230,46 @@
     <Compile Include="Ed_Teacher_EditResource.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ed_Teacher_Moodle_ResourceLinkItem.Designer.vb">
+      <DependentUpon>Ed_Teacher_Moodle_ResourceLinkItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_ResourceLinkItem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_ResourceLinkItem.Designer.vb">
+      <DependentUpon>Ed_Teacher_ResourceLinkItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_ResourceLinkItem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ed_VenueItem.Designer.vb">
+      <DependentUpon>Ed_VenueItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_VenueItem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenAdminAccDenied.Designer.vb">
+      <DependentUpon>ElectionInnerScreenAdminAccDenied.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenAdminAccDenied.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ElectionInnerScreenCitizenViolationPR.Designer.vb">
       <DependentUpon>ElectionInnerScreenCitizenViolationPR.vb</DependentUpon>
     </Compile>
     <Compile Include="ElectionInnerScreenCitizenViolationPR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatistics.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatistics.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatistics.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EventLoginWindow.Designer.vb">
@@ -547,33 +619,9 @@
     <Compile Include="Employment_portal_search.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="hc_B_Appointment.Designer.vb">
-      <DependentUpon>hc_B_Appointment.vb</DependentUpon>
-    </Compile>
-    <Compile Include="hc_B_Appointment.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="hc_Donate_Blood.Designer.vb">
-      <DependentUpon>hc_Donate_Blood.vb</DependentUpon>
-    </Compile>
-    <Compile Include="hc_Donate_Blood.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="hc_History.Designer.vb">
-      <DependentUpon>hc_History.vb</DependentUpon>
-    </Compile>
-    <Compile Include="hc_History.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="hc_Pharmacy.Designer.vb">
-      <DependentUpon>hc_Pharmacy.vb</DependentUpon>
-    </Compile>
-    <Compile Include="hc_Pharmacy.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HealthcareAssignDoctorAdmin.Designer.vb">
-      <DependentUpon>HealthcareAssignDoctorAdmin.vb</DependentUpon>
-    </Compile>
+	 <Compile Include="HealthcareAssignDoctorAdmin.Designer.vb">
+		  <DependentUpon>HealthcareAssignDoctorAdmin.vb</DependentUpon>
+	  </Compile>
     <Compile Include="HealthcareAssignDoctorAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -589,10 +637,58 @@
     <Compile Include="HealthcareHealthRecordAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HealthcareManageAmbulanceAdmin.Designer.vb">
+      <DependentUpon>HealthcareManageAmbulanceAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HealthcareManageAmbulanceAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HealthcareManageBloodAppointmentAdmin.Designer.vb">
+      <DependentUpon>HealthcareManageBloodAppointmentAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HealthcareManageBloodAppointmentAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HealthcareManageBloodBankAdmin.Designer.vb">
+      <DependentUpon>HealthcareManageBloodBankAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HealthcareManageBloodBankAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HealthcareManageDoctorAdmin.Designer.vb">
+      <DependentUpon>HealthcareManageDoctorAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HealthcareManageDoctorAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HealthcareManageStaffAdmn.Designer.vb">
+      <DependentUpon>HealthcareManageStaffAdmn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HealthcareManageStaffAdmn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HealthcareMedicineInventoryAdmin.Designer.vb">
+      <DependentUpon>HealthcareMedicineInventoryAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HealthcareMedicineInventoryAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Healthcare_BookAppointment.Designer.vb">
       <DependentUpon>Healthcare_BookAppointment.vb</DependentUpon>
     </Compile>
     <Compile Include="Healthcare_BookAppointment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Healthcare_Emergency.Designer.vb">
+      <DependentUpon>Healthcare_Emergency.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Healthcare_Emergency.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Healthcare_History.Designer.vb">
+      <DependentUpon>Healthcare_History.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Healthcare_History.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Healthcare_homepage.Designer.vb">
@@ -659,6 +755,24 @@
       <DependentUpon>EventVendorRegistrationScreen.vb</DependentUpon>
     </Compile>
     <Compile Include="EventVendorRegistrationScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Healthcare_DonateBlood.Designer.vb">
+      <DependentUpon>Healthcare_DonateBlood.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Healthcare_DonateBlood.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Healthcare_Pharmacy.Designer.vb">
+      <DependentUpon>Healthcare_Pharmacy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Healthcare_Pharmacy.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib_NewRequest.Designer.vb">
+      <DependentUpon>lib_NewRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lib_NewRequest.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Request-Cancel_Service.Designer.vb">
@@ -731,6 +845,12 @@
       <DependentUpon>Service_Withdraw.vb</DependentUpon>
     </Compile>
     <Compile Include="Service_Withdraw.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentGateway.Designer.vb">
+      <DependentUpon>PaymentGateway.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentGateway.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TransportGlobals.vb" />
@@ -1294,8 +1414,23 @@
     <EmbeddedResource Include="Ed_EditECourse.resx">
       <DependentUpon>Ed_EditECourse.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ed_ExamApprvItem.resx">
+      <DependentUpon>Ed_ExamApprvItem.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ed_Institute_Edit.resx">
       <DependentUpon>Ed_Institute_Edit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_ManageEntrExam.resx">
+      <DependentUpon>Ed_ManageEntrExam.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_ManageEntrHome.resx">
+      <DependentUpon>Ed_ManageEntrHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_MoodleResouceLinkItem.resx">
+      <DependentUpon>Ed_MoodleResouceLinkItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_newVenue.resx">
+      <DependentUpon>Ed_newVenue.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Teacher_AddAssgn.resx">
       <DependentUpon>Ed_Teacher_AddAssgn.vb</DependentUpon>
@@ -1312,8 +1447,26 @@
     <EmbeddedResource Include="Ed_Teacher_EditResource.resx">
       <DependentUpon>Ed_Teacher_EditResource.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_Moodle_ResourceLinkItem.resx">
+      <DependentUpon>Ed_Teacher_Moodle_ResourceLinkItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_ResourceLinkItem.resx">
+      <DependentUpon>Ed_Teacher_ResourceLinkItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_VenueItem.resx">
+      <DependentUpon>Ed_VenueItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenAdminAccDenied.resx">
+      <DependentUpon>ElectionInnerScreenAdminAccDenied.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ElectionInnerScreenCitizenViolationPR.resx">
       <DependentUpon>ElectionInnerScreenCitizenViolationPR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatistics.resx">
+      <DependentUpon>ElectionInnerScreenViewStatistics.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EventLoginWindow.resx">
       <DependentUpon>EventLoginWindow.vb</DependentUpon>
@@ -1486,18 +1639,7 @@
     <EmbeddedResource Include="Employment_portal_search.resx">
       <DependentUpon>Employment_portal_search.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="hc_B_Appointment.resx">
-      <DependentUpon>hc_B_Appointment.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="hc_Donate_Blood.resx">
-      <DependentUpon>hc_Donate_Blood.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="hc_History.resx">
-      <DependentUpon>hc_History.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="hc_Pharmacy.resx">
-      <DependentUpon>hc_Pharmacy.vb</DependentUpon>
-    </EmbeddedResource>
+    
     <EmbeddedResource Include="HealthcareAssignDoctorAdmin.resx">
       <DependentUpon>HealthcareAssignDoctorAdmin.vb</DependentUpon>
     </EmbeddedResource>
@@ -1507,8 +1649,32 @@
     <EmbeddedResource Include="HealthcareHealthRecordAdmin.resx">
       <DependentUpon>HealthcareHealthRecordAdmin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HealthcareManageAmbulanceAdmin.resx">
+      <DependentUpon>HealthcareManageAmbulanceAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HealthcareManageBloodAppointmentAdmin.resx">
+      <DependentUpon>HealthcareManageBloodAppointmentAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HealthcareManageBloodBankAdmin.resx">
+      <DependentUpon>HealthcareManageBloodBankAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HealthcareManageDoctorAdmin.resx">
+      <DependentUpon>HealthcareManageDoctorAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HealthcareManageStaffAdmn.resx">
+      <DependentUpon>HealthcareManageStaffAdmn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HealthcareMedicineInventoryAdmin.resx">
+      <DependentUpon>HealthcareMedicineInventoryAdmin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Healthcare_BookAppointment.resx">
       <DependentUpon>Healthcare_BookAppointment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Healthcare_Emergency.resx">
+      <DependentUpon>Healthcare_Emergency.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Healthcare_History.resx">
+      <DependentUpon>Healthcare_History.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Healthcare_homepage.resx">
       <DependentUpon>Healthcare_homepage.vb</DependentUpon>
@@ -1540,8 +1706,17 @@
     <EmbeddedResource Include="EventVendorRegistrationScreen.resx">
       <DependentUpon>EventVendorRegistrationScreen.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Healthcare_DonateBlood.resx">
+      <DependentUpon>Healthcare_DonateBlood.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Healthcare_Pharmacy.resx">
+      <DependentUpon>Healthcare_Pharmacy.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="lib_borrowed.resx">
       <DependentUpon>lib_borrowed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib_NewRequest.resx">
+      <DependentUpon>lib_NewRequest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="lib_request.resx">
       <DependentUpon>lib_request.vb</DependentUpon>
@@ -1581,6 +1756,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NotificationInnerScreen.resx">
       <DependentUpon>NotificationInnerScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentGateway.resx">
+      <DependentUpon>PaymentGateway.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransportManageTollGatesAdmin.resx">
       <DependentUpon>TransportManageTollGatesAdmin.vb</DependentUpon>
@@ -2303,9 +2481,12 @@
     <None Include="Resources\icons8-people-in-car-50.png" />
     <None Include="Resources\icons8-passenger-48.png" />
     <None Include="Resources\icons8-medical-doctor-50.png" />
+    <None Include="Resources\icons8-locked-48.png" />
+    <None Include="Resources\icons8-locked-481.png" />
     <Content Include="Resources\icons8-permanent-job-100.png" />
     <Content Include="Resources\icons8-person-80.png" />
     <None Include="Resources\icons8-person-801.png" />
+    <None Include="Resources\icons8-rupee-30.png" />
     <Content Include="Resources\icons8-student-center-100.png" />
     <Content Include="Resources\icons8-system-information-100.png" />
     <Content Include="Resources\icons8-taj-mahal-100.png" />

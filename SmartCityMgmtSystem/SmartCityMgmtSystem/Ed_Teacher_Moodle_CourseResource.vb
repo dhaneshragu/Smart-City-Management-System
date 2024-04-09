@@ -60,7 +60,8 @@ Public Class Ed_Teacher_Moodle_CourseResource
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim edit_res_form As New Ed_Teacher_EditResource()
-        edit_res_form.ShowDialog()
+        'Commented out for now'
+        'Dim edit_res_form As New Ed_Teacher_EditResource()
+        'edit_res_form.ShowDialog()
     End Sub
 End Class

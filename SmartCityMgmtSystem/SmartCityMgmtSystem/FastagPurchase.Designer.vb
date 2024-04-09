@@ -27,8 +27,8 @@ Partial Class FastagPurchase
         Me.btnview = New System.Windows.Forms.Button()
         Me.lbldt = New System.Windows.Forms.Label()
         Me.lblfare = New System.Windows.Forms.Label()
-        Me.lblvehno = New System.Windows.Forms.Label()
         Me.picbox = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.picbox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -39,9 +39,9 @@ Partial Class FastagPurchase
         Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label1.Location = New System.Drawing.Point(159, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(215, 35)
+        Me.Label1.Size = New System.Drawing.Size(272, 35)
         Me.Label1.TabIndex = 10
-        Me.Label1.Text = "Renew Fastag Plan"
+        Me.Label1.Text = "Renew/Topup Fastag Plan"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lbldrv
@@ -49,7 +49,7 @@ Partial Class FastagPurchase
         Me.lbldrv.Font = New System.Drawing.Font("Trebuchet MS", 10.98305!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbldrv.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_driver_license_20
         Me.lbldrv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lbldrv.Location = New System.Drawing.Point(351, 32)
+        Me.lbldrv.Location = New System.Drawing.Point(160, 33)
         Me.lbldrv.Name = "lbldrv"
         Me.lbldrv.Size = New System.Drawing.Size(138, 33)
         Me.lbldrv.TabIndex = 11
@@ -96,18 +96,6 @@ Partial Class FastagPurchase
         Me.lblfare.Text = "       ₹150"
         Me.lblfare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lblvehno
-        '
-        Me.lblvehno.Font = New System.Drawing.Font("Trebuchet MS", 10.98305!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblvehno.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_steering_wheel_301
-        Me.lblvehno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblvehno.Location = New System.Drawing.Point(159, 33)
-        Me.lblvehno.Name = "lblvehno"
-        Me.lblvehno.Size = New System.Drawing.Size(138, 33)
-        Me.lblvehno.TabIndex = 1
-        Me.lblvehno.Text = "       AS-01-2022"
-        Me.lblvehno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'picbox
         '
         Me.picbox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -122,17 +110,30 @@ Partial Class FastagPurchase
         Me.picbox.TabIndex = 0
         Me.picbox.TabStop = False
         '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 10.98305!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_calender_301
+        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Label2.Location = New System.Drawing.Point(316, 33)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(190, 33)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "        3 Months Validity"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'FastagPurchase
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Snow
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lbldrv)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnview)
         Me.Controls.Add(Me.lbldt)
         Me.Controls.Add(Me.lblfare)
-        Me.Controls.Add(Me.lblvehno)
         Me.Controls.Add(Me.picbox)
         Me.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -144,10 +145,10 @@ Partial Class FastagPurchase
     End Sub
 
     Friend WithEvents picbox As PictureBox
-    Friend WithEvents lblvehno As Label
     Friend WithEvents lblfare As Label
     Friend WithEvents btnview As Button
     Friend WithEvents lbldt As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents lbldrv As Label
+    Friend WithEvents Label2 As Label
 End Class

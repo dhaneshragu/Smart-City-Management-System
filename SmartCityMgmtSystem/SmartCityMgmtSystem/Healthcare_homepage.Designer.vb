@@ -24,6 +24,7 @@ Partial Class Healthcare_homepage
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Healthcare_homepage))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.hc_admin = New System.Windows.Forms.Button()
         Me.history = New System.Windows.Forms.Button()
         Me.emergency = New System.Windows.Forms.Button()
         Me.donate_blood = New System.Windows.Forms.Button()
@@ -31,9 +32,9 @@ Partial Class Healthcare_homepage
         Me.book_appointment = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.childformPanel = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -41,6 +42,7 @@ Partial Class Healthcare_homepage
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.hc_admin)
         Me.Panel1.Controls.Add(Me.history)
         Me.Panel1.Controls.Add(Me.emergency)
         Me.Panel1.Controls.Add(Me.donate_blood)
@@ -56,6 +58,22 @@ Partial Class Healthcare_homepage
         Me.Panel1.Size = New System.Drawing.Size(282, 783)
         Me.Panel1.TabIndex = 8
         '
+        'hc_admin
+        '
+        Me.hc_admin.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
+        Me.hc_admin.FlatAppearance.BorderSize = 0
+        Me.hc_admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.hc_admin.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.hc_admin.ForeColor = System.Drawing.Color.White
+        Me.hc_admin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.hc_admin.Location = New System.Drawing.Point(0, 644)
+        Me.hc_admin.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.hc_admin.Name = "hc_admin"
+        Me.hc_admin.Size = New System.Drawing.Size(282, 66)
+        Me.hc_admin.TabIndex = 29
+        Me.hc_admin.Text = "Admin Only"
+        Me.hc_admin.UseVisualStyleBackColor = False
+        '
         'history
         '
         Me.history.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
@@ -64,11 +82,11 @@ Partial Class Healthcare_homepage
         Me.history.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.history.ForeColor = System.Drawing.Color.White
         Me.history.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.history.Location = New System.Drawing.Point(0, 546)
+        Me.history.Location = New System.Drawing.Point(0, 570)
         Me.history.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.history.Name = "history"
-        Me.history.Size = New System.Drawing.Size(282, 61)
-        Me.history.TabIndex = 22
+        Me.history.Size = New System.Drawing.Size(282, 67)
+        Me.history.TabIndex = 27
         Me.history.Text = "Appointment History"
         Me.history.UseVisualStyleBackColor = False
         '
@@ -80,11 +98,11 @@ Partial Class Healthcare_homepage
         Me.emergency.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.emergency.ForeColor = System.Drawing.Color.White
         Me.emergency.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.emergency.Location = New System.Drawing.Point(0, 722)
+        Me.emergency.Location = New System.Drawing.Point(0, 717)
         Me.emergency.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.emergency.Name = "emergency"
-        Me.emergency.Size = New System.Drawing.Size(282, 61)
-        Me.emergency.TabIndex = 22
+        Me.emergency.Size = New System.Drawing.Size(282, 67)
+        Me.emergency.TabIndex = 28
         Me.emergency.Text = "Emergency"
         Me.emergency.UseVisualStyleBackColor = False
         '
@@ -96,11 +114,11 @@ Partial Class Healthcare_homepage
         Me.donate_blood.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.donate_blood.ForeColor = System.Drawing.Color.White
         Me.donate_blood.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.donate_blood.Location = New System.Drawing.Point(0, 480)
+        Me.donate_blood.Location = New System.Drawing.Point(0, 496)
         Me.donate_blood.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.donate_blood.Name = "donate_blood"
-        Me.donate_blood.Size = New System.Drawing.Size(282, 61)
-        Me.donate_blood.TabIndex = 20
+        Me.donate_blood.Size = New System.Drawing.Size(282, 67)
+        Me.donate_blood.TabIndex = 26
         Me.donate_blood.Text = "Donate Blood"
         Me.donate_blood.UseVisualStyleBackColor = False
         '
@@ -112,11 +130,11 @@ Partial Class Healthcare_homepage
         Me.pharmacy.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pharmacy.ForeColor = System.Drawing.Color.White
         Me.pharmacy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.pharmacy.Location = New System.Drawing.Point(0, 415)
+        Me.pharmacy.Location = New System.Drawing.Point(0, 422)
         Me.pharmacy.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.pharmacy.Name = "pharmacy"
-        Me.pharmacy.Size = New System.Drawing.Size(282, 61)
-        Me.pharmacy.TabIndex = 19
+        Me.pharmacy.Size = New System.Drawing.Size(282, 67)
+        Me.pharmacy.TabIndex = 25
         Me.pharmacy.Text = "Pharmacy"
         Me.pharmacy.UseVisualStyleBackColor = False
         '
@@ -128,11 +146,11 @@ Partial Class Healthcare_homepage
         Me.book_appointment.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.book_appointment.ForeColor = System.Drawing.Color.White
         Me.book_appointment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.book_appointment.Location = New System.Drawing.Point(0, 350)
+        Me.book_appointment.Location = New System.Drawing.Point(0, 348)
         Me.book_appointment.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.book_appointment.Name = "book_appointment"
-        Me.book_appointment.Size = New System.Drawing.Size(282, 61)
-        Me.book_appointment.TabIndex = 18
+        Me.book_appointment.Size = New System.Drawing.Size(282, 67)
+        Me.book_appointment.TabIndex = 24
         Me.book_appointment.Text = "Book Appointment"
         Me.book_appointment.UseVisualStyleBackColor = False
         '
@@ -150,7 +168,7 @@ Partial Class Healthcare_homepage
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(136, Byte), Integer))
-        Me.Label1.Font = New System.Drawing.Font("Agency FB", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(0, 159)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
@@ -160,13 +178,27 @@ Partial Class Healthcare_homepage
         Me.Label1.Text = "SmartGhy" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HealthCare" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Department"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
+        Me.Label2.CausesValidation = False
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Ivory
+        Me.Label2.Location = New System.Drawing.Point(291, 18)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(102, 29)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "{Name}"
+        '
         'Button6
         '
         Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.Button6.CausesValidation = False
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Agency FB", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.ForeColor = System.Drawing.Color.Ivory
         Me.Button6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_back_arrow_25
         Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -176,7 +208,7 @@ Partial Class Healthcare_homepage
         Me.Button6.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
         Me.Button6.Size = New System.Drawing.Size(163, 39)
         Me.Button6.TabIndex = 11
-        Me.Button6.Text = "     Back"
+        Me.Button6.Text = "   Home Page"
         Me.Button6.UseVisualStyleBackColor = False
         '
         'childformPanel
@@ -191,31 +223,18 @@ Partial Class Healthcare_homepage
         Me.childformPanel.Size = New System.Drawing.Size(1276, 723)
         Me.childformPanel.TabIndex = 9
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
-        Me.Label2.CausesValidation = False
-        Me.Label2.Font = New System.Drawing.Font("Agency FB", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Ivory
-        Me.Label2.Location = New System.Drawing.Point(291, 18)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(72, 28)
-        Me.Label2.TabIndex = 12
-        Me.Label2.Text = "{Name}"
-        '
         'Healthcare_homepage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1556, 784)
+        Me.ClientSize = New System.Drawing.Size(1556, 783)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.childformPanel)
         Me.Name = "Healthcare_homepage"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Healthcare_homepage"
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -225,14 +244,15 @@ Partial Class Healthcare_homepage
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents donate_blood As Button
-    Friend WithEvents pharmacy As Button
-    Friend WithEvents book_appointment As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Button6 As Button
     Friend WithEvents childformPanel As Panel
     Friend WithEvents Label2 As Label
-    Friend WithEvents emergency As Button
+    Friend WithEvents hc_admin As Button
     Friend WithEvents history As Button
+    Friend WithEvents emergency As Button
+    Friend WithEvents donate_blood As Button
+    Friend WithEvents pharmacy As Button
+    Friend WithEvents book_appointment As Button
 End Class

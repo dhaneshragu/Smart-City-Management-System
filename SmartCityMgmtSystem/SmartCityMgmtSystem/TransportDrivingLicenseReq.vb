@@ -34,7 +34,7 @@ Public Class TransportDrivingLicenseReq
                                     End Using
                                 End If
                             End If
-                            PictureBox1.Image = Nothing
+                            PictureBox1.Image = PictureBox1.Image
                             ' Load profile photo
                             If Not IsDBNull(reader("profile_photo")) Then
                                 Dim profilePhotoData As Byte() = DirectCast(reader("profile_photo"), Byte())
@@ -212,6 +212,7 @@ Public Class TransportDrivingLicenseReq
                     End If
                     payClicked = False
                 End If
+                connection.Close()
             End Using
 
         Catch ex As Exception

@@ -60,7 +60,10 @@ Public Class HomePage
     End Sub
 
     Private Sub healthDept_Click(sender As Object, e As EventArgs) Handles healthDept.Click
-        Dim health = New Healthcare_homepage()
+        Dim health = New Healthcare_homepage() With {
+            .uid = uid,
+            .u_name = u_name
+        }
         health.Show()
         Me.ParentForm.Close()
         Me.Close()

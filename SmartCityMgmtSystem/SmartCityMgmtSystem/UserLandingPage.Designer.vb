@@ -138,6 +138,7 @@ Partial Class UserLandingPage
         Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MaximizeBox = False
         Me.Name = "UserLandingPage"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Transportation"
         Me.childformPanel.ResumeLayout(False)
         Me.childformPanel.PerformLayout()

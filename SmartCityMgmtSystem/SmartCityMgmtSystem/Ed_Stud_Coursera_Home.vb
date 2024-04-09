@@ -25,24 +25,4 @@ Public Class Ed_Stud_Coursera_Home
         Next
     End Sub
 
-
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
-
-    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
-
-    End Sub
-
-    Private Sub Label6_Click_1(sender As Object, e As EventArgs) Handles Label6.Click
-
-    End Sub
 End Class

@@ -36,7 +36,7 @@
             .uid = uid,
             .u_name = u_name
         }
-        Globals.viewChildForm(childformPanel, RideSharingMainForm)
+        Globals.viewChildForm(childformPanel, rideSharingMainForm)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -99,8 +99,8 @@
         'View the Toll Plaza Screen
         transportTollPlaza?.Dispose()
         transportTollPlaza = New TransportTollPlaza() With {
-            .uid = uid,
-            .u_name = u_name
+        .uid = uid,
+        .u_name = u_name
         }
         Globals.viewChildForm(childformPanel, transportTollPlaza)
     End Sub

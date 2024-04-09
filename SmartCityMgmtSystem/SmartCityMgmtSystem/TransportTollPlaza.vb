@@ -67,7 +67,44 @@ Public Class TransportTollPlaza
 
     End Sub
 
-    Private Sub AddPostPurchase(postNum As Integer, vehnum As String,
+    Private Sub LoadPurchases()
+        ' Clear existing posts
+        PostsPanel2.Controls.Clear()
+        Dim query As String = "SELECT fastag_purchases.purchase_id, fastag_purchases.ft_id, fastag_plans.validity_months, fastag_purchases.dl_id, fastag_purchases.bought_on, fastag_purchases.amt_left FROM fastag_purchases JOIN fastag_plans
+                    ON fastag_purchases.ft_id = fastag_plans.id WHERE 
+                        fastag_purchases.uid = " & uid
+        Using connection As New MySqlConnection(Globals.getdbConnectionString())
+            Using command As New MySqlCommand(query, connection)
+                Try
+                    connection.Open()
+
+                    ' Execute the command
+                    Using reader As MySqlDataReader = command.ExecuteReader()
+                        ' Read each row
+                        While reader.Read()
+                            ' Access columns by name or index
+                            Dim Id As Integer = Convert.ToInt32(reader("ft_id"))
+                            Dim dl_ID As Integer = Convert.ToInt32(reader("dl_id"))
+                            Dim validity As Integer = Convert.ToInt32(reader("validity_months"))
+                            Dim bought_on As String = reader("bought_on")
+                            Dim amt_left As Integer = Convert.ToInt32(reader("amt_left"))
+                            Dim postNum As String = Convert.ToInt32(reader("purchase_id"))
+
+                            'Add to PostsPanel
+                            AddPostPurchase(postNum, Id, validity, dl_ID, bought_on, amt_left)
+                        End While
+                    End Using
+                Catch ex As Exception
+                    ' Handle the exception by showing a message box
+                    MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End Using
+        End Using
+
+
+    End Sub
+
+    Private Sub AddPostPurchase(postNum As Integer, ft_id As Integer, valdity As Integer,
                            Optional drvlicensenum As String = "12345",
                           Optional dt As String = "21st March 2024",
                            Optional fare As Integer = 0)
@@ -76,7 +113,7 @@ Public Class TransportTollPlaza
         With RidePost
             .Name = "post_" & postNum
         End With
-        RidePost.SetDetails(vehnum, drvlicensenum, dt, fare)
+        RidePost.SetDetails(ft_id, valdity, drvlicensenum, dt, fare)
         PostsPanel2.Controls.Add(RidePost)
     End Sub
     Private Sub AddPostPlan(postNum As Integer, vehtype As String,
@@ -107,6 +144,7 @@ Public Class TransportTollPlaza
         ComboBox1.SelectedIndex = 0
 
         LoadPosts()
+        LoadPurchases()
 
 
     End Sub
@@ -115,5 +153,13 @@ Public Class TransportTollPlaza
         'Load posts based on a vehicle Type
         Dim vehicleType As Integer = Convert.ToInt32(ComboBox1.SelectedValue)
         LoadPosts(vehicleType)
+        LoadPurchases()
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        'Load posts based on a vehicle Type
+        Dim vehicleType As Integer = Convert.ToInt32(ComboBox1.SelectedValue)
+        LoadPosts(vehicleType)
+        LoadPurchases()
     End Sub
 End Class

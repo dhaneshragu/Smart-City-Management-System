@@ -33,9 +33,6 @@ Public Class UserProfilePage
                         If reader("occupation") IsNot Nothing AndAlso Not IsDBNull(reader("occupation")) Then
                             TextBox7.Text = reader("occupation").ToString()
                         End If
-                        If reader("guardian_uid") IsNot Nothing AndAlso Not IsDBNull(reader("guardian_uid")) Then
-                            TextBox8.Text = reader("guardian_uid").ToString()
-                        End If
                         Dim res As Object = reader("profile_photo")
                         If res IsNot Nothing AndAlso Not IsDBNull(res) Then
                             ' Convert the byte array retrieved from the database to an Image
@@ -81,34 +78,46 @@ Public Class UserProfilePage
         End If
         Dim voter As Integer = 0
         Dim voted As Integer = 0
-        Dim gender As String = ComboBox1.SelectedItem.ToString()
-        cmd = "UPDATE users SET name = @name, dob = @dob, age = @age,
-    profile_photo = @profile, gender = @gender, phone_number = @phno,
-    occupation = @occupation, guardian_uid = @guid, address = @address 
-    WHERE user_id = @uid"
-        Dim conStr As String = Globals.getdbConnectionString()
-        Using connection As New MySqlConnection(conStr)
-            Using sqlCommand As New MySqlCommand(cmd, connection)
-                sqlCommand.Parameters.AddWithValue("@uid", uid)
-                sqlCommand.Parameters.AddWithValue("@name", TextBox1.Text)
-                sqlCommand.Parameters.AddWithValue("@dob", formattedDate)
-                sqlCommand.Parameters.AddWithValue("@age", age)
-                sqlCommand.Parameters.AddWithValue("@profile", imageBytes)
-                sqlCommand.Parameters.AddWithValue("@gender", gender)
-                sqlCommand.Parameters.AddWithValue("@phno", TextBox4.Text)
-                sqlCommand.Parameters.AddWithValue("@address", TextBox5.Text)
-                sqlCommand.Parameters.AddWithValue("@occupation", TextBox7.Text)
-                sqlCommand.Parameters.AddWithValue("@guid", TextBox8.Text)
+        If String.IsNullOrEmpty(TextBox1.Text) Then
+            MessageBox.Show("Please enter your full name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf ComboBox1.SelectedItem Is Nothing Then
+            MessageBox.Show("Please select your gender.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ComboBox1.Focus() ' Set focus to the ComboBox
+        ElseIf String.IsNullOrEmpty(TextBox4.Text) Then
+            MessageBox.Show("Please enter your phone number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf TextBox4.Text.Length <> 10 Then
+            MessageBox.Show("Please enter a valid 10-digit phone number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf String.IsNullOrEmpty(TextBox5.Text) Then
+            MessageBox.Show("Please enter your address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            Dim gender As String = ComboBox1.SelectedItem.ToString()
+            cmd = "UPDATE users SET name = @name, dob = @dob, age = @age,
+            profile_photo = @profile, gender = @gender, phone_number = @phno,
+            occupation = @occupation, address = @address 
+            WHERE user_id = @uid"
+            Dim conStr As String = Globals.getdbConnectionString()
+            Using connection As New MySqlConnection(conStr)
+                Using sqlCommand As New MySqlCommand(cmd, connection)
+                    sqlCommand.Parameters.AddWithValue("@uid", uid)
+                    sqlCommand.Parameters.AddWithValue("@name", TextBox1.Text)
+                    sqlCommand.Parameters.AddWithValue("@dob", formattedDate)
+                    sqlCommand.Parameters.AddWithValue("@age", age)
+                    sqlCommand.Parameters.AddWithValue("@profile", imageBytes)
+                    sqlCommand.Parameters.AddWithValue("@gender", gender)
+                    sqlCommand.Parameters.AddWithValue("@phno", TextBox4.Text)
+                    sqlCommand.Parameters.AddWithValue("@address", TextBox5.Text)
+                    sqlCommand.Parameters.AddWithValue("@occupation", TextBox7.Text)
 
-                Try
-                    connection.Open()
-                    sqlCommand.ExecuteNonQuery()
-                    MessageBox.Show("User details updated successfully.")
-                Catch ex As Exception
-                    MessageBox.Show("Error: " & ex.Message)
-                End Try
+                    Try
+                        connection.Open()
+                        sqlCommand.ExecuteNonQuery()
+                        MessageBox.Show("User details updated successfully.")
+                    Catch ex As Exception
+                        MessageBox.Show("Error: " & ex.Message)
+                    End Try
+                End Using
             End Using
-        End Using
+        End If
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

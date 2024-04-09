@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.ComponentModel.DataAnnotations
+Imports System.Data.SqlClient
 Imports System.Runtime.InteropServices.ComTypes
 Imports MySql.Data.MySqlClient
 Imports Mysqlx
@@ -17,8 +18,8 @@ Public Class TransportAdminDLReq
             row1 = e.RowIndex
             Dim cellValue As Object = DataGridView1.Rows(row1).Cells(0).Value
             Integer.TryParse(cellValue.ToString(), uid)
-            vTypeId = DataGridView1.Rows(row1).Cells(3).Value
-            vType = TransportGlobals.GetVehicleType(vTypeId)
+            vType = DataGridView1.Rows(row1).Cells(3).Value
+            vTypeId = TransportGlobals.GetVehicleTypeID(vType)
             LoadandBindDataGridView()
 
             ' Check if the clicked cell is in the "Column8" column and not a header cell
@@ -28,8 +29,8 @@ Public Class TransportAdminDLReq
             row1 = e.RowIndex
             Dim cellValue As Object = DataGridView1.Rows(row1).Cells(0).Value
             Integer.TryParse(cellValue.ToString(), uid)
-            vTypeId = DataGridView1.Rows(row1).Cells(3).Value
-            vType = TransportGlobals.GetVehicleType(vTypeId)
+            vType = DataGridView1.Rows(row1).Cells(3).Value
+            vTypeId = TransportGlobals.GetVehicleTypeID(vType)
             LoadandBindDataGridView()
 
         End If
@@ -77,7 +78,7 @@ Public Class TransportAdminDLReq
 
         End Using
 
-        cmd = New MySqlCommand("SELECT uid, vehicle_type, req_type, fee_paid, name, age FROM dl_entries JOIN users ON dl_entries.uid = users.user_id where test_status is NULL ", Con)
+        cmd = New MySqlCommand("SELECT uid, vehicle_type as vehicle_type_ID, req_type, fee_paid, name, age FROM dl_entries JOIN users ON dl_entries.uid = users.user_id where test_status is NULL ", Con)
         reader = cmd.ExecuteReader
         ' Create a DataTable to store the data
         Dim dataTable As New DataTable()
@@ -86,6 +87,17 @@ Public Class TransportAdminDLReq
         dataTable.Load(reader)
         reader.Close()
         Con.Close()
+        Dim NewColumn As DataColumn = New DataColumn("vehicle_type", GetType(String))
+
+        ' Add the new column to the DataTable
+        dataTable.Columns.Add(NewColumn)
+        If dataTable.Rows.Count > 0 Then
+            For Each row As DataRow In dataTable.Rows
+                Dim id As Integer = If(Not IsDBNull(row("vehicle_type_ID")), Convert.ToInt32(row("vehicle_type_ID")), "")
+                Dim name As String = (TransportGlobals.GetVehicleType(id)).ToString()
+                row("vehicle_type") = name
+            Next
+        End If
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False
