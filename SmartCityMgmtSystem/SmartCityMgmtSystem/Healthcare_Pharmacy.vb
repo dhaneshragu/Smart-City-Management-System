@@ -1,6 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Public Class Healthcare_Pharmacy
+
+    Public Property uid As Integer = 130
     Private Sub LoadandBindDataGridView()
         'Get connection from globals
         Dim Con = Globals.GetDBConnection()

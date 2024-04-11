@@ -24,13 +24,13 @@ Partial Class Healthcare_DonateBlood
     Private Sub InitializeComponent()
         Me.d1 = New System.Windows.Forms.Button()
         Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'd1
@@ -38,10 +38,10 @@ Partial Class Healthcare_DonateBlood
         Me.d1.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.d1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.d1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.d1.Location = New System.Drawing.Point(679, 541)
+        Me.d1.Location = New System.Drawing.Point(707, 562)
         Me.d1.Margin = New System.Windows.Forms.Padding(2)
         Me.d1.Name = "d1"
-        Me.d1.Size = New System.Drawing.Size(109, 70)
+        Me.d1.Size = New System.Drawing.Size(149, 49)
         Me.d1.TabIndex = 41
         Me.d1.Text = "Send"
         Me.d1.UseVisualStyleBackColor = False
@@ -53,22 +53,6 @@ Partial Class Healthcare_DonateBlood
         Me.RichTextBox3.Size = New System.Drawing.Size(187, 49)
         Me.RichTextBox3.TabIndex = 40
         Me.RichTextBox3.Text = ""
-        '
-        'RichTextBox2
-        '
-        Me.RichTextBox2.Location = New System.Drawing.Point(460, 482)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(187, 49)
-        Me.RichTextBox2.TabIndex = 39
-        Me.RichTextBox2.Text = ""
-        '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Location = New System.Drawing.Point(460, 397)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(187, 49)
-        Me.RichTextBox1.TabIndex = 38
-        Me.RichTextBox1.Text = ""
         '
         'Label6
         '
@@ -124,6 +108,24 @@ Partial Class Healthcare_DonateBlood
         Me.Label2.Text = "     Donate Blood"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.Font = New System.Drawing.Font("Georgia", 16.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.ItemHeight = 31
+        Me.ComboBox1.Location = New System.Drawing.Point(460, 484)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(187, 39)
+        Me.ComboBox1.TabIndex = 48
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(460, 404)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(277, 30)
+        Me.DateTimePicker1.TabIndex = 49
+        '
         'Healthcare_DonateBlood
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
@@ -131,12 +133,12 @@ Partial Class Healthcare_DonateBlood
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.healthcare_bg
         Me.ClientSize = New System.Drawing.Size(1270, 736)
+        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.d1)
         Me.Controls.Add(Me.RichTextBox3)
-        Me.Controls.Add(Me.RichTextBox2)
-        Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
@@ -151,11 +153,11 @@ Partial Class Healthcare_DonateBlood
 
     Friend WithEvents d1 As Button
     Friend WithEvents RichTextBox3 As RichTextBox
-    Friend WithEvents RichTextBox2 As RichTextBox
-    Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label2 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class
