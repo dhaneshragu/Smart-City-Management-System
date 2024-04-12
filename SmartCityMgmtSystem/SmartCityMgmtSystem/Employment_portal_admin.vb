@@ -5,6 +5,7 @@ Public Class Employment_portal_admin
 
     Public uid As Integer
     Public u_name As String
+
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Text = "Employment Portal"
         Label2.Text = u_name
@@ -128,6 +129,12 @@ Public Class Employment_portal_admin
                 MessageBox.Show("Error: " & ex.Message)
             End Try
         End Using
+
+
+        Dim Notification As String = "Congratulations! You have been accepted in jobid " & jobid.ToString()
+
+        Globals.SendNotifications(uid, userid, "Job Acceptance", Notification)
+        MessageBox.Show("Sent notification")
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -161,6 +168,12 @@ Public Class Employment_portal_admin
                 MessageBox.Show("Error: " & ex.Message)
             End Try
         End Using
+
+
+        Dim Notification As String = "Sorry! You have been rejected from jobid " & jobid.ToString()
+
+        Globals.SendNotifications(uid, userid, "Job Rejected", Notification)
+        MessageBox.Show("Sent notification")
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
