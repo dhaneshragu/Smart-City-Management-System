@@ -5,6 +5,7 @@ Imports Org.BouncyCastle.Cmp
 Public Class Ed_CertificateList
     Public EC_Insti As String
     Public uploadedFileBytes() As Byte
+    Dim coursera_handler As New Ed_Coursera_Handler()
     Private Sub Ed_CertificateList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
@@ -25,7 +26,7 @@ Public Class Ed_CertificateList
             FlowLayoutPanel1.AutoSize = False
             FlowLayoutPanel1.VerticalScroll.Enabled = True
             FlowLayoutPanel1.HorizontalScroll.Enabled = False
-            Add_Buttons(FlowLayoutPanel1, 100)
+            Add_Coursera_Buttons(FlowLayoutPanel1)
         ElseIf EC_Insti = "Institute" Then
             ' Configure FlowLayoutPanel1
             ConfigureFlowLayoutPanel(FlowLayoutPanel1)
@@ -41,6 +42,21 @@ Public Class Ed_CertificateList
         End If
 
     End Sub
+
+    Public Sub Add_Coursera_Buttons(panel As FlowLayoutPanel)
+        Dim certificates As List(Of Byte()) = coursera_handler.GetCertificates(Ed_GlobalDashboard.userID)
+        panel.Controls.Clear()
+        For Each certificate As Byte() In certificates
+            Dim button As New Button()
+            button.Text = "View Certificate"
+            button.Size = New Size(120, 120)
+            button.Tag = certificate
+            AddHandler button.Click, AddressOf Button_Click
+            panel.Controls.Add(button)
+        Next
+
+    End Sub
+
 
     Private Sub Add_Buttons(panel As FlowLayoutPanel, buttonCount As Integer)
         Dim button1 As New Button()
@@ -64,9 +80,16 @@ Public Class Ed_CertificateList
         panel.HorizontalScroll.Visible = True
     End Sub
     Private Sub Button_Click(sender As Object, e As EventArgs)
-        Dim pdf As Byte() = If(uploadedFileBytes IsNot Nothing AndAlso uploadedFileBytes.Length > 0, uploadedFileBytes, New Byte() {})
+        Dim button As Button = DirectCast(sender, Button)
+
+        ' Get the certificate data from the button tag
+        Dim certificateData As Byte() = DirectCast(button.Tag, Byte())
+
+        ' Save the certificate data to a file
+        Dim filePath As String = $"Certificate_{DateTime.Now:yyyyMMddHHmmss}.pdf"
+        File.WriteAllBytes(filePath, certificateData)
         Using tmp As New FileStream("file.pdf", FileMode.Create)
-            tmp.Write(pdf, 0, pdf.Length)
+            tmp.Write(certificateData, 0, certificateData.Length)
         End Using
         Process.Start("file.pdf")
 

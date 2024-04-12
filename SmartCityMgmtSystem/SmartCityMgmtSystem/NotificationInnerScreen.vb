@@ -1,6 +1,7 @@
 ﻿
 Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
+Imports SmartCityMgmtSystem.NotificationInnerScreen
 Imports SmartCityMgmtSystem.RideSharingMain
 Public Class NotificationInnerScreen
     Public Property uid As Integer = 11
@@ -136,4 +137,33 @@ Public Class NotificationInnerScreen
         FilterNotifications(-1)
     End Sub
 
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        PostsPanel.Controls.Clear()
+        Try
+            Using connection As New MySqlConnection(Globals.getdbConnectionString())
+                connection.Open()
+                Dim commandText As String = "SELECT * FROM notifications WHERE (to_id = @uid OR to_id = -1) AND time_stamp >= @selectedDate"
+                Dim command As New MySqlCommand(commandText, connection)
+                command.Parameters.AddWithValue("@uid", uid)
+                command.Parameters.AddWithValue("@selectedDate", DateTimePicker1.Value)
+                Dim reader As MySqlDataReader = command.ExecuteReader()
+
+                While reader.Read()
+                    Dim notificationId As Integer = Convert.ToInt32(reader("notif_id"))
+                    Dim notif_ministry_id As Integer = Convert.ToInt32(reader("ministry_id"))
+                    Dim ministryName As String = ministries.FirstOrDefault(Function(m) m.ID = notif_ministry_id.ToString())?.Name
+                    Dim msg As String = reader("message").ToString()
+                    Dim timestamp As String = Convert.ToDateTime(reader("time_stamp")).ToString("dd MMM yy, hh:mm tt")
+                    Dim title As String = reader("title").ToString()
+                    ' Add post based on notification data
+                    AddPost(notificationId, title, timestamp, msg, notif_ministry_id, ministryName)
+                End While
+
+                reader.Close()
+            End Using ' Closes the connection automatically
+        Catch ex As Exception
+            ' Handle the exception (e.g., log the error, display a message to the user)
+            MessageBox.Show("An error occurred while filtering notifications: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 End Class

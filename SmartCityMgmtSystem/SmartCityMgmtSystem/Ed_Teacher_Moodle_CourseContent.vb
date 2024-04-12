@@ -12,27 +12,27 @@ Public Class Ed_Teacher_Moodle_CourseContent
     End Sub
 
     Private Sub Ed_Teacher_Moodle_CourseContent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim labels As Ed_ResourceLinkItem() = New Ed_ResourceLinkItem(8) {}
+        Dim labels As Ed_Teacher_Moodle_ResourceLinkItem() = New Ed_Teacher_Moodle_ResourceLinkItem(8) {}
 
         ' Create labels and set properties
         For i As Integer = 0 To 7
-            labels(i) = New Ed_ResourceLinkItem()
+            labels(i) = New Ed_Teacher_Moodle_ResourceLinkItem()
             labels(i).Label1.Text = "Resource " & (i + 1)
             AddHandler labels(i).Label1.Click, AddressOf Resource_Label_Click ' Add click event handler
         Next
         ' Add labels to the FlowLayoutPanel
-        For Each Label As Ed_ResourceLinkItem In labels
+        For Each Label As Ed_Teacher_Moodle_ResourceLinkItem In labels
             FlowLayoutPanel1.Controls.Add(Label)
         Next
 
         ' Create labels and set properties
         For i As Integer = 0 To 7
-            labels(i) = New Ed_ResourceLinkItem()
+            labels(i) = New Ed_Teacher_Moodle_ResourceLinkItem()
             labels(i).Label1.Text = "Assignment " & (i + 1)
             AddHandler labels(i).Label1.Click, AddressOf Assgn_Label_Click ' Add click event handler
         Next
         ' Add labels to the FlowLayoutPanel
-        For Each Label As Ed_ResourceLinkItem In labels
+        For Each Label As Ed_Teacher_Moodle_ResourceLinkItem In labels
             FlowLayoutPanel2.Controls.Add(Label)
         Next
     End Sub

@@ -412,4 +412,12 @@ Public Class lib_ebooks
     Private Sub srchSelect_SelectedIndexChanged(sender As Object, e As EventArgs) Handles srchSelect.SelectedIndexChanged
         selectedSearchMode = srchSelect.SelectedItem.ToString()
     End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim HomePageDashboard = New HomePageDashboard() With {
+            .uid = uid
+        }
+        HomePageDashboard.Show()
+        Me.Close()
+    End Sub
 End Class

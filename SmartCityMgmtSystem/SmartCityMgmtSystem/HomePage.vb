@@ -72,4 +72,18 @@ Public Class HomePage
     Private Sub HomePage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'MessageBox.Show(uid.ToString + " " + u_name)
     End Sub
+
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs)
+        Dim pay = New PaymentGateway() With {
+            .uid = uid
+        }
+        If (pay.ShowDialog() = DialogResult.OK) Then
+            MessageBox.Show("Payment successful!")
+            Me.Close()
+        Else
+            MessageBox.Show("Payment failed.")
+        End If
+
+    End Sub
 End Class

@@ -376,4 +376,12 @@ Public Class lib_search
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
 
     End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim HomePageDashboard = New HomePageDashboard() With {
+            .uid = uid
+        }
+        HomePageDashboard.Show()
+        Me.Close()
+    End Sub
 End Class
