@@ -22,9 +22,9 @@ Partial Class Ed_ManageEntrExam
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
@@ -47,6 +47,9 @@ Partial Class Ed_ManageEntrExam
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -58,9 +61,9 @@ Partial Class Ed_ManageEntrExam
         'DataGridViewImageColumn1
         '
         Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle19.NullValue = "System.Drawing.Bitmap"
-        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.NullValue = "System.Drawing.Bitmap"
+        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewImageColumn1.HeaderText = "  "
         Me.DataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn1.MinimumWidth = 6
@@ -73,13 +76,13 @@ Partial Class Ed_ManageEntrExam
         'DataGridViewImageColumn2
         '
         Me.DataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle20.BackColor = System.Drawing.Color.PaleGreen
-        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle20.NullValue = Nothing
-        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Maroon
-        Me.DataGridViewImageColumn2.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.PaleGreen
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle2.NullValue = Nothing
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Maroon
+        Me.DataGridViewImageColumn2.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewImageColumn2.HeaderText = ""
         Me.DataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn2.MinimumWidth = 6
@@ -161,14 +164,14 @@ Partial Class Ed_ManageEntrExam
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(267, 34)
         Me.Label4.TabIndex = 27
-        Me.Label4.Text = "Exam Resuts"
+        Me.Label4.Text = "Exam Results"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Cambria", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(64, 307)
+        Me.Label5.Location = New System.Drawing.Point(63, 355)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(234, 34)
         Me.Label5.TabIndex = 28
@@ -217,7 +220,7 @@ Partial Class Ed_ManageEntrExam
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(374, 307)
+        Me.RichTextBox1.Location = New System.Drawing.Point(373, 355)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(250, 34)
         Me.RichTextBox1.TabIndex = 33
@@ -227,7 +230,7 @@ Partial Class Ed_ManageEntrExam
         '
         Me.Label8.Font = New System.Drawing.Font("Cambria", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(45, 371)
+        Me.Label8.Location = New System.Drawing.Point(44, 419)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(253, 38)
         Me.Label8.TabIndex = 34
@@ -238,7 +241,7 @@ Partial Class Ed_ManageEntrExam
         '
         Me.Label9.Font = New System.Drawing.Font("Cambria", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(31, 442)
+        Me.Label9.Location = New System.Drawing.Point(30, 490)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(267, 38)
         Me.Label9.TabIndex = 35
@@ -273,7 +276,7 @@ Partial Class Ed_ManageEntrExam
         '
         'RichTextBox2
         '
-        Me.RichTextBox2.Location = New System.Drawing.Point(374, 371)
+        Me.RichTextBox2.Location = New System.Drawing.Point(373, 419)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.Size = New System.Drawing.Size(250, 34)
         Me.RichTextBox2.TabIndex = 38
@@ -281,7 +284,7 @@ Partial Class Ed_ManageEntrExam
         '
         'RichTextBox3
         '
-        Me.RichTextBox3.Location = New System.Drawing.Point(374, 446)
+        Me.RichTextBox3.Location = New System.Drawing.Point(373, 494)
         Me.RichTextBox3.Name = "RichTextBox3"
         Me.RichTextBox3.Size = New System.Drawing.Size(250, 34)
         Me.RichTextBox3.TabIndex = 39
@@ -291,6 +294,9 @@ Partial Class Ed_ManageEntrExam
         '
         Me.Panel1.AutoSize = True
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.CheckBox1)
+        Me.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Controls.Add(Me.Button4)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.RichTextBox3)
@@ -310,6 +316,35 @@ Partial Class Ed_ManageEntrExam
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(629, 635)
         Me.Panel1.TabIndex = 40
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(595, 306)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(18, 17)
+        Me.CheckBox1.TabIndex = 43
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Location = New System.Drawing.Point(373, 299)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(205, 26)
+        Me.DateTimePicker1.TabIndex = 42
+        '
+        'Label12
+        '
+        Me.Label12.Font = New System.Drawing.Font("Cambria", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
+        Me.Label12.Location = New System.Drawing.Point(45, 291)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(253, 38)
+        Me.Label12.TabIndex = 41
+        Me.Label12.Text = "Set Exam Date"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Button4
         '
@@ -367,13 +402,13 @@ Partial Class Ed_ManageEntrExam
         'DataGridViewImageColumn3
         '
         Me.DataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle21.BackColor = System.Drawing.Color.PaleGreen
-        DataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle21.NullValue = Nothing
-        DataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Maroon
-        Me.DataGridViewImageColumn3.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.PaleGreen
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle3.NullValue = Nothing
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Maroon
+        Me.DataGridViewImageColumn3.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewImageColumn3.HeaderText = ""
         Me.DataGridViewImageColumn3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_edit_40
         Me.DataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
@@ -404,6 +439,7 @@ Partial Class Ed_ManageEntrExam
         Me.Name = "Ed_ManageEntrExam"
         Me.Text = "Home Page"
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -435,4 +471,7 @@ Partial Class Ed_ManageEntrExam
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Button6 As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label12 As Label
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

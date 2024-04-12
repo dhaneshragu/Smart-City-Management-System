@@ -1,47 +1,84 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Management
+Imports System.Web.UI.WebControls
 Imports MySql.Data.MySqlClient
 
 Public Class Ed_EntranceInnerScreen
     Private WithEvents marqueeTimer As New Timer()
     Private currentIndex As Integer = 0
     Public labelText As String = ""
+    Public ProfilePhoto As Byte()
     Public examID As Integer
+    Private details As Ed_EntranceExam_Handler.EEDetails
+    Private CurrentAdmit As Ed_EntranceExam_Handler.EEStudentAdmit
+    Private CompletedAdmit As Ed_EntranceExam_Handler.EEStudentAdmit
+    Private Venue As Ed_EntranceExam_Handler.EEVenue
+
+
+    Private entranceExamHandler As New Ed_EntranceExam_Handler()
     Private ImpNotice As String = "Applications for the upcoming exam are now open! Apply now to secure your spot!"
-    Private marqueeText As String = ImpNotice + "                                                                          "
+    Private marqueeText As String
+    Private spaces As String = "                                                                          "
     Private Sub Ed_EntranceInnerScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim Con = Globals.GetDBConnection()
-        Try
-            Con.Open()
 
-            ' Check if an entry corresponding to the userID exists in the ee_details table
-            Dim query As String = "SELECT Syllabus, About FROM ee_details WHERE Exam_ID = @examID"
-            Dim cmd As New MySqlCommand(query, Con)
-            cmd.Parameters.AddWithValue("@examID", examID)
+        details = entranceExamHandler.get_ee_details(examID)
+        CurrentAdmit = entranceExamHandler.get_ee_studentadmit(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID, examID, DateTime.Now.Year)
+        CompletedAdmit = entranceExamHandler.get_ee_completed_studentadmit(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID, examID)
+        Venue = entranceExamHandler.get_venue_by_id(CurrentAdmit.Venue_ID)
+        ProfilePhoto = entranceExamHandler.get_user_picture(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID)
+        Label1.Text = details.Name
+        RichTextBox2.Rtf = details.About
+        RichTextBox1.Rtf = details.Syllabus
+        ImpNotice = details.Notice_Message
+        marqueeText = ImpNotice + spaces
+        Label5.Text = details.Contact_email
+        Label6.Text = details.Contact_Info
 
-            Dim reader As MySqlDataReader = cmd.ExecuteReader()
-
-            If reader.Read() Then
-                ' Populate syllabus and about from the database query result
-                If Not reader.IsDBNull(reader.GetOrdinal("Syllabus")) Then
-                    Dim syllabus As String = reader.GetString(reader.GetOrdinal("Syllabus"))
-                    RichTextBox1.Rtf = syllabus
+        If (details.Exam_application = "Open") Then
+            Label10.Text = "Apply For The Exam Here"
+            If (CurrentAdmit.Year <> 0) Then
+                If (CurrentAdmit.ApprvStatus = "pending") Then
+                    Button2.Text = "Application Sent"
+                    Button2.BackColor = Color.DarkGoldenrod
                 End If
-
-                If Not reader.IsDBNull(reader.GetOrdinal("About")) Then
-                    Dim about As String = reader.GetString(reader.GetOrdinal("About"))
-                    RichTextBox2.Rtf = about
+                If (CurrentAdmit.ApprvStatus = "approved") Then
+                    If (CurrentAdmit.fee_Status) Then
+                        Button2.Text = "View Admit Card"
+                    Else
+                        Button2.Text = "Pay Fee"
+                        Button2.BackColor = Color.SeaGreen
+                    End If
+                End If
+                If (CurrentAdmit.ApprvStatus = "rejected") Then
+                    Button2.Hide()
+                    Label11.Text = "Your application has been rejected. Come back next year !"
+                    Button1.Hide()
                 End If
             End If
+        End If
 
-            reader.Close()
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            Con.Close()
-        End Try
+        If (details.Exam_application = "Close") Then
+            Label10.Text = "Applications for the Exam are currently unavailable"
+            Button2.Hide()
+        End If
+
+        If (details.Exam_results = "Released") Then
+
+            Label11.Text = "The exam results have been released!"
+        Else
+            Label11.Text = "No information about the Results yet"
+            Button1.Hide()
+        End If
 
 
-        Label1.Text = labelText
+        If (CompletedAdmit.Year <> 0) Then
+            Label10.Text = "You have already applied for this exam in year : " + CompletedAdmit.Year.ToString
+            Button2.Text = "View Admit Card"
+            Label11.Text = "View Your Result Here "
+        End If
+
+
+
         ' Configure the Timer
         marqueeTimer.Interval = 100 ' Adjust the interval as needed for desired scrolling speed
         marqueeTimer.Start()
@@ -91,4 +128,50 @@ Public Class Ed_EntranceInnerScreen
         StopMarquee()
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        ' Use a Select Case statement for cleaner logic
+        Select Case Button2.Text
+            Case "Apply"
+                entranceExamHandler.AddStudentAdmit(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID, examID, DateTime.Now.Year)
+                Button2.Text = "Application Sent"
+                Button2.BackColor = Color.DarkGoldenrod
+            Case "Pay Fee"
+                Dim feePopUp As New Ed_FeePopup()
+                feePopUp.UserID = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
+                feePopUp.UserName = Ed_GlobalDashboard.Ed_Profile.Ed_Name
+                feePopUp.PayingTo = "Education Minister"
+                feePopUp.PurposeOfPayment = "Exam Entrance Fee"
+                feePopUp.Amount = "200"
+                feePopUp.ShowDialog()
+                If (feePopUp.DialogResult = DialogResult.OK) Then
+                    entranceExamHandler.UpdateFeeStatus(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID, examID, DateTime.Now.Year)
+                    Button2.Text = "View Admit Card"
+                    Button2.BackColor = Color.FromArgb(40, 68, 114)
+                    CurrentAdmit.fee_Status = 1
+                End If
+            Case "View Admit Card"
+                Dim admitCard As New Ed_ExamAdmitCard()
+                admitCard.UserID = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
+                admitCard.UserName = Ed_GlobalDashboard.Ed_Profile.Ed_Name
+                admitCard.ExamName = details.Name
+                admitCard.Venue = Venue.Address
+                admitCard.Date_Time = details.Date_Time
+                admitCard.ProfilePhoto = ProfilePhoto
+                admitCard.ShowDialog()
+        End Select
+
+    End Sub
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim resultCard As New Ed_ExamResultCard()
+        resultCard.ShowDialog()
+        resultCard.UserID = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
+        resultCard.UserName = Ed_GlobalDashboard.Ed_Profile.Ed_Name
+        resultCard.ExamName = details.Name
+        resultCard.Rank = CompletedAdmit.Result_Rank
+        resultCard.Date_Time = details.Date_Time
+        resultCard.ProfilePhoto = ProfilePhoto
+        resultCard.ShowDialog()
+    End Sub
 End Class

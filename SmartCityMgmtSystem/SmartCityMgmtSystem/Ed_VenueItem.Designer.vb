@@ -26,6 +26,7 @@ Partial Class Ed_VenueItem
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -35,7 +36,7 @@ Partial Class Ed_VenueItem
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(81, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(189, 34)
+        Me.Label2.Size = New System.Drawing.Size(242, 34)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Name"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -46,7 +47,7 @@ Partial Class Ed_VenueItem
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(77, 65)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(193, 34)
+        Me.Label1.Size = New System.Drawing.Size(246, 34)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Capacity"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -57,7 +58,7 @@ Partial Class Ed_VenueItem
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(77, 31)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(193, 34)
+        Me.Label3.Size = New System.Drawing.Size(246, 34)
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "Address"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -73,16 +74,30 @@ Partial Class Ed_VenueItem
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Firebrick
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(329, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(60, 99)
+        Me.Button1.TabIndex = 13
+        Me.Button1.Text = "Drop"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Ed_VenueItem
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "Ed_VenueItem"
-        Me.Size = New System.Drawing.Size(280, 99)
+        Me.Size = New System.Drawing.Size(389, 99)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -92,4 +107,5 @@ Partial Class Ed_VenueItem
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents Button1 As Button
 End Class

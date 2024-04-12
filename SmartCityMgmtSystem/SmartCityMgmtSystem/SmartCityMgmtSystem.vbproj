@@ -164,11 +164,23 @@
     <Compile Include="Ed_EditECourse.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ed_ExamAdmitCard.Designer.vb">
+      <DependentUpon>Ed_ExamAdmitCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_ExamAdmitCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_ExamApprvItem.Designer.vb">
       <DependentUpon>Ed_ExamApprvItem.vb</DependentUpon>
     </Compile>
     <Compile Include="Ed_ExamApprvItem.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ed_ExamResultCard.Designer.vb">
+      <DependentUpon>Ed_ExamResultCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_ExamResultCard.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ed_Institute_Edit.Designer.vb">
       <DependentUpon>Ed_Institute_Edit.vb</DependentUpon>
@@ -253,6 +265,12 @@
     </Compile>
     <Compile Include="Ed_Teacher_ResourceLinkItem.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ed_UpdateForm.Designer.vb">
+      <DependentUpon>Ed_UpdateForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_UpdateForm.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ed_VenueItem.Designer.vb">
       <DependentUpon>Ed_VenueItem.vb</DependentUpon>
@@ -1324,8 +1342,14 @@
     <EmbeddedResource Include="Ed_EditECourse.resx">
       <DependentUpon>Ed_EditECourse.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ed_ExamAdmitCard.resx">
+      <DependentUpon>Ed_ExamAdmitCard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ed_ExamApprvItem.resx">
       <DependentUpon>Ed_ExamApprvItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_ExamResultCard.resx">
+      <DependentUpon>Ed_ExamResultCard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Institute_Edit.resx">
       <DependentUpon>Ed_Institute_Edit.vb</DependentUpon>
@@ -1368,6 +1392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Teacher_ResourceLinkItem.resx">
       <DependentUpon>Ed_Teacher_ResourceLinkItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_UpdateForm.resx">
+      <DependentUpon>Ed_UpdateForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_VenueItem.resx">
       <DependentUpon>Ed_VenueItem.vb</DependentUpon>
