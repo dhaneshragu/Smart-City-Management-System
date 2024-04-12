@@ -8,6 +8,7 @@
     End Sub
 
     Private Sub Ed_TeacherDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label2.Text = Ed_GlobalDashboard.Ed_Profile.Ed_Name
         currentlyOpenChildForm = New Ed_ManageECourse()
         Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
