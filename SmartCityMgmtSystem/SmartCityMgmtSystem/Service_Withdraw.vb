@@ -38,6 +38,7 @@ Public Class Service_Withdraw
             MessageBox.Show("Error: " & ex.Message)
         End Try
 
+
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False
         DataGridView1.Columns(0).DataPropertyName = "ID"
@@ -47,6 +48,7 @@ Public Class Service_Withdraw
 
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)

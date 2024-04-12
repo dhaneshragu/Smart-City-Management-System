@@ -619,9 +619,9 @@
     <Compile Include="Employment_portal_search.vb">
       <SubType>Form</SubType>
     </Compile>
-	 <Compile Include="HealthcareAssignDoctorAdmin.Designer.vb">
-		  <DependentUpon>HealthcareAssignDoctorAdmin.vb</DependentUpon>
-	  </Compile>
+    <Compile Include="HealthcareAssignDoctorAdmin.Designer.vb">
+      <DependentUpon>HealthcareAssignDoctorAdmin.vb</DependentUpon>
+    </Compile>
     <Compile Include="HealthcareAssignDoctorAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -803,6 +803,12 @@
       <DependentUpon>Service_History.vb</DependentUpon>
     </Compile>
     <Compile Include="Service_History.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service_Leave.Designer.vb">
+      <DependentUpon>Service_Leave.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service_Leave.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Service_Portal.Designer.vb">
@@ -1639,7 +1645,6 @@
     <EmbeddedResource Include="Employment_portal_search.resx">
       <DependentUpon>Employment_portal_search.vb</DependentUpon>
     </EmbeddedResource>
-    
     <EmbeddedResource Include="HealthcareAssignDoctorAdmin.resx">
       <DependentUpon>HealthcareAssignDoctorAdmin.vb</DependentUpon>
     </EmbeddedResource>
@@ -1729,6 +1734,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Service_History.resx">
       <DependentUpon>Service_History.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service_Leave.resx">
+      <DependentUpon>Service_Leave.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Service_Portal.resx">
       <DependentUpon>Service_Portal.vb</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Runtime.Remoting
 Imports MySql.Data.MySqlClient
 Public Class Request_Cancel_Service
     Public Property uid As Integer = 1
@@ -60,6 +61,41 @@ Public Class Request_Cancel_Service
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         End Try
+
+        Dim dayBooleanMap As New Dictionary(Of String, List(Of Boolean))()
+
+        Try
+            Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
+                con.Open()
+
+                Dim selectSql As String = "SELECT Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday FROM service_leave WHERE user_id = @serviceID;"
+
+                Using cmd As New MySqlCommand(selectSql, con)
+                    cmd.Parameters.AddWithValue("@serviceID", TextBox1.Text)
+
+                    Using reader As MySqlDataReader = cmd.ExecuteReader()
+                        If reader.Read() Then
+                            Dim days() As String = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}
+
+                            For i As Integer = 0 To reader.FieldCount - 1
+                                Dim booleanValues As New List(Of Boolean)()
+                                Dim day As String = days(i)
+
+                                booleanValues.Add(reader.GetBoolean(i))
+                                dayBooleanMap.Add(day, booleanValues)
+                            Next
+                        End If
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
+        Dim dayOfWeek As String = entereddDate.DayOfWeek.ToString()
+        If dayBooleanMap.ContainsKey(dayOfWeek) AndAlso dayBooleanMap(dayOfWeek)(0) Then
+            MessageBox.Show($"The {dayOfWeek} is marked as leave.")
+            Return
+        End If
         Dim hourInput As String = TextBox3.Text
 
         ' Parse the input string to a double value
