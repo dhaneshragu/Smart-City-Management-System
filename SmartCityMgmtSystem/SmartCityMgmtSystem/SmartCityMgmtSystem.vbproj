@@ -236,6 +236,12 @@
     <Compile Include="Ed_Teacher_Moodle_AddResource.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ed_Teacher_Moodle_EditResource.Designer.vb">
+      <DependentUpon>Ed_Teacher_Moodle_EditResource.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_EditResource.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_Teacher_Moodle_ResourceLinkItem.Designer.vb">
       <DependentUpon>Ed_Teacher_Moodle_ResourceLinkItem.vb</DependentUpon>
     </Compile>
@@ -1353,6 +1359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Teacher_Moodle_AddResource.resx">
       <DependentUpon>Ed_Teacher_Moodle_AddResource.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_Moodle_EditResource.resx">
+      <DependentUpon>Ed_Teacher_Moodle_EditResource.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Teacher_Moodle_ResourceLinkItem.resx">
       <DependentUpon>Ed_Teacher_Moodle_ResourceLinkItem.vb</DependentUpon>

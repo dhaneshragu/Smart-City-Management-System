@@ -298,6 +298,7 @@ Public Class Ed_Moodle_Handler
         Return course
     End Function
 
+
     Public Function GetEnrolledAssignments(ByVal studentID As Integer) As RoomContent()
         Dim Con = Globals.GetDBConnection()
         Con.Open()
@@ -363,6 +364,25 @@ Public Class Ed_Moodle_Handler
 
     End Function
 
+    Public Function UpdateCourseContent(ByVal roomID As Integer, ByVal seqNo As Integer, ByVal contentName As String, ByVal contentType As String, ByVal videoLink As String, ByVal content As String)
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+
+        Dim query As String = "UPDATE moodle_coursecontent SET Content_Name = @contentName, Content_Type = @contentType, Video_Link = @videoLink, Content = @content WHERE Room_ID = @roomID AND Seq_no = @seqNo"
+
+        Dim cmd As New MySqlCommand(query, Con)
+        cmd.Parameters.AddWithValue("@roomID", roomID)
+        cmd.Parameters.AddWithValue("@seqNo", seqNo)
+        cmd.Parameters.AddWithValue("@contentName", contentName)
+        cmd.Parameters.AddWithValue("@contentType", contentType)
+        cmd.Parameters.AddWithValue("@videoLink", videoLink)
+        cmd.Parameters.AddWithValue("@content", content)
+
+        Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+        Con.Close()
+
+    End Function
     Public Function DeleteCourseContent(ByVal roomID As Integer, ByVal seqNo As Integer)
         Dim Con = Globals.GetDBConnection()
         Con.Open()
@@ -379,6 +399,33 @@ Public Class Ed_Moodle_Handler
 
     End Function
 
+    Public Function LoadCourseContent(ByVal roomID As Integer, ByVal seqNo As Integer) As RoomContent
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+
+        Dim content As New RoomContent()
+
+        Dim query As String = "SELECT * FROM moodle_coursecontent WHERE Room_ID = @roomID AND Seq_no = @seqNo"
+
+        Using cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@roomID", roomID)
+            cmd.Parameters.AddWithValue("@seqNo", seqNo)
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                If reader.Read() Then
+                    content.RoomID = If(reader("Room_ID") IsNot DBNull.Value, Convert.ToInt32(reader("Room_ID")), 0)
+                    content.ContentName = If(reader("Content_Name") IsNot DBNull.Value, reader("Content_Name").ToString(), "")
+                    content.ContentType = If(reader("Content_Type") IsNot DBNull.Value, reader("Content_Type").ToString(), "")
+                    content.VideoLink = If(reader("Video_Link") IsNot DBNull.Value, reader("Video_Link").ToString(), "")
+                    content.Content = If(reader("Content") IsNot DBNull.Value, reader("Content").ToString(), "")
+                    content.SeqNo = If(reader("Seq_no") IsNot DBNull.Value, Convert.ToInt32(reader("Seq_no")), 0)
+                End If
+            End Using
+        End Using
+
+        Con.Close()
+
+        Return content
+    End Function
 
 
 End Class

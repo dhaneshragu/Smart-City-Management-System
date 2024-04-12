@@ -32,7 +32,7 @@ Public Class Ed_Teacher_Moodle_CourseResource
 
         AddHandler RichTextBox1.ContentsResized, AddressOf RichTextBox_ContentsResized
 
-        RichTextBox1.Text = content.Content
+        RichTextBox1.Rtf = content.Content
         Label1.Text = content.ContentName
         Dim youtubeUrl As String = content.VideoLink ' Your YouTube video URL
         Dim videoId As String = ExtractYouTubeVideoId(youtubeUrl)
@@ -66,8 +66,10 @@ Public Class Ed_Teacher_Moodle_CourseResource
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'Commented out for now'
-        'Dim edit_res_form As New Ed_Teacher_EditResource()
-        'edit_res_form.ShowDialog()
+        Dim edit_res_form As New Ed_Teacher_Moodle_EditResource(content)
+        edit_res_form.callingPanel = callingPanel
+        edit_res_form.CourseItem = course
+        edit_res_form.ShowDialog()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
