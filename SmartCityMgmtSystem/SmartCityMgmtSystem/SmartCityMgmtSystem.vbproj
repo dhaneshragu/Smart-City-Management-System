@@ -151,6 +151,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOrWithdraw.Designer.vb">
+      <DependentUpon>AddOrWithdraw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddOrWithdraw.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Ed_Add_Institution.Designer.vb">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
@@ -1328,6 +1334,12 @@
     <Compile Include="UserSignUp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UserToUserTransaction.Designer.vb">
+      <DependentUpon>UserToUserTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserToUserTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ViewBankTransactions.Designer.vb">
       <DependentUpon>ViewBankTransactions.vb</DependentUpon>
     </Compile>
@@ -1336,6 +1348,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddOrWithdraw.resx">
+      <DependentUpon>AddOrWithdraw.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ed_Add_Institution.resx">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
     </EmbeddedResource>
@@ -1918,6 +1933,9 @@
     <EmbeddedResource Include="UserSignUp.resx">
       <DependentUpon>UserSignUp.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserToUserTransaction.resx">
+      <DependentUpon>UserToUserTransaction.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewBankTransactions.resx">
       <DependentUpon>ViewBankTransactions.vb</DependentUpon>
     </EmbeddedResource>
@@ -2351,6 +2369,7 @@
     <None Include="Resources\ed_course_resource.png" />
     <None Include="Resources\healthcare_bg.jpg" />
     <None Include="Resources\icons8-appointment-time-64.png" />
+    <None Include="Resources\icons8-bus-50 - Copy.png" />
     <Content Include="Resources\icons8-car-100.png" />
     <None Include="Resources\icons8-vendor-48.png" />
     <None Include="Resources\icons8-car-1001.png" />

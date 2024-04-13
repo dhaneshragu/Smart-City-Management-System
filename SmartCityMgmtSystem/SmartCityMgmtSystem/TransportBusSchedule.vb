@@ -44,10 +44,21 @@ Public Class TransportBusSchedule
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to buy this ticket?", "Confirm Buying", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
             If cur_capacity(6 - day) >= 1 Then
-                Dim success As Boolean = Globals.ExecuteUpdateQuery("update bus_capacity set " & cur_day(day) & " = " & cur_day(day) & "-1 where bus_no =" & primaryKeyBuy)
-                If success Then
-                    MessageBox.Show("1 Ticket bought for Bus No. " & txt & " on " & TextBox1.Text & " scheduled for " & formattedTime & ".", "Ticket Bought", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Globals.ExecuteUpdateQuery("update admin_records set bus_revenue = bus_revenue + " & cur_fare)
+                Dim pay = New PaymentGateway() With {
+                                .uid = uid,
+                                .readonly_prop = True
+                            }
+                pay.TextBox1.Text = 5
+                pay.TextBox2.Text = cur_fare
+                pay.TextBox3.Text = "bus-ticket"
+                If (pay.ShowDialog() = DialogResult.OK) Then
+                    Dim success As Boolean = Globals.ExecuteUpdateQuery("update bus_capacity set " & cur_day(day) & " = " & cur_day(day) & "-1 where bus_no =" & primaryKeyBuy)
+                    If success Then
+                        MessageBox.Show("1 Ticket bought for Bus No. " & txt & " on " & TextBox1.Text & " scheduled for " & formattedTime & ".", "Ticket Bought", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Globals.ExecuteUpdateQuery("update admin_records set bus_revenue = bus_revenue + " & cur_fare)
+                    End If
+                Else
+                    MessageBox.Show("Payment failed")
                 End If
             Else
                 MessageBox.Show("Seats are full!", "Seats Full", MessageBoxButtons.OK, MessageBoxIcon.Information)

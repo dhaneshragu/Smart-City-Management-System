@@ -26,7 +26,7 @@ Public Class TransportationManageFastagAdmin
         For Each item As Object In ComboBox1.Items
             ' Assuming your display member property is "DisplayMember"
             ' You might need to replace it with the actual property name
-            Dim displayMemberValue As String = item.GetType().GetProperty("ID").GetValue(item).ToString()
+            Dim displayMemberValue As String = item.GetType().GetProperty("Name").GetValue(item).ToString()
 
             ' Check if the display member value matches the desired value
             If displayMemberValue = txt2 Then
@@ -92,21 +92,22 @@ Public Class TransportationManageFastagAdmin
         reader = cmd.ExecuteReader
         ' Create a DataTable to store the data
         Dim dataTable As New DataTable()
+        DataGridView1.Rows.Clear()
+
+        Dim i As Int16 = 0
+        While (reader.Read())
+            Dim row As New DataGridViewRow()
+            DataGridView1.Rows.Add(row)
+            DataGridView1.Rows(i).Cells("Column1").Value = reader.GetInt16("id")
+            DataGridView1.Rows(i).Cells("Column2").Value = GetVehicleType(reader.GetInt16("vehicle_type"))
+            DataGridView1.Rows(i).Cells("Column3").Value = reader.GetInt16("fee_amt")
+            DataGridView1.Rows(i).Cells("Column4").Value = reader.GetInt16("validity_months")
+            i = i + 1
+        End While
 
         'Fill the DataTable with data from the SQL table
-        dataTable.Load(reader)
         reader.Close()
         Con.Close()
-
-        'IMP: Specify the Column Mappings from DataGridView to SQL Table
-        DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "id"
-        DataGridView1.Columns(1).DataPropertyName = "vehicle_type"
-        DataGridView1.Columns(2).DataPropertyName = "fee_amt"
-        DataGridView1.Columns(3).DataPropertyName = "validity_months"
-
-        ' Bind the data to DataGridView
-        DataGridView1.DataSource = dataTable
     End Sub
 
     Private Sub TransportationInnerScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -181,6 +182,8 @@ Public Class TransportationManageFastagAdmin
                 LoadandBindDataGridView()
 
             End If
+            Dim veh As String = ComboBox1.SelectedItem.GetType().GetProperty("Name").GetValue(ComboBox1.SelectedItem).ToString()
+            Globals.SendNotifications(4, -1, "Fastag Plan Updated", "An existing fastag plan with id " & TextBox1.Text & " has been updated by the admin with new vehicle type " & veh & ", fee as " & TextBox2.Text & " rupees and validity for " & TextBox3.Text & " months.")
             Label3.Text = "Add Fastag Plan"
             Button3.Text = "Add"
             TextBox1.Clear()
@@ -194,6 +197,8 @@ Public Class TransportationManageFastagAdmin
             If success Then
                 LoadandBindDataGridView()
             End If
+            Dim veh As String = ComboBox1.SelectedItem.GetType().GetProperty("Name").GetValue(ComboBox1.SelectedItem).ToString()
+            Globals.SendNotifications(4, -1, "Fastag Plan Added", "A new fastag plan with id " & TextBox1.Text & " has been added by the admin with vehicle type " & veh & ", fee as " & TextBox2.Text & " rupees and validity for " & TextBox3.Text & " months.")
             TextBox1.Clear()
             ComboBox1.SelectedIndex = -1
             TextBox2.Clear()

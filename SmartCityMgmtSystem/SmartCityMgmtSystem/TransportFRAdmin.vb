@@ -11,9 +11,9 @@ Public Class TransportFRAdmin
                 Using reader As MySqlDataReader = command.ExecuteReader()
                     While reader.Read()
                         Label6.Text = reader.GetInt32("account_no")
-                        Label7.Text = reader.GetInt32("toll_revenue")
-                        Label9.Text = reader.GetInt32("reg_dl_revenue")
-                        Label8.Text = reader.GetInt32("bus_revenue")
+                        Label7.Text = "Rs. " & reader.GetInt32("toll_revenue")
+                        Label9.Text = "Rs. " & reader.GetInt32("reg_dl_revenue")
+                        Label8.Text = "Rs. " & reader.GetInt32("bus_revenue")
                     End While
                 End Using
             End Using

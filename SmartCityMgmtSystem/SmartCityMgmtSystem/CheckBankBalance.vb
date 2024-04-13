@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 Public Class CheckBankBalance
     Public Property balance As Integer = 1
     Public Property accnum As Integer = 1
