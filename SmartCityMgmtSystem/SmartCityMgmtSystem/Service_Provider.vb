@@ -5,6 +5,7 @@
     Private serviceWithdraw As Service_Withdraw = Nothing
     Private serviceOffered As Service_View_Offered = Nothing
     Private scheduledServices As Service_Scheduled = Nothing
+    Private serviceleave As Service_Leave = Nothing
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Label2.Text = u_name
         Label3.Text = "Unique Identification No: " & uid
@@ -64,5 +65,16 @@
         'Me.Hide()
         'scheduledServices.Show()
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        serviceleave?.Dispose()
+        serviceleave = New Service_Leave() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(childformPanel, serviceleave)
+        'Me.Hide()
+        'scheduledServices.Show()
     End Sub
 End Class
