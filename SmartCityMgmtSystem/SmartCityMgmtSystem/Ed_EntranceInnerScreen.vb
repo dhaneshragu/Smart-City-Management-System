@@ -13,7 +13,7 @@ Public Class Ed_EntranceInnerScreen
     Private CurrentAdmit As Ed_EntranceExam_Handler.EEStudentAdmit
     Private CompletedAdmit As Ed_EntranceExam_Handler.EEStudentAdmit
     Private Venue As Ed_EntranceExam_Handler.EEVenue
-
+    Private UnsedVenue As Ed_EntranceExam_Handler.EEVenue
 
     Private entranceExamHandler As New Ed_EntranceExam_Handler()
     Private ImpNotice As String = "Applications for the upcoming exam are now open! Apply now to secure your spot!"
@@ -136,19 +136,36 @@ Public Class Ed_EntranceInnerScreen
                 Button2.Text = "Application Sent"
                 Button2.BackColor = Color.DarkGoldenrod
             Case "Pay Fee"
-                Dim feePopUp As New Ed_FeePopup()
-                feePopUp.UserID = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
-                feePopUp.UserName = Ed_GlobalDashboard.Ed_Profile.Ed_Name
-                feePopUp.PayingTo = "Education Minister"
-                feePopUp.PurposeOfPayment = "Exam Entrance Fee"
-                feePopUp.Amount = "200"
-                feePopUp.ShowDialog()
-                If (feePopUp.DialogResult = DialogResult.OK) Then
+                'Dim feePopUp As New Ed_FeePopup()
+                'feePopUp.UserID = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
+                'feePopUp.UserName = Ed_GlobalDashboard.Ed_Profile.Ed_Name
+                'feePopUp.PayingTo = "Education Minister"
+                'feePopUp.PurposeOfPayment = "Exam Entrance Fee"
+                'feePopUp.Amount = "200"
+                'feePopUp.ShowDialog()
+                'If (feePopUp.DialogResult = DialogResult.OK) Then
+                'entranceExamHandler.UpdateFeeStatus(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID, examID, DateTime.Now.Year)
+                'Button2.Text = "View Admit Card"
+                'Button2.BackColor = Color.FromArgb(40, 68, 114)
+                'CurrentAdmit.fee_Status = 1
+                'End If
+                Dim pay = New PaymentGateway() With {
+                    .uid = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
+                }
+                pay.readonly_prop = True
+                pay.TextBox2.Text = 200
+                pay.TextBox3.Text = "Entrance Exam Fee"
+                pay.TextBox1.Text = 3
+                If (pay.ShowDialog() = DialogResult.OK) Then
                     entranceExamHandler.UpdateFeeStatus(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID, examID, DateTime.Now.Year)
+                    UnsedVenue = entranceExamHandler.GetLowestUnusedVenueAndUpdateCapacity()
+                    entranceExamHandler.UpdateExamVenueID(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID, examID, DateTime.Now.Year, UnsedVenue.EE_Venue_ID)
                     Button2.Text = "View Admit Card"
                     Button2.BackColor = Color.FromArgb(40, 68, 114)
                     CurrentAdmit.fee_Status = 1
+                    Venue = UnsedVenue
                 End If
+
             Case "View Admit Card"
                 Dim admitCard As New Ed_ExamAdmitCard()
                 admitCard.UserID = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
@@ -173,8 +190,5 @@ Public Class Ed_EntranceInnerScreen
         resultCard.Date_Time = details.Date_Time
         resultCard.ProfilePhoto = ProfilePhoto
         resultCard.ShowDialog()
-    End Sub
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
     End Sub
 End Class
