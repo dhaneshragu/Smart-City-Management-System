@@ -3,6 +3,7 @@ Imports System.Runtime.Remoting
 Imports MySql.Data.MySqlClient
 Public Class Request_Cancel_Service
     Public Property uid As Integer = 1
+    Dim serv_charge As Integer = 0
     Public Property u_name As String = "Ashish Bharti"
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
@@ -21,11 +22,11 @@ Public Class Request_Cancel_Service
             MessageBox.Show("Please select a date within a week from the current date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-
+        Dim temp_charge As Integer
         Dim gstartTime As TimeSpan
         Dim gendTime As TimeSpan
         Dim Department1 As String
-        Dim serv_charge As Integer
+
         Dim dataTable As New DataTable()
         Try
             Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
@@ -48,7 +49,7 @@ Public Class Request_Cancel_Service
                             Dim startTime As TimeSpan = row.Field(Of TimeSpan)("startTime")
                             Dim endTime As TimeSpan = row.Field(Of TimeSpan)("endTime")
                             Department1 = row.Field(Of String)("dept")
-                            serv_charge = row.Field(Of Integer)("charge")
+                            temp_charge = row.Field(Of Integer)("charge")
                             gstartTime = startTime
                             gendTime = endTime
                         Next
@@ -121,7 +122,7 @@ Public Class Request_Cancel_Service
                     Using cmd As New MySqlCommand(sql, con)
                         cmd.Parameters.AddWithValue("@userID", TextBox2.Text)
                         cmd.Parameters.AddWithValue("@serviceID", TextBox1.Text)
-                        cmd.Parameters.AddWithValue("@charge", serv_charge)
+                        cmd.Parameters.AddWithValue("@charge", temp_charge)
                         cmd.Parameters.AddWithValue("@startTime", timeSpan)
                         cmd.Parameters.AddWithValue("@date", selectedDateString)
                         cmd.Parameters.AddWithValue("@dept", Department1)
@@ -129,6 +130,7 @@ Public Class Request_Cancel_Service
                         MessageBox.Show("Service Requested Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End Using
                 End Using
+                serv_charge += temp_charge
                 ReloadDataGridView()
             Catch ex As Exception
                 MessageBox.Show("Error: " & ex.Message)
@@ -199,7 +201,9 @@ Public Class Request_Cancel_Service
                 For Each row As DataGridViewRow In rowsToRemove
                     DataGridView1.Rows.Remove(row)
                 Next
-                MessageBox.Show("Service Cancelled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If rowsToRemove.Count > 0 Then
+                    MessageBox.Show("Service Cancelled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
             End Using
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
@@ -225,6 +229,20 @@ Public Class Request_Cancel_Service
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         End Try
+        Dim total_bill As Integer = fine + serv_charge
+        MessageBox.Show("Total Bill: " & total_bill, "Proceeding to Payment gateway...", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Dim paymentGateway As New PaymentGateway() With {
+            .uid = uid,
+            .readonly_prop = False
+        }
+        If (paymentGateway.ShowDialog() = DialogResult.OK) Then
+            MessageBox.Show("Payment Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+             Me.Close()
+        
+        Else
+            MessageBox.Show("Payment Failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

@@ -52,8 +52,8 @@ Public Class Service_Post
                     cmd.Parameters.AddWithValue("@offered", TextBox2.Text)
                     cmd.Parameters.AddWithValue("@department", ComboBox1.Text)
                     cmd.Parameters.AddWithValue("@charge", TextBox3.Text)
-                    cmd.Parameters.AddWithValue("@startTime", starthourInput)
-                    cmd.Parameters.AddWithValue("@endTime", endhourInput)
+                    cmd.Parameters.AddWithValue("@startTime", timeSpan1)
+                    cmd.Parameters.AddWithValue("@endTime", timeSpan2)
                     cmd.ExecuteNonQuery()
                     MessageBox.Show("Service Posted Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
