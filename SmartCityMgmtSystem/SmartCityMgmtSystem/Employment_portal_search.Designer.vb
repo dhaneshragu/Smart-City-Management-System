@@ -23,6 +23,7 @@ Partial Class Employment_portal_search
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.childformPanel = New System.Windows.Forms.Panel()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Dept = New System.Windows.Forms.ComboBox()
         Me.Job_Desc = New System.Windows.Forms.ComboBox()
         Me.RichTextBox10 = New System.Windows.Forms.RichTextBox()
@@ -56,6 +57,7 @@ Partial Class Employment_portal_search
         'childformPanel
         '
         Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.childformPanel.Controls.Add(Me.RichTextBox1)
         Me.childformPanel.Controls.Add(Me.Dept)
         Me.childformPanel.Controls.Add(Me.Job_Desc)
         Me.childformPanel.Controls.Add(Me.RichTextBox10)
@@ -77,6 +79,19 @@ Partial Class Employment_portal_search
         Me.childformPanel.Size = New System.Drawing.Size(1313, 721)
         Me.childformPanel.TabIndex = 1
         '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RichTextBox1.Location = New System.Drawing.Point(279, 65)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
+        Me.RichTextBox1.Size = New System.Drawing.Size(752, 43)
+        Me.RichTextBox1.TabIndex = 34
+        Me.RichTextBox1.Text = "Welcome to our Job Search Portal. If you wish to search all possible job openings" &
+    ", then just press the Search Button. Enter your preferences and then Search for " &
+    "using the advanced filter."
+        '
         'Dept
         '
         Me.Dept.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -87,7 +102,7 @@ Partial Class Employment_portal_search
         Me.Dept.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.Dept.ForeColor = System.Drawing.Color.White
         Me.Dept.FormattingEnabled = True
-        Me.Dept.Location = New System.Drawing.Point(133, 266)
+        Me.Dept.Location = New System.Drawing.Point(130, 318)
         Me.Dept.Margin = New System.Windows.Forms.Padding(0)
         Me.Dept.Name = "Dept"
         Me.Dept.Size = New System.Drawing.Size(221, 39)
@@ -103,7 +118,7 @@ Partial Class Employment_portal_search
         Me.Job_Desc.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.Job_Desc.ForeColor = System.Drawing.Color.White
         Me.Job_Desc.FormattingEnabled = True
-        Me.Job_Desc.Location = New System.Drawing.Point(133, 199)
+        Me.Job_Desc.Location = New System.Drawing.Point(130, 235)
         Me.Job_Desc.Margin = New System.Windows.Forms.Padding(0)
         Me.Job_Desc.Name = "Job_Desc"
         Me.Job_Desc.Size = New System.Drawing.Size(221, 39)
@@ -113,7 +128,7 @@ Partial Class Employment_portal_search
         '
         Me.RichTextBox10.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox10.Location = New System.Drawing.Point(11, 131)
+        Me.RichTextBox10.Location = New System.Drawing.Point(11, 160)
         Me.RichTextBox10.Name = "RichTextBox10"
         Me.RichTextBox10.Size = New System.Drawing.Size(75, 39)
         Me.RichTextBox10.TabIndex = 31
@@ -123,7 +138,7 @@ Partial Class Employment_portal_search
         '
         Me.RichTextBox9.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox9.Location = New System.Drawing.Point(11, 201)
+        Me.RichTextBox9.Location = New System.Drawing.Point(11, 237)
         Me.RichTextBox9.Name = "RichTextBox9"
         Me.RichTextBox9.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
         Me.RichTextBox9.Size = New System.Drawing.Size(98, 37)
@@ -139,7 +154,7 @@ Partial Class Employment_portal_search
         Me.Qual.ForeColor = System.Drawing.Color.White
         Me.Qual.FormattingEnabled = True
         Me.Qual.Items.AddRange(New Object() {"10th Pass", "12th Pass", "UG", "PG", "0-2 yrs Experience", "2+ yrs Experience"})
-        Me.Qual.Location = New System.Drawing.Point(130, 391)
+        Me.Qual.Location = New System.Drawing.Point(130, 460)
         Me.Qual.Margin = New System.Windows.Forms.Padding(0)
         Me.Qual.Name = "Qual"
         Me.Qual.Size = New System.Drawing.Size(221, 39)
@@ -149,7 +164,7 @@ Partial Class Employment_portal_search
         '
         Me.RichTextBox8.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox8.Location = New System.Drawing.Point(11, 266)
+        Me.RichTextBox8.Location = New System.Drawing.Point(11, 318)
         Me.RichTextBox8.Name = "RichTextBox8"
         Me.RichTextBox8.Size = New System.Drawing.Size(116, 39)
         Me.RichTextBox8.TabIndex = 28
@@ -159,7 +174,7 @@ Partial Class Employment_portal_search
         '
         Me.RichTextBox7.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox7.Location = New System.Drawing.Point(11, 330)
+        Me.RichTextBox7.Location = New System.Drawing.Point(11, 391)
         Me.RichTextBox7.Name = "RichTextBox7"
         Me.RichTextBox7.Size = New System.Drawing.Size(75, 39)
         Me.RichTextBox7.TabIndex = 27
@@ -169,7 +184,7 @@ Partial Class Employment_portal_search
         '
         Me.RichTextBox6.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.RichTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox6.Location = New System.Drawing.Point(11, 391)
+        Me.RichTextBox6.Location = New System.Drawing.Point(11, 460)
         Me.RichTextBox6.Name = "RichTextBox6"
         Me.RichTextBox6.Size = New System.Drawing.Size(116, 39)
         Me.RichTextBox6.TabIndex = 26
@@ -178,7 +193,7 @@ Partial Class Employment_portal_search
         'Job_ID
         '
         Me.Job_ID.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Job_ID.Location = New System.Drawing.Point(130, 128)
+        Me.Job_ID.Location = New System.Drawing.Point(130, 160)
         Me.Job_ID.Name = "Job_ID"
         Me.Job_ID.Size = New System.Drawing.Size(221, 39)
         Me.Job_ID.TabIndex = 21
@@ -187,7 +202,7 @@ Partial Class Employment_portal_search
         'Salary
         '
         Me.Salary.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Salary.Location = New System.Drawing.Point(133, 330)
+        Me.Salary.Location = New System.Drawing.Point(130, 388)
         Me.Salary.Name = "Salary"
         Me.Salary.Size = New System.Drawing.Size(221, 39)
         Me.Salary.TabIndex = 19
@@ -217,7 +232,7 @@ Partial Class Employment_portal_search
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.BlanchedAlmond
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column4, Me.Column5, Me.Column6, Me.Column3})
-        Me.DataGridView1.Location = New System.Drawing.Point(381, 128)
+        Me.DataGridView1.Location = New System.Drawing.Point(381, 148)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
@@ -274,7 +289,7 @@ Partial Class Employment_portal_search
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.btnSearch.ForeColor = System.Drawing.Color.White
-        Me.btnSearch.Location = New System.Drawing.Point(133, 484)
+        Me.btnSearch.Location = New System.Drawing.Point(130, 553)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(0)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(225, 38)
@@ -399,4 +414,5 @@ Partial Class Employment_portal_search
     Friend WithEvents Label1 As Label
     Friend WithEvents Job_Desc As ComboBox
     Friend WithEvents Dept As ComboBox
+    Friend WithEvents RichTextBox1 As RichTextBox
 End Class

@@ -166,5 +166,4 @@ ORDER BY employment_jobs.department, n.digit;"
         DataGridView1.DataSource = dataTable
         DataGridView1.Visible = True
     End Sub
-
 End Class

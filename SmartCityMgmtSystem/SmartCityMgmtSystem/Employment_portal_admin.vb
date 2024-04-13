@@ -1,10 +1,27 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports Mysqlx.XDevAPI.Relational
 Imports Org.BouncyCastle.Bcpg
 
 Public Class Employment_portal_admin
 
     Public uid As Integer
     Public u_name As String
+
+
+    Private Sub DataGridView1_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles DataGridView1.CellFormatting
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            If row.Cells("Column6").Value = "Rejected" Then
+                row.DefaultCellStyle.BackColor = Color.RosyBrown
+            End If
+            If row.Cells("Column6").Value = "Accepted" Then
+                row.DefaultCellStyle.BackColor = Color.LightGreen
+            End If
+            If row.Cells("Column6").Value = "Applied" Then
+                row.DefaultCellStyle.BackColor = Color.White
+            End If
+        Next
+    End Sub
 
     Public Sub pageload()
         DataGridView1.AllowUserToAddRows = False
@@ -51,6 +68,34 @@ Public Class Employment_portal_admin
 
         DataGridView1.DataSource = dataTable
         DataGridView1.Visible = True
+
+
+        Try
+            Using con1 As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
+                con1.Open()
+
+                Dim sql As String = "SELECT COUNT(*) as Num_Applicants_Applied
+                                    FROM employment_applications as A 
+                                    JOIN employment_jobs as J ON A.job_id = J.job_id
+                                    WHERE J.job_poster_id = @poster
+                                    AND A.status_application = 'Applied';"
+
+                Using cmd1 As New MySqlCommand(sql, con1)
+                    cmd1.Parameters.AddWithValue("@poster", uid)
+
+                    Dim count As Integer = Convert.ToInt32(cmd1.ExecuteScalar())
+                    RichTextBox1.Text = "Hey there, " & count.ToString() & " applications are pending to be reviewed"
+
+                    MessageBox.Show("Read Success")
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
+
+
+        AddHandler DataGridView1.CellFormatting, AddressOf DataGridView1_CellFormatting
+
     End Sub
 
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
