@@ -2,6 +2,8 @@
 Imports MySql.Data.MySqlClient
 Imports System.IO
 Imports System.Web
+Imports System.Text
+Imports SmartCityMgmtSystem.Ed_GlobalDashboard
 
 Public Class Ed_Coursera_Handler
     Public Class Course
@@ -519,6 +521,7 @@ Public Class Ed_Coursera_Handler
         cmd.Parameters.AddWithValue("@CourseID", courseID)
         cmd.ExecuteNonQuery()
         Con.Close()
+        GenerateCertificateAndSave(studentID, "E-Course", DateTime.Now.Year, courseID)
     End Function
 
     Public Function RateCourse(ByVal studentID As Integer, ByVal courseID As Integer, ByVal rating As Integer)
@@ -531,62 +534,59 @@ Public Class Ed_Coursera_Handler
         cmd.Parameters.AddWithValue("@Rate", rating)
         cmd.ExecuteNonQuery()
         Con.Close()
-        GenerateCertificateAndSave(studentID, "E-Course", DateTime.Now.Year, courseID)
     End Function
 
     Public Sub GenerateCertificateAndSave(studentID As Integer, CertType As String, year As Integer, courseID As Integer)
-        ' Generate the content for the PDF
-        Dim content As String = $"Student ID: {studentID}{Environment.NewLine}" &
-                                $"Certificate Type: {CertType}{Environment.NewLine}" &
-                                $"Year: {year}{Environment.NewLine}" &
-                                $"CourseID: {courseID}{Environment.NewLine}"
-
-        Dim filePath As String = "file.pdf"
-
-        ' Write the text to the PDF file
-        File.WriteAllText(filePath, content)
-
-        Dim pdfBytes As Byte() = File.ReadAllBytes(filePath)
-
-        Dim Con = Globals.GetDBConnection()
-        Con.Open()
-        Dim query As String = "INSERT INTO ed_certificates (Certificate, Student_ID, Type, Year, Course_ID) VALUES (@pdf, @studentID, @Type, @year, @courseID)"
-        Dim cmd As New MySqlCommand(query, Con)
-        cmd.Parameters.AddWithValue("@studentID", studentID)
-        cmd.Parameters.AddWithValue("@courseID", courseID)
-        cmd.Parameters.AddWithValue("@pdf", pdfBytes)
-        cmd.Parameters.AddWithValue("@year", year)
-        cmd.Parameters.AddWithValue("@Type", "E-Course")
-        cmd.ExecuteNonQuery()
-        Con.Close()
-
-
+        Using Con = Globals.GetDBConnection()
+            Con.Open()
+            Dim query As String = "INSERT INTO ed_certificates (Student_ID, Type, Year, Course_ID) VALUES (@studentID, @Type, @year, @courseID)"
+            Dim cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@studentID", studentID)
+            cmd.Parameters.AddWithValue("@courseID", courseID)
+            cmd.Parameters.AddWithValue("@year", year)
+            cmd.Parameters.AddWithValue("@Type", "E-Course")
+            cmd.ExecuteNonQuery()
+            Con.Close()
+        End Using
     End Sub
 
-    Public Function GetCertificates(ByVal studentID As Integer) As List(Of Byte())
-        Dim certificates As New List(Of Byte())()
-
+    Public Function GetCertificates(ByVal studentID As Integer) As List(Of CertificateData)
         ' Get the database connection
         Dim Con = Globals.GetDBConnection()
 
         ' Open the database connection
         Con.Open()
 
+        ' List to store CertificateData objects
+        Dim certificates As New List(Of CertificateData)()
+
         ' SQL query to select certificates from the database
-        Dim query As String = "SELECT Certificate FROM ed_certificates where Student_ID = @studentID"
+        Dim query As String = "SELECT * FROM ed_certificates WHERE Student_ID = @studentID AND Type = 'E-Course'"
 
         ' Create a MySqlCommand object
         Using cmd As New MySqlCommand(query, Con)
             cmd.Parameters.AddWithValue("@studentID", studentID)
+
             ' Execute the SQL command
             Using reader As MySqlDataReader = cmd.ExecuteReader()
                 ' Iterate through the results
                 While reader.Read()
-                    ' Extract the certificate bytes from the reader
-                    Dim certificateBytes As Byte() = DirectCast(reader("Certificate"), Byte())
+                    ' Create a new CertificateData object
+                    Dim certData As New CertificateData()
 
-                    ' Add the certificate bytes to the list
-                    certificates.Add(certificateBytes)
+                    ' Set properties of CertificateData object
+                    certData.Inst_ID = If(Not IsDBNull(reader("Inst_ID")), Convert.ToInt32(reader("Inst_ID")), 0)
+                    certData.Student_ID = If(Not IsDBNull(reader("Student_ID")), Convert.ToInt32(reader("Student_ID")), 0)
+                    certData.Type = If(Not IsDBNull(reader("Type")), reader("Type").ToString(), String.Empty)
+                    certData.sClass = If(Not IsDBNull(reader("Class")), Convert.ToInt32(reader("Class")), 0)
+                    certData.sSem = If(Not IsDBNull(reader("Sem")), Convert.ToInt32(reader("Sem")), 0)
+                    certData.Year = If(Not IsDBNull(reader("Year")), Convert.ToInt32(reader("Year")), 0)
+                    certData.Certificate = If(Not IsDBNull(reader("Certificate")), DirectCast(reader("Certificate"), Byte()), Nothing)
+                    certData.Course_ID = If(Not IsDBNull(reader("Course_ID")), Convert.ToInt32(reader("Course_ID")), 0)
+
+
+                    ' Add the CertificateData object to the list
+                    certificates.Add(certData)
                 End While
             End Using
         End Using
@@ -594,8 +594,9 @@ Public Class Ed_Coursera_Handler
         ' Close the database connection
         Con.Close()
 
-        ' Return the list of certificate bytes
+        ' Return the list of CertificateData objects
         Return certificates
+
     End Function
 
 End Class
