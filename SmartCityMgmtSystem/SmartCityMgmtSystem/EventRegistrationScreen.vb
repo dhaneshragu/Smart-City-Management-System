@@ -6,6 +6,7 @@ Public Class EventRegistrationScreen
     Public Property uid As Integer
     Public Property u_name As String
 
+    Dim cost As Integer
 
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
@@ -18,7 +19,7 @@ Public Class EventRegistrationScreen
             Dim vendorID As Integer = GetVendorID(vendorName)
 
             ' Retrieve the cost from the DataTable based on the vendor name
-            Dim cost As Integer = GetCostFromDB(vendorName)
+            cost = GetCostFromDB(vendorName)
 
             ' Populate the vendor ID in TextBox4
             TextBox4.Text = vendorID.ToString()
@@ -87,6 +88,30 @@ Public Class EventRegistrationScreen
         Return cost
     End Function
 
+    Private Function GetVendorUID(ByVal vendorID As Integer) As Integer
+        'Get connection from globals
+        Dim Con = Globals.GetDBConnection()
+        Dim cmd As MySqlCommand
+        Dim vendorUID As Integer = -1
+
+        Try
+            Con.Open()
+
+            ' Use parameterized query to prevent SQL injection
+            Dim query As String = "SELECT vendor_UID FROM Vendor WHERE vendorID = @VendorID;"
+            cmd = New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@VendorID", vendorID)
+
+            ' Execute the query to retrieve the vendor UID
+            vendorUID = Convert.ToInt32(cmd.ExecuteScalar())
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            Con.Close()
+        End Try
+
+        Return vendorUID
+    End Function
 
 
     Private Sub LoadandBindDataGridView(ByVal startDate As Date, ByVal endDate As Date, ByVal eventType As String)
@@ -300,6 +325,14 @@ Public Class EventRegistrationScreen
         Dim EventType As String = ComboBox1.SelectedItem.ToString()
         Dim VendorID As String = TextBox4.Text
         Dim Password As String = TextBox5.Text
+        Dim VendorIDINT As Integer
+        If Integer.TryParse(TextBox4.Text, VendorIDINT) Then
+            ' Conversion successful, VendorID now holds the integer value
+            ' You can use VendorID further in your code
+        Else
+            ' Conversion failed, handle the error here
+            MessageBox.Show("Invalid Vendor ID. Please enter a valid integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
 
         ' Check if the entered contact number is numeric
         If Not IsNumeric(ContactNo) Then
@@ -317,8 +350,24 @@ Public Class EventRegistrationScreen
         InsertEventBooking(EventType, EventStartDate, EventEndDate, CInt(VendorID), CInt(CustomerID), Password)
 
 
+        Dim pay = New PaymentGateway() With {
+            .uid = uid,
+            .readonly_prop = True
+        }
+        pay.TextBox1.Text = GetVendorUID(VendorIDINT)
+        pay.TextBox2.Text = cost
+        pay.TextBox3.Text = "Payment for Event Registration"
+        If (pay.ShowDialog() = DialogResult.OK) Then
+            MessageBox.Show("Payment successful!")
+            Me.Close()
+        Else
+            MessageBox.Show("Payment failed.")
+        End If
+
+
         'EventDashboard.Show()
         Me.Close()
+
 
 
 
