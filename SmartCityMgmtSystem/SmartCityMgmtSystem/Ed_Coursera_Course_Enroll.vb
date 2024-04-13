@@ -37,7 +37,7 @@ Public Class Ed_Coursera_Course_Enroll
         Label1.Text = CourseItem.Name
         Label2.Text = CourseItem.TeacherName
         Label3.Text = CourseItem.Institution
-        RichTextBox1.Text = CourseItem.Syllabus
+        RichTextBox1.Rtf = CourseItem.Syllabus
         Dim youtubeUrl As String = CourseItem.IntroVideoLink
         Dim videoId As String = ExtractYouTubeVideoId(youtubeUrl)
 

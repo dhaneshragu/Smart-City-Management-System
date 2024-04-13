@@ -5,7 +5,7 @@ Public Class Ed_CertButton
     Public Property certData As CertificateData
 
     Private Sub Ed_CertButton_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim certificateName As String = $"{certData.Year}_{certData.Inst_ID}}_{certData.Course_ID}_{certData.sClass}"
+        Dim certificateName As String = $"{certData.Year}_{certData.Inst_ID}_{certData.Course_ID}_{certData.sClass}"
 
         Button1.Text = certificateName
     End Sub
