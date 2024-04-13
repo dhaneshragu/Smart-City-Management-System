@@ -2,7 +2,7 @@
 Imports FastReport.DataVisualization.Charting
 Imports MySql.Data.MySqlClient
 Imports SmartCityMgmtSystem.ElectionInnerScreenCitizenRTI
-Public Class ElectionInnerScreenViewStatisticsMinistry
+Public Class ElectionInnerScreenViewStatisticsMinistry9
 
     Private Sub LoadData()
         Dim Con As MySqlConnection = Globals.GetDBConnection()
@@ -20,7 +20,7 @@ Public Class ElectionInnerScreenViewStatisticsMinistry
 
         ' Add parameters to the command
         cmd.Parameters.AddWithValue("@election_id", ElectionInnerScreenViewStatistics.lastElectionID)
-        cmd.Parameters.AddWithValue("@ministry_id", 1)
+        cmd.Parameters.AddWithValue("@ministry_id", 9)
 
         reader = cmd.ExecuteReader()
 

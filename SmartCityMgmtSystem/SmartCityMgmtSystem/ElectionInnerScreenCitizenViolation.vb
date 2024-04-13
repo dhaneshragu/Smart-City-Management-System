@@ -134,7 +134,7 @@ Public Class ElectionInnerScreenCitizenViolation
         reader.Close()
         lastReportID = lastReportID + 1
 
-        Dim insertReportQuery = "INSERT INTO violations_reported VALUES(" & lastElectionID & "," & lastReportID & "," & ElectionDashboard.LoggedInUserId &
+        Dim insertReportQuery = "INSERT INTO violations_reported VALUES(" & lastElectionID & "," & lastReportID & "," & ElectionDashboard.uid &
                                 "," & candidate_uid & "," & """" & RichTextBox1.Text.ToString & """," & " '' );"
 
         InsertQuery(insertReportQuery)
