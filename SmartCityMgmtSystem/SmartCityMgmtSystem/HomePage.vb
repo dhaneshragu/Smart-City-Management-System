@@ -73,17 +73,19 @@ Public Class HomePage
         'MessageBox.Show(uid.ToString + " " + u_name)
     End Sub
 
-
-    Private Sub Button3_Click_1(sender As Object, e As EventArgs)
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim pay = New PaymentGateway() With {
-            .uid = uid
+            .uid = uid,
+            .readonly_prop = True
         }
+        pay.TextBox1.Text = 1
+        pay.TextBox2.Text = 10
+        pay.TextBox3.Text = "fee"
         If (pay.ShowDialog() = DialogResult.OK) Then
             MessageBox.Show("Payment successful!")
             Me.Close()
         Else
             MessageBox.Show("Payment failed.")
         End If
-
     End Sub
 End Class
