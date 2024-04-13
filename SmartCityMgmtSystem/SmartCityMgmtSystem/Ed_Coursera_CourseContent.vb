@@ -30,7 +30,7 @@ Public Class Ed_Coursera_CourseContent
 
         AddHandler RichTextBox1.ContentsResized, AddressOf RichTextBox_ContentsResized
 
-        RichTextBox1.Text = CourseItem.Syllabus
+        RichTextBox1.Rtf = CourseItem.Syllabus
         FlowLayoutPanel1.Height = RichTextBox1.Height + 391
 
 

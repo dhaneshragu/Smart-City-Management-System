@@ -1,4 +1,4 @@
-﻿Imports MySql.Data.MySqlClient
+Imports MySql.Data.MySqlClient
 Imports SmartCityMgmtSystem.Ed_Coursera_Handler
 
 Public Class Ed_Moodle_Handler
@@ -422,10 +422,140 @@ Public Class Ed_Moodle_Handler
             End Using
         End Using
 
+        Con.Close()  
+        Return content
+    End Function                                                                                                                                  
+                                                                                                                                          
+                                                                                                                                              
+    Public Sub AssLoad(roomid As Integer, seno As Integer, stuid As Integer)
+        ' SQL query to insert data into the database
+        Using Con = Globals.GetDBConnection()
+            Con.Open()
+            Dim query As String = "INSERT INTO moodle_studentcourse (Room_ID, Seq_no, Student_ID) " &
+                     "SELECT @roomid, @seqno, @Stuid " &
+                     "FROM DUAL " &
+                     "WHERE NOT EXISTS ( " &
+                     "    SELECT 1 " &
+                     "    FROM moodle_studentcourse " &
+                     "    WHERE Room_ID = @roomid " &
+                     "    AND Seq_no = @seqno " &
+                     "    AND Student_ID = @Stuid " &
+                     ");"
+
+
+            ' Create a MySqlCommand object with the SQL query and connection
+            Using command As New MySqlCommand(query, Con)
+                ' Add parameters to the command
+                command.Parameters.AddWithValue("@roomid", roomid)
+                command.Parameters.AddWithValue("@seqno", seno)
+                command.Parameters.AddWithValue("@Stuid", stuid)
+                Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+            End Using
+        End Using
+    End Sub
+
+    Public Class StudentAssRecord
+        Public Property Room_ID As Integer
+        Public Property Seq_no As Integer
+        Public Property Student_ID As Integer
+        Public Property FileData As Byte()
+        Public Property Submit_Time As Date
+        Public Property Marks As Integer
+    End Class
+
+    Public Function AssStatus(ByVal studentID As Integer, ByVal Roomid As Integer, ByVal seno As Integer) As StudentAssRecord
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+        Dim submitTime As New DateTime(2024, 4, 14, 12, 30, 0)
+
+        Dim AssRec As New StudentAssRecord()
+
+        Dim query As String = "SELECT * FROM moodle_studentcourse WHERE Room_ID = @roomid AND Seq_no = @seqno AND Student_ID = @Stuid"
+        Using cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@roomid", Roomid)
+            cmd.Parameters.AddWithValue("@seqno", seno)
+            cmd.Parameters.AddWithValue("@Stuid", studentID)
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                If reader.Read() Then
+                    AssRec.Room_ID = If(reader.IsDBNull(reader.GetOrdinal("Room_ID")), -1, Convert.ToInt32(reader("Room_ID")))
+                    AssRec.Seq_no = If(reader.IsDBNull(reader.GetOrdinal("Seq_no")), -1, Convert.ToInt32(reader("Seq_no")))
+                    AssRec.Student_ID = If(reader.IsDBNull(reader.GetOrdinal("Student_ID")), -1, Convert.ToInt32(reader("Student_ID")))
+                    AssRec.FileData = If(reader.IsDBNull(reader.GetOrdinal("File")), Nothing, DirectCast(reader("File"), Byte()))
+                    AssRec.Submit_Time = If(reader.IsDBNull(reader.GetOrdinal("Submit_Time")), DateTime.MinValue, Convert.ToDateTime(reader("Submit_Time")))
+                    AssRec.Marks = If(reader.IsDBNull(reader.GetOrdinal("Marks")), -1, Convert.ToInt32(reader("Marks")))
+
+                End If
+
+            End Using
+        End Using
+
+        Con.Close()
+        Return AssRec
+    End Function
+    Public Sub UpdateFileDataAndSubmitTime(ByVal studentID As Integer, ByVal roomID As Integer, ByVal seqNo As Integer, ByVal newFileData As Byte())
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+
+        ' Get the current system time
+        Dim currentSubmitTime As DateTime = DateTime.Now
+
+        ' Query to update FileData and Submit_Time for a specific student, room, and sequence number
+        Dim query As String = "UPDATE moodle_studentcourse SET File = @NewFileData, Submit_Time = @CurrentSubmitTime " &
+                              "WHERE Room_ID = @RoomID AND Seq_no = @SeqNo AND Student_ID = @StudentID"
+
+        Using cmd As New MySqlCommand(query, Con)
+            ' Set FileData parameter
+            If newFileData IsNot Nothing AndAlso newFileData.Length > 0 Then
+                cmd.Parameters.AddWithValue("@NewFileData", newFileData)
+            Else
+                cmd.Parameters.AddWithValue("@NewFileData", DBNull.Value)
+            End If
+
+            cmd.Parameters.AddWithValue("@CurrentSubmitTime", currentSubmitTime)
+            cmd.Parameters.AddWithValue("@RoomID", roomID)
+            cmd.Parameters.AddWithValue("@SeqNo", seqNo)
+            cmd.Parameters.AddWithValue("@StudentID", studentID)
+
+            cmd.ExecuteNonQuery()
+        End Using
+
+        Con.Close()
+    End Sub
+
+    Public Function GetAssMarks(ByVal stuid As Integer, ByVal Roomid As Integer) As StudentAssRecord()
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+
+        Dim assignments As New List(Of StudentAssRecord)()
+
+        ' Query to fetch assignments of courses the student is enrolled in
+        Dim query As String = "Select * from moodle_studentcourse where Student_ID = @studentID and Room_ID = @roomid"
+
+        Using cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@studentID", stuid)
+            cmd.Parameters.AddWithValue("@roomid", Roomid)
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                While reader.Read()
+                    Dim AssRec As New StudentAssRecord()
+                    AssRec.Room_ID = If(reader.IsDBNull(reader.GetOrdinal("Room_ID")), -1, Convert.ToInt32(reader("Room_ID")))
+                    AssRec.Seq_no = If(reader.IsDBNull(reader.GetOrdinal("Seq_no")), -1, Convert.ToInt32(reader("Seq_no")))
+                    AssRec.Student_ID = If(reader.IsDBNull(reader.GetOrdinal("Student_ID")), -1, Convert.ToInt32(reader("Student_ID")))
+                    AssRec.FileData = If(reader.IsDBNull(reader.GetOrdinal("File")), Nothing, DirectCast(reader("File"), Byte()))
+                    AssRec.Submit_Time = If(reader.IsDBNull(reader.GetOrdinal("Submit_Time")), DateTime.MinValue, Convert.ToDateTime(reader("Submit_Time")))
+                    AssRec.Marks = If(reader.IsDBNull(reader.GetOrdinal("Marks")), -1, Convert.ToInt32(reader("Marks")))
+
+                    assignments.Add(AssRec)
+                End While
+            End Using
+        End Using
+
         Con.Close()
 
-        Return content
+        
+        Return assignments.ToArray()
     End Function
+
 
 
 End Class

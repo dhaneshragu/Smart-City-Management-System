@@ -67,27 +67,41 @@ Public Class FastagPlanItem
             MessageBox.Show("You do not have a valid driving license for this vehicle type: " & lblvehtype.Text.Trim(), "Cant purchase Fastag", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
-        Dim currentTimeStamp As DateTime = DateTime.Now
-        Dim formattedTimeStamp As String = currentTimeStamp.ToString("yyyy-MM-dd HH:mm:ss")
-        Dim query As String = "INSERT INTO fastag_purchases (ft_id, uid, dl_id, bought_on, amt_left) VALUES (@ft, @uid, @dl_id,@dt,@amt)"
-        Using connection As New MySqlConnection(Globals.getdbConnectionString())
-            Using command As New MySqlCommand(query, connection)
-                ' Add parameters
-                command.Parameters.AddWithValue("@ft", fastag_id)
-                command.Parameters.AddWithValue("@uid", uid)
-                command.Parameters.AddWithValue("@dl_id", dl_id)
-                command.Parameters.AddWithValue("@dt", formattedTimeStamp)
-                command.Parameters.AddWithValue("@amt", fare_)
-                Try
-                    connection.Open()
-                    If command.ExecuteNonQuery() > 0 Then
-                        MessageBox.Show("Fastag purchased successfully", "Fastag Purchased", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    End If
-                Catch ex As Exception
-                    MessageBox.Show("Error purchasing fastag: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
+
+        'Call the payment gateway
+        Dim paymentGateway As New PaymentGateway() With
+           {
+            .uid = uid,
+            .readonly_prop = True
+        }
+        paymentGateway.TextBox1.Text = 5 'Transport minister UID
+        paymentGateway.TextBox2.Text = fare_ 'Amount to purchase fastag
+        paymentGateway.TextBox3.Text = "Fastag Payment for vehicle type: " & lblvehtype.Text.Trim()
+        'If payment is successful, add to fastag purchases
+        If paymentGateway.ShowDialog() = DialogResult.OK Then
+            Dim currentTimeStamp As DateTime = DateTime.Now
+            Dim formattedTimeStamp As String = currentTimeStamp.ToString("yyyy-MM-dd HH:mm:ss")
+            Dim query As String = "INSERT INTO fastag_purchases (ft_id, uid, dl_id, bought_on, amt_left) VALUES (@ft, @uid, @dl_id,@dt,@amt)"
+            Using connection As New MySqlConnection(Globals.getdbConnectionString())
+                Using command As New MySqlCommand(query, connection)
+                    ' Add parameters
+                    command.Parameters.AddWithValue("@ft", fastag_id)
+                    command.Parameters.AddWithValue("@uid", uid)
+                    command.Parameters.AddWithValue("@dl_id", dl_id)
+                    command.Parameters.AddWithValue("@dt", formattedTimeStamp)
+                    command.Parameters.AddWithValue("@amt", fare_)
+                    Try
+                        connection.Open()
+                        If command.ExecuteNonQuery() > 0 Then
+                            MessageBox.Show("Fastag purchased successfully", "Fastag Purchased", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
+                    Catch ex As Exception
+                        MessageBox.Show("Error purchasing fastag: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End Try
+                End Using
             End Using
-        End Using
+        End If
+
 
     End Sub
 End Class
