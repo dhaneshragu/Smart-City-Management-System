@@ -51,8 +51,8 @@ Public Class Ed_Institute_Handler
             connection.Open()
 
             Dim query As String = "SELECT ed_inst.Inst_ID, ed_inst.Inst_Name, ed_inst.Inst_Address, ed_inst.Inst_Principal, ed_inst.Inst_Photo, ed_inst.Inst_Type, users.name AS PrincipalName, users.phone_number AS PrincipalContact, users.email AS PrincipalEmail " &
-                                  "FROM ed_institution AS ed_inst " &
-                                  "LEFT JOIN users ON ed_inst.Inst_Principal = users.user_id"
+                                      "FROM ed_institution AS ed_inst " &
+                                      "LEFT JOIN users ON ed_inst.Inst_Principal = users.user_id"
 
             Using command As New MySqlCommand(query, connection)
                 Using reader As MySqlDataReader = command.ExecuteReader()
@@ -90,10 +90,10 @@ Public Class Ed_Institute_Handler
         Dim connectionString As String = GetDBConnectionString()
 
         Dim query As String = "SELECT ea.Student_ID, u.name AS StudentName, ep.Ed_LastEduQlf AS RecentActivity, u.dob AS DateOfBirth, u.phone_number AS ContactNo, u.email AS EmailAddress, ea.Inst_ID AS InstituteID, ea.Year " &
-               "FROM ed_admission AS ea " &
-               "INNER JOIN users AS u ON ea.Student_ID = u.user_id " &
-               "INNER JOIN ed_profile AS ep ON ea.Student_ID = ep.Ed_User_ID " &
-               "WHERE ea.Inst_ID IN (SELECT Inst_ID FROM ed_institution WHERE Inst_Principal = @PrincipalID) AND ea.Appr_Status = 'Pending'"
+                   "FROM ed_admission AS ea " &
+                   "INNER JOIN users AS u ON ea.Student_ID = u.user_id " &
+                   "INNER JOIN ed_profile AS ep ON ea.Student_ID = ep.Ed_User_ID " &
+                   "WHERE ea.Inst_ID IN (SELECT Inst_ID FROM ed_institution WHERE Inst_Principal = @PrincipalID) AND ea.Appr_Status = 'Pending'"
 
         Using connection As New MySqlConnection(connectionString)
             connection.Open()
@@ -153,7 +153,7 @@ Public Class Ed_Institute_Handler
         Using Con = Globals.GetDBConnection()
             Con.Open()
             Dim query As String = "INSERT INTO ed_certificates (Inst_ID, Student_ID, Type, Class, Sem, Year, Certificate) " &
-                              "VALUES (@Inst_ID, @Student_ID, @Type, @Class, @Sem, @Year, @Certificate)"
+                                  "VALUES (@Inst_ID, @Student_ID, @Type, @Class, @Sem, @Year, @Certificate)"
 
             ' Create a MySqlCommand object with the SQL query and connection
             Using command As New MySqlCommand(query, Con)
