@@ -2366,6 +2366,7 @@
     <None Include="Resources\ed_course_resource.png" />
     <None Include="Resources\healthcare_bg.jpg" />
     <None Include="Resources\icons8-appointment-time-64.png" />
+    <None Include="Resources\icons8-bus-50 - Copy.png" />
     <Content Include="Resources\icons8-car-100.png" />
     <None Include="Resources\icons8-vendor-48.png" />
     <None Include="Resources\icons8-car-1001.png" />
