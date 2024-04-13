@@ -7,10 +7,12 @@ Public Class Employment_portal_search
     Public uid As Integer
     Public u_name As String
 
+
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Text = "Employment Portal"
         Label2.Text = u_name
         Label3.Text = uid
+        DataGridView1.AllowUserToAddRows = False
 
         Dim list As New List(Of String)
         Try
@@ -164,6 +166,5 @@ ORDER BY employment_jobs.department, n.digit;"
         DataGridView1.DataSource = dataTable
         DataGridView1.Visible = True
     End Sub
-
 
 End Class

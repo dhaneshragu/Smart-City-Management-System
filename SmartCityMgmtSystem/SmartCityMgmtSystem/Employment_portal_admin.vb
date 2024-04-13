@@ -6,7 +6,8 @@ Public Class Employment_portal_admin
     Public uid As Integer
     Public u_name As String
 
-    Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Public Sub pageload()
+        DataGridView1.AllowUserToAddRows = False
         Me.Text = "Employment Portal"
         Label2.Text = u_name
         Label3.Text = uid
@@ -52,6 +53,10 @@ Public Class Employment_portal_admin
         DataGridView1.Visible = True
     End Sub
 
+    Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        pageload()
+    End Sub
+
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
@@ -93,6 +98,12 @@ Public Class Employment_portal_admin
                 userid = row.Cells("Column4").Value
             End If
         Next
+
+        If userid = -1 Then
+            MessageBox.Show("Please select a candidate first")
+            Return
+        End If
+
         Dim usercredentials As New Employment_portal_admin_usercredentials()
         usercredentials.userid = userid
         usercredentials.Show()
@@ -108,6 +119,11 @@ Public Class Employment_portal_admin
                 jobid = row.Cells("Column2").Value
             End If
         Next
+
+        If userid = -1 Then
+            MessageBox.Show("Please select a candidate first")
+            Return
+        End If
 
         Dim cmd As New MySqlCommand
         Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
@@ -135,6 +151,8 @@ Public Class Employment_portal_admin
 
         Globals.SendNotifications(uid, userid, "Job Acceptance", Notification)
         MessageBox.Show("Sent notification")
+
+        pageload()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -147,6 +165,12 @@ Public Class Employment_portal_admin
                 jobid = row.Cells("Column2").Value
             End If
         Next
+
+
+        If userid = -1 Then
+            MessageBox.Show("Please select a candidate first")
+            Return
+        End If
 
         Dim cmd As New MySqlCommand
         Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
@@ -174,6 +198,8 @@ Public Class Employment_portal_admin
 
         Globals.SendNotifications(uid, userid, "Job Rejected", Notification)
         MessageBox.Show("Sent notification")
+
+        pageload()
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
