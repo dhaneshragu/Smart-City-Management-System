@@ -164,6 +164,18 @@
     <Compile Include="Ed_Add_Institution.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ed_CertButton.Designer.vb">
+      <DependentUpon>Ed_CertButton.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_CertButton.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ed_Certificate.Designer.vb">
+      <DependentUpon>Ed_Certificate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Certificate.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_EditECourse.Designer.vb">
       <DependentUpon>Ed_EditECourse.vb</DependentUpon>
     </Compile>
@@ -276,6 +288,12 @@
       <DependentUpon>Ed_UpdateForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Ed_UpdateForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_UploadCert.Designer.vb">
+      <DependentUpon>Ed_UploadCert.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_UploadCert.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ed_VenueItem.Designer.vb">
@@ -1354,6 +1372,12 @@
     <EmbeddedResource Include="Ed_Add_Institution.resx">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ed_CertButton.resx">
+      <DependentUpon>Ed_CertButton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Certificate.resx">
+      <DependentUpon>Ed_Certificate.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ed_EditECourse.resx">
       <DependentUpon>Ed_EditECourse.vb</DependentUpon>
     </EmbeddedResource>
@@ -1410,6 +1434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_UpdateForm.resx">
       <DependentUpon>Ed_UpdateForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_UploadCert.resx">
+      <DependentUpon>Ed_UploadCert.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_VenueItem.resx">
       <DependentUpon>Ed_VenueItem.vb</DependentUpon>
