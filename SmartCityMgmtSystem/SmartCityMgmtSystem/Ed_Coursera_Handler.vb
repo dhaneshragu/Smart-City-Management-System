@@ -4,6 +4,7 @@ Imports System.IO
 Imports System.Web
 Imports System.Text
 Imports SmartCityMgmtSystem.Ed_GlobalDashboard
+Imports System.Data.SqlClient
 
 Public Class Ed_Coursera_Handler
     Public Class Course
@@ -21,6 +22,8 @@ Public Class Ed_Coursera_Handler
         Public Property Fees As Integer
         Public Property Rating As Double
         Public Property RatingCount As Integer
+        Public Property EnrolledStudents As Integer
+        Public Property CompletedStudents As Integer
 
         Public Sub New()
             ' Default constructor
@@ -65,6 +68,23 @@ Public Class Ed_Coursera_Handler
             Me.SeqNo = seqNo
         End Sub
     End Class
+    Public Sub DeleteCourse(ByVal courseId As Integer)
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+
+        Dim query As String = "DELETE FROM ec_course WHERE Course_ID = @courseId"
+        Dim cmd As New MySqlCommand(query, Con)
+        cmd.Parameters.AddWithValue("@courseId", courseId)
+
+        Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+        Con.Close()
+
+        If rowsAffected > 0 Then
+            MessageBox.Show("Course with ID " & courseId.ToString() & " deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            MessageBox.Show("No records deleted. Course with ID " & courseId.ToString() & " not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
 
     Public Function GetCourses() As Course()
 
@@ -74,7 +94,9 @@ Public Class Ed_Coursera_Handler
 
         Dim query As String = "SELECT ec_course.Course_ID, ec_course.Affiliation, ec_course.Name, ec_course.Category, ec_course.Teacher_Name, ec_course.Teacher_ID, ec_course.SYLLABUS, ec_course.Intro_Video_link, ec_course.Appr_Status, ec_course.Fees, ec_course.Rating, ec_course.Rating_Count, ed_institution.Inst_Name " &
                               "FROM ec_course " &
-                              "INNER JOIN ed_institution ON ec_course.Affiliation = ed_institution.Inst_ID"
+                              "INNER JOIN ed_institution ON ec_course.Affiliation = ed_institution.Inst_ID
+                              WHERE ec_course.Appr_Status = 'Approved'"
+
 
         Dim cmd As New MySqlCommand(query, Con)
         Dim reader As MySqlDataReader = cmd.ExecuteReader()
@@ -102,10 +124,54 @@ Public Class Ed_Coursera_Handler
 
     End Function
 
+    Public Function GetApprovedCoursesWithCounts() As Course()
+
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+        Dim courses As New List(Of Course)()
+
+        Dim query As String = "SELECT ec_course.Course_ID, ec_course.Affiliation, ec_course.Name, ec_course.Category, ec_course.Teacher_Name, ec_course.Teacher_ID, ec_course.SYLLABUS, ec_course.Intro_Video_link, ec_course.Appr_Status, ec_course.Fees, ec_course.Rating, ec_course.Rating_Count, ed_institution.Inst_Name,
+                                    (SELECT COUNT(*) FROM ec_studentcourse WHERE ec_studentcourse.Course_ID = ec_course.Course_ID) AS EnrolledStudents,
+                                    (SELECT COUNT(*) FROM ec_studentcourse WHERE ec_studentcourse.Course_ID = ec_course.Course_ID AND ec_studentcourse.Completion_Status = 'Completed') AS CompletedStudents
+                           FROM ec_course 
+                           INNER JOIN ed_institution ON ec_course.Affiliation = ed_institution.Inst_ID
+                           WHERE ec_course.Appr_Status = 'Approved'"
+
+        Dim cmd As New MySqlCommand(query, Con)
+        Dim reader As MySqlDataReader = cmd.ExecuteReader()
+        While reader.Read()
+            Dim course As New Course()
+
+            course.CourseID = If(reader("Course_ID") IsNot DBNull.Value, Convert.ToInt32(reader("Course_ID")), 0)
+            course.Affiliation = If(reader("Affiliation") IsNot DBNull.Value, Convert.ToInt32(reader("Affiliation")), 0)
+            course.Name = If(reader("Name") IsNot DBNull.Value, reader("Name").ToString(), "")
+            course.Category = If(reader("Category") IsNot DBNull.Value, reader("Category").ToString(), "")
+            course.TeacherName = If(reader("Teacher_Name") IsNot DBNull.Value, reader("Teacher_Name").ToString(), "")
+            course.TeacherID = If(reader("Teacher_ID") IsNot DBNull.Value, Convert.ToInt32(reader("Teacher_ID")), 0)
+            course.Syllabus = If(reader("SYLLABUS") IsNot DBNull.Value, reader("SYLLABUS").ToString(), "")
+            course.IntroVideoLink = If(reader("Intro_Video_link") IsNot DBNull.Value, reader("Intro_Video_link").ToString(), "")
+            course.ApprStatus = If(reader("Appr_Status") IsNot DBNull.Value, reader("Appr_Status").ToString(), "")
+            course.Fees = If(reader("Fees") IsNot DBNull.Value, Convert.ToInt32(reader("Fees")), 0)
+            course.Rating = If(reader("Rating") IsNot DBNull.Value, Convert.ToDouble(reader("Rating")), 0.0)
+            course.RatingCount = If(reader("Rating_Count") IsNot DBNull.Value, Convert.ToInt32(reader("Rating_Count")), 0)
+            course.Institution = If(reader("Inst_Name") IsNot DBNull.Value, reader("Inst_Name").ToString(), "")
+            course.EnrolledStudents = If(reader("EnrolledStudents") IsNot DBNull.Value, Convert.ToInt32(reader("EnrolledStudents")), 0)
+            course.CompletedStudents = If(reader("CompletedStudents") IsNot DBNull.Value, Convert.ToInt32(reader("CompletedStudents")), 0)
+
+            courses.Add(course)
+        End While
+
+        reader.Close()
+        Con.Close()
+
+        Return courses.ToArray()
+    End Function
+
+
     Public Function AddCourse(ByVal affiliation As Integer, ByVal name As String, ByVal category As String, ByVal teacherName As String, ByVal teacherID As Integer, ByVal syllabus As String, ByVal introVideoLink As String, ByVal apprStatus As String, ByVal fees As Integer)
         Dim Con = Globals.GetDBConnection()
         Con.Open()
-        Dim query As String = "INSERT INTO ec_course (Course_ID,Affiliation, Name, Category, Teacher_Name, Teacher_ID, SYLLABUS, Intro_Video_link, Appr_Status, Fees, Rating, Rating_Count) VALUES (@courseid, @affiliation, @name, @category, @teacherName, @teacherID, @syllabus, @introVideoLink, @apprStatus, @fees, @rating, @ratingCount)"
+        Dim query As String = "INSERT INTO ec_course (Course_ID, Affiliation, Name, Category, Teacher_Name, Teacher_ID, SYLLABUS, Intro_Video_link, Appr_Status, Fees, Rating, Rating_Count) VALUES (@courseid, @affiliation, @name, @category, @teacherName, @teacherID, @syllabus, @introVideoLink, @apprStatus, @fees, @rating, @ratingCount)"
         Dim cmd As New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@affiliation", affiliation)
         cmd.Parameters.AddWithValue("@name", name)
@@ -123,7 +189,7 @@ Public Class Ed_Coursera_Handler
         cmd.Parameters.AddWithValue("@ratingCount", 0)
 
         'Set CourseID to the last inserted ID +1'
-        Dim query2 As String = "SELECT MAX(Course_ID) FROM ec_course"
+        Dim query2 As String = "Select MAX(Course_ID) FROM ec_course"
         Dim cmd2 As New MySqlCommand(query2, Con)
         Dim reader As MySqlDataReader = cmd2.ExecuteReader()
         Dim courseID As Integer = 0
@@ -142,7 +208,7 @@ Public Class Ed_Coursera_Handler
     Public Function UpdateCourse(ByVal courseID As Integer, ByVal name As String, ByVal category As String, ByVal syllabus As String, ByVal introVideoLink As String, ByVal fees As Integer)
         Dim Con = Globals.GetDBConnection()
         Con.Open()
-        Dim query As String = "UPDATE ec_course SET  Name = @name, Category = @category,  SYLLABUS = @syllabus, Intro_Video_link = @introVideoLink,  Fees = @fees WHERE Course_ID = @courseID"
+        Dim query As String = "UPDATE ec_course Set  Name = @name, Category = @category,  SYLLABUS = @syllabus, Intro_Video_link = @introVideoLink,  Fees = @fees WHERE Course_ID = @courseID"
         Dim cmd As New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@courseID", courseID)
 
@@ -164,9 +230,9 @@ Public Class Ed_Coursera_Handler
         Con.Open()
         Dim courses As New List(Of Course)()
 
-        Dim query As String = "SELECT ec_course.Course_ID, ec_course.Affiliation, ec_course.Name, ec_course.Category, ec_course.Teacher_Name, ec_course.Teacher_ID, ec_course.SYLLABUS, ec_course.Intro_Video_link, ec_course.Appr_Status, ec_course.Fees, ec_course.Rating, ec_course.Rating_Count, ed_institution.Inst_Name " &
+        Dim query As String = "Select ec_course.Course_ID, ec_course.Affiliation, ec_course.Name, ec_course.Category, ec_course.Teacher_Name, ec_course.Teacher_ID, ec_course.SYLLABUS, ec_course.Intro_Video_link, ec_course.Appr_Status, ec_course.Fees, ec_course.Rating, ec_course.Rating_Count, ed_institution.Inst_Name " &
                               "FROM ec_course " &
-                              "INNER JOIN ed_institution ON ec_course.Affiliation = ed_institution.Inst_ID " &
+                              "INNER JOIN ed_institution On ec_course.Affiliation = ed_institution.Inst_ID " &
                                "WHERE ec_course.Teacher_ID = @teacherID"
 
 
@@ -205,9 +271,9 @@ Public Class Ed_Coursera_Handler
         Dim Con = Globals.GetDBConnection()
         Con.Open()
 
-        Dim query As String = "SELECT ec_course.Course_ID, ec_course.Affiliation, ec_course.Name, ec_course.Category, ec_course.Teacher_Name, ec_course.Teacher_ID, ec_course.SYLLABUS, ec_course.Intro_Video_link, ec_course.Appr_Status, ec_course.Fees, ec_course.Rating, ec_course.Rating_Count, ed_institution.Inst_Name " &
+        Dim query As String = "Select ec_course.Course_ID, ec_course.Affiliation, ec_course.Name, ec_course.Category, ec_course.Teacher_Name, ec_course.Teacher_ID, ec_course.SYLLABUS, ec_course.Intro_Video_link, ec_course.Appr_Status, ec_course.Fees, ec_course.Rating, ec_course.Rating_Count, ed_institution.Inst_Name " &
                           "FROM ec_course " &
-                          "INNER JOIN ed_institution ON ec_course.Affiliation = ed_institution.Inst_ID " &
+                          "INNER JOIN ed_institution On ec_course.Affiliation = ed_institution.Inst_ID " &
                           "WHERE ec_course.Course_ID = @courseID"
 
         Dim cmd As New MySqlCommand(query, Con)
@@ -240,7 +306,7 @@ Public Class Ed_Coursera_Handler
         Con.Open()
         Dim contents As New List(Of CourseContent)()
 
-        Dim query As String = "SELECT Content_Name, Content_Type, Video_Link, Content, Seq_no FROM ec_coursecontent WHERE Course_ID = @courseId"
+        Dim query As String = "Select Content_Name, Content_Type, Video_Link, Content, Seq_no FROM ec_coursecontent WHERE Course_ID = @courseId"
 
         Dim cmd As New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@courseId", courseId)
@@ -275,7 +341,7 @@ Public Class Ed_Coursera_Handler
         cmd.Parameters.AddWithValue("@content", content)
 
         'obtain maximum seqNo for given courseID'
-        Dim query2 As String = "SELECT MAX(Seq_no) FROM ec_coursecontent WHERE Course_ID = @courseId"
+        Dim query2 As String = "Select MAX(Seq_no) FROM ec_coursecontent WHERE Course_ID = @courseId"
         Dim cmd2 As New MySqlCommand(query2, Con)
         cmd2.Parameters.AddWithValue("@courseId", courseId)
         Dim reader As MySqlDataReader = cmd2.ExecuteReader()
@@ -292,7 +358,7 @@ Public Class Ed_Coursera_Handler
     Public Function UpdateCourseContent(ByVal courseId As Integer, ByVal seqNo As Integer, ByVal contentName As String, ByVal contentType As String, ByVal videoLink As String, ByVal content As String)
         Dim Con = Globals.GetDBConnection()
         Con.Open()
-        Dim query As String = "UPDATE ec_coursecontent SET Content_Name = @contentName, Content_Type = @contentType, Video_Link = @videoLink, Content = @content WHERE Course_ID = @courseId AND Seq_no = @seqNo"
+        Dim query As String = "UPDATE ec_coursecontent Set Content_Name = @contentName, Content_Type = @contentType, Video_Link = @videoLink, Content = @content WHERE Course_ID = @courseId And Seq_no = @seqNo"
         Dim cmd As New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@courseId", courseId)
         cmd.Parameters.AddWithValue("@seqNo", seqNo)
@@ -309,7 +375,7 @@ Public Class Ed_Coursera_Handler
 
         Dim Con = Globals.GetDBConnection()
         Con.Open()
-        Dim query As String = "SELECT Content_Name, Content_Type, Video_Link, Content FROM ec_coursecontent WHERE Course_ID = @courseId AND Seq_no = @seqNo"
+        Dim query As String = "Select Content_Name, Content_Type, Video_Link, Content FROM ec_coursecontent WHERE Course_ID = @courseId And Seq_no = @seqNo"
         Dim cmd As New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@courseId", courseId)
         cmd.Parameters.AddWithValue("@seqNo", seqNo)
@@ -331,7 +397,7 @@ Public Class Ed_Coursera_Handler
     Public Function DeleteCourseContent(ByVal courseId As Integer, ByVal seqNo As Integer)
         Dim Con = Globals.GetDBConnection()
         Con.Open()
-        Dim query As String = "DELETE FROM ec_coursecontent WHERE Course_ID = @courseId AND Seq_no = @seqNo"
+        Dim query As String = "DELETE FROM ec_coursecontent WHERE Course_ID = @courseId And Seq_no = @seqNo"
         Dim cmd As New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@courseId", courseId)
         cmd.Parameters.AddWithValue("@seqNo", seqNo)
@@ -344,11 +410,11 @@ Public Class Ed_Coursera_Handler
         Con.Open()
         Dim courses As New List(Of Course)()
 
-        Dim query As String = "SELECT ec_course.Course_ID, ec_course.Affiliation, ec_course.Name, ec_course.Category, ec_course.Teacher_Name, ec_course.Teacher_ID, ec_course.SYLLABUS, ec_course.Intro_Video_link, ec_course.Appr_Status, ec_course.Fees, ec_course.Rating, ec_course.Rating_Count, ed_institution.Inst_Name " &
+        Dim query As String = "Select ec_course.Course_ID, ec_course.Affiliation, ec_course.Name, ec_course.Category, ec_course.Teacher_Name, ec_course.Teacher_ID, ec_course.SYLLABUS, ec_course.Intro_Video_link, ec_course.Appr_Status, ec_course.Fees, ec_course.Rating, ec_course.Rating_Count, ed_institution.Inst_Name " &
                           "FROM ec_course " &
-                          "INNER JOIN ed_institution ON ec_course.Affiliation = ed_institution.Inst_ID " &
-                          "INNER JOIN ec_studentcourse ON ec_course.Course_ID = ec_studentcourse.Course_ID " &
-                          "WHERE ec_studentcourse.Student_ID = @studentId AND ec_studentcourse.Completion_Status = 'In-Progress'"
+                          "INNER JOIN ed_institution On ec_course.Affiliation = ed_institution.Inst_ID " &
+                          "INNER JOIN ec_studentcourse On ec_course.Course_ID = ec_studentcourse.Course_ID " &
+                          "WHERE ec_studentcourse.Student_ID = @studentId And ec_studentcourse.Completion_Status = 'In-Progress'"
 
         Dim cmd As New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@studentId", studentId)
@@ -598,5 +664,70 @@ Public Class Ed_Coursera_Handler
         Return certificates
 
     End Function
+
+    Public Function GetPendingCourses() As Course()
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+        Dim pendingCourses As New List(Of Course)()
+
+        Dim query As String = "SELECT ec_course.Course_ID, ec_course.Affiliation, ec_course.Name, ec_course.Category, ec_course.Teacher_Name, ec_course.Teacher_ID, ec_course.SYLLABUS, ec_course.Intro_Video_link, ec_course.Appr_Status, ec_course.Fees, ec_course.Rating, ec_course.Rating_Count, ed_institution.Inst_Name " &
+                          "FROM ec_course " &
+                          "INNER JOIN ed_institution ON ec_course.Affiliation = ed_institution.Inst_ID " &
+                          "WHERE ec_course.Appr_Status = 'pending'"
+
+        Dim cmd As New MySqlCommand(query, Con)
+        Dim reader As MySqlDataReader = cmd.ExecuteReader()
+        While reader.Read()
+            Dim course As New Course()
+
+            course.CourseID = If(reader("Course_ID") IsNot DBNull.Value, Convert.ToInt32(reader("Course_ID")), 0)
+            course.Affiliation = If(reader("Affiliation") IsNot DBNull.Value, Convert.ToInt32(reader("Affiliation")), 0)
+            course.Name = If(reader("Name") IsNot DBNull.Value, reader("Name").ToString(), "")
+            course.Category = If(reader("Category") IsNot DBNull.Value, reader("Category").ToString(), "")
+            course.TeacherName = If(reader("Teacher_Name") IsNot DBNull.Value, reader("Teacher_Name").ToString(), "")
+            course.TeacherID = If(reader("Teacher_ID") IsNot DBNull.Value, Convert.ToInt32(reader("Teacher_ID")), 0)
+            course.Syllabus = If(reader("SYLLABUS") IsNot DBNull.Value, reader("SYLLABUS").ToString(), "")
+            course.IntroVideoLink = If(reader("Intro_Video_link") IsNot DBNull.Value, reader("Intro_Video_link").ToString(), "")
+            course.ApprStatus = If(reader("Appr_Status") IsNot DBNull.Value, reader("Appr_Status").ToString(), "")
+            course.Fees = If(reader("Fees") IsNot DBNull.Value, Convert.ToInt32(reader("Fees")), 0)
+            course.Rating = If(reader("Rating") IsNot DBNull.Value, Convert.ToDouble(reader("Rating")), 0.0)
+            course.RatingCount = If(reader("Rating_Count") IsNot DBNull.Value, Convert.ToInt32(reader("Rating_Count")), 0)
+            course.Institution = If(reader("Inst_Name") IsNot DBNull.Value, reader("Inst_Name").ToString(), "")
+
+            pendingCourses.Add(course)
+        End While
+
+        reader.Close()
+        Con.Close()
+
+        Return pendingCourses.ToArray()
+    End Function
+
+    Public Sub UpdateApprovalStatusToApproved(ByVal courseId As Integer)
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+
+        Dim query As String = "UPDATE ec_course SET Appr_Status = 'Approved' WHERE Course_ID = @courseId"
+        Dim cmd As New MySqlCommand(query, Con)
+        cmd.Parameters.AddWithValue("@courseId", courseId)
+
+        cmd.ExecuteNonQuery()
+        Con.Close()
+    End Sub
+
+    Public Sub UpdateApprovalStatusToRejected(ByVal courseId As Integer)
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+
+        Dim query As String = "UPDATE ec_course SET Appr_Status = 'Rejected' WHERE Course_ID = @courseId"
+        Dim cmd As New MySqlCommand(query, Con)
+        cmd.Parameters.AddWithValue("@courseId", courseId)
+
+        cmd.ExecuteNonQuery()
+        Con.Close()
+    End Sub
+
+
+
 
 End Class
