@@ -3,16 +3,17 @@ Imports SmartCityMgmtSystem.Ed_Institute_Handler
 Public Class Ed_Institute_List
 
     Dim handler As New Ed_Institute_Handler()
-    Public Property user_type As String
-    Private callingPanel As Panel
 
+    Private callingPanel As Panel
+    Public Property user_type As String
     Public Sub New()
         InitializeComponent()
     End Sub
 
-    Public Sub New(panel As Panel)
+    Public Sub New(panel As Panel, usertype As String)
         InitializeComponent()
         callingPanel = panel
+        user_type = usertype
     End Sub
 
     Private Sub Ed_Stud_Coursera_Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -78,5 +79,9 @@ Public Class Ed_Institute_List
     End Sub
     Private Sub Edit_Label_Click(sender As Object, e As EventArgs)
         Globals.viewChildForm(callingPanel, New Ed_Institute_Edit(callingPanel))
+    End Sub
+
+    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
+
     End Sub
 End Class

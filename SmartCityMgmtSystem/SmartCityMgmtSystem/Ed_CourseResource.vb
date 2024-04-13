@@ -10,6 +10,8 @@ Public Class Ed_CourseResource
 
     Public content As Ed_Coursera_Handler.CourseContent
 
+    Dim handler As New Ed_Coursera_Handler()
+
     ' Constructor that accepts a Panel parameter
     Public Sub New(panel As Panel, type As String)
         InitializeComponent()
@@ -24,6 +26,12 @@ Public Class Ed_CourseResource
     End Sub
     Private Sub Ed_CourseResource_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AutoScroll = True
+        Dim completed_resources As Integer() = handler.GetStudentCourseCompletionRecords(Ed_GlobalDashboard.userID, content.CourseID)
+        If completed_resources.Contains(content.SeqNo) Then
+            Button2.Text = "Completed"
+            Button2.Enabled = False
+            Button2.BackColor = Color.Green
+        End If
 
         AddHandler RichTextBox1.ContentsResized, AddressOf RichTextBox_ContentsResized
         RichTextBox1.Text = content.Content
@@ -49,6 +57,7 @@ Public Class Ed_CourseResource
             Dim form As New Ed_Coursera_CourseContent(content.CourseID, callingPanel)
             form.CourseItem = CourseItem
             Globals.viewChildForm(callingPanel, form)
+            Me.Close()
         End If
 
     End Sub
@@ -62,5 +71,11 @@ Public Class Ed_CourseResource
         End If
     End Function
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        handler.CompleteResource(Ed_GlobalDashboard.userID, content.CourseID, content.SeqNo)
+        Button2.Text = "Completed"
+        Button2.Enabled = False
+        Button2.BackColor = Color.Green
 
+    End Sub
 End Class

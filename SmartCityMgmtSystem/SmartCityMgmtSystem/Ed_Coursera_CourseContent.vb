@@ -81,35 +81,22 @@ Public Class Ed_Coursera_CourseContent
             Return Nothing
         End If
     End Function
-    Private Sub Label_Click(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
-
-    Private Sub WebBrowser1_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
-
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.TextChanged
-
-    End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         Globals.viewChildForm(Ed_GlobalDashboard.innerpanel, New Ed_Stud_MyCourses())
+        Me.Close()
     End Sub
 
-    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim Rate As Integer
 
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        If Integer.TryParse(TextBox1.Text, Rate) Then
+            handler.RateCourse(Ed_GlobalDashboard.userID, CourseItem.CourseID, Rate)
+        Else
+            ' Conversion failed, handle the case where TextBox1.Text is not a valid integer
+            MessageBox.Show("Please enter a valid integer for the student ID.")
+        End If
 
     End Sub
 End Class

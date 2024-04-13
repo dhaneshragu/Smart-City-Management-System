@@ -1,9 +1,16 @@
 ﻿Imports System.Data.SqlClient
+Imports SmartCityMgmtSystem.Ed_Coursera_Handler
+
+
 Public Class Ed_Teacher_AddResource
 
 
     Private newFont As Font = New Font("Arial", 12)
     Private newFontColor As Color = Color.Black
+
+
+    Public CourseItem As Ed_Coursera_Handler.Course
+    Dim handler As New Ed_Coursera_Handler()
 
 
 
@@ -33,7 +40,20 @@ Public Class Ed_Teacher_AddResource
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'Retrieve content from textboxes and call handler to add resource'
+        Dim resourceName As String = TextBox2.Text
+        Dim videoLink As String = TextBox1.Text
+        Dim textContent As String = RichTextBox1.Rtf
+
+
+        handler.AddCourseContent(CourseItem.CourseID, resourceName, "Resource", videoLink, textContent)
+
+
         Me.Close()
+        Dim form As New Ed_Teacher_Coursera_Course_Content(Ed_GlobalDashboard.innerpanel)
+        form.CourseItem = CourseItem
+        Globals.viewChildForm(Ed_GlobalDashboard.innerpanel, form)
+
     End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
