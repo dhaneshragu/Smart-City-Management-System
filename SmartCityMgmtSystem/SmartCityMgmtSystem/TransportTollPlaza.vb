@@ -35,7 +35,7 @@ Public Class TransportTollPlaza
         ' Clear existing posts
         PostsPanel.Controls.Clear()
         Dim query As String = "SELECT * from fastag_plans"
-        If filter_type <> -1 Then
+        If filter_type > 0 Then
             query = "SELECT * from fastag_plans WHERE vehicle_type = " & filter_type
         End If
         Using connection As New MySqlConnection(Globals.getdbConnectionString())
@@ -113,7 +113,7 @@ Public Class TransportTollPlaza
         With RidePost
             .Name = "post_" & postNum
         End With
-        RidePost.SetDetails(ft_id, valdity, drvlicensenum, dt, fare)
+        RidePost.SetDetails(postNum, valdity, drvlicensenum, dt, fare)
         PostsPanel2.Controls.Add(RidePost)
     End Sub
     Private Sub AddPostPlan(postNum As Integer, vehtype As String,

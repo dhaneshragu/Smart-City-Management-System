@@ -103,5 +103,27 @@ Public Class PaymentGateway
 
     End Function
 
-
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        'Get the name of the user with the given UID and display it in Label6
+        Dim uid As Integer
+        If Integer.TryParse(TextBox1.Text, uid) Then
+            Dim query As String = "SELECT name FROM users WHERE user_id = @uid"
+            Using connection As New MySqlConnection(Globals.getdbConnectionString())
+                Using command As New MySqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@uid", uid)
+                    Try
+                        connection.Open()
+                        Dim reader As MySqlDataReader = command.ExecuteReader()
+                        If reader.Read() Then
+                            Label6.Text = "Name: " & reader.GetString("name")
+                        Else
+                            Label6.Text = "Name: Not Found"
+                        End If
+                    Catch ex As Exception
+                        MessageBox.Show("Error getting user name: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End Try
+                End Using
+            End Using
+        End If
+    End Sub
 End Class
