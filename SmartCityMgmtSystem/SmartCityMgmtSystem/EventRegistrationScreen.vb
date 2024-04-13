@@ -301,6 +301,17 @@ Public Class EventRegistrationScreen
         Dim VendorID As String = TextBox4.Text
         Dim Password As String = TextBox5.Text
 
+        ' Check if the entered contact number is numeric
+        If Not IsNumeric(ContactNo) Then
+            MessageBox.Show("Contact number must be numeric.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return ' Exit the function if the contact number is not numeric
+        End If
+
+        ' Check if the contact number has exactly 10 digits
+        If ContactNo.Length <> 10 Then
+            MessageBox.Show("Contact number must have exactly 10 digits.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return ' Exit the function if the contact number does not have 10 digits
+        End If
 
 
         InsertEventBooking(EventType, EventStartDate, EventEndDate, CInt(VendorID), CInt(CustomerID), Password)
@@ -320,4 +331,6 @@ Public Class EventRegistrationScreen
         Dim EventType1 As String = ComboBox1.SelectedItem.ToString()
         LoadandBindDataGridView(EventStartDate1, EventEndDate1, EventType1)
     End Sub
+
+
 End Class

@@ -23,26 +23,32 @@ Partial Class BankingDashboard
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.childformPanel = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.childformPanel = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.childformPanel.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Panel1.Controls.Add(Me.Button9)
+        Me.Panel1.Controls.Add(Me.Button8)
+        Me.Panel1.Controls.Add(Me.Button7)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Button5)
         Me.Panel1.Controls.Add(Me.PictureBox1)
@@ -58,109 +64,6 @@ Partial Class BankingDashboard
         Me.Panel1.Size = New System.Drawing.Size(303, 783)
         Me.Panel1.TabIndex = 13
         '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.NavajoWhite
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_paybills
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button1.Location = New System.Drawing.Point(0, 473)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button1.Size = New System.Drawing.Size(303, 61)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "           Pay Bills"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.NavajoWhite
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.Black
-        Me.Button5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_tollbooth_50
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button5.Location = New System.Drawing.Point(13, 540)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button5.Size = New System.Drawing.Size(343, 61)
-        Me.Button5.TabIndex = 8
-        Me.Button5.Text = "         FastTag Recharge"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.SMART_CITY___GUWAHATI
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(299, 153)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 6
-        Me.PictureBox1.TabStop = False
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.Color.NavajoWhite
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.Color.Black
-        Me.Button4.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_view_transactions
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button4.Location = New System.Drawing.Point(0, 406)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button4.Size = New System.Drawing.Size(335, 61)
-        Me.Button4.TabIndex = 4
-        Me.Button4.Text = "     View Transactions"
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.NavajoWhite
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.Black
-        Me.Button3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_checkbalance
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(0, 333)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button3.Size = New System.Drawing.Size(303, 67)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = "  Check Balance"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.NavajoWhite
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.Black
-        Me.Button2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.iconBankAccountProfile
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(0, 263)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button2.Size = New System.Drawing.Size(312, 61)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "    Account Details"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.DarkGoldenrod
@@ -169,7 +72,7 @@ Partial Class BankingDashboard
         Me.Label1.Location = New System.Drawing.Point(4, 156)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(295, 97)
+        Me.Label1.Size = New System.Drawing.Size(295, 104)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "SmartGhy" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Banking Department"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -224,6 +127,166 @@ Partial Class BankingDashboard
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Welcome"
         '
+        'Button9
+        '
+        Me.Button9.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button9.FlatAppearance.BorderSize = 0
+        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button9.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.ForeColor = System.Drawing.Color.Black
+        Me.Button9.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_view_transactions
+        Me.Button9.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button9.Location = New System.Drawing.Point(4, 659)
+        Me.Button9.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button9.Size = New System.Drawing.Size(303, 61)
+        Me.Button9.TabIndex = 11
+        Me.Button9.Text = "           Add or Withdraw"
+        Me.Button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button9.UseVisualStyleBackColor = False
+        '
+        'Button8
+        '
+        Me.Button8.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button8.FlatAppearance.BorderSize = 0
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.ForeColor = System.Drawing.Color.Black
+        Me.Button8.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_topup_payment_50
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button8.Location = New System.Drawing.Point(0, 601)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button8.Size = New System.Drawing.Size(303, 61)
+        Me.Button8.TabIndex = 11
+        Me.Button8.Text = "           Credit Card"
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button8.UseVisualStyleBackColor = False
+        '
+        'Button7
+        '
+        Me.Button7.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button7.FlatAppearance.BorderSize = 0
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.ForeColor = System.Drawing.Color.Black
+        Me.Button7.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_view_transactions
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button7.Location = New System.Drawing.Point(0, 551)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button7.Size = New System.Drawing.Size(303, 61)
+        Me.Button7.TabIndex = 10
+        Me.Button7.Text = "           Do Transaction"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_paybills
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button1.Location = New System.Drawing.Point(0, 439)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button1.Size = New System.Drawing.Size(303, 61)
+        Me.Button1.TabIndex = 9
+        Me.Button1.Text = "           Pay Bills"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.Color.Black
+        Me.Button5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_tollbooth_50
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button5.Location = New System.Drawing.Point(11, 495)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button5.Size = New System.Drawing.Size(343, 61)
+        Me.Button5.TabIndex = 8
+        Me.Button5.Text = "         FastTag Recharge"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.SMART_CITY___GUWAHATI
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(299, 153)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 6
+        Me.PictureBox1.TabStop = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.Color.Black
+        Me.Button4.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_view_transactions
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button4.Location = New System.Drawing.Point(0, 382)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button4.Size = New System.Drawing.Size(335, 61)
+        Me.Button4.TabIndex = 4
+        Me.Button4.Text = "     View Transactions"
+        Me.Button4.UseVisualStyleBackColor = False
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.Black
+        Me.Button3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_checkbalance
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.Location = New System.Drawing.Point(4, 322)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button3.Size = New System.Drawing.Size(303, 67)
+        Me.Button3.TabIndex = 3
+        Me.Button3.Text = "  Check Balance"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.Black
+        Me.Button2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.iconBankAccountProfile
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(0, 263)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button2.Size = New System.Drawing.Size(312, 64)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "    Account Details"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'Button6
         '
         Me.Button6.CausesValidation = False
@@ -257,11 +320,12 @@ Partial Class BankingDashboard
         Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MaximizeBox = False
         Me.Name = "BankingDashboard"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Transportation"
         Me.Panel1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.childformPanel.ResumeLayout(False)
         Me.childformPanel.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -280,4 +344,7 @@ Partial Class BankingDashboard
     Friend WithEvents childformPanel As Panel
     Friend WithEvents Label4 As Label
     Friend WithEvents Button6 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Button9 As Button
 End Class

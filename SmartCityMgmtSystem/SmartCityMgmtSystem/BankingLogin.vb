@@ -3,7 +3,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class BankingLogin
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        TextBox3.PasswordChar = "*"
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)
@@ -63,6 +63,6 @@ Public Class BankingLogin
             MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-    '.balance = bankBalance,
+
 
 End Class

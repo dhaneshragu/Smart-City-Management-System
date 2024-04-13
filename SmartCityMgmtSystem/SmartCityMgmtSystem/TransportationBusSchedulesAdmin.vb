@@ -368,6 +368,7 @@ Public Class TransportationBusSchedulesAdmin
             If success Then
                 LoadandBindDataGridView()
             End If
+            Globals.SendNotifications(4, -1, "Bus Schedule Updated", "An existing bus schedule for bus no " & TextBox6.Text & " has been updated by the admin")
             Label3.Text = "Add New Bus Schedule"
             Button3.Text = "Add"
             TextBox6.Clear()
@@ -453,6 +454,7 @@ Public Class TransportationBusSchedulesAdmin
             If success Then
                 LoadandBindDataGridView()
             End If
+            Globals.SendNotifications(4, -1, "Bus Schedule Added", "A new bus schedule added for bus no " & TextBox6.Text & " running from " & ComboBox1.SelectedItem.Name & " to " & ComboBox2.SelectedItem.Name & " has been added by the admin")
             TextBox6.Clear()
             DateTimePicker2.Value = DateTime.Now
             TextBox8.Clear()
