@@ -34,7 +34,7 @@ Public Class Ed_CourseResource
         End If
 
         AddHandler RichTextBox1.ContentsResized, AddressOf RichTextBox_ContentsResized
-        RichTextBox1.Rtf = content.Content
+        RichTextBox1.Text = content.Content
         Label1.Text = content.ContentName
         Dim youtubeUrl As String = content.VideoLink
         Dim videoId As String = ExtractYouTubeVideoId(youtubeUrl)

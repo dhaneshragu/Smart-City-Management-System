@@ -250,18 +250,6 @@ Public Class Ed_Moodle_Handler
         Public Property FileData As Byte()
         Public Property Submit_Time As Date
         Public Property Marks As Integer
-
-        Public Sub New(ByVal roomID As Integer, ByVal seqNo As Integer, ByVal studentID As Integer, ByVal fileData As Byte(), ByVal submitTime As DateTime, ByVal marks As Integer)
-            Me.Room_ID = roomID
-            Me.Seq_no = seqNo
-            Me.Student_ID = studentID
-            Me.FileData = fileData
-            Me.Submit_Time = submitTime
-            Me.Marks = marks
-        End Sub
-        Private Sub New()
-        End Sub
-
     End Class
 
     Public Function AssStatus(ByVal studentID As Integer, ByVal Roomid As Integer, ByVal seno As Integer) As StudentAssRecord
@@ -269,7 +257,7 @@ Public Class Ed_Moodle_Handler
         Con.Open()
         Dim submitTime As New DateTime(2024, 4, 14, 12, 30, 0)
 
-        Dim AssRec As New StudentAssRecord(-1, -1, -1, Nothing, submitTime, -1)
+        Dim AssRec As New StudentAssRecord()
 
         Dim query As String = "SELECT * FROM moodle_studentcourse WHERE Room_ID = @roomid AND Seq_no = @seqno AND Student_ID = @Stuid"
         Using cmd As New MySqlCommand(query, Con)
@@ -322,6 +310,38 @@ Public Class Ed_Moodle_Handler
 
         Con.Close()
     End Sub
+
+    Public Function GetAssMarks(ByVal stuid As Integer, ByVal Roomid As Integer) As StudentAssRecord()
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+
+        Dim assignments As New List(Of StudentAssRecord)()
+
+        ' Query to fetch assignments of courses the student is enrolled in
+        Dim query As String = "Select * from moodle_studentcourse where Student_ID = @studentID and Room_ID = @roomid"
+
+        Using cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@studentID", stuid)
+            cmd.Parameters.AddWithValue("@roomid", Roomid)
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                While reader.Read()
+                    Dim AssRec As New StudentAssRecord()
+                    AssRec.Room_ID = If(reader.IsDBNull(reader.GetOrdinal("Room_ID")), -1, Convert.ToInt32(reader("Room_ID")))
+                    AssRec.Seq_no = If(reader.IsDBNull(reader.GetOrdinal("Seq_no")), -1, Convert.ToInt32(reader("Seq_no")))
+                    AssRec.Student_ID = If(reader.IsDBNull(reader.GetOrdinal("Student_ID")), -1, Convert.ToInt32(reader("Student_ID")))
+                    AssRec.FileData = If(reader.IsDBNull(reader.GetOrdinal("File")), Nothing, DirectCast(reader("File"), Byte()))
+                    AssRec.Submit_Time = If(reader.IsDBNull(reader.GetOrdinal("Submit_Time")), DateTime.MinValue, Convert.ToDateTime(reader("Submit_Time")))
+                    AssRec.Marks = If(reader.IsDBNull(reader.GetOrdinal("Marks")), -1, Convert.ToInt32(reader("Marks")))
+
+                    assignments.Add(AssRec)
+                End While
+            End Using
+        End Using
+
+        Con.Close()
+
+        Return assignments.ToArray()
+    End Function
 
 
 
