@@ -1411,6 +1411,9 @@
     <EmbeddedResource Include="ElectionInnerScreenViewStatistics.resx">
       <DependentUpon>ElectionInnerScreenViewStatistics.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EventInvoice.resx">
+      <DependentUpon>EventInvoice.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EventLoginWindow.resx">
       <DependentUpon>EventLoginWindow.vb</DependentUpon>
     </EmbeddedResource>
