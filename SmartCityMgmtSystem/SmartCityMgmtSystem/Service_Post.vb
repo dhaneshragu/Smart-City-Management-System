@@ -52,11 +52,21 @@ Public Class Service_Post
                     cmd.Parameters.AddWithValue("@offered", TextBox2.Text)
                     cmd.Parameters.AddWithValue("@department", ComboBox1.Text)
                     cmd.Parameters.AddWithValue("@charge", TextBox3.Text)
-                    cmd.Parameters.AddWithValue("@startTime", starthourInput)
-                    cmd.Parameters.AddWithValue("@endTime", endhourInput)
+                    cmd.Parameters.AddWithValue("@startTime", timeSpan1)
+                    cmd.Parameters.AddWithValue("@endTime", timeSpan2)
                     cmd.ExecuteNonQuery()
                     MessageBox.Show("Service Posted Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
                 End Using
+
+                ' Insert a single record with all values set to 0
+                Dim insertSql As String = $"INSERT INTO service_leave (user_id, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) VALUES (@selectedUserID, 0, 0, 0, 0, 0, 0, 0)"
+
+                Using cmd As New MySqlCommand(insertSql, con)
+                    cmd.Parameters.AddWithValue("@selectedUserID", uid)
+                    cmd.ExecuteNonQuery()
+                End Using
+
             End Using
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
