@@ -76,6 +76,8 @@ Public Class Ed_Teacher_Moodle_CourseContent
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim add_assgn_form As New Ed_Teacher_AddAssgn()
+        add_assgn_form.callingPanel = callingPanel
+        add_assgn_form.CourseItem = CourseContent
         add_assgn_form.ShowDialog()
     End Sub
 End Class
