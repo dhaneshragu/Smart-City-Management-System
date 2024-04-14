@@ -3,7 +3,14 @@ Imports MySql.Data.MySqlClient
 Imports SmartCityMgmtSystem.ElectionInnerScreenCitizenRTI
 Public Class ElectionInnerScreenCitizenRTIPA
 
-    Dim instance As New ProfileClass()
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+
+    Public Property innerPanel As Panel
+
+    Dim electionInnerScreenCitizenRTI As ElectionInnerScreenCitizenRTI = Nothing
+
+    'Dim instance As New ProfileClass()
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.Columns(0).DefaultCellStyle.WrapMode = DataGridViewTriState.True
         DataGridView1.Columns(1).DefaultCellStyle.WrapMode = DataGridViewTriState.True
@@ -11,8 +18,8 @@ Public Class ElectionInnerScreenCitizenRTIPA
         DataGridView1.Columns(3).DefaultCellStyle.WrapMode = DataGridViewTriState.True
         DataGridView1.Columns(4).DefaultCellStyle.WrapMode = DataGridViewTriState.True
 
-        instance.UID = 10 ' Setting the value
-        Dim value As Integer = instance.UID ' Getting the
+        'instance.UID = 10 ' Setting the value
+        'Dim value As Integer = instance.UID ' Getting the
         LoadandBindDataGridView()
     End Sub
 
@@ -31,7 +38,7 @@ Public Class ElectionInnerScreenCitizenRTIPA
         cmd = New MySqlCommand("SELECT query_id, ministry_name, query, status, response
                                 FROM rti_queries_table
                                 JOIN ministries ON ministries.ministry_id = rti_queries_table.ministry
-                                WHERE citizen_uid = " & instance.UID & ";", Con)
+                                WHERE citizen_uid = " & uid & ";", Con)
         reader = cmd.ExecuteReader()
 
         ' Create a DataTable to store the data
@@ -55,6 +62,12 @@ Public Class ElectionInnerScreenCitizenRTIPA
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenCitizenRTI)
+        electionInnerScreenCitizenRTI?.Dispose()
+        electionInnerScreenCitizenRTI = New ElectionInnerScreenCitizenRTI With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenCitizenRTI)
     End Sub
 End Class

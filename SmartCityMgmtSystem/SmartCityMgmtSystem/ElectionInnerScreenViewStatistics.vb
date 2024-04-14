@@ -3,6 +3,11 @@ Imports System.IO
 Imports FastReport.DataVisualization.Charting
 Imports MySql.Data.MySqlClient
 Public Class ElectionInnerScreenViewStatistics
+
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Public Property innerPanel As Panel
+
     Public Property lastElectionID As Integer
     Public Property totalVoted As Integer
     Dim turnoutPercentage As Double
