@@ -47,7 +47,7 @@ Partial Class Ed_InstAdmin_AdmitList
         Me.DataGridViewImageColumn1.ReadOnly = True
         Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn1.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn1.Width = 123
+        Me.DataGridViewImageColumn1.Width = 125
         '
         'DataGridViewImageColumn2
         '
@@ -66,7 +66,7 @@ Partial Class Ed_InstAdmin_AdmitList
         Me.DataGridViewImageColumn2.ReadOnly = True
         Me.DataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn2.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn2.Width = 123
+        Me.DataGridViewImageColumn2.Width = 125
         '
         'DataGridViewImageColumn3
         '
@@ -85,13 +85,13 @@ Partial Class Ed_InstAdmin_AdmitList
         Me.DataGridViewImageColumn3.Name = "DataGridViewImageColumn3"
         Me.DataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn3.Width = 123
+        Me.DataGridViewImageColumn3.Width = 125
         '
         'TextBox1
         '
         Me.TextBox1.Location = New System.Drawing.Point(291, 38)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(551, 29)
+        Me.TextBox1.Size = New System.Drawing.Size(551, 30)
         Me.TextBox1.TabIndex = 1
         '
         'Button1

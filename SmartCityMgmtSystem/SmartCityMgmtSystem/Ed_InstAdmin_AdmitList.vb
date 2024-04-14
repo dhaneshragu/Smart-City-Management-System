@@ -41,5 +41,9 @@ Public Class Ed_InstAdmin_AdmitList
 
     End Sub
 
+    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
+
+    End Sub
+
     ' Add the GetAllRequests function here
 End Class

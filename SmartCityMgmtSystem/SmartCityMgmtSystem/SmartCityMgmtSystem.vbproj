@@ -164,6 +164,12 @@
     <Compile Include="Ed_Add_Institution.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ed_admissionPopUp.Designer.vb">
+      <DependentUpon>Ed_admissionPopUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_admissionPopUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_CertButton.Designer.vb">
       <DependentUpon>Ed_CertButton.vb</DependentUpon>
     </Compile>
@@ -1527,6 +1533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Add_Institution.resx">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_admissionPopUp.resx">
+      <DependentUpon>Ed_admissionPopUp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_CertButton.resx">
       <DependentUpon>Ed_CertButton.vb</DependentUpon>
