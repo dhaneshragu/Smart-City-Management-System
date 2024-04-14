@@ -98,7 +98,7 @@ Public Class ElectionCitizenResults
                                             JOIN (
                                                 SELECT ministry_id, MAX(votes) AS max_votes
                                                 FROM candidate_register
-                                                WHERE @electionID = 3 and status = 'Approved'
+                                                WHERE election_id = @electionID and status = 'Approved'
                                                 GROUP BY ministry_id
                                             ) max_votes_per_ministry ON cr.ministry_id = max_votes_per_ministry.ministry_id AND cr.votes = max_votes_per_ministry.max_votes
                                             WHERE cr.election_id = @electionID and cr.status = 'Approved';", Con)

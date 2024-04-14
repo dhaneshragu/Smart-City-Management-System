@@ -9,11 +9,11 @@ Public Class ElectionInnerScreenVoter
         Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreen1)
     End Sub
 
-    Private Function CompareUserInfo(ByVal name As String, ByVal uid As Integer, ByVal age As Integer, ByVal house_number As Integer, ByVal ward_number As Integer) As Boolean
+    Private Function CompareUserInfo(ByVal name As String, ByVal uid As Integer, ByVal age As Integer) As Boolean
         ' Get connection from globals
         Dim Con = Globals.GetDBConnection()
         Dim cmd As MySqlCommand
-        Dim query As String = "SELECT name, age, house_number, ward_number FROM users WHERE user_id = @uid"
+        Dim query As String = "SELECT name, age FROM users WHERE user_id = @uid"
 
         Dim matchFound As Boolean = False
 
@@ -26,14 +26,12 @@ Public Class ElectionInnerScreenVoter
             If reader.Read() Then ' Row with the given uid found
                 Dim db_name As String = reader("name").ToString()
                 Dim db_age As Integer = Convert.ToInt32(reader("age"))
-                Dim db_house_number As Integer = Convert.ToInt32(reader("house_number"))
-                Dim db_ward_number As Integer = Convert.ToInt32(reader("ward_number"))
 
                 'MessageBox.Show(db_name + "," & db_age & "," & db_house_number & "," & db_ward_number)
                 'MessageBox.Show(name + "," & age & "," & house_number & "," & ward_number)
 
                 ' Compare the retrieved values with the provided values
-                If name = db_name AndAlso age = db_age AndAlso house_number = db_house_number AndAlso ward_number = db_ward_number Then
+                If name = db_name AndAlso age = db_age Then
                     matchFound = True
                 End If
             End If
@@ -55,7 +53,7 @@ Public Class ElectionInnerScreenVoter
 
         ' Check if the checkbox is checked
         If CheckBox1.Checked Then
-            If TextBox1.Text = "" Or TextBox2.Text = "" Or TextBox3.Text = "" Or TextBox4.Text = "" Or TextBox5.Text = "" Then
+            If TextBox1.Text = "" Or TextBox2.Text = "" Or TextBox3.Text = "" Then
                 MessageBox.Show("Please enter all details.")
                 Exit Sub
             End If
@@ -63,11 +61,9 @@ Public Class ElectionInnerScreenVoter
             Dim name As String = TextBox1.Text.ToString
             Dim uid As Integer = Integer.Parse(TextBox2.Text)
             Dim age As Integer = Integer.Parse(TextBox3.Text)
-            Dim house_number As Integer = Integer.Parse(TextBox4.Text)
-            Dim ward_number As Integer = Integer.Parse(TextBox5.Text)
 
-            If ElectionDashboard.uid = uid Then
-                Dim check As Boolean = CompareUserInfo(name, uid, age, house_number, ward_number)
+            If ElectionDashboard.LoggedInUserId = uid Then
+                Dim check As Boolean = CompareUserInfo(name, uid, age)
 
                 If check Then
                     If age >= 18 Then

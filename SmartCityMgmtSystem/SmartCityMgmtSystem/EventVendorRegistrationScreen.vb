@@ -42,14 +42,13 @@ Public Class EventVendorRegistrationScreen
             Con.Open()
 
             ' Use parameterized query to prevent SQL injection
-            Dim query As String = "INSERT INTO vendor (vendorID, vendorName, specialisation, rating, experience, password,serviceCost,startdate,enddate) " &
-                              "VALUES (@VendorID, @VendorName, @Specialisation, @Rating, @Experience, @Password,@ServiceCost,@StartDate,@EndDate);"
+            Dim query As String = "INSERT INTO vendor (vendorID, vendorName, specialisation, rating, experience, password,serviceCost,startdate,enddate,vendor_UID) " &
+                              "VALUES (@VendorID, @VendorName, @Specialisation, @Rating, @Experience, @Password,@ServiceCost,@StartDate,@EndDate,@vendorUID);"
             'Initially building it in such a way that the cost is decided by the vendor instead of it being fixed by the ministry 
             'and the vendor ID shall be the username 
             'This shall be extended later to include a custom username and govt fixated service cost/hr
             cmd = New MySqlCommand(query, Con)
             cmd.Parameters.AddWithValue("@VendorId", vendorID)
-
             cmd.Parameters.AddWithValue("VendorName", vendorName)
             cmd.Parameters.AddWithValue("@Specialisation", specialisation)
             cmd.Parameters.AddWithValue("@Rating", 0)
@@ -58,7 +57,7 @@ Public Class EventVendorRegistrationScreen
             cmd.Parameters.AddWithValue("@EndDate", endDate)
             cmd.Parameters.AddWithValue("@ServiceCost", ServiceCost)
             cmd.Parameters.AddWithValue("@Password", password)
-
+            cmd.Parameters.AddWithValue("@vendorUID", uid)
 
             ' Execute the SQL command
             cmd.ExecuteNonQuery()

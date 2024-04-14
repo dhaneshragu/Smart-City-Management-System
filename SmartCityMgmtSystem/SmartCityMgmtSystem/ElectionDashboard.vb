@@ -2,6 +2,7 @@
     Public Property uid As Integer = 8
     Public Property u_name As String = "admin"
     Public Property ElectionCommissionerId As Integer = 8
+    Public Property LoggedInUserId As Integer = 105
     Private Sub election_Click(sender As Object, e As EventArgs) Handles election.Click
         Globals.viewChildForm(childformPanel, ElectionInnerScreen1)
     End Sub
@@ -31,5 +32,13 @@
 
     Private Sub about_us_Click(sender As Object, e As EventArgs) Handles about_us.Click
         Globals.viewChildForm(childformPanel, ElectionInnerScreenWelcomeScreen)
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim home = New HomePageDashboard() With {
+            .uid = uid
+        }
+        home.Show()
+        Me.Close()
     End Sub
 End Class

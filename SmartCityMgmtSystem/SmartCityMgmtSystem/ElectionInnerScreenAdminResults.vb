@@ -22,7 +22,7 @@ Public Class ElectionInnerScreenAdminResults
         End If
         reader.Close()
 
-
+        MessageBox.Show(lastElectionID)
 
         Dim updateCmd As New MySqlCommand("SELECT users.name, m.ministry_name, cr.votes, t.votes_received, cr.status
                                             FROM candidate_register cr
@@ -32,7 +32,7 @@ Public Class ElectionInnerScreenAdminResults
                                             JOIN (
                                                 SELECT ministry_id, MAX(votes) AS max_votes
                                                 FROM candidate_register
-                                                WHERE @electionID = 3 and status = 'Approved'
+                                                WHERE election_id = @electionID and status = 'Approved'
                                                 GROUP BY ministry_id
                                             ) max_votes_per_ministry ON cr.ministry_id = max_votes_per_ministry.ministry_id AND cr.votes = max_votes_per_ministry.max_votes
                                             WHERE cr.election_id = @electionID and cr.status = 'Approved';", Con)
@@ -109,7 +109,7 @@ Public Class ElectionInnerScreenAdminResults
         reader.Close()
 
         If announced = 0 Then
-            Dim current_date As String = "2024-01-03"
+            Dim current_date As String = "2024-04-11"
             Dim resultAnnouncementDate As DateTime = DateTime.MinValue
 
             ' Retrieve the value of nomination_start from the last row of the election_time table

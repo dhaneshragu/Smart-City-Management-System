@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Management.Instrumentation
 Imports FastReport.DataVisualization.Charting
 Imports MySql.Data.MySqlClient
 Imports SmartCityMgmtSystem.ElectionInnerScreenCitizenRTI
@@ -33,15 +34,51 @@ Public Class ElectionInnerScreenViewStatisticsMinistry6
         Label2.Text = "Total Votes : " & votesReceived
         ' Calculate the turnout only if totalVoters is not zero to avoid division by zero error
         If ElectionInnerScreenViewStatistics.totalVoted <> 0 Then
-            Label3.Text = "Ministry Turnout : " & (votesReceived / ElectionInnerScreenViewStatistics.totalVoted) * 100 & "%"
+            Label3.Text = "Turnout : " & (votesReceived / ElectionInnerScreenViewStatistics.totalVoted) * 100 & "%"
         Else
             Label3.Text = "No voters"
         End If
 
         reader.Close()
-        Con.Close()
-    End Sub
-    Private Sub Chart_Init()
+
+        ' Execute the SQL query to retrieve candidate name, votes, and calculate vote percentage
+        cmd = New MySqlCommand("SELECT users.name AS candidate_name, candidate_register.votes
+                                FROM candidate_register
+                                JOIN users ON candidate_register.candidate_uid = users.user_id
+                                WHERE election_id = @election_id AND ministry_id = @ministry_id", Con)
+
+        cmd.Parameters.AddWithValue("@election_id", ElectionInnerScreenViewStatistics.lastElectionID)
+        cmd.Parameters.AddWithValue("@ministry_id", 6)
+        reader = cmd.ExecuteReader()
+
+
+        ' Create a DataTable to store the data
+        Dim dataTable As New DataTable()
+
+        ' Add columns for candidate name, votes, and vote percentage to the DataTable
+        dataTable.Columns.Add("Candidate Name")
+        dataTable.Columns.Add("Votes")
+        dataTable.Columns.Add("Vote Percent")
+        ' Fill the DataTable with data from the SQL query
+        While reader.Read()
+            Dim candidateName As String = reader("candidate_name").ToString()
+            Dim votes As Integer = Convert.ToInt32(reader("votes"))
+
+
+            ' Calculate vote percentage
+            Dim votePercent As Double = (votes / votesReceived) * 100
+
+            ' Add row to the DataTable
+            dataTable.Rows.Add(candidateName, votes, votePercent.ToString() & "%")
+        End While
+        ' Specify the Column Mappings from DataTable to DataGridView
+        DataGridView1.Columns(0).DataPropertyName = "Candidate Name"
+        DataGridView1.Columns(1).DataPropertyName = "Votes"
+        DataGridView1.Columns(2).DataPropertyName = "Vote Percent"
+        ' Bind the data to DataGridView
+        DataGridView1.DataSource = dataTable
+
+        'chart
         ' Clear existing series and chart areas
         Chart1.Series.Clear()
         Chart1.ChartAreas.Clear()
@@ -56,20 +93,21 @@ Public Class ElectionInnerScreenViewStatisticsMinistry6
         series.ChartArea = "MainChartArea"
         Chart1.Series.Add(series)
 
-        ' Add data points for each day of the week manually
-        Chart1.Series("DataSeries").Points.AddXY("John doe", 20)
-        Chart1.Series("DataSeries").Points.AddXY("Carlos", 10)
+
+        ' Loop through the dataTable and add data points to the series
+        For Each row As DataRow In dataTable.Rows
+            Dim candidateName As String = row("Candidate Name").ToString()
+            Dim votes As Integer = Convert.ToInt32(row("Votes"))
+            series.Points.AddXY(candidateName, votes)
+        Next
+
+        reader.Close()
+        Con.Close()
     End Sub
-    Private Sub ElectionInnerScreenViewStatisticsMinistry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Chart_Init()
+    Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.Columns(0).DefaultCellStyle.WrapMode = DataGridViewTriState.True
         DataGridView1.Columns(1).DefaultCellStyle.WrapMode = DataGridViewTriState.True
         DataGridView1.Columns(2).DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        ' Fill two rows with dummy data
-        Dim row1 As String() = {"John Doe", "20", "66"}
-        Dim row2 As String() = {"Carlos", "10", "33"}
-        DataGridView1.Rows.Add(row1)
-        DataGridView1.Rows.Add(row2)
         LoadData()
     End Sub
 
@@ -77,7 +115,4 @@ Public Class ElectionInnerScreenViewStatisticsMinistry6
         Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatistics)
     End Sub
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
 End Class
