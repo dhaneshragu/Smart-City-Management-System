@@ -416,12 +416,6 @@
     <Compile Include="Ed_Teacher_Moodle_CourseResource.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImageViewerForm.Designer.vb">
-      <DependentUpon>ImageViewerForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ImageViewerForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="HealthcareApproveAppointmentAdmin.Designer.vb">
       <DependentUpon>HealthcareApproveAppointmentAdmin.vb</DependentUpon>
     </Compile>
@@ -1662,9 +1656,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Teacher_Moodle_CourseResource.resx">
       <DependentUpon>Ed_Teacher_Moodle_CourseResource.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ImageViewerForm.resx">
-      <DependentUpon>ImageViewerForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HealthcareApproveAppointmentAdmin.resx">
       <DependentUpon>HealthcareApproveAppointmentAdmin.vb</DependentUpon>

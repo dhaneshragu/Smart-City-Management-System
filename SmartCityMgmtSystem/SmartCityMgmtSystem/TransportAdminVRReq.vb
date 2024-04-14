@@ -18,44 +18,37 @@ Public Class TransportAdminVRReq
             Return Image.FromStream(ms)
         End Using
     End Function
+
+    Private Function ResizeImage(originalImage As Image, width As Integer, height As Integer) As Image
+        ' Create a new bitmap with the desired width and height
+        Dim resizedImage As New Bitmap(width, height)
+
+        ' Create a Graphics object from the resized bitmap
+        Using g As Graphics = Graphics.FromImage(resizedImage)
+            ' Set interpolation mode to high quality bicubic to ensure the best quality
+            g.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
+
+            ' Draw the original image onto the resized bitmap using DrawImage method
+            g.DrawImage(originalImage, 0, 0, width, height)
+        End Using
+
+        ' Return the resized image
+        Return resizedImage
+    End Function
+
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         ' Check if the clicked cell is in the "Column5" column and not a header cell
         If e.ColumnIndex = DataGridView1.Columns("Column4").Index AndAlso e.RowIndex >= 0 Then
             row1 = e.RowIndex
             Dim cellValue As Object = DataGridView1.Rows(row1).Cells(0).Value
             id = cellValue
-            'Dim Con = Globals.GetDBConnection()
-            'Con.Open()
-            'Dim query As String = "SELECT vehicle_pic FROM vehicle_reg WHERE vehicle_id = @a"
-            'Using command As New MySqlCommand(query, Con)
-            '    command.Parameters.AddWithValue("@a", id)
-            '    ' Execute the query and read the image data
-            '    Dim imageData As Byte() = Nothing
-            '    Dim result As Object = command.ExecuteScalar()
-
-            '    If result IsNot DBNull.Value Then
-            '        imageData = DirectCast(result, Byte())
-            '    End If
-
-            '    ' Check if the image data is not null
-            '    If imageData IsNot Nothing AndAlso imageData.Length > 0 Then
-            '        Try
-
-            '            ' Convert the byte array back to an Image
-            '            Dim image As Image = ByteArrayToImage(imageData)
-
-            ' Set the image to the DataGridView cell
-            DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = Globals.GetPicture($"SELECT vehicle_pic FROM vehicle_reg WHERE vehicle_id ='{id}'", "vehicle_pic")
-            '        Catch ex As Exception
-            '            ' If an error occurs while processing the image, display an error message
-            '            MessageBox.Show("Error processing image: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            '        End Try
-            '    Else
-            '        ' If no image data is found in the database
-            '        MessageBox.Show("No image found in the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            '    End If
-            'End Using
-            'Con.Close()
+            Dim image As Image = Globals.GetPicture($"SELECT vehicle_pic FROM vehicle_reg WHERE vehicle_id ='{id}'", "vehicle_pic")
+            If image IsNot Nothing Then
+                Dim resizedImage As Image = ResizeImage(image, 100, 100)
+                DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = resizedImage
+            Else
+                MessageBox.Show("No image found in the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
         ElseIf e.ColumnIndex = DataGridView1.Columns("Column5").Index AndAlso e.RowIndex >= 0 Then
             row1 = e.RowIndex
             Dim cellValue As Object = DataGridView1.Rows(row1).Cells(0).Value

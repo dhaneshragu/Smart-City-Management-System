@@ -242,7 +242,6 @@ Partial Class TransportAdminVRReq
         '
         Me.Column5.HeaderText = "Invoice_pdf"
         Me.Column5.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_eye_48
-        Me.Column5.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.Column5.MinimumWidth = 6
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
