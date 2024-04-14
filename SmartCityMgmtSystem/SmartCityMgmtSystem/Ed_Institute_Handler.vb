@@ -223,5 +223,139 @@ Public Class Ed_Institute_Handler
 
     End Function
 
+    Public Class InstituteFeePaid
+        Public Property StudentID As Integer
+        Public Property ClassNum As Integer
+        Public Property Semester As Integer
+        Public Property Fee As Decimal
+        Public Property Year As Integer
+        Public Property PaidOn As Date
+
+        Public Sub New(studentID As Integer, classNum As Integer, semester As Integer, fee As Decimal, year As Integer, paidOn As Date)
+            Me.StudentID = studentID
+            Me.ClassNum = classNum
+            Me.Semester = semester
+            Me.Fee = fee
+            Me.Year = year
+            Me.PaidOn = paidOn
+        End Sub
+
+    End Class
+
+    Public Function GetInstituteFeesRecords(ByVal stuid As Integer) As InstituteFeePaid()
+        ' Get the database connection
+        Dim Con = Globals.GetDBConnection()
+
+        ' Open the database connection
+        Con.Open()
+
+        ' List to store CertificateData objects
+        Dim feeRecs As New List(Of InstituteFeePaid)()
+
+        ' SQL query to select certificates from the database
+        Dim query As String = "SELECT * FROM ed_instfeepaid WHERE Student_ID = @studentID"
+
+        ' Create a MySqlCommand object
+        Using cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@studentID", stuid)
+
+            ' Execute the SQL command
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                ' Iterate through the results
+                While reader.Read()
+                    Dim studentID As Integer = Convert.ToInt32(reader("Student_ID"))
+                    Dim classNum As Integer = Convert.ToInt32(reader("Class"))
+                    Dim semester As Integer = Convert.ToInt32(reader("Sem"))
+                    Dim fee As Decimal = Convert.ToDecimal(reader("Fee"))
+                    Dim year As Integer = Convert.ToInt32(reader("Year"))
+                    Dim paidOn As Date = Convert.ToDateTime(reader("Paid_On"))
+
+                    Dim feeObj As New InstituteFeePaid(studentID, classNum, semester, fee, year, paidOn)
+                    feeRecs.Add(feeObj)
+                End While
+            End Using
+        End Using
+
+        ' Close the database connection
+        Con.Close()
+
+        ' Return the list of CertificateData objects
+        Return feeRecs.ToArray()
+    End Function
+
+    Public Function GetCurrPayDetails(ByVal stuid As Integer) As InstituteFeePaid
+        Dim query As String
+        ' Get the database connection
+        Dim Con = Globals.GetDBConnection()
+
+        ' Open the database connection
+        Con.Open()
+
+        ' SQL query to select certificates from the database
+        Dim sclass As Integer = Ed_GlobalDashboard.Ed_Profile.Ed_Class
+        Dim sSem As Integer = Ed_GlobalDashboard.Ed_Profile.Ed_Class
+
+        query = "Select Ed_Class, Ed_Sem from ed_profile where Ed_User_ID = @stuid"
+        Using cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@stuid", stuid)
+            ' Execute the SQL command
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                ' Check if there are any records
+                If reader.Read() Then
+                    sclass = If(Not IsDBNull(reader("Ed_Class")), Convert.ToInt32(reader("Ed_Class")), 0)
+                    sSem = If(Not IsDBNull(reader("Ed_Sem")), Convert.ToInt32(reader("Ed_Sem")), 0)
+                End If
+            End Using
+        End Using
+
+
+
+        query = "Select Fee from ed_instfeestruct where Class = @sclass and Sem = @sSem"
+        Dim feeamt As Integer = 0
+
+        Using cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@sclass", sclass)
+            cmd.Parameters.AddWithValue("@sSem", sSem)
+            ' Execute the SQL command
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                ' Check if there are any records
+                If reader.Read() Then
+                    feeamt = If(Not IsDBNull(reader("Fee")), Convert.ToInt32(reader("Fee")), 0)
+                End If
+            End Using
+        End Using
+
+        ' Close the database connection
+        Con.Close()
+        Dim feeObj As New InstituteFeePaid(stuid, sclass, sSem, feeamt, DateTime.MinValue.Year, DateTime.MinValue.Date)
+        ' Return null if no records found
+        Return feeObj
+    End Function
+
+    Public Sub PayFee(ByVal feerec As InstituteFeePaid)
+        ' SQL query to insert data into the database
+        Using Con = Globals.GetDBConnection()
+            Con.Open()
+            Dim query As String = "INSERT INTO ed_instfeepaid (Student_ID, Class, Sem, Fee, Year, Paid_On) " &
+                                  "VALUES (@stuid, @sclass, @ssem, @Fee, @year, @paidon)"
+
+            ' Create a MySqlCommand object with the SQL query and connection
+            Using command As New MySqlCommand(query, Con)
+                ' Add parameters to the command
+                command.Parameters.AddWithValue("@stuid", feerec.StudentID)
+                command.Parameters.AddWithValue("@sclass", feerec.ClassNum)
+                command.Parameters.AddWithValue("@ssem", feerec.Semester)
+                command.Parameters.AddWithValue("@year", feerec.Year)
+                command.Parameters.AddWithValue("@Fee", feerec.Fee)
+                command.Parameters.AddWithValue("@paidon", feerec.PaidOn)
+                Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+            End Using
+        End Using
+    End Sub
+
+
+
+
 
 End Class

@@ -90,4 +90,8 @@
     Private Sub Ed_StudentDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label2.Text = Ed_GlobalDashboard.Ed_Profile.Ed_Name
     End Sub
+
+    Private Sub PictureButtonvb3_Load(sender As Object, e As EventArgs) Handles PictureButtonvb3.Load
+
+    End Sub
 End Class
