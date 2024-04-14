@@ -200,6 +200,18 @@
     <Compile Include="Ed_ManageEntrHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ed_Minister_Institute_List.Designer.vb">
+      <DependentUpon>Ed_Minister_Institute_List.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_List.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_ListItem.Designer.vb">
+      <DependentUpon>Ed_Minister_Institute_ListItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_ListItem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ed_MoodleResouceLinkItem.Designer.vb">
       <DependentUpon>Ed_MoodleResouceLinkItem.vb</DependentUpon>
     </Compile>
@@ -1359,6 +1371,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_ManageEntrHome.resx">
       <DependentUpon>Ed_ManageEntrHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Minister_Institute_List.resx">
+      <DependentUpon>Ed_Minister_Institute_List.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Minister_Institute_ListItem.resx">
+      <DependentUpon>Ed_Minister_Institute_ListItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_MoodleResouceLinkItem.resx">
       <DependentUpon>Ed_MoodleResouceLinkItem.vb</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports SmartCityMgmtSystem.Ed_Institute_Handler
-Public Class Ed_Institute_List
+Public Class Ed_Minister_Institute_List
 
     Dim handler As New Ed_Institute_Handler()
 
@@ -22,29 +22,14 @@ Public Class Ed_Institute_List
 
         ' Fetch institutes data from the database
         Dim institutes As EdInstitution() = handler.GetAllInstitutions()
-        Dim result = handler.GetLastStudentRequest(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID)
 
-        ' Now you can access the status and institute ID from the result
-        Dim status As String = result.Status
-        Dim instituteID As Integer = result.InstituteID
 
         ' Create and populate Ed_Institute_ListItem controls
         For Each institute As EdInstitution In institutes
-            Dim listItem As New Ed_Institute_ListItem()
+            Dim listItem As New Ed_Minister_Institute_ListItem()
             listItem.instituteID = institute.Inst_ID
-            If (Ed_GlobalDashboard.Ed_Profile.Ed_Affiliation > 0) Then
-                listItem.Button2.Text = "Apply For Transfer"
-            End If
-            If listItem.instituteID = instituteID Then
-                If status = "Pending" Then
-                    listItem.Button2.Text = "Application Sent"
-                    listItem.Button2.BackColor = Color.FromArgb(153, 102, 0)
-                End If
-                If status = "Approved" Then
-                    listItem.Button2.Text = "Approved"
-                    listItem.Button2.BackColor = Color.SeaGreen
-                End If
-            End If
+            listItem.callingPanel = callingPanel
+
             If institute.Inst_Name.Length > 0 Then
                 listItem.Label6.Text = institute.Inst_Name
             End If
@@ -73,13 +58,13 @@ Public Class Ed_Institute_List
             End If
 
 
+
+
             ' Add controls to FlowLayoutPanel
             FlowLayoutPanel1.Controls.Add(listItem)
         Next
     End Sub
-    Private Sub Edit_Label_Click(sender As Object, e As EventArgs)
-        'Globals.viewChildForm(callingPanel, New Ed_Institute_Edit(callingPanel))
-    End Sub
+
 
     Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
 

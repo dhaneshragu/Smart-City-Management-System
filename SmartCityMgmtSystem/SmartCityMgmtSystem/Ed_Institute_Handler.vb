@@ -39,7 +39,98 @@ Public Class Ed_Institute_Handler
         Public Property Year As Integer
     End Class
 
+    Public Function AddInstitution(name As String, address As String, principalID As Integer, photo As Byte(), type As String) As Integer
+        Dim connectionString As String = GetDBConnectionString()
 
+        Dim query As String = "INSERT INTO ed_institution (Inst_ID,Inst_Name, Inst_Address, Inst_Principal, Inst_Type) VALUES (@Inst_ID, @Name, @Address, @PrincipalID, @Type)"
+
+        Using connection As New MySqlConnection(connectionString)
+            connection.Open()
+            Using command As New MySqlCommand(query, connection)
+                command.Parameters.AddWithValue("@Name", name)
+                command.Parameters.AddWithValue("@Address", address)
+                command.Parameters.AddWithValue("@PrincipalID", principalID)
+                command.Parameters.AddWithValue("@Photo", photo)
+                command.Parameters.AddWithValue("@Type", type)
+
+                'set inst_id to be 1+ max inst_id'
+                Dim maxID As Integer = 0
+                Dim query2 As String = "SELECT MAX(Inst_ID) FROM ed_institution"
+                Dim cmd2 As New MySqlCommand(query2, connection)
+                Dim reader As MySqlDataReader = cmd2.ExecuteReader()
+
+                If reader.Read() Then
+                    If reader(0) IsNot DBNull.Value Then
+                        maxID = Convert.ToInt32(reader(0))
+                    End If
+                End If
+                reader.Close()
+
+
+                'Execute orginal query'
+                command.CommandText = query
+                command.Parameters.AddWithValue("@Inst_ID", maxID + 1)
+                command.ExecuteNonQuery()
+
+                Return maxID + 1
+            End Using
+        End Using
+    End Function
+
+    Public Function UpdateInstitution(id As Integer, name As String, address As String, principalID As Integer, photo As Byte(), type As String) As Boolean
+        Dim connectionString As String = GetDBConnectionString()
+
+        Dim query As String = "UPDATE ed_institution SET Inst_Name = @Name, Inst_Address = @Address, Inst_Principal = @PrincipalID, Inst_Photo = @Photo, Inst_Type = @Type WHERE Inst_ID = @ID"
+
+        Using connection As New MySqlConnection(connectionString)
+            connection.Open()
+            Using command As New MySqlCommand(query, connection)
+                command.Parameters.AddWithValue("@ID", id)
+                command.Parameters.AddWithValue("@Name", name)
+                command.Parameters.AddWithValue("@Address", address)
+                command.Parameters.AddWithValue("@PrincipalID", principalID)
+                command.Parameters.AddWithValue("@Photo", photo)
+                command.Parameters.AddWithValue("@Type", type)
+
+                Dim rowsAffected As Integer = command.ExecuteNonQuery()
+                Return rowsAffected > 0
+            End Using
+        End Using
+    End Function
+
+    Public Function GetInstitutionbyID(id As Integer) As EdInstitution
+        Dim institution As EdInstitution = Nothing
+
+        Dim connectionString As String = GetDBConnectionString()
+
+        Dim query As String = "SELECT Inst_Name, Inst_Address, Inst_Principal, Inst_Photo, Inst_Type FROM ed_institution WHERE Inst_ID = @ID"
+
+        Using connection As New MySqlConnection(connectionString)
+            connection.Open()
+            Using command As New MySqlCommand(query, connection)
+                command.Parameters.AddWithValue("@ID", id)
+                Using reader As MySqlDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        Dim name As String = If(reader("Inst_Name") IsNot DBNull.Value, Convert.ToString(reader("Inst_Name")), "")
+                        Dim address As String = If(reader("Inst_Address") IsNot DBNull.Value, Convert.ToString(reader("Inst_Address")), "")
+                        Dim principalID As Integer = If(reader("Inst_Principal") IsNot DBNull.Value, Convert.ToInt32(reader("Inst_Principal")), 0)
+                        Dim photo As Byte() = Nothing ' Initialize to Nothing initially
+
+                        ' Check for DBNull before attempting to cast
+                        If Not reader.IsDBNull(reader.GetOrdinal("Inst_Photo")) Then
+                            photo = DirectCast(reader("Inst_Photo"), Byte())
+                        End If
+
+                        Dim type As String = If(reader("Inst_Type") IsNot DBNull.Value, Convert.ToString(reader("Inst_Type")), "")
+
+                        institution = New EdInstitution(id, name, address, principalID, "", "", "", photo, type)
+                    End If
+                End Using
+            End Using
+        End Using
+
+        Return institution
+    End Function
 
     Public Function GetAllInstitutions() As EdInstitution()
         Dim institutions As New List(Of EdInstitution)()
