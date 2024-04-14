@@ -32,4 +32,12 @@
     Private Sub about_us_Click(sender As Object, e As EventArgs) Handles about_us.Click
         Globals.viewChildForm(childformPanel, ElectionInnerScreenWelcomeScreen)
     End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim home = New HomePageDashboard() With {
+            .uid = uid
+        }
+        home.Show()
+        Me.Close()
+    End Sub
 End Class
