@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class BankingDashboard
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,10 @@ Partial Class BankingDashboard
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button10 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
@@ -45,6 +46,7 @@ Partial Class BankingDashboard
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Panel1.Controls.Add(Me.Button10)
         Me.Panel1.Controls.Add(Me.Button9)
         Me.Panel1.Controls.Add(Me.Button8)
         Me.Panel1.Controls.Add(Me.Button7)
@@ -62,6 +64,25 @@ Partial Class BankingDashboard
         Me.Panel1.Size = New System.Drawing.Size(303, 783)
         Me.Panel1.TabIndex = 13
         '
+        'Button10
+        '
+        Me.Button10.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button10.FlatAppearance.BorderSize = 0
+        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button10.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button10.ForeColor = System.Drawing.Color.Black
+        Me.Button10.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_paybills
+        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button10.Location = New System.Drawing.Point(0, 686)
+        Me.Button10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button10.Size = New System.Drawing.Size(303, 61)
+        Me.Button10.TabIndex = 12
+        Me.Button10.Text = "           All transactions"
+        Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button10.UseVisualStyleBackColor = False
+        '
         'Button9
         '
         Me.Button9.BackColor = System.Drawing.Color.NavajoWhite
@@ -71,7 +92,7 @@ Partial Class BankingDashboard
         Me.Button9.ForeColor = System.Drawing.Color.Black
         Me.Button9.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_view_transactions
         Me.Button9.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button9.Location = New System.Drawing.Point(-4, 640)
+        Me.Button9.Location = New System.Drawing.Point(0, 619)
         Me.Button9.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button9.Name = "Button9"
         Me.Button9.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
@@ -90,7 +111,7 @@ Partial Class BankingDashboard
         Me.Button8.ForeColor = System.Drawing.Color.Black
         Me.Button8.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_topup_payment_50
         Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button8.Location = New System.Drawing.Point(-4, 573)
+        Me.Button8.Location = New System.Drawing.Point(0, 552)
         Me.Button8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button8.Name = "Button8"
         Me.Button8.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
@@ -109,7 +130,7 @@ Partial Class BankingDashboard
         Me.Button7.ForeColor = System.Drawing.Color.Black
         Me.Button7.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icon_view_transactions
         Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button7.Location = New System.Drawing.Point(-4, 506)
+        Me.Button7.Location = New System.Drawing.Point(0, 495)
         Me.Button7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button7.Name = "Button7"
         Me.Button7.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
@@ -325,4 +346,5 @@ Partial Class BankingDashboard
     Friend WithEvents Button8 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents Button9 As Button
+    Friend WithEvents Button10 As Button
 End Class

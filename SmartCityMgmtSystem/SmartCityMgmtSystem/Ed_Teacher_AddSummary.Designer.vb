@@ -26,6 +26,7 @@ Partial Class Ed_Teacher_AddSummary
         Me.btnFont = New System.Windows.Forms.Button()
         Me.btnFontColor = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'RichTextBox1
@@ -75,12 +76,24 @@ Partial Class Ed_Teacher_AddSummary
         Me.Button2.Text = "DONE"
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(392, 57)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(542, 43)
+        Me.Label1.TabIndex = 52
+        Me.Label1.Text = "Enter Syllabus"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Ed_Teacher_AddSummary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1308, 736)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnFontColor)
         Me.Controls.Add(Me.btnFont)
@@ -89,7 +102,7 @@ Partial Class Ed_Teacher_AddSummary
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Ed_Teacher_AddSummary"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Enter Summary"
+        Me.Text = "Enter Syllabus"
         Me.ResumeLayout(False)
 
     End Sub
@@ -98,4 +111,5 @@ Partial Class Ed_Teacher_AddSummary
     Friend WithEvents btnFont As Button
     Friend WithEvents btnFontColor As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Label1 As Label
 End Class

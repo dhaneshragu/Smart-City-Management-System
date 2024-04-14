@@ -51,7 +51,7 @@ Public Class Ed_Teacher_Course_Resource
         Me.AutoScroll = True
 
         AddHandler RichTextBox1.ContentsResized, AddressOf RichTextBox_ContentsResized
-        RichTextBox1.Text = content.Content
+        RichTextBox1.Rtf = content.Content
         Label1.Text = content.ContentName
         Dim youtubeUrl As String = content.VideoLink
         Dim videoId As String = ExtractYouTubeVideoId(youtubeUrl)
@@ -66,7 +66,19 @@ Public Class Ed_Teacher_Course_Resource
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim edit_res_form As New Ed_Teacher_EditResource()
+        Dim edit_res_form As New Ed_Teacher_EditResource(content)
+        edit_res_form.CourseItem = CourseItem
         edit_res_form.ShowDialog()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'Delete CourseContent by calling handler deletecoursecontent function'  
+        Dim handler As New Ed_Coursera_Handler()
+        handler.DeleteCourseContent(content.CourseID, content.SeqNo)
+
+        Dim form As New Ed_Teacher_Coursera_Course_Content(callingPanel)
+        form.CourseItem = CourseItem
+        Globals.viewChildForm(callingPanel, form)
+
     End Sub
 End Class

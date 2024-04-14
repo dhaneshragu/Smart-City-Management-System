@@ -16,7 +16,10 @@ Public Class HomePage
     End Sub
 
     Private Sub electionDept_Click(sender As Object, e As EventArgs) Handles electionDept.Click
-        Dim elec = New ElectionDashboard()
+        Dim elec = New ElectionDashboard With {
+            .uid = uid,
+            .u_name = u_name
+        }
         elec.Show()
         Me.ParentForm.Close()
         Me.Close()
@@ -75,17 +78,23 @@ Public Class HomePage
         'MessageBox.Show(uid.ToString + " " + u_name)
     End Sub
 
-
-    Private Sub Button3_Click_1(sender As Object, e As EventArgs)
-        Dim pay = New PaymentGateway() With {
-            .uid = uid
+    Private Sub Service_dept_Click(sender As Object, e As EventArgs) Handles Service_dept.Click
+        Dim service_portal = New Service_Portal() With {
+            .uid = uid,
+            .u_name = u_name
         }
-        If (pay.ShowDialog() = DialogResult.OK) Then
-            MessageBox.Show("Payment successful!")
-            Me.Close()
-        Else
-            MessageBox.Show("Payment failed.")
-        End If
+        service_portal.Show()
+        Me.ParentForm.Close()
+        Me.Close()
+    End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim employment_portal = New Employment_portal() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        employment_portal.Show()
+        Me.ParentForm.Close()
+        Me.Close()
     End Sub
 End Class

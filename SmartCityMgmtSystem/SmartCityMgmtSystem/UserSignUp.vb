@@ -14,10 +14,35 @@ Public Class UserSignUp
         'Globals.viewChildForm(childformPanel, TransportationAdminHome)
     End Sub
 
+    Private Function CheckPasswordStrength(password As String) As Boolean
+        ' Check if password meets criteria
+        Dim hasNumber As Boolean = False
+        Dim hasSpecialChar As Boolean = False
+        Dim hasUpperCase As Boolean = False
+        Dim hasLowerCase As Boolean = False
+
+        ' Define special characters
+        Dim specialCharacters As String = "!@#$%^&*()_+-=[]{}|;:',.<>?/~"
+
+        For Each c As Char In password
+            If Char.IsDigit(c) Then
+                hasNumber = True
+            ElseIf specialCharacters.Contains(c) Then
+                hasSpecialChar = True
+            ElseIf Char.IsUpper(c) Then
+                hasUpperCase = True
+            ElseIf Char.IsLower(c) Then
+                hasLowerCase = True
+            End If
+        Next
+
+        ' Check all criteria
+        Return password.Length >= 8 AndAlso hasNumber AndAlso hasSpecialChar AndAlso hasUpperCase AndAlso hasLowerCase
+    End Function
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         If String.IsNullOrWhiteSpace(TextBox2.Text) OrElse String.IsNullOrWhiteSpace(TextBox3.Text) Then
             MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        ElseIf (TextBox3.Text = TextBox4.Text) Then
+        ElseIf (TextBox3.Text = TextBox4.Text AndAlso CheckPasswordStrength(TextBox4.text)) Then
             Dim email As String = TextBox2.Text ' Store the email ID in a variable
             Dim password As String = TextBox3.Text ' Store the password in a variable
             'Dim cmd As String
@@ -27,7 +52,12 @@ Public Class UserSignUp
             otp.Show()
             Me.Close()
         Else
-            MessageBox.Show("Password not matching!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If Not CheckPasswordStrength(TextBox4.Text) Then
+                MessageBox.Show("Password must be at least 8 characters long and contain at least 
+one number, special character, uppercase letter, and lowercase letter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                MessageBox.Show("Passwords not matching!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
         TextBox2.Clear()
         TextBox3.Clear()

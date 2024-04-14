@@ -38,6 +38,17 @@ Public Class Ed_Moodle_CourseContent
         Dim contents As RoomContent()
         contents = handler.GetRoomContents(RoomID)
 
+        Dim assmarks As StudentAssRecord() = handler.GetAssMarks(Ed_GlobalDashboard.userID, RoomID)
+        For Each record As StudentAssRecord In assmarks
+            Dim marksValue As String = If(record.Marks <> -1, record.Marks.ToString(), "N/A")
+
+            ' Check if submit time is available
+            Dim submitTimeValue As String = If(record.Submit_Time <> DateTime.MinValue, record.Submit_Time.ToString(), "N/A")
+
+            ' Add a new row to the DataGridView and populate it with data from each StudentAssRecord
+            DataGridView1.Rows.Add(record.Seq_no, submitTimeValue, marksValue)
+        Next
+
         ' Check if there are any contents
         If contents IsNot Nothing AndAlso contents.Length > 0 Then
             ' Create labels and set properties based on content details

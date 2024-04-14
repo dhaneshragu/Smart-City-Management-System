@@ -5,7 +5,8 @@ Public Class Ed_Teacher_AddSummary
     Private newFont As Font = New Font("Arial", 12)
     Private newFontColor As Color = Color.Black
 
-
+    'Initialise to null string'
+    Public Property summary As String = ""
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) 
 
@@ -39,6 +40,12 @@ Public Class Ed_Teacher_AddSummary
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        ' Store the summary variable'
+        summary = RichTextBox1.Rtf
         Me.Close()
+    End Sub
+
+    Private Sub Ed_Teacher_AddSummary_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RichTextBox1.Rtf = summary
     End Sub
 End Class

@@ -32,9 +32,7 @@ Public Class Ed_Teacher_Coursera_Course_Content
             Return Nothing
         End If
     End Function
-    Private Sub Label_Click(sender As Object, e As EventArgs)
-        Globals.viewChildForm(callingPanel, New Ed_Teacher_Course_Resource(callingPanel, "Coursera"))
-    End Sub
+
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -64,7 +62,7 @@ Public Class Ed_Teacher_Coursera_Course_Content
         Label1.Text = CourseItem.Name
         Label2.Text = CourseItem.TeacherName
         Label3.Text = CourseItem.Institution
-        RichTextBox1.Text = CourseItem.Syllabus
+        RichTextBox1.Rtf = CourseItem.Syllabus
         Dim youtubeUrl As String = CourseItem.IntroVideoLink
         Dim videoId As String = ExtractYouTubeVideoId(youtubeUrl)
 
@@ -88,6 +86,7 @@ Public Class Ed_Teacher_Coursera_Course_Content
             labels(i).content = contents(i)
             labels(i).CourseItem = CourseItem
             labels(i).Label1.Text = contents(i).ContentName
+
 
         Next
 

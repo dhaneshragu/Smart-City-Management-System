@@ -10,6 +10,9 @@ Public Class BankingDashboard
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Label2.Text = u_name
         Label3.Text = uid
+        If uid <> 10 Then
+            Button10.Visible = False
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)
@@ -128,7 +131,8 @@ Public Class BankingDashboard
         End Try
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs)
-
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        Dim adminTransactions As New BankAdminTransactions()
+        Globals.viewChildForm(childformPanel, adminTransactions)
     End Sub
 End Class
