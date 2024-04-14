@@ -31,7 +31,7 @@ Public Class HealthcareManageStaffAdmn
             If result = DialogResult.Yes Then
 
                 ' Call a method to delete the row from the database using the primary key
-                Dim success As Boolean = Globals.ExecuteDeleteQuery("DELETE FROM doctordb where staff_id = " & DataGridView1.Rows(e.RowIndex).Cells(0).Value)
+                Dim success As Boolean = Globals.ExecuteDeleteQuery("DELETE FROM hc_staff where staff_id = " & DataGridView1.Rows(e.RowIndex).Cells(0).Value)
 
                 If success Then
                     ' If deletion is successful, then refresh the datagridview

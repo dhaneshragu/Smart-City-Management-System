@@ -513,12 +513,12 @@ Partial Class HealthcareManageStaffAdmn
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke
         Me.Column1.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column1.FillWeight = 75.23381!
-        Me.Column1.HeaderText = "Doctor_id"
+        Me.Column1.HeaderText = "Staff_id"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
         Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column1.Width = 144
+        Me.Column1.Width = 125
         '
         'Column2
         '
@@ -686,6 +686,9 @@ Partial Class HealthcareManageStaffAdmn
     Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label5 As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -695,7 +698,4 @@ Partial Class HealthcareManageStaffAdmn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents DeleteBut As DataGridViewImageColumn
     Friend WithEvents EditBut As DataGridViewImageColumn
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label5 As Label
 End Class
