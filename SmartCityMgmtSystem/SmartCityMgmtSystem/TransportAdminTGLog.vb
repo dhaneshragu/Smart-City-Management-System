@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Text
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports MySql.Data.MySqlClient
 Public Class TransportAdminTGLog
     Dim filterByVehicleID As Boolean
@@ -11,6 +12,7 @@ Public Class TransportAdminTGLog
     Dim vehicleIdValue As Integer
     Dim fastagIdValue As Integer
     Dim vehicleTypeValue As Integer
+    Dim vehicleType As String
     Dim laneIdValue As Integer
     Dim btnFilterClick As Boolean
     ' Create a DataTable to store the data
@@ -30,7 +32,7 @@ Public Class TransportAdminTGLog
 
             Dim query As String = "SELECT toll_entries.vehicle_id,
                            toll_entries.ft_id AS Fastag_ID,
-                           vehicle_reg.vehicle_type,
+                           vehicle_reg.vehicle_type as vehicle_type,
                            toll_entries.lane_id,
                            toll_entries.timestamp as Date
                            FROM toll_entries 
@@ -46,6 +48,21 @@ Public Class TransportAdminTGLog
 
             dataTable1.Load(reader)
             reader.Close()
+
+            ' Check if the column 'vehicle_type_name' already exists in the DataTable before adding it
+            If dataTable1.Columns("vehicle_type_name") Is Nothing Then
+                Dim newColumn As DataColumn = New DataColumn("vehicle_type_name", GetType(String))
+                dataTable1.Columns.Add(newColumn)
+            End If
+
+            If dataTable1.Rows.Count > 0 Then
+                For Each row As DataRow In dataTable1.Rows
+                    Dim id As Integer = If(Not IsDBNull(row("vehicle_type")), Convert.ToInt32(row("vehicle_type")), "")
+                    Dim name As String = (TransportGlobals.GetVehicleType(id)).ToString()
+                    row("vehicle_type_name") = name
+                Next
+            End If
+
 
             Dim filteredRows() As DataRow = dataTable1.Select(BuildFilterExpression())
             Dim filteredRowsList As New List(Of DataRow)()
@@ -64,7 +81,7 @@ Public Class TransportAdminTGLog
             DataGridView1.AutoGenerateColumns = False
             DataGridView1.Columns(0).DataPropertyName = "vehicle_id"
             DataGridView1.Columns(1).DataPropertyName = "Fastag_ID"
-            DataGridView1.Columns(2).DataPropertyName = "vehicle_type"
+            DataGridView1.Columns(2).DataPropertyName = "vehicle_type_name"
             DataGridView1.Columns(3).DataPropertyName = "lane_id"
             DataGridView1.Columns(4).DataPropertyName = "Date"
 
@@ -106,21 +123,20 @@ Public Class TransportAdminTGLog
             End If
         End If
 
-        If filterByVehicleType AndAlso Not String.IsNullOrEmpty(txtVehicleType.Text) Then
-            If Integer.TryParse(txtVehicleType.Text, vehicleTypeValue) Then
-                filterExpression.Append($"vehicle_type = {vehicleTypeValue} AND ")
-            Else
-                MessageBox.Show("Please enter a valid Vehicle Type.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+        If filterByVehicleType AndAlso VTypeCb.SelectedItem IsNot Nothing Then
+            vehicleType = VTypeCb.SelectedItem.ToString()
+            filterExpression.Append($"vehicle_type_name = '{vehicleType}' AND ")
         End If
 
-        If filterByLaneID AndAlso Not String.IsNullOrEmpty(txtLaneID.Text) Then
-            If Integer.TryParse(txtLaneID.Text, laneIdValue) Then
+        If filterByLaneID AndAlso laneidCb.SelectedItem IsNot Nothing Then
+            Dim laneIdString As String = laneidCb.SelectedItem.ToString()
+            If Integer.TryParse(laneIdString, laneIdValue) Then
                 filterExpression.Append($"lane_id = {laneIdValue} AND ")
             Else
                 MessageBox.Show("Please enter a valid Lane ID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
+
 
         ' Remove the trailing "AND" if there are any conditions in the filter expression
         If filterExpression.Length > 0 Then
@@ -136,9 +152,19 @@ Public Class TransportAdminTGLog
         If dataTable1 IsNot Nothing Then
             ' Boolean variables to determine if each column is used for filtering
             filterByVehicleID = Not String.IsNullOrEmpty(txtvehicleID.Text) AndAlso Integer.TryParse(txtvehicleID.Text, vehicleIdValue)
-            filterByVehicleType = Not String.IsNullOrEmpty(txtVehicleType.Text) AndAlso Integer.TryParse(txtVehicleType.Text, vehicleTypeValue)
+            If VTypeCb.SelectedItem IsNot Nothing Then
+                filterByVehicleType = Not String.IsNullOrEmpty(VTypeCb.SelectedItem.ToString())
+            Else
+                ' Handle the case when VTypeCb.SelectedItem is null (if needed)
+                filterByVehicleType = False
+            End If
+
             filterByFastagID = Not String.IsNullOrEmpty(txtFastagID.Text) AndAlso Integer.TryParse(txtFastagID.Text, fastagIdValue)
-            filterByLaneID = Not String.IsNullOrEmpty(txtLaneID.Text) AndAlso Integer.TryParse(txtLaneID.Text, laneIdValue)
+            If laneidCb.SelectedItem IsNot Nothing Then
+                filterByLaneID = Not String.IsNullOrEmpty(laneidCb.SelectedItem.ToString())
+            Else
+                filterByLaneID = False
+            End If
 
             LoadandBindDataGridView()
         End If
@@ -146,6 +172,40 @@ Public Class TransportAdminTGLog
     End Sub
 
     Private Sub TransportationInnerScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        ' Populate ComboBox with vehicle types until GetVehicleType returns non-null
+        Dim vtypeid As Integer = 1
+        Dim vehicleType As String = TransportGlobals.GetVehicleType(vtypeid)
+        While vehicleType <> "Unknown"
+            VTypeCb.Items.Add(vehicleType)
+            vtypeid += 1
+            vehicleType = TransportGlobals.GetVehicleType(vtypeid)
+        End While
+
+
+        Dim connection As MySqlConnection = Globals.GetDBConnection()
+        ' Define SQL query to retrieve lane IDs
+        Dim query As String = "SELECT DISTINCT lane_id FROM tollboothdb" ' Replace your_table_name with the actual table name
+
+        ' Open connection
+        connection.Open()
+
+        ' Create command
+        Using command As New MySqlCommand(query, connection)
+            ' Execute command and get data reader
+            Using reader As MySqlDataReader = command.ExecuteReader()
+                ' Clear existing items in ComboBox
+                laneidCb.Items.Clear()
+                ' Loop through each lane ID retrieved from the database
+                While reader.Read()
+                    ' Add lane ID to ComboBox
+                    laneidCb.Items.Add(reader("lane_id").ToString())
+                End While
+            End Using
+        End Using
+
+        ' Close connection (assuming it's no longer needed)
+        connection.Close()
+
         LoadandBindDataGridView()
     End Sub
 

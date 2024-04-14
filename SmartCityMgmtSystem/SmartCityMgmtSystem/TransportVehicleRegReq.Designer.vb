@@ -64,12 +64,12 @@ Partial Class TransportVehicleRegReq
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Agetb = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn4 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn5 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn6 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewImageColumn()
@@ -479,6 +479,18 @@ Partial Class TransportVehicleRegReq
         Me.Agetb.Size = New System.Drawing.Size(228, 27)
         Me.Agetb.TabIndex = 2
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_car_1001
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 52)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(188, 176)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
+        '
         'DataGridViewImageColumn3
         '
         Me.DataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -565,18 +577,6 @@ Partial Class TransportVehicleRegReq
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "       Vehicle Registration Request"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_car_1001
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 52)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(188, 176)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 9
-        Me.PictureBox1.TabStop = False
-        '
         'Column1
         '
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.Goldenrod
@@ -615,7 +615,6 @@ Partial Class TransportVehicleRegReq
         Me.Column3.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column3.HeaderText = "Invoice pdf"
         Me.Column3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_eye_48
-        Me.Column3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.Column3.MinimumWidth = 6
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -702,10 +701,10 @@ Partial Class TransportVehicleRegReq
     Friend WithEvents Nametb As TextBox
     Friend WithEvents DataGridViewImageColumn4 As DataGridViewImageColumn
     Friend WithEvents Vehicle_picbtn As Button
+    Friend WithEvents DataGridViewImageColumn5 As DataGridViewImageColumn
+    Friend WithEvents DataGridViewImageColumn6 As DataGridViewImageColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewImageColumn
     Friend WithEvents Column4 As DataGridViewImageColumn
-    Friend WithEvents DataGridViewImageColumn5 As DataGridViewImageColumn
-    Friend WithEvents DataGridViewImageColumn6 As DataGridViewImageColumn
 End Class

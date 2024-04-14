@@ -14,6 +14,7 @@ Public Class TransportVehicleRegReq
     Private row1 As Integer = 0
     Dim id As String
     Private imageBytes As Byte()
+    Private reqProceed As Boolean = False
 
     Private Function ResizeImage(originalImage As Image, width As Integer, height As Integer) As Image
         ' Create a new bitmap with the desired width and height
@@ -103,6 +104,7 @@ Public Class TransportVehicleRegReq
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
+        'Fetch vehicle details
         cmd = New MySqlCommand("SELECT uid, vehicle_type as vehicle_type_ID, vehicle_ID, vehicle_pic, inv_pdf, status, inv_id FROM vehicle_reg where uid = @a ", Con)
         cmd.Parameters.AddWithValue("@a", uid)
         reader = cmd.ExecuteReader
@@ -172,9 +174,7 @@ Public Class TransportVehicleRegReq
         'if pay button clicked 
         If payClicked Then
             Dim insertStatement As String = "INSERT INTO vehicle_reg (vehicle_id, inv_pdf, vehicle_pic, vehicle_type, status, uid,inv_id) 
-                                                    VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6, @Value7) 
-                                                    ;
-                                                    "
+                                                    VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6, @Value7)"
             If VTypeCb.SelectedItem IsNot Nothing Then
                 Dim vtype As String = VTypeCb.SelectedItem.ToString()
                 Dim vTypeId As Integer = TransportGlobals.GetVehicleTypeID(vtype)
@@ -192,7 +192,7 @@ Public Class TransportVehicleRegReq
                     command.Parameters.AddWithValue("@Value2", pdfBytes)
                     ' Convert the image in the picture box to a byte array
                     Dim image As Image = PictureBox1.Image
-                    Dim backgroundImage As Image = My.Resources.icons8_car_100 ' Replace "ImageName" with the actual name of your image resource
+                    Dim backgroundImage As Image = My.Resources.icons8_car_100
 
                     Dim imageByteArray As Byte() = ImageToByteArray(image)
                     command.Parameters.AddWithValue("@Value3", imageByteArray)
@@ -200,13 +200,31 @@ Public Class TransportVehicleRegReq
                     command.Parameters.AddWithValue("@Value6", uid)
                     command.Parameters.AddWithValue("@Value7", invid)
                     If filteredDataTable.Rows.Count > 0 Then
-                        MessageBox.Show("User has already registered a vehicle with this vehicle type and invoice id ")
+                        MessageBox.Show("User has already registered a vehicle with vehicle type : " & vtype & " and invoice id :" & invid)
                         Exit Sub
                     Else
                         command.Parameters.AddWithValue("@Value1", GenerateRandomId())
+                        Dim pay = New PaymentGateway() With {
+                            .uid = uid,
+                            .readonly_prop = True
+                        }
+                        pay.TextBox1.Text = 5
+                        pay.TextBox2.Text = 100
+                        pay.TextBox3.Text = $"Vehicle Registration for vehicle Type :{vtype} ,Invoice ID :{invid}"
+                        If (pay.ShowDialog() = DialogResult.OK) Then
+                            MessageBox.Show("Payment Successful!")
+                            reqProceed = True
+                            Me.Close()
+                        Else
+                            MessageBox.Show("payment failed!")
+                            Con.Close()
+                            Exit Sub
+                        End If
                     End If
                     command.Parameters.AddWithValue("@Value5", "requested")
-                    command.ExecuteNonQuery()
+                    If reqProceed Then
+                        command.ExecuteNonQuery()
+                    End If
                 End Using
             End If
             payClicked = False
@@ -239,7 +257,7 @@ Public Class TransportVehicleRegReq
         'Get connection from globals
         Dim Con = Globals.GetDBConnection()
         'Dim connection As New MySqlConnection
-        Dim command As New MySqlCommand("SELECT COUNT(*) FROM vehicle_reg WHERE vehicle_id = @id", Con)
+        Dim command As New MySqlCommand("SELECT COUNT(*) FROM vehicle_reg WHERE vehicle_id = @id ", Con)
         Try
             Con.Open()
             command.Parameters.AddWithValue("@id", id)
@@ -280,18 +298,17 @@ Public Class TransportVehicleRegReq
                         Inv_idtb.Text = ""
                         Inv_pdftb.Text = ""
                         PictureBox1.Image = Nothing
-                        MessageBox.Show("Payment request will be sent. ", "Registration fee Payment", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MessageBox.Show("Give Invoice pdf to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show("Select an Invoice pdf to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
                 Else
-                    MessageBox.Show("Give Vehicle picture to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Select a Vehicle picture to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             Else
                 MessageBox.Show("Select a vehicle type to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Else
-            MessageBox.Show("Give invoice id to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Fill invoice id box to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
@@ -301,7 +318,7 @@ Public Class TransportVehicleRegReq
         Inv_idtb.Text = ""
         Inv_pdftb.Text = ""
         PictureBox1.Image = Nothing
-        MessageBox.Show("Registration will be cancelled ", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("Registration will not proceed ", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs)
