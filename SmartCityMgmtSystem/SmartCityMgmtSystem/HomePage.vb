@@ -73,7 +73,7 @@ Public Class HomePage
         'MessageBox.Show(uid.ToString + " " + u_name)
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
         Dim pay = New PaymentGateway() With {
             .uid = uid,
             .readonly_prop = True

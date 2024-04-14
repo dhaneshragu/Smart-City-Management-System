@@ -158,6 +158,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="BankAdminTransactions.Designer.vb">
+      <DependentUpon>BankAdminTransactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BankAdminTransactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_Add_Institution.Designer.vb">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
     </Compile>
@@ -1350,6 +1356,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AddOrWithdraw.resx">
       <DependentUpon>AddOrWithdraw.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BankAdminTransactions.resx">
+      <DependentUpon>BankAdminTransactions.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Add_Institution.resx">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
