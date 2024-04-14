@@ -47,6 +47,7 @@ Partial Class EventRegistrationScreen
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -287,6 +288,7 @@ Partial Class EventRegistrationScreen
         '
         Me.Panel2.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel2.Controls.Add(Me.Label12)
         Me.Panel2.Controls.Add(Button2)
         Me.Panel2.Controls.Add(Me.TextBox1)
         Me.Panel2.Controls.Add(Me.Label6)
@@ -308,6 +310,19 @@ Partial Class EventRegistrationScreen
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(517, 574)
         Me.Panel2.TabIndex = 25
+        '
+        'Label12
+        '
+        Me.Label12.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label12.Font = New System.Drawing.Font("Verdana", 10.5!, System.Drawing.FontStyle.Bold)
+        Me.Label12.ForeColor = System.Drawing.Color.BlanchedAlmond
+        Me.Label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label12.Location = New System.Drawing.Point(309, 444)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(0, 22)
+        Me.Label12.TabIndex = 25
         '
         'TextBox1
         '
@@ -686,4 +701,5 @@ Partial Class EventRegistrationScreen
     Friend WithEvents Label10 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents Label13 As Label
+    Friend WithEvents Label12 As Label
 End Class
