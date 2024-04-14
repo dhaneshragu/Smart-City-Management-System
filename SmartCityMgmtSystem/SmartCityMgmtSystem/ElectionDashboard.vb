@@ -2,6 +2,7 @@
     Public Property uid As Integer = 8
     Public Property u_name As String = "admin"
     Public Property ElectionCommissionerId As Integer = 8
+    Public Property LoggedInUserId As Integer = 105
     Private Sub election_Click(sender As Object, e As EventArgs) Handles election.Click
         Globals.viewChildForm(childformPanel, ElectionInnerScreen1)
     End Sub
