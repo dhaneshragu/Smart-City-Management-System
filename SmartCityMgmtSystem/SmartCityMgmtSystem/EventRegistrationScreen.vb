@@ -384,7 +384,7 @@ Public Class EventRegistrationScreen
     Private Sub Button2_Click(sender As Object, e As EventArgs)
         Dim CustomerName As String = u_name
         Dim CustomerID As String = uid
-
+        '///////////////////////////////////////////////////////////////////////////////
         Dim ContactNo As String = TextBox3.Text
         ' Check if the entered contact number is numeric
         If Not IsNumeric(ContactNo) Then
@@ -398,11 +398,18 @@ Public Class EventRegistrationScreen
             Return ' Exit the function if the contact number does not have 10 digits
         End If
 
-
+        '///////////////////////////////////////////////////////////////////////////////
 
         Dim EventStartDate As Date = DateTimePicker1.Value.Date
         Dim EventEndDate As Date = DateTimePicker2.Value.Date
+        ' Check if the event end date is not smaller than the event start date
+        If EventEndDate < EventStartDate Then
+            MessageBox.Show("Error: Event end date cannot be smaller than event start date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return ' Exit from the function
+        End If
 
+
+        '///////////////////////////////////////////////////////////////////////////////
         'Dim EventType As String = ComboBox1.SelectedItem.ToString()
         Dim EventType As String = If(ComboBox1.SelectedItem IsNot Nothing, ComboBox1.SelectedItem.ToString(), "")
 
@@ -412,7 +419,7 @@ Public Class EventRegistrationScreen
             Return ' Exit from the function
         End If
 
-
+        '///////////////////////////////////////////////////////////////////////////////
 
         Dim VendorID As String = TextBox4.Text
         Dim VendorIDINT As Integer
@@ -424,7 +431,7 @@ Public Class EventRegistrationScreen
             MessageBox.Show("Invalid Vendor ID. Please enter a valid integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
-
+        '///////////////////////////////////////////////////////////////////////////////
         Dim Password As String = TextBox5.Text
         ' Check if the password is empty
         If String.IsNullOrEmpty(Password) Then
@@ -432,16 +439,12 @@ Public Class EventRegistrationScreen
             Return ' Exit from the function
         End If
 
+        '///////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
-        ' Check if the event end date is not smaller than the event start date
-        If EventEndDate < EventStartDate Then
-            MessageBox.Show("Error: Event end date cannot be smaller than event start date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return ' Exit from the function
-        End If
 
         Dim isPaymentSuccessful As Boolean = False
 
