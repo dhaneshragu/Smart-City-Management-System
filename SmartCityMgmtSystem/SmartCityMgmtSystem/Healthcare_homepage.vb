@@ -129,7 +129,6 @@ Public Class Healthcare_homepage
         cmd.Parameters.AddWithValue("@uid", uid)
         reader = cmd.ExecuteReader()
 
-        Dim i As Integer = 0
         'Fill the DataTable with data from the SQL table
         If reader.HasRows Then
             While reader.Read()

@@ -883,6 +883,12 @@
     <Compile Include="lib_NewRequest.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="medicine_buy.Designer.vb">
+      <DependentUpon>medicine_buy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="medicine_buy.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Request-Cancel_Service.Designer.vb">
       <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
     </Compile>
@@ -1896,6 +1902,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="lib_request.resx">
       <DependentUpon>lib_request.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="medicine_buy.resx">
+      <DependentUpon>medicine_buy.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Request-Cancel_Service.resx">
       <DependentUpon>Request-Cancel_Service.vb</DependentUpon>

@@ -16,7 +16,7 @@ Public Class Healthcare_Pharmacy
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-        cmd = New MySqlCommand("SELECT pharmacydb.pharmacy_name, pharmacydb.location FROM pharmacydb INNER JOIN medicine ON pharmacydb.pharmacy_id=medicine.pharmacy_id WHERE medicine.medicine_name LIKE CONCAT('%', @Value, '%'); ", Con)
+        cmd = New MySqlCommand("SELECT pharmacydb.pharmacy_name, pharmacydb.location, pharmacydb.pharmacy_id, medicine.medicine_id FROM pharmacydb INNER JOIN medicine ON pharmacydb.pharmacy_id=medicine.pharmacy_id WHERE medicine.medicine_name LIKE CONCAT('%', @Value, '%'); ", Con)
         cmd.Parameters.AddWithValue("@Value", RichTextBox1.Text)
         reader = cmd.ExecuteReader()
         Dim i As Integer = 0
@@ -24,7 +24,9 @@ Public Class Healthcare_Pharmacy
         If reader.HasRows Then
             While reader.Read()
                 Dim Value As String = reader("pharmacy_name").ToString()
+                Dim Value2 As String = reader("pharmacy_id").ToString()
                 Dim Value1 As String = reader("location").ToString()
+                Dim Value3 As String = reader("medicine_id").ToString()
                 Dim label As New Windows.Forms.Label()
                 label.BackColor = Color.LightSkyBlue
                 label.Width = 700
@@ -54,7 +56,8 @@ Public Class Healthcare_Pharmacy
                 lblBuy.Width = 100
                 lblBuy.Height = 100
                 lblBuy.Location = New Point(860, 50 + i)
-
+                lblBuy.Name = Value2 & "_" & Value3
+                AddHandler lblBuy.Click, AddressOf Buy_Click
                 i += 120
                 Panel1.Controls.Add(lblBuy)
                 ' Add the button to the form
@@ -64,6 +67,25 @@ Public Class Healthcare_Pharmacy
             End While
         End If
         Con.Close()
+    End Sub
+
+    Private Sub Buy_Click(ByVal sender As Object, ByVal e As EventArgs)
+        Dim pharmacy_Button As Button = DirectCast(sender, Button)
+        Dim parts() As String = pharmacy_Button.Name.Split("_"c)
+        Dim medicine_Id As Integer = Integer.Parse(parts(1))
+        Dim pharmacy_Id As Integer = Integer.Parse(parts(0))
+
+        Dim medicine_buy = New medicine_buy() With {
+            .medicine_Id = medicine_Id,
+            .uid = uid
+        }
+        If (medicine_buy.ShowDialog() = DialogResult.OK) Then
+            MessageBox.Show("opened")
+            Me.Close()
+        Else
+
+        End If
+
     End Sub
 
     Private Sub Healthcare_Pharmacy_Load(sender As Object, e As EventArgs) Handles MyBase.Load
