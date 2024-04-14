@@ -55,6 +55,7 @@ Partial Class Employment_portal_applicationstatus
         '
         'StatusBox
         '
+        Me.StatusBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.StatusBox.FormattingEnabled = True
         Me.StatusBox.Items.AddRange(New Object() {"Approved", "Rejected", "Applied"})
         Me.StatusBox.Location = New System.Drawing.Point(342, 106)
