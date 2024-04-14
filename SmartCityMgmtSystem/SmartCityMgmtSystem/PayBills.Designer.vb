@@ -22,16 +22,10 @@ Partial Class PayBills
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim Button6 As System.Windows.Forms.Button
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PayBills))
-        Dim Button5 As System.Windows.Forms.Button
-        Dim Button4 As System.Windows.Forms.Button
-        Dim Button3 As System.Windows.Forms.Button
-        Dim Button2 As System.Windows.Forms.Button
-        Dim Button1 As System.Windows.Forms.Button
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -44,9 +38,6 @@ Partial Class PayBills
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -54,36 +45,20 @@ Partial Class PayBills
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
-        Button6 = New System.Windows.Forms.Button()
-        Button5 = New System.Windows.Forms.Button()
-        Button4 = New System.Windows.Forms.Button()
-        Button3 = New System.Windows.Forms.Button()
-        Button2 = New System.Windows.Forms.Button()
-        Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Panel7.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Button6
-        '
-        Button6.BackColor = System.Drawing.Color.Maroon
-        Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Button6.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Button6.ForeColor = System.Drawing.Color.Linen
-        Button6.Location = New System.Drawing.Point(573, 457)
-        Button6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Button6.Name = "Button6"
-        Button6.Size = New System.Drawing.Size(122, 37)
-        Button6.TabIndex = 11
-        Button6.Text = "Pay"
-        Button6.UseVisualStyleBackColor = False
         '
         'Panel7
         '
@@ -91,7 +66,7 @@ Partial Class PayBills
         Me.Panel7.Controls.Add(Me.Label12)
         Me.Panel7.Controls.Add(Me.Label8)
         Me.Panel7.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel7.Location = New System.Drawing.Point(57, 300)
+        Me.Panel7.Location = New System.Drawing.Point(81, 350)
         Me.Panel7.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(369, 51)
@@ -105,7 +80,7 @@ Partial Class PayBills
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(146, 27)
         Me.Label12.TabIndex = 5
-        Me.Label12.Text = "{Value}"
+        Me.Label12.Text = "₹500"
         '
         'Label8
         '
@@ -123,7 +98,7 @@ Partial Class PayBills
         Me.Panel6.Controls.Add(Me.Label11)
         Me.Panel6.Controls.Add(Me.Label7)
         Me.Panel6.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel6.Location = New System.Drawing.Point(57, 227)
+        Me.Panel6.Location = New System.Drawing.Point(81, 277)
         Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(369, 51)
@@ -137,7 +112,7 @@ Partial Class PayBills
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(146, 27)
         Me.Label11.TabIndex = 5
-        Me.Label11.Text = "{Value}"
+        Me.Label11.Text = "₹100"
         '
         'Label7
         '
@@ -155,7 +130,7 @@ Partial Class PayBills
         Me.Panel5.Controls.Add(Me.Label10)
         Me.Panel5.Controls.Add(Me.Label6)
         Me.Panel5.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel5.Location = New System.Drawing.Point(57, 156)
+        Me.Panel5.Location = New System.Drawing.Point(81, 206)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(369, 51)
@@ -169,7 +144,7 @@ Partial Class PayBills
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(146, 27)
         Me.Label10.TabIndex = 5
-        Me.Label10.Text = "{Value}"
+        Me.Label10.Text = "₹500"
         '
         'Label6
         '
@@ -187,7 +162,7 @@ Partial Class PayBills
         Me.Panel3.Controls.Add(Me.Label9)
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel3.Location = New System.Drawing.Point(57, 84)
+        Me.Panel3.Location = New System.Drawing.Point(81, 134)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(369, 51)
@@ -201,7 +176,7 @@ Partial Class PayBills
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(146, 27)
         Me.Label9.TabIndex = 5
-        Me.Label9.Text = "{Value}"
+        Me.Label9.Text = "₹700"
         '
         'Label5
         '
@@ -213,44 +188,12 @@ Partial Class PayBills
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Electricty   :"
         '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
-        Me.Panel4.Controls.Add(Me.Label14)
-        Me.Panel4.Controls.Add(Me.Label2)
-        Me.Panel4.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel4.Location = New System.Drawing.Point(57, 450)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(369, 51)
-        Me.Panel4.TabIndex = 3
-        '
-        'Label14
-        '
-        Me.Label14.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(192, 13)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(146, 27)
-        Me.Label14.TabIndex = 5
-        Me.Label14.Text = "{Value}"
-        '
-        'Label2
-        '
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(5, 13)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(146, 27)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "{ColName}:"
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Maroon
-        Me.Label3.Location = New System.Drawing.Point(332, 14)
+        Me.Label3.Location = New System.Drawing.Point(342, 26)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(128, 37)
@@ -263,7 +206,7 @@ Partial Class PayBills
         Me.Panel2.Controls.Add(Me.Label13)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(57, 373)
+        Me.Panel2.Location = New System.Drawing.Point(81, 423)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(369, 51)
@@ -277,7 +220,7 @@ Partial Class PayBills
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(146, 27)
         Me.Label13.TabIndex = 5
-        Me.Label13.Text = "{Value}"
+        Me.Label13.Text = "₹250"
         '
         'Label1
         '
@@ -285,16 +228,16 @@ Partial Class PayBills
         Me.Label1.Location = New System.Drawing.Point(5, 12)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(146, 27)
+        Me.Label1.Size = New System.Drawing.Size(167, 27)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "{ColName}:"
+        Me.Label1.Text = "TV Bills       :"
         '
         'DataGridViewImageColumn1
         '
         Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.NullValue = "System.Drawing.Bitmap"
-        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle19.NullValue = "System.Drawing.Bitmap"
+        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle19
         Me.DataGridViewImageColumn1.HeaderText = "  "
         Me.DataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn1.MinimumWidth = 6
@@ -307,13 +250,13 @@ Partial Class PayBills
         'DataGridViewImageColumn2
         '
         Me.DataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.PaleGreen
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle5.NullValue = CType(resources.GetObject("DataGridViewCellStyle5.NullValue"), Object)
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Maroon
-        Me.DataGridViewImageColumn2.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle20.BackColor = System.Drawing.Color.PaleGreen
+        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle20.NullValue = CType(resources.GetObject("DataGridViewCellStyle20.NullValue"), Object)
+        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Maroon
+        Me.DataGridViewImageColumn2.DefaultCellStyle = DataGridViewCellStyle20
         Me.DataGridViewImageColumn2.HeaderText = ""
         Me.DataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn2.MinimumWidth = 6
@@ -323,90 +266,18 @@ Partial Class PayBills
         Me.DataGridViewImageColumn2.ToolTipText = "Delete"
         Me.DataGridViewImageColumn2.Width = 125
         '
-        'Button5
-        '
-        Button5.BackColor = System.Drawing.Color.Maroon
-        Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Button5.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Button5.ForeColor = System.Drawing.Color.Linen
-        Button5.Location = New System.Drawing.Point(573, 379)
-        Button5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Button5.Name = "Button5"
-        Button5.Size = New System.Drawing.Size(122, 37)
-        Button5.TabIndex = 10
-        Button5.Text = "Pay"
-        Button5.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Button4.BackColor = System.Drawing.Color.Maroon
-        Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Button4.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Button4.ForeColor = System.Drawing.Color.Linen
-        Button4.Location = New System.Drawing.Point(573, 306)
-        Button4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Button4.Name = "Button4"
-        Button4.Size = New System.Drawing.Size(122, 37)
-        Button4.TabIndex = 9
-        Button4.Text = "Pay"
-        Button4.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Button3.BackColor = System.Drawing.Color.Maroon
-        Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Button3.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Button3.ForeColor = System.Drawing.Color.Linen
-        Button3.Location = New System.Drawing.Point(573, 233)
-        Button3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Button3.Name = "Button3"
-        Button3.Size = New System.Drawing.Size(122, 37)
-        Button3.TabIndex = 8
-        Button3.Text = "Pay"
-        Button3.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Button2.BackColor = System.Drawing.Color.Maroon
-        Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Button2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Button2.ForeColor = System.Drawing.Color.Linen
-        Button2.Location = New System.Drawing.Point(573, 163)
-        Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Button2.Name = "Button2"
-        Button2.Size = New System.Drawing.Size(122, 37)
-        Button2.TabIndex = 7
-        Button2.Text = "Pay"
-        Button2.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Button1.BackColor = System.Drawing.Color.Maroon
-        Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Button1.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Button1.ForeColor = System.Drawing.Color.Linen
-        Button1.Location = New System.Drawing.Point(573, 90)
-        Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Button1.Name = "Button1"
-        Button1.Size = New System.Drawing.Size(122, 37)
-        Button1.TabIndex = 0
-        Button1.Text = "Pay"
-        Button1.UseVisualStyleBackColor = False
-        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
-        Me.Panel1.Controls.Add(Button6)
-        Me.Panel1.Controls.Add(Button5)
-        Me.Panel1.Controls.Add(Button4)
-        Me.Panel1.Controls.Add(Button3)
-        Me.Panel1.Controls.Add(Button2)
+        Me.Panel1.Controls.Add(Me.Button5)
+        Me.Panel1.Controls.Add(Me.Button4)
+        Me.Panel1.Controls.Add(Me.Button3)
+        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Panel7)
         Me.Panel1.Controls.Add(Me.Panel6)
-        Me.Panel1.Controls.Add(Me.Panel4)
         Me.Panel1.Controls.Add(Me.Panel5)
         Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Controls.Add(Button1)
         Me.Panel1.Controls.Add(Me.Panel3)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Location = New System.Drawing.Point(224, 116)
@@ -414,6 +285,18 @@ Partial Class PayBills
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(810, 566)
         Me.Panel1.TabIndex = 9
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Maroon
+        Me.Button1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button1.Location = New System.Drawing.Point(597, 134)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(122, 37)
+        Me.Button1.TabIndex = 11
+        Me.Button1.Text = "Pay"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Label4
         '
@@ -433,13 +316,13 @@ Partial Class PayBills
         'DataGridViewImageColumn3
         '
         Me.DataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.PaleGreen
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle6.NullValue = CType(resources.GetObject("DataGridViewCellStyle6.NullValue"), Object)
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Maroon
-        Me.DataGridViewImageColumn3.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle21.BackColor = System.Drawing.Color.PaleGreen
+        DataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle21.NullValue = CType(resources.GetObject("DataGridViewCellStyle21.NullValue"), Object)
+        DataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Maroon
+        Me.DataGridViewImageColumn3.DefaultCellStyle = DataGridViewCellStyle21
         Me.DataGridViewImageColumn3.HeaderText = ""
         Me.DataGridViewImageColumn3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_edit_40
         Me.DataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
@@ -448,6 +331,54 @@ Partial Class PayBills
         Me.DataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
         Me.DataGridViewImageColumn3.Width = 125
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Maroon
+        Me.Button2.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button2.Location = New System.Drawing.Point(597, 212)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(122, 37)
+        Me.Button2.TabIndex = 12
+        Me.Button2.Text = "Pay"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.Maroon
+        Me.Button3.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button3.Location = New System.Drawing.Point(597, 282)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(122, 37)
+        Me.Button3.TabIndex = 13
+        Me.Button3.Text = "Pay"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.Maroon
+        Me.Button4.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button4.Location = New System.Drawing.Point(597, 355)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(122, 37)
+        Me.Button4.TabIndex = 14
+        Me.Button4.Text = "Pay"
+        Me.Button4.UseVisualStyleBackColor = False
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.Maroon
+        Me.Button5.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button5.Location = New System.Drawing.Point(597, 428)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(122, 37)
+        Me.Button5.TabIndex = 15
+        Me.Button5.Text = "Pay"
+        Me.Button5.UseVisualStyleBackColor = False
         '
         'PayBills
         '
@@ -466,7 +397,6 @@ Partial Class PayBills
         Me.Panel6.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
-        Me.Panel4.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -487,9 +417,6 @@ Partial Class PayBills
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label9 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label13 As Label
@@ -499,4 +426,9 @@ Partial Class PayBills
     Friend WithEvents DataGridViewImageColumn3 As DataGridViewImageColumn
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
 End Class

@@ -84,10 +84,15 @@ Public Class BankingDashboard
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Globals.viewChildForm(childformPanel, PayBills)
+        Dim viewTransactionsForm As New PayBills()
+
+        viewTransactionsForm.uid = uid
+
+        Globals.viewChildForm(childformPanel, viewTransactionsForm)
+        'Globals.viewChildForm(childformPanel, PayBills)
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
         Globals.viewChildForm(childformPanel, RechargeFastTag)
     End Sub
 
@@ -101,16 +106,14 @@ Public Class BankingDashboard
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        'Globals.viewChildForm(childformPanel, UserToUserTransaction)
-        Try
-            Dim viewTransactionsForm As New UserToUserTransaction()
-
-            viewTransactionsForm.accn = accountNumber
-
-            Globals.viewChildForm(childformPanel, viewTransactionsForm)
-        Catch ex As Exception
-            MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        Dim pay = New PaymentGateway() With {
+            .uid = uid
+            }
+        If (pay.ShowDialog() = DialogResult.OK) Then
+            MessageBox.Show("Payment successful!")
+        Else
+            MessageBox.Show("Payment failed.")
+        End If
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
@@ -123,5 +126,9 @@ Public Class BankingDashboard
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class

@@ -1,4 +1,4 @@
-﻿Imports System.Drawing.Printing
+﻿Imports System.IO
 Imports MySql.Data.MySqlClient
 
 Public Class ViewBankTransactions
@@ -44,6 +44,10 @@ Public Class ViewBankTransactions
 
     Private Sub ViewBankTransactions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadandBindDataGridView()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
     End Sub
 
 End Class

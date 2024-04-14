@@ -2,6 +2,7 @@
 Imports MySql.Data.MySqlClient
 
 Public Class BankingLogin
+    Public Property uid As Integer = -1
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         TextBox3.PasswordChar = "*"
     End Sub
@@ -17,8 +18,9 @@ Public Class BankingLogin
         createAccountForm.Show()
     End Sub
 
+    Dim userid As String
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim userid As String = TextBox1.Text.Trim()
+        userid = TextBox1.Text.Trim()
         Dim accountNumber As String = TextBox2.Text.Trim()
         Dim password As String = TextBox3.Text.Trim()
 
@@ -64,5 +66,12 @@ Public Class BankingLogin
         End Try
     End Sub
 
-
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Me.Close()
+        Dim createAccountForm = New HomePageDashboard With
+            {
+                .uid = uid
+            }
+        createAccountForm.Show()
+    End Sub
 End Class
