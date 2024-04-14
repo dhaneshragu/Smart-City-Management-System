@@ -28,12 +28,6 @@ Partial Class EventVendorRegistrationScreen
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.DataGridViewImageColumn4 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
@@ -55,7 +49,6 @@ Partial Class EventVendorRegistrationScreen
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -63,13 +56,13 @@ Partial Class EventVendorRegistrationScreen
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label4.Font = New System.Drawing.Font("Agency FB", 30.79661!, System.Drawing.FontStyle.Bold)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.79661!, System.Drawing.FontStyle.Bold)
         Me.Label4.ForeColor = System.Drawing.Color.Maroon
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label4.Location = New System.Drawing.Point(35, 33)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(444, 62)
+        Me.Label4.Size = New System.Drawing.Size(592, 59)
         Me.Label4.TabIndex = 30
         Me.Label4.Text = "      Vendor Registration"
         '
@@ -91,70 +84,6 @@ Partial Class EventVendorRegistrationScreen
         Me.DataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
         Me.DataGridViewImageColumn3.Width = 125
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.Label16.Location = New System.Drawing.Point(154, 27)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(84, 26)
-        Me.Label16.TabIndex = 33
-        Me.Label16.Text = "₹0.00"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.Label15.Location = New System.Drawing.Point(154, 133)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(84, 26)
-        Me.Label15.TabIndex = 32
-        Me.Label15.Text = "₹0.00"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.Label10.Location = New System.Drawing.Point(-2, -2)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(130, 26)
-        Me.Label10.TabIndex = 29
-        Me.Label10.Text = "Payment:"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.Label14.Location = New System.Drawing.Point(3, 133)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(84, 26)
-        Me.Label14.TabIndex = 31
-        Me.Label14.Text = "Total:"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Verdana", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.Label13.Location = New System.Drawing.Point(3, 27)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(118, 26)
-        Me.Label13.TabIndex = 30
-        Me.Label13.Text = "Amount:"
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.PapayaWhip
-        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel3.Controls.Add(Me.Label16)
-        Me.Panel3.Controls.Add(Me.Label15)
-        Me.Panel3.Controls.Add(Me.Label10)
-        Me.Panel3.Controls.Add(Me.Label14)
-        Me.Panel3.Controls.Add(Me.Label13)
-        Me.Panel3.Location = New System.Drawing.Point(1001, 530)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(240, 162)
-        Me.Panel3.TabIndex = 32
         '
         'DataGridViewImageColumn4
         '
@@ -425,15 +354,12 @@ Partial Class EventVendorRegistrationScreen
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.ClientSize = New System.Drawing.Size(1270, 736)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "EventVendorRegistrationScreen"
         Me.Text = "Home Page"
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
@@ -443,12 +369,6 @@ Partial Class EventVendorRegistrationScreen
 
     Friend WithEvents Label4 As Label
     Friend WithEvents DataGridViewImageColumn3 As DataGridViewImageColumn
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Panel3 As Panel
     Friend WithEvents DataGridViewImageColumn4 As DataGridViewImageColumn
     Friend WithEvents Button2 As Button
     Friend WithEvents TextBox5 As TextBox

@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Collections.Generic
 Imports MySql.Data.MySqlClient
+Imports SmartCityMgmtSystem.Ed_GlobalDashboard
 
 Public Class Ed_Institute_Handler
     Public Class EdInstitution
@@ -50,8 +51,8 @@ Public Class Ed_Institute_Handler
             connection.Open()
 
             Dim query As String = "SELECT ed_inst.Inst_ID, ed_inst.Inst_Name, ed_inst.Inst_Address, ed_inst.Inst_Principal, ed_inst.Inst_Photo, ed_inst.Inst_Type, users.name AS PrincipalName, users.phone_number AS PrincipalContact, users.email AS PrincipalEmail " &
-                                  "FROM ed_institution AS ed_inst " &
-                                  "LEFT JOIN users ON ed_inst.Inst_Principal = users.user_id"
+                                      "FROM ed_institution AS ed_inst " &
+                                      "LEFT JOIN users ON ed_inst.Inst_Principal = users.user_id"
 
             Using command As New MySqlCommand(query, connection)
                 Using reader As MySqlDataReader = command.ExecuteReader()
@@ -89,10 +90,10 @@ Public Class Ed_Institute_Handler
         Dim connectionString As String = GetDBConnectionString()
 
         Dim query As String = "SELECT ea.Student_ID, u.name AS StudentName, ep.Ed_LastEduQlf AS RecentActivity, u.dob AS DateOfBirth, u.phone_number AS ContactNo, u.email AS EmailAddress, ea.Inst_ID AS InstituteID, ea.Year " &
-               "FROM ed_admission AS ea " &
-               "INNER JOIN users AS u ON ea.Student_ID = u.user_id " &
-               "INNER JOIN ed_profile AS ep ON ea.Student_ID = ep.Ed_User_ID " &
-               "WHERE ea.Inst_ID IN (SELECT Inst_ID FROM ed_institution WHERE Inst_Principal = @PrincipalID) AND ea.Appr_Status = 'Pending'"
+                   "FROM ed_admission AS ea " &
+                   "INNER JOIN users AS u ON ea.Student_ID = u.user_id " &
+                   "INNER JOIN ed_profile AS ep ON ea.Student_ID = ep.Ed_User_ID " &
+                   "WHERE ea.Inst_ID IN (SELECT Inst_ID FROM ed_institution WHERE Inst_Principal = @PrincipalID) AND ea.Appr_Status = 'Pending'"
 
         Using connection As New MySqlConnection(connectionString)
             connection.Open()
@@ -146,5 +147,79 @@ Public Class Ed_Institute_Handler
 
         Return (status, instituteID)
     End Function
+
+    Public Sub InsertCertificate(certData As CertificateData)
+        ' SQL query to insert data into the database
+        Using Con = Globals.GetDBConnection()
+            Con.Open()
+            Dim query As String = "INSERT INTO ed_certificates (Inst_ID, Student_ID, Type, Class, Sem, Year, Certificate) " &
+                                  "VALUES (@Inst_ID, @Student_ID, @Type, @Class, @Sem, @Year, @Certificate)"
+
+            ' Create a MySqlCommand object with the SQL query and connection
+            Using command As New MySqlCommand(query, Con)
+                ' Add parameters to the command
+                command.Parameters.AddWithValue("@Inst_ID", certData.Inst_ID)
+                command.Parameters.AddWithValue("@Student_ID", certData.Student_ID)
+                command.Parameters.AddWithValue("@Type", certData.Type)
+                command.Parameters.AddWithValue("@Class", certData.sClass)
+                command.Parameters.AddWithValue("@Sem", certData.sSem)
+                command.Parameters.AddWithValue("@Year", certData.Year)
+                command.Parameters.AddWithValue("@Certificate", certData.Certificate)
+                Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+            End Using
+        End Using
+    End Sub
+
+    Public Function GetCertificatesByType(ByVal studentID As Integer, TypeOfCert As String) As List(Of CertificateData)
+        ' Get the database connection
+        Dim Con = Globals.GetDBConnection()
+
+        ' Open the database connection
+        Con.Open()
+
+        ' List to store CertificateData objects
+        Dim certificates As New List(Of CertificateData)()
+
+        ' SQL query to select certificates from the database
+        Dim query As String = "SELECT * FROM ed_certificates WHERE Student_ID = @studentID AND Type = @Typeofcert"
+
+        ' Create a MySqlCommand object
+        Using cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@studentID", studentID)
+            cmd.Parameters.AddWithValue("@Typeofcert", TypeOfCert)
+
+            ' Execute the SQL command
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                ' Iterate through the results
+                While reader.Read()
+                    ' Create a new CertificateData object
+                    Dim certData As New CertificateData()
+
+                    ' Set properties of CertificateData object
+                    certData.Inst_ID = If(Not IsDBNull(reader("Inst_ID")), Convert.ToInt32(reader("Inst_ID")), 0)
+                    certData.Student_ID = If(Not IsDBNull(reader("Student_ID")), Convert.ToInt32(reader("Student_ID")), 0)
+                    certData.Type = If(Not IsDBNull(reader("Type")), reader("Type").ToString(), String.Empty)
+                    certData.sClass = If(Not IsDBNull(reader("Class")), Convert.ToInt32(reader("Class")), 0)
+                    certData.sSem = If(Not IsDBNull(reader("Sem")), Convert.ToInt32(reader("Sem")), 0)
+                    certData.Year = If(Not IsDBNull(reader("Year")), Convert.ToInt32(reader("Year")), 0)
+                    certData.Certificate = If(Not IsDBNull(reader("Certificate")), DirectCast(reader("Certificate"), Byte()), Nothing)
+                    certData.Course_ID = If(Not IsDBNull(reader("Course_ID")), Convert.ToInt32(reader("Course_ID")), 0)
+
+
+                    ' Add the CertificateData object to the list
+                    certificates.Add(certData)
+                End While
+            End Using
+        End Using
+
+        ' Close the database connection
+        Con.Close()
+
+        ' Return the list of CertificateData objects
+        Return certificates
+
+    End Function
+
 
 End Class

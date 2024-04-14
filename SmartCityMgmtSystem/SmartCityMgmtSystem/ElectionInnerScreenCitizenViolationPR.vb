@@ -27,7 +27,7 @@ Public Class ElectionInnerScreenCitizenViolationPR
         cmd = New MySqlCommand("SELECT vr.report_id, u.name, vr.violation_text, vr.response
                                 FROM violations_reported vr
                                 JOIN users u ON vr.candidate_uid = u.user_id
-                                WHERE vr.reporter_uid = " & ElectionDashboard.LoggedInUserId & " AND vr.election_id = " & ElectionInnerScreenCitizenViolation.LastElectionIDpass & ";", Con)
+                                WHERE vr.reporter_uid = " & ElectionDashboard.uid & " AND vr.election_id = " & ElectionInnerScreenCitizenViolation.LastElectionIDpass & ";", Con)
         reader = cmd.ExecuteReader()
 
         ' Create a DataTable to store the data

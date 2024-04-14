@@ -36,27 +36,29 @@ Partial Class Healthcare_DonateBlood
         'd1
         '
         Me.d1.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.d1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.d1.Font = New System.Drawing.Font("MS Reference Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.d1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.d1.Location = New System.Drawing.Point(707, 562)
+        Me.d1.Location = New System.Drawing.Point(786, 552)
         Me.d1.Margin = New System.Windows.Forms.Padding(2)
         Me.d1.Name = "d1"
-        Me.d1.Size = New System.Drawing.Size(149, 49)
+        Me.d1.Size = New System.Drawing.Size(158, 70)
         Me.d1.TabIndex = 41
         Me.d1.Text = "Send"
         Me.d1.UseVisualStyleBackColor = False
         '
         'RichTextBox3
         '
+        Me.RichTextBox3.Font = New System.Drawing.Font("MS Reference Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox3.Location = New System.Drawing.Point(460, 562)
         Me.RichTextBox3.Name = "RichTextBox3"
-        Me.RichTextBox3.Size = New System.Drawing.Size(187, 49)
+        Me.RichTextBox3.Size = New System.Drawing.Size(277, 49)
         Me.RichTextBox3.TabIndex = 40
         Me.RichTextBox3.Text = ""
         '
         'Label6
         '
         Me.Label6.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.Label6.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(255, 565)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(176, 46)
@@ -67,6 +69,7 @@ Partial Class Healthcare_DonateBlood
         'Label5
         '
         Me.Label5.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.Label5.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(251, 397)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(180, 49)
@@ -77,6 +80,7 @@ Partial Class Healthcare_DonateBlood
         'Label3
         '
         Me.Label3.BackColor = System.Drawing.Color.Crimson
+        Me.Label3.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(251, 480)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(180, 51)
@@ -116,7 +120,7 @@ Partial Class Healthcare_DonateBlood
         Me.ComboBox1.ItemHeight = 31
         Me.ComboBox1.Location = New System.Drawing.Point(460, 484)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(187, 39)
+        Me.ComboBox1.Size = New System.Drawing.Size(277, 39)
         Me.ComboBox1.TabIndex = 48
         '
         'DateTimePicker1

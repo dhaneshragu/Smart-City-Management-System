@@ -181,6 +181,7 @@ Public Class TransportManageTollGatesAdmin
                 LoadandBindDataGridView()
 
             End If
+            Globals.SendNotifications(4, -1, "Toll Booth Updated", "An existing toll booth with lane id " & TextBox1.Text & " is updated by admin with new description " & TextBox6.Text & ", allowed vehicles " & ComboBox1.SelectedItem.Name & " and fare " & TextBox3.Text & " rupees.")
             Label3.Text = "Add Toll Booth"
             Button3.Text = "Add"
             TextBox1.Clear()
@@ -194,6 +195,7 @@ Public Class TransportManageTollGatesAdmin
             If success Then
                 LoadandBindDataGridView()
             End If
+            Globals.SendNotifications(4, -1, "Toll Booth Added", "A new toll booth with lane id " & TextBox1.Text & " is added by admin with description " & TextBox6.Text & ", allowed vehicles " & ComboBox1.SelectedItem.Name & " and fare " & TextBox3.Text & " rupees.")
             TextBox1.Clear()
             TextBox6.Clear()
             ComboBox1.SelectedIndex = -1

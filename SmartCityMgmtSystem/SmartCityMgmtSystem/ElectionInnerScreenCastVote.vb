@@ -114,7 +114,7 @@ Public Class ElectionInnerScreenCastVote
         End Try
 
         Dim voted As Integer = 0 ' Default value in case there are no rows in election_time
-        Dim voterQuery As String = "SELECT voted FROM users WHERE user_id = " & ElectionDashboard.LoggedInUserId & " ;"
+        Dim voterQuery As String = "SELECT voted FROM users WHERE user_id = " & ElectionDashboard.uid & " ;"
         cmd = New MySqlCommand(voterQuery, Con)
         Dim reader As MySqlDataReader = cmd.ExecuteReader()
         If reader.Read() Then
@@ -266,7 +266,7 @@ Public Class ElectionInnerScreenCastVote
 
         MessageBox.Show("All your votes have been updated in the database. Thanks for voting!")
 
-        Dim updateVoted As String = "UPDATE users SET voted = 1 WHERE user_id = " & ElectionDashboard.LoggedInUserId & ";"
+        Dim updateVoted As String = "UPDATE users SET voted = 1 WHERE user_id = " & ElectionDashboard.uid & ";"
         UpdateQuery(updateVoted)
 
         MessageBox.Show("You have voted!")
