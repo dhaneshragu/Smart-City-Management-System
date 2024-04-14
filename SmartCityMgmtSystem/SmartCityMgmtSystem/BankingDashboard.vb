@@ -10,6 +10,9 @@ Public Class BankingDashboard
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Label2.Text = u_name
         Label3.Text = uid
+        If uid <> 10 Then
+            Button10.Visible = False
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)
@@ -87,7 +90,7 @@ Public Class BankingDashboard
         Globals.viewChildForm(childformPanel, PayBills)
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
         Globals.viewChildForm(childformPanel, RechargeFastTag)
     End Sub
 
@@ -123,5 +126,10 @@ Public Class BankingDashboard
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        Dim adminTransactions As New BankAdminTransactions()
+        Globals.viewChildForm(childformPanel, adminTransactions)
     End Sub
 End Class
