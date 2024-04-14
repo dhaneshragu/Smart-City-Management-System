@@ -191,6 +191,7 @@ Partial Class Employment_portal
         Me.RichTextBox4.Font = New System.Drawing.Font("Trebuchet MS", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox4.Location = New System.Drawing.Point(152, 454)
         Me.RichTextBox4.Name = "RichTextBox4"
+        Me.RichTextBox4.ReadOnly = True
         Me.RichTextBox4.Size = New System.Drawing.Size(678, 131)
         Me.RichTextBox4.TabIndex = 3
         Me.RichTextBox4.Text = """Connect. Discover. Succeed: Your Path to" & Global.Microsoft.VisualBasic.ChrW(10) & "               Professional Growth"""
@@ -202,6 +203,7 @@ Partial Class Employment_portal
         Me.RichTextBox3.Font = New System.Drawing.Font("Trebuchet MS", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox3.Location = New System.Drawing.Point(269, 329)
         Me.RichTextBox3.Name = "RichTextBox3"
+        Me.RichTextBox3.ReadOnly = True
         Me.RichTextBox3.Size = New System.Drawing.Size(407, 158)
         Me.RichTextBox3.TabIndex = 2
         Me.RichTextBox3.Text = "PORTAL"
@@ -213,6 +215,7 @@ Partial Class Employment_portal
         Me.RichTextBox2.Font = New System.Drawing.Font("Trebuchet MS", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox2.Location = New System.Drawing.Point(101, 197)
         Me.RichTextBox2.Name = "RichTextBox2"
+        Me.RichTextBox2.ReadOnly = True
         Me.RichTextBox2.Size = New System.Drawing.Size(878, 158)
         Me.RichTextBox2.TabIndex = 1
         Me.RichTextBox2.Text = "EMPLOYMENT"
@@ -224,6 +227,7 @@ Partial Class Employment_portal
         Me.RichTextBox1.Font = New System.Drawing.Font("Trebuchet MS", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox1.Location = New System.Drawing.Point(269, 98)
         Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(386, 93)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = "WELCOME TO "

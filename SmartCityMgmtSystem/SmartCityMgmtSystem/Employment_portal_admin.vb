@@ -1,11 +1,30 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports Mysqlx.XDevAPI.Relational
 Imports Org.BouncyCastle.Bcpg
 
 Public Class Employment_portal_admin
 
     Public uid As Integer
     Public u_name As String
-    Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+
+    Private Sub DataGridView1_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles DataGridView1.CellFormatting
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            If row.Cells("Column6").Value = "Rejected" Then
+                row.DefaultCellStyle.BackColor = Color.RosyBrown
+            End If
+            If row.Cells("Column6").Value = "Accepted" Then
+                row.DefaultCellStyle.BackColor = Color.LightGreen
+            End If
+            If row.Cells("Column6").Value = "Applied" Then
+                row.DefaultCellStyle.BackColor = Color.White
+            End If
+        Next
+    End Sub
+
+    Public Sub pageload()
+        DataGridView1.AllowUserToAddRows = False
         Me.Text = "Employment Portal"
         Label2.Text = u_name
         Label3.Text = uid
@@ -49,6 +68,38 @@ Public Class Employment_portal_admin
 
         DataGridView1.DataSource = dataTable
         DataGridView1.Visible = True
+
+
+        Try
+            Using con1 As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
+                con1.Open()
+
+                Dim sql As String = "SELECT COUNT(*) as Num_Applicants_Applied
+                                    FROM employment_applications as A 
+                                    JOIN employment_jobs as J ON A.job_id = J.job_id
+                                    WHERE J.job_poster_id = @poster
+                                    AND A.status_application = 'Applied';"
+
+                Using cmd1 As New MySqlCommand(sql, con1)
+                    cmd1.Parameters.AddWithValue("@poster", uid)
+
+                    Dim count As Integer = Convert.ToInt32(cmd1.ExecuteScalar())
+                    RichTextBox1.Text = "Hey there, " & count.ToString() & " applications are pending to be reviewed"
+
+                    MessageBox.Show("Read Success")
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
+
+
+        AddHandler DataGridView1.CellFormatting, AddressOf DataGridView1_CellFormatting
+
+    End Sub
+
+    Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        pageload()
     End Sub
 
 
@@ -92,6 +143,12 @@ Public Class Employment_portal_admin
                 userid = row.Cells("Column4").Value
             End If
         Next
+
+        If userid = -1 Then
+            MessageBox.Show("Please select a candidate first")
+            Return
+        End If
+
         Dim usercredentials As New Employment_portal_admin_usercredentials()
         usercredentials.userid = userid
         usercredentials.Show()
@@ -107,6 +164,11 @@ Public Class Employment_portal_admin
                 jobid = row.Cells("Column2").Value
             End If
         Next
+
+        If userid = -1 Then
+            MessageBox.Show("Please select a candidate first")
+            Return
+        End If
 
         Dim cmd As New MySqlCommand
         Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
@@ -128,6 +190,14 @@ Public Class Employment_portal_admin
                 MessageBox.Show("Error: " & ex.Message)
             End Try
         End Using
+
+
+        Dim Notification As String = "Congratulations! You have been accepted in jobid " & jobid.ToString()
+
+        Globals.SendNotifications(uid, userid, "Job Acceptance", Notification)
+        MessageBox.Show("Sent notification")
+
+        pageload()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -140,6 +210,12 @@ Public Class Employment_portal_admin
                 jobid = row.Cells("Column2").Value
             End If
         Next
+
+
+        If userid = -1 Then
+            MessageBox.Show("Please select a candidate first")
+            Return
+        End If
 
         Dim cmd As New MySqlCommand
         Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
@@ -161,6 +237,14 @@ Public Class Employment_portal_admin
                 MessageBox.Show("Error: " & ex.Message)
             End Try
         End Using
+
+
+        Dim Notification As String = "Sorry! You have been rejected from jobid " & jobid.ToString()
+
+        Globals.SendNotifications(uid, userid, "Job Rejected", Notification)
+        MessageBox.Show("Sent notification")
+
+        pageload()
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
