@@ -3,11 +3,12 @@ Imports SmartCityMgmtSystem.Ed_Coursera_Handler
 Public Class Ed_ManageECourse
     Dim handler As New Ed_Coursera_Handler()
 
+    Dim courses As Course() = handler.GetTeacherCourses(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID)
     Public Property teacherID As Integer
+    Private Sub DisplayCourses(courses As Course())
+        ' Clear existing course items from the FlowLayoutPanel
+        FlowLayoutPanel1.Controls.Clear()
 
-    Private Sub Ed_Stud_Coursera_Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        teacherID = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
-        Dim courses As Course() = handler.GetTeacherCourses(teacherID)
         Dim labels As Ed_Teacher_CourseraItem() = New Ed_Teacher_CourseraItem(courses.Length - 1) {}
 
         ' Create labels and set properties
@@ -28,6 +29,18 @@ Public Class Ed_ManageECourse
             FlowLayoutPanel1.Controls.Add(Ed_Teacher_CourseraItem)
         Next
 
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        Dim searchText As String = TextBox1.Text.Trim() ' Get the search text from the textbox
+
+        ' Filter courses based on the matching course name
+        Dim filteredCourses As Course() = courses.Where(Function(course) course.Name.Contains(searchText)).ToArray()
+        DisplayCourses(filteredCourses)
+    End Sub
+
+    Private Sub Ed_Stud_Coursera_Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DisplayCourses(courses)
 
 
 
@@ -35,9 +48,8 @@ Public Class Ed_ManageECourse
     End Sub
 
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
 
-    End Sub
+
 
     Private Sub Label6_Click(sender As Object, e As EventArgs)
 
