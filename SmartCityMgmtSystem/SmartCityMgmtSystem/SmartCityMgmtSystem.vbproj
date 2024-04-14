@@ -1232,6 +1232,12 @@
     <Compile Include="TransportAdminRSReq.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TransportSendNotification.Designer.vb">
+      <DependentUpon>TransportSendNotification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TransportSendNotification.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TransportTGEnter.Designer.vb">
       <DependentUpon>TransportTGEnter.vb</DependentUpon>
     </Compile>
@@ -2088,6 +2094,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransportAdminRSReq.resx">
       <DependentUpon>TransportAdminRSReq.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportSendNotification.resx">
+      <DependentUpon>TransportSendNotification.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransportTGEnter.resx">
       <DependentUpon>TransportTGEnter.vb</DependentUpon>
