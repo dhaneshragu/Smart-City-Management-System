@@ -391,7 +391,7 @@ Public Class EventRegistrationScreen
         End If
 
 
-        InsertEventBooking(EventType, EventStartDate, EventEndDate, CInt(VendorID), CInt(CustomerID), Password)
+
 
 
         Dim pay = New PaymentGateway() With {
@@ -408,6 +408,8 @@ Public Class EventRegistrationScreen
             MessageBox.Show("Payment failed.")
         End If
 
+
+        InsertEventBooking(EventType, EventStartDate, EventEndDate, CInt(VendorID), CInt(CustomerID), Password)
 
         'EventDashboard.Show()
         Me.Close()
