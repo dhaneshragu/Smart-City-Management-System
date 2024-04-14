@@ -158,10 +158,22 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="BankAdminTransactions.Designer.vb">
+      <DependentUpon>BankAdminTransactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BankAdminTransactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_Add_Institution.Designer.vb">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
     </Compile>
     <Compile Include="Ed_Add_Institution.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_admissionPopUp.Designer.vb">
+      <DependentUpon>Ed_admissionPopUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_admissionPopUp.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ed_CertButton.Designer.vb">
@@ -414,12 +426,6 @@
       <DependentUpon>Ed_Teacher_Moodle_CourseResource.vb</DependentUpon>
     </Compile>
     <Compile Include="Ed_Teacher_Moodle_CourseResource.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ImageViewerForm.Designer.vb">
-      <DependentUpon>ImageViewerForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ImageViewerForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HealthcareApproveAppointmentAdmin.Designer.vb">
@@ -1531,8 +1537,14 @@
     <EmbeddedResource Include="AddOrWithdraw.resx">
       <DependentUpon>AddOrWithdraw.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BankAdminTransactions.resx">
+      <DependentUpon>BankAdminTransactions.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ed_Add_Institution.resx">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_admissionPopUp.resx">
+      <DependentUpon>Ed_admissionPopUp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_CertButton.resx">
       <DependentUpon>Ed_CertButton.vb</DependentUpon>
@@ -1662,9 +1674,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Teacher_Moodle_CourseResource.resx">
       <DependentUpon>Ed_Teacher_Moodle_CourseResource.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ImageViewerForm.resx">
-      <DependentUpon>ImageViewerForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HealthcareApproveAppointmentAdmin.resx">
       <DependentUpon>HealthcareApproveAppointmentAdmin.vb</DependentUpon>

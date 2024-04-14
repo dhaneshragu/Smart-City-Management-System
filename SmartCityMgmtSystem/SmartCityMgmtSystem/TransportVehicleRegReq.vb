@@ -14,6 +14,24 @@ Public Class TransportVehicleRegReq
     Private row1 As Integer = 0
     Dim id As String
     Private imageBytes As Byte()
+    Private reqProceed As Boolean = False
+
+    Private Function ResizeImage(originalImage As Image, width As Integer, height As Integer) As Image
+        ' Create a new bitmap with the desired width and height
+        Dim resizedImage As New Bitmap(width, height)
+
+        ' Create a Graphics object from the resized bitmap
+        Using g As Graphics = Graphics.FromImage(resizedImage)
+            ' Set interpolation mode to high quality bicubic to ensure the best quality
+            g.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
+
+            ' Draw the original image onto the resized bitmap using DrawImage method
+            g.DrawImage(originalImage, 0, 0, width, height)
+        End Using
+
+        ' Return the resized image
+        Return resizedImage
+    End Function
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         ' Check if the clicked cell is in the "Column3" column and not a header cell
         If e.ColumnIndex = DataGridView1.Columns("Column3").Index AndAlso e.RowIndex >= 0 Then
@@ -55,38 +73,13 @@ Public Class TransportVehicleRegReq
             row1 = e.RowIndex
             Dim cellValue As Object = DataGridView1.Rows(row1).Cells(0).Value
             id = cellValue
-            Dim Con = Globals.GetDBConnection()
-            Con.Open()
-            Dim query As String = "SELECT inv_pdf FROM vehicle_reg WHERE vehicle_id = @a"
-            Using command As New MySqlCommand(query, Con)
-                command.Parameters.AddWithValue("@a", id)
-                ' Execute the query and read the image data
-                Dim imageData As Byte() = Nothing
-                Dim result As Object = command.ExecuteScalar()
-
-                If result IsNot DBNull.Value Then
-                    imageData = DirectCast(result, Byte())
-                End If
-
-                ' Check if the image data is not null
-                If imageData IsNot Nothing AndAlso imageData.Length > 0 Then
-                    Try
-                        ' Convert the byte array back to an Image
-                        Using ms As New MemoryStream(imageData)
-                            Dim vehicleImage As Image = Image.FromStream(ms)
-                            ' Set the value of the corresponding DataGridView cell to the image data
-                            DataGridView1.Rows(row1).Cells(3).Value = vehicleImage
-                        End Using
-                    Catch ex As Exception
-                        ' If an error occurs while processing the image, display an error message
-                        MessageBox.Show("Error processing image: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End Try
-                Else
-                    ' If no image data is found in the database
-                    MessageBox.Show("No image found in the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                End If
-            End Using
-            Con.Close()
+            Dim image As Image = Globals.GetPicture($"SELECT vehicle_pic FROM vehicle_reg WHERE vehicle_id ='{id}'", "vehicle_pic")
+            If image IsNot Nothing Then
+                Dim resizedImage As Image = ResizeImage(image, 100, 100)
+                DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = resizedImage
+            Else
+                MessageBox.Show("No image found in the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
 
         End If
     End Sub
@@ -111,6 +104,7 @@ Public Class TransportVehicleRegReq
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
+        'Fetch vehicle details
         cmd = New MySqlCommand("SELECT uid, vehicle_type as vehicle_type_ID, vehicle_ID, vehicle_pic, inv_pdf, status, inv_id FROM vehicle_reg where uid = @a ", Con)
         cmd.Parameters.AddWithValue("@a", uid)
         reader = cmd.ExecuteReader
@@ -180,9 +174,7 @@ Public Class TransportVehicleRegReq
         'if pay button clicked 
         If payClicked Then
             Dim insertStatement As String = "INSERT INTO vehicle_reg (vehicle_id, inv_pdf, vehicle_pic, vehicle_type, status, uid,inv_id) 
-                                                    VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6, @Value7) 
-                                                    ;
-                                                    "
+                                                    VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6, @Value7)"
             If VTypeCb.SelectedItem IsNot Nothing Then
                 Dim vtype As String = VTypeCb.SelectedItem.ToString()
                 Dim vTypeId As Integer = TransportGlobals.GetVehicleTypeID(vtype)
@@ -200,7 +192,7 @@ Public Class TransportVehicleRegReq
                     command.Parameters.AddWithValue("@Value2", pdfBytes)
                     ' Convert the image in the picture box to a byte array
                     Dim image As Image = PictureBox1.Image
-                    Dim backgroundImage As Image = My.Resources.icons8_car_100 ' Replace "ImageName" with the actual name of your image resource
+                    Dim backgroundImage As Image = My.Resources.icons8_car_100
 
                     Dim imageByteArray As Byte() = ImageToByteArray(image)
                     command.Parameters.AddWithValue("@Value3", imageByteArray)
@@ -208,13 +200,31 @@ Public Class TransportVehicleRegReq
                     command.Parameters.AddWithValue("@Value6", uid)
                     command.Parameters.AddWithValue("@Value7", invid)
                     If filteredDataTable.Rows.Count > 0 Then
-                        MessageBox.Show("User has already registered a vehicle with this vehicle type and invoice id ")
+                        MessageBox.Show("User has already registered a vehicle with vehicle type : " & vtype & " and invoice id :" & invid)
                         Exit Sub
                     Else
                         command.Parameters.AddWithValue("@Value1", GenerateRandomId())
+                        Dim pay = New PaymentGateway() With {
+                            .uid = uid,
+                            .readonly_prop = True
+                        }
+                        pay.TextBox1.Text = 5
+                        pay.TextBox2.Text = 100
+                        pay.TextBox3.Text = $"Vehicle Registration for vehicle Type :{vtype} ,Invoice ID :{invid}"
+                        If (pay.ShowDialog() = DialogResult.OK) Then
+                            MessageBox.Show("Payment Successful!")
+                            reqProceed = True
+                            Me.Close()
+                        Else
+                            MessageBox.Show("payment failed!")
+                            Con.Close()
+                            Exit Sub
+                        End If
                     End If
                     command.Parameters.AddWithValue("@Value5", "requested")
-                    command.ExecuteNonQuery()
+                    If reqProceed Then
+                        command.ExecuteNonQuery()
+                    End If
                 End Using
             End If
             payClicked = False
@@ -247,7 +257,7 @@ Public Class TransportVehicleRegReq
         'Get connection from globals
         Dim Con = Globals.GetDBConnection()
         'Dim connection As New MySqlConnection
-        Dim command As New MySqlCommand("SELECT COUNT(*) FROM vehicle_reg WHERE vehicle_id = @id", Con)
+        Dim command As New MySqlCommand("SELECT COUNT(*) FROM vehicle_reg WHERE vehicle_id = @id ", Con)
         Try
             Con.Open()
             command.Parameters.AddWithValue("@id", id)
@@ -288,18 +298,17 @@ Public Class TransportVehicleRegReq
                         Inv_idtb.Text = ""
                         Inv_pdftb.Text = ""
                         PictureBox1.Image = Nothing
-                        MessageBox.Show("Payment request will be sent. ", "Registration fee Payment", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MessageBox.Show("Give Invoice pdf to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show("Select an Invoice pdf to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
                 Else
-                    MessageBox.Show("Give Vehicle picture to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Select a Vehicle picture to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             Else
                 MessageBox.Show("Select a vehicle type to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Else
-            MessageBox.Show("Give invoice id to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Fill invoice id box to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
@@ -309,7 +318,7 @@ Public Class TransportVehicleRegReq
         Inv_idtb.Text = ""
         Inv_pdftb.Text = ""
         PictureBox1.Image = Nothing
-        MessageBox.Show("Registration will be cancelled ", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("Registration will not proceed ", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs)
@@ -337,7 +346,7 @@ Public Class TransportVehicleRegReq
     Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles Vehicle_picbtn.Click
         Dim openFileDialog As New OpenFileDialog()
 
-        openFileDialog.Filter = "Image Files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png"
+        openFileDialog.Filter = "Image Files (*.jpg, *.jpeg)|*.jpg;*.jpeg"
         If openFileDialog.ShowDialog() = DialogResult.OK Then
             ' Get the selected file path
             Dim imagePath As String = openFileDialog.FileName

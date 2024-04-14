@@ -16,6 +16,7 @@ Public Class Ed_Institute_Handler
         Public Property Inst_Type As String ' Assuming you only need the string representation of enum
 
 
+
         ' Constructor to initialize the class
         Public Sub New(ByVal id As Integer, ByVal name As String, ByVal address As String, ByVal principalID As Integer, ByVal principalName As String, ByVal principalContact As String, ByVal principalEmail As String, ByVal photo As Byte(), ByVal type As String)
             Me.Inst_ID = id
@@ -222,6 +223,29 @@ Public Class Ed_Institute_Handler
         Return certificates
 
     End Function
+    Public Function GetLastStudentRequestSemClass(studentID As Integer) As (Semester As Integer, classValue As Integer)
+        Dim semester As Integer = 0
+        Dim classValue As Integer = 0
+
+        Dim connectionString As String = GetDBConnectionString()
+        Dim query As String = "SELECT Sem, Class FROM ed_admission WHERE Student_ID = @StudentID ORDER BY Date DESC LIMIT 1"
+
+        Using connection As New MySqlConnection(connectionString)
+            connection.Open()
+            Using command As New MySqlCommand(query, connection)
+                command.Parameters.AddWithValue("@StudentID", studentID)
+                Using reader As MySqlDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        semester = If(reader("Sem") IsNot DBNull.Value, Convert.ToInt32(reader("Sem")), 0)
+                        classValue = If(reader("Class") IsNot DBNull.Value, Convert.ToInt32(reader("Class")), 0)
+                    End If
+                End Using
+            End Using
+        End Using
+
+        Return (semester, classValue)
+    End Function
+
 
     Public Class InstituteFeePaid
         Public Property StudentID As Integer

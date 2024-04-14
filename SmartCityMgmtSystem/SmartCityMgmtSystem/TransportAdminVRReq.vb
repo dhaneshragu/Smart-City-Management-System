@@ -18,44 +18,37 @@ Public Class TransportAdminVRReq
             Return Image.FromStream(ms)
         End Using
     End Function
+
+    Private Function ResizeImage(originalImage As Image, width As Integer, height As Integer) As Image
+        ' Create a new bitmap with the desired width and height
+        Dim resizedImage As New Bitmap(width, height)
+
+        ' Create a Graphics object from the resized bitmap
+        Using g As Graphics = Graphics.FromImage(resizedImage)
+            ' Set interpolation mode to high quality bicubic to ensure the best quality
+            g.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
+
+            ' Draw the original image onto the resized bitmap using DrawImage method
+            g.DrawImage(originalImage, 0, 0, width, height)
+        End Using
+
+        ' Return the resized image
+        Return resizedImage
+    End Function
+
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-        ' Check if the clicked cell is in the "Column5" column and not a header cell
+        ' Check if the clicked cell is in the "Column4" column and not a header cell
         If e.ColumnIndex = DataGridView1.Columns("Column4").Index AndAlso e.RowIndex >= 0 Then
             row1 = e.RowIndex
             Dim cellValue As Object = DataGridView1.Rows(row1).Cells(0).Value
             id = cellValue
-            'Dim Con = Globals.GetDBConnection()
-            'Con.Open()
-            'Dim query As String = "SELECT vehicle_pic FROM vehicle_reg WHERE vehicle_id = @a"
-            'Using command As New MySqlCommand(query, Con)
-            '    command.Parameters.AddWithValue("@a", id)
-            '    ' Execute the query and read the image data
-            '    Dim imageData As Byte() = Nothing
-            '    Dim result As Object = command.ExecuteScalar()
-
-            '    If result IsNot DBNull.Value Then
-            '        imageData = DirectCast(result, Byte())
-            '    End If
-
-            '    ' Check if the image data is not null
-            '    If imageData IsNot Nothing AndAlso imageData.Length > 0 Then
-            '        Try
-
-            '            ' Convert the byte array back to an Image
-            '            Dim image As Image = ByteArrayToImage(imageData)
-
-            ' Set the image to the DataGridView cell
-            DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = Globals.GetPicture($"SELECT vehicle_pic FROM vehicle_reg WHERE vehicle_id ='{id}'", "vehicle_pic")
-            '        Catch ex As Exception
-            '            ' If an error occurs while processing the image, display an error message
-            '            MessageBox.Show("Error processing image: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            '        End Try
-            '    Else
-            '        ' If no image data is found in the database
-            '        MessageBox.Show("No image found in the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            '    End If
-            'End Using
-            'Con.Close()
+            Dim image As Image = Globals.GetPicture($"SELECT vehicle_pic FROM vehicle_reg WHERE vehicle_id ='{id}'", "vehicle_pic")
+            If image IsNot Nothing Then
+                Dim resizedImage As Image = ResizeImage(image, 100, 100)
+                DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = resizedImage
+            Else
+                MessageBox.Show("No image found in the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
         ElseIf e.ColumnIndex = DataGridView1.Columns("Column5").Index AndAlso e.RowIndex >= 0 Then
             row1 = e.RowIndex
             Dim cellValue As Object = DataGridView1.Rows(row1).Cells(0).Value
@@ -100,7 +93,7 @@ Public Class TransportAdminVRReq
             vTypeId = TransportGlobals.GetVehicleTypeID(vType)
             LoadandBindDataGridView()
 
-            ' Check if the clicked cell is in the "Column8" column and not a header cell
+            ' Check if the clicked cell is in the "Column7" column and not a header cell
         ElseIf e.ColumnIndex = DataGridView1.Columns("Column7").Index AndAlso e.RowIndex >= 0 Then
             ' Perform the action for the "Column8" column
             Reject_click = True
@@ -126,31 +119,7 @@ Public Class TransportAdminVRReq
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-        Using command As New MySqlCommand("update vehicle_reg set status = @c where uid = @a and vehicle_type = @b and status = @d ", Con)
-
-            command.Parameters.AddWithValue("@a", uid)
-            command.Parameters.AddWithValue("@b", vTypeId)
-            command.Parameters.AddWithValue("@d", "requested")
-            If Accept_click Then
-
-                command.Parameters.AddWithValue("@c", "approved")
-
-                Accept_click = False
-                ' Execute the command (Update statement)
-                command.ExecuteNonQuery()
-                Globals.SendNotifications(5, uid, "Vehicle Registration Request Approved", "Your Request for Vehicle Registration is approved for vehicle Type " & vType & ". You can view your Vehicle ID in your Vehicle Registration Page.")
-            ElseIf Reject_click Then
-
-                command.Parameters.AddWithValue("@c", "rejected")
-                Reject_click = False
-                ' Execute the command (Update statement)
-                command.ExecuteNonQuery()
-                Globals.SendNotifications(5, uid, "Vehicle Registration Request Rejected", "Your Request for Vehicle Registration is rejected for vehicle Type " & vType & ". Better luck next time!")
-            End If
-
-        End Using
-
-        cmd = New MySqlCommand("SELECT uid, vehicle_type as vehicle_type_ID, vehicle_ID, vehicle_pic, inv_pdf FROM vehicle_reg where status = @a ", Con)
+        cmd = New MySqlCommand("SELECT uid, vehicle_type as vehicle_type_ID, vehicle_id, vehicle_pic, inv_pdf FROM vehicle_reg where status = @a ", Con)
         cmd.Parameters.AddWithValue("@a", "requested")
         reader = cmd.ExecuteReader
         ' Create a DataTable to store the data
@@ -159,7 +128,7 @@ Public Class TransportAdminVRReq
         'Fill the DataTable with data from the SQL table
         dataTable.Load(reader)
         reader.Close()
-        Con.Close()
+
         Dim NewColumn As New DataColumn("vehicle_type", GetType(String))
 
         ' Add the new column to the DataTable
@@ -186,12 +155,38 @@ Public Class TransportAdminVRReq
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "vehicle_ID"
+        DataGridView1.Columns(0).DataPropertyName = "vehicle_id"
         DataGridView1.Columns(1).DataPropertyName = "uid"
         DataGridView1.Columns(2).DataPropertyName = "vehicle_type"
 
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
+
+        Using command As New MySqlCommand("update vehicle_reg set status = @c where uid = @a and vehicle_type = @b and status = @d ", Con)
+
+            command.Parameters.AddWithValue("@a", uid)
+            command.Parameters.AddWithValue("@b", vTypeId)
+            command.Parameters.AddWithValue("@d", "requested")
+            If Accept_click Then
+
+                command.Parameters.AddWithValue("@c", "approved")
+
+                Accept_click = False
+                ' Execute the command (Update statement)
+                command.ExecuteNonQuery()
+                Globals.SendNotifications(5, uid, "Vehicle Registration Request Approved", "Your Request for Vehicle Registration is approved for vehicle Type " & vType & ". You can view your Vehicle ID in your Vehicle Registration Page.")
+            ElseIf Reject_click Then
+
+                command.Parameters.AddWithValue("@c", "rejected")
+                Reject_click = False
+                ' Execute the command (Update statement)
+                command.ExecuteNonQuery()
+                Globals.SendNotifications(5, uid, "Vehicle Registration Request Rejected", "Your Request for Vehicle Registration is rejected for vehicle Type " & vType & ". Better luck next time!")
+            End If
+
+        End Using
+        Con.Close()
+
     End Sub
 
     Private Sub TransportationInnerScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
