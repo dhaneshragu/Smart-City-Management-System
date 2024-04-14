@@ -1,18 +1,43 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Public Class HealthcareHealthRecordAdmin
+    Private primaryKeyEdit As String
+    Private Sub ShowEditOption(ByVal txt1 As String, ByVal txt2 As String, ByVal txt3 As String)
+        Label3.Text = "Update Health Records"
+        Button1.Text = "Update"
+        TextBox1.Text = txt1
+        TextBox6.Text = txt2
+        DateTimePicker1.Text = txt3
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         ' Check if the clicked cell is in the "EditBut" column and not a header cell
         If e.ColumnIndex = DataGridView1.Columns("EditBut").Index AndAlso e.RowIndex >= 0 Then
             ' Change this to DB logic later
-            MessageBox.Show("Edit button clicked for row " & e.RowIndex.ToString(), "Edit Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'MessageBox.Show("Edit button clicked for row " & e.RowIndex.ToString(), "Edit Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            primaryKeyEdit = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+            ShowEditOption(DataGridView1.Rows(e.RowIndex).Cells(0).Value, DataGridView1.Rows(e.RowIndex).Cells(1).Value, DataGridView1.Rows(e.RowIndex).Cells(2).Value)
 
             ' Check if the clicked cell is in the "DeleteBut" column and not a header cell
         ElseIf e.ColumnIndex = DataGridView1.Columns("DeleteBut").Index AndAlso e.RowIndex >= 0 Then
             ' Perform the action for the "DeleteButton" column
-            MessageBox.Show("Delete button clicked for row " & e.RowIndex.ToString(), "Delete Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'MessageBox.Show("Delete button clicked for row " & e.RowIndex.ToString(), "Delete Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this entry?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If result = DialogResult.Yes Then
+
+                ' Call a method to delete the row from the database using the primary key
+                Dim success As Boolean = Globals.ExecuteDeleteQuery("DELETE FROM appointments where Appointment_id = " & DataGridView1.Rows(e.RowIndex).Cells(0).Value)
+
+                If success Then
+                    ' If deletion is successful, then refresh the datagridview
+                    LoadandBindDataGridView()
+                End If
+
+            End If
         End If
     End Sub
 
@@ -40,9 +65,9 @@ Public Class HealthcareHealthRecordAdmin
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "patient_ID"
-        DataGridView1.Columns(1).DataPropertyName = "Appointment_id"
-        DataGridView1.Columns(2).DataPropertyName = "time"
+        DataGridView1.Columns(0).DataPropertyName = "Appointment_id"
+        DataGridView1.Columns(1).DataPropertyName = "patient_ID"
+        DataGridView1.Columns(2).DataPropertyName = "date"
 
 
         ' Bind the data to DataGridView
@@ -63,6 +88,59 @@ Public Class HealthcareHealthRecordAdmin
         'Next
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Label3.Text = "Update Health Record"
+        Button1.Text = "Update"
+        TextBox1.Clear()
+        TextBox6.Clear()
+
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If String.IsNullOrWhiteSpace(TextBox1.Text) Then
+            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Label3.Text = "Update Health Record"
+            Button1.Text = "Update"
+
+            TextBox1.Clear()
+            Return
+        End If
+        If String.IsNullOrWhiteSpace(TextBox6.Text) Then
+            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Label3.Text = "Update Health Record"
+            Button1.Text = "Update"
+            TextBox6.Clear()
+
+            Return
+        End If
+
+
+        If Button1.Text = "Update" Then
+            Dim cmd As String
+            cmd = "UPDATE appointments SET Appointment_id = " & Convert.ToInt32(TextBox1.Text) & " ,
+patient_ID = " & Convert.ToInt32(TextBox6.Text) & " ,
+date = '" & DateTimePicker1.Value.Date.ToString("yyyyMMdd") & "'
+WHERE Appointment_id =" & Convert.ToInt32(TextBox1.Text)
+            Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
+            If success Then
+                LoadandBindDataGridView()
+            End If
+            Label3.Text = "Update Health Record"
+            Button1.Text = "Update"
+            TextBox1.Clear()
+            TextBox6.Clear()
+        Else
+            Dim cmd As String
+            cmd = "INSERT into appointments(Appointment_id,patient_ID,date) VALUES (" & Convert.ToInt32(TextBox1.Text) & "," & Convert.ToInt32(TextBox6.Text) & ",'" & DateTimePicker1.Value.Date.ToString("yyyyMMdd") & "')"
+            Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
+            If success Then
+                LoadandBindDataGridView()
+            End If
+            TextBox1.Clear()
+            TextBox6.Clear()
+        End If
+    End Sub
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
 
     End Sub
