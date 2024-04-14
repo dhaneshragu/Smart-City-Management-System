@@ -2,6 +2,7 @@
     Private currentlyOpenChildForm As Form = Nothing
 
     Private Sub Ed_Stud_Coursera_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label2.Text = Ed_GlobalDashboard.userName
         CloseCurrentChildForm()
         currentlyOpenChildForm = New Ed_Stud_Coursera_Home()
         Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
