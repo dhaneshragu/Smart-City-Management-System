@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports Google.Protobuf.WellKnownTypes
 Imports MySql.Data.MySqlClient
 Public Class Healthcare_Pharmacy
 
@@ -15,10 +16,11 @@ Public Class Healthcare_Pharmacy
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-        cmd = New MySqlCommand("SELECT * FROM pharmacydb", Con)
+        cmd = New MySqlCommand("SELECT pharmacydb.pharmacy_name, pharmacydb.location FROM pharmacydb INNER JOIN medicine ON pharmacydb.pharmacy_id=medicine.pharmacy_id WHERE medicine.medicine_name LIKE CONCAT('%', @Value, '%'); ", Con)
+        cmd.Parameters.AddWithValue("@Value", RichTextBox1.Text)
         reader = cmd.ExecuteReader()
         Dim i As Integer = 0
-        'Fill the DataTable with data from the SQL table
+        'Fill the DataTable with data from the SQL tables
         If reader.HasRows Then
             While reader.Read()
                 Dim Value As String = reader("pharmacy_name").ToString()
@@ -65,10 +67,12 @@ Public Class Healthcare_Pharmacy
     End Sub
 
     Private Sub Healthcare_Pharmacy_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadandBindDataGridView()
     End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
+    Sub ClearPanel(panel As Panel)
+        panel.Controls.Clear()
+    End Sub
+    Private Sub d1_Click(sender As Object, e As EventArgs) Handles d1.Click
+        ClearPanel(Panel1)
+        LoadandBindDataGridView()
     End Sub
 End Class

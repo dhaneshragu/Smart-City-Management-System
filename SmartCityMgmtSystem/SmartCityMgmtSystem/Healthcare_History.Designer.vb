@@ -31,8 +31,8 @@ Partial Class Healthcare_History
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.d1 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.d2 = New System.Windows.Forms.Button()
+        Me.d3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -121,31 +121,31 @@ Partial Class Healthcare_History
         Me.d1.Text = "Hospital"
         Me.d1.UseVisualStyleBackColor = False
         '
-        'Button1
+        'd2
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(757, 35)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(171, 66)
-        Me.Button1.TabIndex = 51
-        Me.Button1.Text = "Pharmacy"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.d2.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.d2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.d2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.d2.Location = New System.Drawing.Point(757, 35)
+        Me.d2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.d2.Name = "d2"
+        Me.d2.Size = New System.Drawing.Size(171, 66)
+        Me.d2.TabIndex = 51
+        Me.d2.Text = "Pharmacy"
+        Me.d2.UseVisualStyleBackColor = False
         '
-        'Button2
+        'd3
         '
-        Me.Button2.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button2.Location = New System.Drawing.Point(956, 35)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(214, 66)
-        Me.Button2.TabIndex = 52
-        Me.Button2.Text = "Blood Donation"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.d3.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.d3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.d3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.d3.Location = New System.Drawing.Point(956, 35)
+        Me.d3.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.d3.Name = "d3"
+        Me.d3.Size = New System.Drawing.Size(214, 66)
+        Me.d3.TabIndex = 52
+        Me.d3.Text = "Blood Donation"
+        Me.d3.UseVisualStyleBackColor = False
         '
         'Healthcare_History
         '
@@ -154,8 +154,8 @@ Partial Class Healthcare_History
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.BackgroundImage = Global.SmartCityMgmtSystem.My.Resources.Resources.healthcare_bg
         Me.ClientSize = New System.Drawing.Size(1271, 738)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.d3)
+        Me.Controls.Add(Me.d2)
         Me.Controls.Add(Me.d1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridView1)
@@ -177,6 +177,6 @@ Partial Class Healthcare_History
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents d1 As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents d2 As Button
+    Friend WithEvents d3 As Button
 End Class
