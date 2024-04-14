@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Public Class Healthcare_History
-    Public Property uid As Integer = 130
+    Public Property uid As Integer = 13
     Private Sub d1_Click(sender As Object, e As EventArgs) Handles d1.Click
         'Get connection from globals
         Dim Con = Globals.GetDBConnection()
