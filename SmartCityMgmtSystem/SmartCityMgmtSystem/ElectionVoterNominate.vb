@@ -125,7 +125,7 @@ Public Class ElectionVoterNominate
 
             If check Then
                 Dim updatequery As String = "INSERT INTO candidate_register(election_id, candidate_uid, ministry_id, agenda, status)
-                                        VALUES(" & election_id & ", " & ElectionDashboard.LoggedInUserId & "," & ministryToId(position) &
+                                        VALUES(" & election_id & ", " & ElectionDashboard.uid & "," & ministryToId(position) &
                                         ",""" & citagenda & """, ""Pending"");"
 
 
