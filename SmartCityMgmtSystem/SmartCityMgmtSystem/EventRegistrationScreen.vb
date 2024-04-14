@@ -272,7 +272,7 @@ Public Class EventRegistrationScreen
 
     End Sub
 
-    Private Sub password_strength_check()
+    Private Function password_strength_check() As Boolean
         Dim password As String = TextBox5.Text
         Dim password_len As Integer = password.Length
 
@@ -302,16 +302,19 @@ Public Class EventRegistrationScreen
             Label12.Text = "Strong"
             Label12.ForeColor = Color.Green
             'Console.WriteLine("Strong")
+            Return True
         ElseIf (hasLower OrElse hasUpper) AndAlso specialChar AndAlso (password_len >= 6) Then
             Label12.Text = "Moderate"
             Label12.ForeColor = Color.Blue
             'Console.WriteLine("Moderate")
+            Return True
         Else
             Label12.Text = "Weak"
             Label12.ForeColor = Color.Red
             'Console.WriteLine("Weak")
+            Return False
         End If
-    End Sub
+    End Function
 
     Private Sub EventRegistrationScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
@@ -436,6 +439,12 @@ Public Class EventRegistrationScreen
         ' Check if the password is empty
         If String.IsNullOrEmpty(Password) Then
             MessageBox.Show("Error: Please enter a password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return ' Exit from the function
+        End If
+
+        ' Check the strength of the password
+        If Not password_strength_check() Then
+            MessageBox.Show("Error: Please enter a strong password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return ' Exit from the function
         End If
 
