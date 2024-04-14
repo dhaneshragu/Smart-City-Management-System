@@ -31,7 +31,7 @@ Public Class UserDetails
         End If
     End Sub
 
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+    Private Sub SaveDetails_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Dim cmd As String
         Dim selectedDate As DateTime = DateTimePicker1.Value
         ' Format the selected date to match MySQL date format ("YYYY-MM-DD")

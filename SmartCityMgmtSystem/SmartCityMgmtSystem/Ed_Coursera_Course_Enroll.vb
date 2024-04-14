@@ -6,6 +6,7 @@ Public Class Ed_Coursera_Course_Enroll
     Private callingPanel As Panel
     Public CourseItem As Ed_Coursera_Handler.Course
     Public Property eCourseAdmin As Boolean
+    Dim handler As New Ed_Coursera_Handler()
 
 
 
@@ -34,10 +35,16 @@ Public Class Ed_Coursera_Course_Enroll
         If (eCourseAdmin) Then
             Button2.Hide()
         End If
+        Dim ex As Integer = handler.CheckRecordExists(Ed_GlobalDashboard.userID, CourseItem.CourseID)
+        If (ex = 1) Then
+            Button2.Text = "Already Enrolled"
+            Button2.Enabled = False
+            Button2.BackColor = Color.FromArgb(40, 68, 114)
+        End If
         Label1.Text = CourseItem.Name
         Label2.Text = CourseItem.TeacherName
         Label3.Text = CourseItem.Institution
-        RichTextBox1.Text = CourseItem.Syllabus
+        RichTextBox1.Rtf = CourseItem.Syllabus
         Dim youtubeUrl As String = CourseItem.IntroVideoLink
         Dim videoId As String = ExtractYouTubeVideoId(youtubeUrl)
 
@@ -89,7 +96,22 @@ Public Class Ed_Coursera_Course_Enroll
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim PayForm As New Ed_FeePopup()
-        PayForm.Show()
+        Dim pay = New PaymentGateway() With {
+                    .uid = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
+                }
+        pay.readonly_prop = True
+        pay.TextBox2.Text = CourseItem.Fees
+        pay.TextBox3.Text = "Course Enroll Fee"
+        pay.TextBox1.Text = CourseItem.TeacherID
+        If (pay.ShowDialog() = DialogResult.OK) Then
+            Dim currentDate As Date = Date.Now
+
+            ' Call the InsertStudentCourseRecord function
+            Dim success As Boolean = handler.InsertStudentCourseRecord(Ed_GlobalDashboard.userID, CourseItem.CourseID, "In-Progress", CourseItem.Fees, currentDate, currentDate)
+            Button2.Text = "Already Enrolled"
+            Button2.Enabled = False
+            Button2.BackColor = Color.FromArgb(40, 68, 114)
+
+        End If
     End Sub
 End Class

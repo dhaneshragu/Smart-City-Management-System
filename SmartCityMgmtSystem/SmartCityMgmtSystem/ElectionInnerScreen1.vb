@@ -219,7 +219,7 @@ Public Class ElectionInnerScreen1
         If check Then
 
             Dim voter As Integer = 0 ' Default value in case there are no rows in election_time
-            Dim voterQuery As String = "SELECT voter FROM users WHERE user_id = " & ElectionDashboard.LoggedInUserId & " ;"
+            Dim voterQuery As String = "SELECT voter FROM users WHERE user_id = " & ElectionDashboard.uid & " ;"
             cmd = New MySqlCommand(voterQuery, Con)
             reader = cmd.ExecuteReader()
             If reader.Read() Then
@@ -229,7 +229,7 @@ Public Class ElectionInnerScreen1
 
             If voter = 1 Then
                 Dim voted As Integer = 0 ' Default value in case there are no rows in election_time
-                Dim votedQuery As String = "SELECT voted FROM users WHERE user_id = " & ElectionDashboard.LoggedInUserId & " ;"
+                Dim votedQuery As String = "SELECT voted FROM users WHERE user_id = " & ElectionDashboard.uid & " ;"
                 cmd = New MySqlCommand(votedQuery, Con)
                 reader = cmd.ExecuteReader()
                 If reader.Read() Then

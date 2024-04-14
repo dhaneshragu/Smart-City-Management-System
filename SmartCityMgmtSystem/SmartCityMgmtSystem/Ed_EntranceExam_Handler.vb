@@ -603,4 +603,49 @@ Public Class Ed_EntranceExam_Handler
 
         Return pictureData
     End Function
+    Public Function GetLowestUnusedVenueAndUpdateCapacity() As EEVenue
+        Dim venue As New EEVenue()
+
+        Dim connectionString As String = Globals.getdbConnectionString()
+        Dim query As String = "SELECT * FROM ee_venues WHERE Capacity > UsedCapacity ORDER BY EE_Venue_ID ASC LIMIT 1"
+
+        Using connection As New MySqlConnection(connectionString)
+            Using command As New MySqlCommand(query, connection)
+                connection.Open()
+                Dim reader As MySqlDataReader = command.ExecuteReader()
+                If reader.Read() Then
+                    venue.EE_Venue_ID = Convert.ToInt32(reader("EE_Venue_ID"))
+                    venue.Name = reader("Name").ToString()
+                    venue.Address = reader("Address").ToString()
+                    venue.Capacity = Convert.ToInt32(reader("Capacity"))
+
+                    ' Update UsedCapacity by 1
+                    Dim updateQuery As String = "UPDATE ee_venues SET UsedCapacity = UsedCapacity + 1 WHERE EE_Venue_ID = @venueID"
+                    reader.Close()
+                    command.CommandText = updateQuery
+                    command.Parameters.AddWithValue("@venueID", venue.EE_Venue_ID)
+                    command.ExecuteNonQuery()
+                End If
+            End Using
+        End Using
+
+        Return venue
+    End Function
+    Public Sub UpdateExamVenueID(ByVal studentID As Integer, ByVal examID As Integer, ByVal year As Integer, ByVal newVenueID As Integer)
+        Dim connectionString As String = Globals.getdbConnectionString()
+        Dim query As String = "UPDATE ee_studentadmit SET Venue_ID = @newVenueID WHERE Student_ID = @studentID AND Exam_ID = @examID AND Year = @year"
+
+        Using connection As New MySqlConnection(connectionString)
+            Using command As New MySqlCommand(query, connection)
+                command.Parameters.AddWithValue("@newVenueID", newVenueID)
+                command.Parameters.AddWithValue("@studentID", studentID)
+                command.Parameters.AddWithValue("@examID", examID)
+                command.Parameters.AddWithValue("@year", year)
+
+                connection.Open()
+                command.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
 End Class

@@ -26,13 +26,13 @@ Partial Class Ed_ECourseStatDropItem
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -85,18 +85,6 @@ Partial Class Ed_ECourseStatDropItem
         Me.Label1.Size = New System.Drawing.Size(303, 26)
         Me.Label1.TabIndex = 26
         Me.Label1.Text = "{ Course Instructor }"
-        '
-        'Label6
-        '
-        Me.Label6.BackColor = System.Drawing.Color.White
-        Me.Label6.Font = New System.Drawing.Font("Cascadia Mono", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(242, 15)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(318, 26)
-        Me.Label6.TabIndex = 25
-        Me.Label6.Text = "{ Course Name }"
         '
         'PictureBox2
         '
@@ -170,6 +158,18 @@ Partial Class Ed_ECourseStatDropItem
         Me.Label8.TabIndex = 34
         Me.Label8.Text = "N/A"
         '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.White
+        Me.Label6.Font = New System.Drawing.Font("Cascadia Mono", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(242, 15)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(318, 26)
+        Me.Label6.TabIndex = 25
+        Me.Label6.Text = "{ Course Name }"
+        '
         'Ed_ECourseStatDropItem
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -199,10 +199,10 @@ Partial Class Ed_ECourseStatDropItem
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label6 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents Label6 As Label
 End Class

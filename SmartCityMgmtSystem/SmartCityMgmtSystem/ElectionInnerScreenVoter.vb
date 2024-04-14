@@ -66,7 +66,7 @@ Public Class ElectionInnerScreenVoter
             Dim house_number As Integer = Integer.Parse(TextBox4.Text)
             Dim ward_number As Integer = Integer.Parse(TextBox5.Text)
 
-            If ElectionDashboard.LoggedInUserId = uid Then
+            If ElectionDashboard.uid = uid Then
                 Dim check As Boolean = CompareUserInfo(name, uid, age, house_number, ward_number)
 
                 If check Then
