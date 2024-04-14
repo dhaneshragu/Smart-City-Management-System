@@ -29,6 +29,7 @@ Partial Class FastagPurchase
         Me.lblfare = New System.Windows.Forms.Label()
         Me.picbox = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.picbox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -65,9 +66,9 @@ Partial Class FastagPurchase
         Me.btnview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnview.FlatAppearance.BorderSize = 0
         Me.btnview.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnview.Location = New System.Drawing.Point(512, 0)
+        Me.btnview.Location = New System.Drawing.Point(522, 0)
         Me.btnview.Name = "btnview"
-        Me.btnview.Size = New System.Drawing.Size(60, 104)
+        Me.btnview.Size = New System.Drawing.Size(50, 104)
         Me.btnview.TabIndex = 9
         Me.btnview.UseVisualStyleBackColor = False
         '
@@ -123,11 +124,24 @@ Partial Class FastagPurchase
         Me.Label2.Text = "        3 Months Validity"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Trebuchet MS", 10.98305!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_driver_license_20
+        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label3.Location = New System.Drawing.Point(424, 3)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(92, 33)
+        Me.Label3.TabIndex = 13
+        Me.Label3.Text = "     12345"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'FastagPurchase
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Snow
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lbldrv)
         Me.Controls.Add(Me.Label1)
@@ -151,4 +165,5 @@ Partial Class FastagPurchase
     Friend WithEvents Label1 As Label
     Friend WithEvents lbldrv As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
 End Class

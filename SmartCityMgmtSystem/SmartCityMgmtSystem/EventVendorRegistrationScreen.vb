@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+﻿
 Imports MySql.Data.MySqlClient
 Public Class EventVendorRegistrationScreen
 
@@ -23,7 +23,7 @@ Public Class EventVendorRegistrationScreen
 
             ' Execute the query to retrieve the vendor ID
             vendorID = Convert.ToInt32(cmd.ExecuteScalar())
-            vendorID *= 10000
+
             vendorID += 1
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -105,6 +105,17 @@ Public Class EventVendorRegistrationScreen
         Dim ServiceCost As String = TextBox4.Text
         Dim Password As String = TextBox5.Text
 
+        ' Check if the entered contact number is numeric
+        If Not IsNumeric(ContactNo) Then
+            MessageBox.Show("Contact number must be numeric.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return ' Exit the function if the contact number is not numeric
+        End If
+
+        ' Check if the contact number has exactly 10 digits
+        If ContactNo.Length <> 10 Then
+            MessageBox.Show("Contact number must have exactly 10 digits.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return ' Exit the function if the contact number does not have 10 digits
+        End If
 
         'Error Handling needs to be done to check the situation in which this aint an int
         InsertVendor(EventType, VendorName, EventStartDate, EventEndDate, CInt(VendorID), CInt(ServiceCost), Password)

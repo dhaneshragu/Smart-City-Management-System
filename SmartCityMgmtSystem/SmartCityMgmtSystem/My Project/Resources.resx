@@ -379,6 +379,9 @@
   <data name="icons8-election-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-election-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-bus-50 - Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-bus-50 - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-elections-100 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-elections-100 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -562,6 +565,9 @@
   <data name="icons8-city-hall-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-city-hall-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ed_venue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ed_venue.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pngtree-vendor-line-icon-vector-png-image_6701567 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-vendor-line-icon-vector-png-image_6701567 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -664,7 +670,7 @@
   <data name="icons8-books-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-books-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ed_venue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ed_venue.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-photo-gallery-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-photo-gallery-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
