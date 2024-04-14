@@ -2,6 +2,10 @@
 Imports System.IO
 Imports MySql.Data.MySqlClient
 Public Class ElectionVoterNominate
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Public Property innerPanel As Panel
+    Dim electionInnerScreen1 As ElectionInnerScreen1 = Nothing
 
     ' Create a new dictionary with Integer keys and String values
     Dim ministryToId As New Dictionary(Of String, Integer)
@@ -80,7 +84,13 @@ Public Class ElectionVoterNominate
     End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreen1)
+        electionInnerScreen1?.Dispose()
+        electionInnerScreen1 = New ElectionInnerScreen1 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreen1)
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -111,37 +121,44 @@ Public Class ElectionVoterNominate
         Dim cituid As String = TextBox2.Text.ToString
         Dim citagenda As String = RichTextBox1.Text.ToString
 
-        Dim Con = Globals.GetDBConnection()
-        Dim cmd As MySqlCommand
-        Dim election_id As Integer = 0 ' Variable to store the number of rows in election_time table
+        If uid = cituid Then
+            Dim Con = Globals.GetDBConnection()
+            Dim cmd As MySqlCommand
+            Dim election_id As Integer = 0 ' Variable to store the number of rows in election_time table
 
-        Try
-            Con.Open()
-            ' Execute query to count rows in election_time table
-            cmd = New MySqlCommand("SELECT COUNT(*) FROM election_time;", Con)
-            election_id = Convert.ToInt32(cmd.ExecuteScalar())
+            Try
+                Con.Open()
+                ' Execute query to count rows in election_time table
+                cmd = New MySqlCommand("SELECT COUNT(*) FROM election_time;", Con)
+                election_id = Convert.ToInt32(cmd.ExecuteScalar())
 
-            Dim check As Boolean = CompareUserInfo(Convert.ToInt32(cituid), election_id)
+                Dim check As Boolean = CompareUserInfo(Convert.ToInt32(cituid), election_id)
 
-            If check Then
-                Dim updatequery As String = "INSERT INTO candidate_register(election_id, candidate_uid, ministry_id, agenda, status)
+                If check Then
+                    Dim updatequery As String = "INSERT INTO candidate_register(election_id, candidate_uid, ministry_id, agenda, status)
                                         VALUES(" & election_id & ", " & ElectionDashboard.uid & "," & ministryToId(position) &
-                                        ",""" & citagenda & """, ""Pending"");"
+                                            ",""" & citagenda & """, ""Pending"");"
 
 
-                InsertQuery(updatequery)
-            Else
-                MessageBox.Show("You have already nominated yourself for this election.")
-            End If
+                    InsertQuery(updatequery)
+                Else
+                    MessageBox.Show("You have already nominated yourself for this election.")
+                End If
 
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            ' Close the connection
-            If Con.State = ConnectionState.Open Then
-                Con.Close()
-            End If
-        End Try
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Finally
+                ' Close the connection
+                If Con.State = ConnectionState.Open Then
+                    Con.Close()
+                End If
+            End Try
+
+        Else
+            MessageBox.Show("Sorry! The UID entered doesn't match with your UID. Please take note that you can only nominate yourselves.")
+        End If
+
+
 
     End Sub
 End Class
