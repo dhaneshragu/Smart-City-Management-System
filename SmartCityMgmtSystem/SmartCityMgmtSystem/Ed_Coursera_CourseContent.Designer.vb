@@ -36,6 +36,8 @@ Partial Class Ed_Coursera_CourseContent
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'DataGridViewImageColumn1
@@ -78,7 +80,7 @@ Partial Class Ed_Coursera_CourseContent
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(73, 104)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(370, 549)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(370, 602)
         Me.FlowLayoutPanel1.TabIndex = 7
         '
         'WebBrowser1
@@ -104,7 +106,7 @@ Partial Class Ed_Coursera_CourseContent
         '
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(494, 429)
+        Me.Label2.Location = New System.Drawing.Point(493, 482)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(572, 31)
         Me.Label2.TabIndex = 10
@@ -114,7 +116,7 @@ Partial Class Ed_Coursera_CourseContent
         '
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(494, 460)
+        Me.Label3.Location = New System.Drawing.Point(493, 513)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(572, 31)
         Me.Label3.TabIndex = 11
@@ -126,7 +128,7 @@ Partial Class Ed_Coursera_CourseContent
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox1.Font = New System.Drawing.Font("Tahoma", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.RichTextBox1.Location = New System.Drawing.Point(499, 495)
+        Me.RichTextBox1.Location = New System.Drawing.Point(498, 548)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(732, 158)
@@ -170,12 +172,34 @@ Partial Class Ed_Coursera_CourseContent
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
         Me.DataGridViewImageColumn3.Width = 125
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Cascadia Mono", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(1163, 381)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(68, 43)
+        Me.Button1.TabIndex = 43
+        Me.Button1.Text = "Rate"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(1092, 381)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(65, 30)
+        Me.TextBox1.TabIndex = 44
+        '
         'Ed_Coursera_CourseContent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1270, 736)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Label3)
@@ -189,6 +213,7 @@ Partial Class Ed_Coursera_CourseContent
         Me.Name = "Ed_Coursera_CourseContent"
         Me.Text = "Home Page"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents DataGridViewImageColumn1 As System.Windows.Forms.DataGridViewImageColumn
@@ -201,4 +226,6 @@ Partial Class Ed_Coursera_CourseContent
     Friend WithEvents Label3 As Label
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents Button6 As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents TextBox1 As TextBox
 End Class

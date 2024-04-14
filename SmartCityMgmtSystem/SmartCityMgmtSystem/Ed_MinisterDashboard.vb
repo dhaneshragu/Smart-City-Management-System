@@ -1,25 +1,39 @@
 ﻿Public Class Ed_MinisterDashboard
-    Private Sub childformPanel_Paint(sender As Object, e As PaintEventArgs) Handles childformPanel.Paint
-
-    End Sub
-
+    Private currentlyOpenChildForm As Form = Nothing
     Private Sub Ed_MinisterDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim ed_list As New Ed_Institute_List(childformPanel)
-        ed_list.user_type = "Admin"
-        Globals.viewChildForm(childformPanel, ed_list)
+        currentlyOpenChildForm = New Ed_Institute_List(childformPanel, "Admin")
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Dim ed_list As New Ed_Institute_List(childformPanel)
-        ed_list.user_type = "Admin"
-        Globals.viewChildForm(childformPanel, ed_list)
+        CloseCurrentChildForm()
+        currentlyOpenChildForm = New Ed_Institute_List(childformPanel, "Admin")
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        Globals.viewChildForm(childformPanel, New Ed_Add_Institution)
+        CloseCurrentChildForm()
+        currentlyOpenChildForm = New Ed_Add_Institution()
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_RoleSelect)
+        CloseCurrentChildForm()
+        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(New Ed_RoleSelect())
+        Me.Close()
+    End Sub
+    Private Sub CloseCurrentChildForm()
+        ' Check if there's a currently open child form
+        If currentlyOpenChildForm IsNot Nothing Then
+            ' Close the currently open child form
+            currentlyOpenChildForm.Close()
+            currentlyOpenChildForm = Nothing
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        CloseCurrentChildForm()
+        currentlyOpenChildForm = New Ed_ManageEntrHome()
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 End Class

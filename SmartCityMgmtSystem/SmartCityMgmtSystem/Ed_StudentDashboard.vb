@@ -1,8 +1,10 @@
 ﻿Public Class Ed_StudentDashboard
     Private Sub PictureButtonvb1_Click(sender As Object, e As EventArgs) Handles PictureButtonvb1.Click
         ' Replace with your desired functionality
-        Ed_GlobalDashboard.innerpanel = Ed_Stud_Coursera.childformPanel
-        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_Stud_Coursera)
+        Dim form As New Ed_Stud_Coursera()
+        Ed_GlobalDashboard.innerpanel = form.childformPanel
+        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(form)
+        Me.Close()
     End Sub
 
     Private Sub PictureButtonvb1_Hover(sender As Object, e As EventArgs) Handles PictureButtonvb1.Hover
@@ -16,9 +18,17 @@
     End Sub
 
     Private Sub PictureButtonvb2_Click(sender As Object, e As EventArgs) Handles PictureButtonvb2.Click
+        If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Type = Ed_GlobalDashboard.UserType.Student) Then
+            Dim form As New Ed_Stud_Moodle()
+            Ed_GlobalDashboard.innerpanel = form.childformPanel
+            Ed_GlobalDashboard.OpenFormInGlobalEdPanel(form)
+            Me.Close()
+        Else
+            MessageBox.Show("Only students are allowed to enter.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        End If
         ' Replace with your desired functionality
-        Ed_GlobalDashboard.innerpanel = Ed_Stud_Moodle.childformPanel
-        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_Stud_Moodle)
+
     End Sub
 
     Private Sub PictureButtonvb2_Hover(sender As Object, e As EventArgs) Handles PictureButtonvb2.Hover
@@ -33,8 +43,15 @@
 
     Private Sub PictureButtonvb3_Click(sender As Object, e As EventArgs) Handles PictureButtonvb3.Click
         ' Replace with your desired functionality
-        Ed_GlobalDashboard.innerpanel = Ed_Stud_Institute.childformPanel
-        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_Stud_Institute)
+        If (Ed_GlobalDashboard.Ed_Profile.Ed_User_Type = Ed_GlobalDashboard.UserType.Student) Then
+            Dim form As New Ed_Stud_Institute()
+            Ed_GlobalDashboard.innerpanel = form.childformPanel
+            Ed_GlobalDashboard.OpenFormInGlobalEdPanel(form)
+            Me.Close()
+        Else
+            MessageBox.Show("Only students are allowed to enter.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        End If
     End Sub
 
     Private Sub PictureButtonvb3_Hover(sender As Object, e As EventArgs) Handles PictureButtonvb3.Hover
@@ -49,8 +66,10 @@
 
     Private Sub PictureButtonvb4_Click(sender As Object, e As EventArgs) Handles PictureButtonvb4.Click
         ' Replace with your desired functionality
-        Ed_GlobalDashboard.innerpanel = Ed_Stud_EntranceExam.childformPanel
-        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_Stud_EntranceExam)
+        Dim form As New Ed_Stud_EntranceExam()
+        Ed_GlobalDashboard.innerpanel = form.childformPanel
+        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(form)
+        Me.Close()
     End Sub
 
     Private Sub PictureButtonvb4_Hover(sender As Object, e As EventArgs) Handles PictureButtonvb4.Hover
@@ -64,7 +83,8 @@
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_RoleSelect)
+        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(New Ed_RoleSelect())
+        Me.Close()
     End Sub
 
     Private Sub Ed_StudentDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load

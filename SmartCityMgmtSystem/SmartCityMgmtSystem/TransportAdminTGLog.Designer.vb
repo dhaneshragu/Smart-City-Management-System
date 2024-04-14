@@ -50,24 +50,20 @@ Partial Class TransportAdminTGLog
         Me.label11 = New System.Windows.Forms.Label()
         Me.txtvehicleID = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.txtFastagID = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.label12 = New System.Windows.Forms.Label()
+        Me.txtFastagID = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.txtVehicleType = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.label13 = New System.Windows.Forms.Label()
+        Me.txtVehicleType = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.txtLaneID = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.label14 = New System.Windows.Forms.Label()
+        Me.txtLaneID = New System.Windows.Forms.TextBox()
         Me.btnfilter = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelName.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -112,7 +108,7 @@ Partial Class TransportAdminTGLog
         DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView1.GridColor = System.Drawing.Color.DimGray
-        Me.DataGridView1.Location = New System.Drawing.Point(15, 281)
+        Me.DataGridView1.Location = New System.Drawing.Point(15, 225)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(6)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -141,7 +137,7 @@ Partial Class TransportAdminTGLog
         Me.DataGridView1.RowTemplate.Height = 40
         Me.DataGridView1.RowTemplate.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1240, 449)
+        Me.DataGridView1.Size = New System.Drawing.Size(1240, 505)
         Me.DataGridView1.TabIndex = 4
         '
         'Column1
@@ -320,8 +316,8 @@ Partial Class TransportAdminTGLog
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.label12)
         Me.Panel1.Controls.Add(Me.txtFastagID)
-        Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.Location = New System.Drawing.Point(64, 147)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -329,63 +325,63 @@ Partial Class TransportAdminTGLog
         Me.Panel1.Size = New System.Drawing.Size(435, 52)
         Me.Panel1.TabIndex = 5
         '
+        'label12
+        '
+        Me.label12.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label12.Location = New System.Drawing.Point(32, 11)
+        Me.label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.label12.Name = "label12"
+        Me.label12.Size = New System.Drawing.Size(136, 27)
+        Me.label12.TabIndex = 4
+        Me.label12.Text = "Fastag ID :"
+        '
         'txtFastagID
         '
-        Me.txtFastagID.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFastagID.Location = New System.Drawing.Point(32, 11)
-        Me.txtFastagID.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.txtFastagID.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFastagID.Location = New System.Drawing.Point(176, 11)
+        Me.txtFastagID.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtFastagID.Multiline = True
         Me.txtFastagID.Name = "txtFastagID"
-        Me.txtFastagID.Size = New System.Drawing.Size(136, 27)
-        Me.txtFastagID.TabIndex = 4
-        Me.txtFastagID.Text = "Fastag ID :"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(176, 11)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(228, 27)
-        Me.TextBox1.TabIndex = 1
+        Me.txtFastagID.Size = New System.Drawing.Size(228, 27)
+        Me.txtFastagID.TabIndex = 1
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.label13)
         Me.Panel2.Controls.Add(Me.txtVehicleType)
-        Me.Panel2.Controls.Add(Me.TextBox2)
         Me.Panel2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(64, 205)
+        Me.Panel2.Location = New System.Drawing.Point(554, 147)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(435, 52)
+        Me.Panel2.Size = New System.Drawing.Size(444, 52)
         Me.Panel2.TabIndex = 5
+        '
+        'label13
+        '
+        Me.label13.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label13.Location = New System.Drawing.Point(5, 11)
+        Me.label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.label13.Name = "label13"
+        Me.label13.Size = New System.Drawing.Size(163, 27)
+        Me.label13.TabIndex = 4
+        Me.label13.Text = "Vehicle Type :"
         '
         'txtVehicleType
         '
-        Me.txtVehicleType.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtVehicleType.Location = New System.Drawing.Point(5, 11)
-        Me.txtVehicleType.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.txtVehicleType.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtVehicleType.Location = New System.Drawing.Point(176, 11)
+        Me.txtVehicleType.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtVehicleType.Multiline = True
         Me.txtVehicleType.Name = "txtVehicleType"
-        Me.txtVehicleType.Size = New System.Drawing.Size(163, 27)
-        Me.txtVehicleType.TabIndex = 4
-        Me.txtVehicleType.Text = "Vehicle Type :"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(176, 11)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(228, 27)
-        Me.TextBox2.TabIndex = 1
+        Me.txtVehicleType.Size = New System.Drawing.Size(228, 27)
+        Me.txtVehicleType.TabIndex = 1
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.label14)
         Me.Panel3.Controls.Add(Me.txtLaneID)
-        Me.Panel3.Controls.Add(Me.TextBox3)
         Me.Panel3.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel3.Location = New System.Drawing.Point(554, 89)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -393,54 +389,25 @@ Partial Class TransportAdminTGLog
         Me.Panel3.Size = New System.Drawing.Size(444, 52)
         Me.Panel3.TabIndex = 5
         '
+        'label14
+        '
+        Me.label14.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label14.Location = New System.Drawing.Point(4, 11)
+        Me.label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.label14.Name = "label14"
+        Me.label14.Size = New System.Drawing.Size(173, 27)
+        Me.label14.TabIndex = 4
+        Me.label14.Text = "Lane Number :"
+        '
         'txtLaneID
         '
-        Me.txtLaneID.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLaneID.Location = New System.Drawing.Point(4, 11)
-        Me.txtLaneID.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.txtLaneID.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLaneID.Location = New System.Drawing.Point(176, 11)
+        Me.txtLaneID.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtLaneID.Multiline = True
         Me.txtLaneID.Name = "txtLaneID"
-        Me.txtLaneID.Size = New System.Drawing.Size(173, 27)
-        Me.txtLaneID.TabIndex = 4
-        Me.txtLaneID.Text = "Lane Number :"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(176, 11)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(223, 27)
-        Me.TextBox3.TabIndex = 1
-        '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
-        Me.Panel4.Controls.Add(Me.DateTimePicker1)
-        Me.Panel4.Controls.Add(Me.Label5)
-        Me.Panel4.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel4.Location = New System.Drawing.Point(554, 147)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(444, 52)
-        Me.Panel4.TabIndex = 5
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(176, 11)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(223, 27)
-        Me.DateTimePicker1.TabIndex = 9
-        '
-        'Label5
-        '
-        Me.Label5.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(88, 11)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(89, 27)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "Date  :"
+        Me.txtLaneID.Size = New System.Drawing.Size(223, 27)
+        Me.txtLaneID.TabIndex = 1
         '
         'btnfilter
         '
@@ -448,7 +415,7 @@ Partial Class TransportAdminTGLog
         Me.btnfilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnfilter.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnfilter.ForeColor = System.Drawing.Color.Linen
-        Me.btnfilter.Location = New System.Drawing.Point(677, 220)
+        Me.btnfilter.Location = New System.Drawing.Point(1033, 162)
         Me.btnfilter.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnfilter.Name = "btnfilter"
         Me.btnfilter.Size = New System.Drawing.Size(170, 37)
@@ -463,7 +430,6 @@ Partial Class TransportAdminTGLog
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.ClientSize = New System.Drawing.Size(1270, 736)
         Me.Controls.Add(Me.btnfilter)
-        Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -484,7 +450,6 @@ Partial Class TransportAdminTGLog
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -504,16 +469,13 @@ Partial Class TransportAdminTGLog
     Friend WithEvents label11 As Label
     Friend WithEvents txtvehicleID As TextBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents txtFastagID As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents label12 As Label
+    Friend WithEvents txtFastagID As TextBox
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents txtVehicleType As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents label13 As Label
+    Friend WithEvents txtVehicleType As TextBox
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents txtLaneID As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents Label5 As Label
+    Friend WithEvents label14 As Label
+    Friend WithEvents txtLaneID As TextBox
     Friend WithEvents btnfilter As Button
-    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class
