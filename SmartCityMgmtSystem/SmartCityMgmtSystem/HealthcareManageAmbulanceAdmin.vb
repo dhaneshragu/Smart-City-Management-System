@@ -1,18 +1,43 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Public Class HealthcareManageAmbulanceAdmin
+    Private primaryKeyEdit As String
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub ShowEditOption(ByVal txt1 As String, ByVal txt2 As String, ByVal txt3 As String, ByVal txt4 As String)
+        Label3.Text = "Update Ambulance"
+        Button1.Text = "Update"
+        TextBox6.Text = txt1
+        TextBox3.Text = txt2
+        TextBox2.Text = txt3
+        TextBox1.Text = txt4
+
+    End Sub
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         ' Check if the clicked cell is in the "EditBut" column and not a header cell
         If e.ColumnIndex = DataGridView1.Columns("EditBut").Index AndAlso e.RowIndex >= 0 Then
             ' Change this to DB logic later
-            MessageBox.Show("Edit button clicked for row " & e.RowIndex.ToString(), "Edit Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'MessageBox.Show("Edit button clicked for row " & e.RowIndex.ToString(), "Edit Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            primaryKeyEdit = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+            ShowEditOption(DataGridView1.Rows(e.RowIndex).Cells(0).Value, DataGridView1.Rows(e.RowIndex).Cells(1).Value, DataGridView1.Rows(e.RowIndex).Cells(2).Value, DataGridView1.Rows(e.RowIndex).Cells(3).Value)
 
             ' Check if the clicked cell is in the "DeleteBut" column and not a header cell
         ElseIf e.ColumnIndex = DataGridView1.Columns("DeleteBut").Index AndAlso e.RowIndex >= 0 Then
             ' Perform the action for the "DeleteButton" column
-            MessageBox.Show("Delete button clicked for row " & e.RowIndex.ToString(), "Delete Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'MessageBox.Show("Delete button clicked for row " & e.RowIndex.ToString(), "Delete Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this entry?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If result = DialogResult.Yes Then
+
+                ' Call a method to delete the row from the database using the primary key
+                Dim success As Boolean = Globals.ExecuteDeleteQuery("DELETE FROM ambulance where Ambulance_id = " & DataGridView1.Rows(e.RowIndex).Cells(0).Value)
+
+                If success Then
+                    ' If deletion is successful, then refresh the datagridview
+                    LoadandBindDataGridView()
+                End If
+
+            End If
         End If
     End Sub
 
@@ -64,6 +89,78 @@ Public Class HealthcareManageAmbulanceAdmin
         LoadandBindDataGridView()
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Label3.Text = "Add Ambulance Details"
+        Button1.Text = "Add"
+        TextBox6.Clear()
+        TextBox3.Clear()
+        TextBox2.Clear()
+        TextBox1.Clear()
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If String.IsNullOrWhiteSpace(TextBox6.Text) Then
+            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Label3.Text = "Add Ambulance Details"
+            Button1.Text = "Add"
+            TextBox6.Clear()
+
+            Return
+        End If
+        If String.IsNullOrWhiteSpace(TextBox3.Text) Then
+            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Label3.Text = "Add Ambulance Details"
+            Button1.Text = "Add"
+
+            TextBox3.Clear()
+
+            Return
+        End If
+        If String.IsNullOrWhiteSpace(TextBox2.Text) Then
+            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Label3.Text = "Add Ambulance Details"
+            Button1.Text = "Add"
+
+            TextBox2.Clear()
+            Return
+        End If
+
+        If String.IsNullOrWhiteSpace(TextBox1.Text) Then
+            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Label3.Text = "Add Ambulance Details"
+            Button1.Text = "Add"
+
+            TextBox1.Clear()
+            Return
+        End If
+
+        If Button1.Text = "Update" Then
+            Dim cmd As String
+            cmd = "UPDATE ambulance SET Ambulance_id = " & Convert.ToInt32(TextBox6.Text) & " , hospital_id = " & Convert.ToInt32(TextBox3.Text) & " , phone_number ='" & TextBox2.Text & "' , availability = " & Convert.ToInt32(TextBox1.Text) & " WHERE Ambulance_id =" & primaryKeyEdit
+            Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
+            If success Then
+                LoadandBindDataGridView()
+            End If
+            Label3.Text = "Add Ambulance Plan"
+            Button1.Text = "Add"
+            TextBox6.Clear()
+            TextBox3.Clear()
+            TextBox2.Clear()
+            TextBox1.Clear()
+        Else
+            Dim cmd As String
+            cmd = "INSERT into ambulance(Ambulance_id,hospital_id,phone_number,availability) VALUES (" & Convert.ToInt32(TextBox6.Text) & "," & Convert.ToInt32(TextBox3.Text) & ",'" & TextBox2.Text & "'," & Convert.ToInt32(TextBox1.Text) & ")"
+            Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
+            If success Then
+                LoadandBindDataGridView()
+            End If
+            TextBox6.Clear()
+            TextBox3.Clear()
+            TextBox2.Clear()
+            TextBox1.Clear()
+        End If
+    End Sub
     Private Sub DataGridView1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
