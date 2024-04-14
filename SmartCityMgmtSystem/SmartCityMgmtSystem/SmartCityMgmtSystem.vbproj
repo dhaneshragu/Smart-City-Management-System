@@ -350,6 +350,12 @@
     <Compile Include="Ed_Teacher_Moodle_CourseResource.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ImageViewerForm.Designer.vb">
+      <DependentUpon>ImageViewerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImageViewerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HealthcareApproveAppointmentAdmin.Designer.vb">
       <DependentUpon>HealthcareApproveAppointmentAdmin.vb</DependentUpon>
     </Compile>
@@ -1450,6 +1456,9 @@
     <EmbeddedResource Include="Ed_Teacher_Moodle_CourseResource.resx">
       <DependentUpon>Ed_Teacher_Moodle_CourseResource.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ImageViewerForm.resx">
+      <DependentUpon>ImageViewerForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HealthcareApproveAppointmentAdmin.resx">
       <DependentUpon>HealthcareApproveAppointmentAdmin.vb</DependentUpon>
     </EmbeddedResource>
@@ -2400,6 +2409,7 @@
     <Content Include="Resources\icons8-person-80.png" />
     <None Include="Resources\icons8-person-801.png" />
     <None Include="Resources\icons8-rupee-30.png" />
+    <None Include="Resources\icons8-photo-gallery-48.png" />
     <Content Include="Resources\icons8-student-center-100.png" />
     <Content Include="Resources\icons8-system-information-100.png" />
     <Content Include="Resources\icons8-taj-mahal-100.png" />
