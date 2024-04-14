@@ -180,7 +180,7 @@ Public Class Healthcare_BookAppointment
                     Catch ex As Exception
                         MessageBox.Show("Error: " & ex.Message)
                     End Try
-
+                    con.Close()
                 End Using
             End If
         End If

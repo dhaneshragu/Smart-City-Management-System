@@ -128,6 +128,7 @@ Public Class Healthcare_homepage
         cmd = New MySqlCommand("SELECT * FROM patient WHERE uid = @uid", Con)
         cmd.Parameters.AddWithValue("@uid", uid)
         reader = cmd.ExecuteReader()
+
         Dim i As Integer = 0
         'Fill the DataTable with data from the SQL table
         If reader.HasRows Then
@@ -135,8 +136,9 @@ Public Class Healthcare_homepage
                 Dim Value As Integer = reader("patient_id").ToString()
                 patient_id = Value
             End While
+            Con.Close()
         Else
-
+            Con.Close()
             Dim stmnt As String = "INSERT INTO patient VALUES (NULL, @uid)"
 
             cmd = New MySqlCommand(stmnt, con)
@@ -154,14 +156,14 @@ Public Class Healthcare_homepage
 
             If reader.HasRows Then
                 While reader.Read()
-                    Dim Value As Integer = reader("patient").ToString()
+                    Dim Value As Integer = reader("patient_id").ToString()
                     patient_id = Value
                 End While
             End If
-
+            Con.Close()
         End If
 
-        Con.Close()
+
         Label2.Text = u_name
     End Sub
 
