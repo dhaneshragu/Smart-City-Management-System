@@ -316,6 +316,36 @@ Public Class EventRegistrationScreen
         End If
     End Function
 
+
+    Public Function GetPasswordFromUserId() As String
+        Dim password As String = ""
+
+        ' Get connection from globals
+        Dim con As MySqlConnection = Globals.GetDBConnection()
+
+        Try
+            con.Open()
+
+            ' Query to retrieve password from the users table based on user_id
+            Dim query As String = "SELECT password FROM users WHERE user_id = @UserId;"
+            Dim cmd As New MySqlCommand(query, con)
+            cmd.Parameters.AddWithValue("@UserId", uid)
+
+            ' Execute the query to fetch the password
+            Dim reader As MySqlDataReader = cmd.ExecuteReader()
+            If reader.Read() Then
+                password = reader.GetString(0)
+            End If
+            reader.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+
+        Return password
+    End Function
+
     Private Sub EventRegistrationScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
         ' Add options to the ComboBox
@@ -337,6 +367,10 @@ Public Class EventRegistrationScreen
 
 
         TextBox5.PasswordChar = "*"
+        Dim Password As String
+        Password = GetPasswordFromUserId()
+        TextBox5.Text = Password
+        TextBox5.ReadOnly = True
 
         ' Dummy Data, Change it to LoadandBindDataGridView() 
         If False Then
@@ -435,7 +469,9 @@ Public Class EventRegistrationScreen
         End If
 
         '///////////////////////////////////////////////////////////////////////////////
-        Dim Password As String = TextBox5.Text
+        Dim Password As String
+        'Password = GetPasswordFromUserId()
+        Password = TextBox5.Text
         ' Check if the password is empty
         If String.IsNullOrEmpty(Password) Then
             MessageBox.Show("Error: Please enter a password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

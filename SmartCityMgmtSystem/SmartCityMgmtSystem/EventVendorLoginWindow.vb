@@ -7,6 +7,67 @@ Public Class EventVendorLoginWindow
     Private Sub EventVendorLoginWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBox1.Text = uid
         TextBox2.PasswordChar = "*"
+
+        ' Get connection from globals
+        Dim Con = Globals.GetDBConnection()
+        Dim cmd As MySqlCommand
+
+        Dim password As String = ""
+
+        Try
+            Con.Open()
+
+            ' Query to retrieve password from the users table based on UID
+            Dim passwordQuery As String = "SELECT password FROM users WHERE user_id = @UID;"
+            cmd = New MySqlCommand(passwordQuery, Con)
+            cmd.Parameters.AddWithValue("@UID", uid)
+
+            ' Execute the query to fetch the password
+            password = Convert.ToString(cmd.ExecuteScalar())
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            Con.Close()
+        End Try
+
+        ' Update the password in the vendor table based on UID
+        Try
+            Con.Open()
+
+            Dim updateVendorPasswordQuery As String = "UPDATE vendor SET password = @Password WHERE vendor_UID = @UID;"
+            cmd = New MySqlCommand(updateVendorPasswordQuery, Con)
+            cmd.Parameters.AddWithValue("@Password", password)
+            cmd.Parameters.AddWithValue("@UID", uid)
+            cmd.ExecuteNonQuery()
+
+        Catch ex As Exception
+            MessageBox.Show("Error updating vendor password: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            Con.Close()
+        End Try
+
+        ' Update the password in the event_bookings table based on UID
+        Try
+            Con.Open()
+
+            Dim updateEventBookingsPasswordQuery As String = "UPDATE eventbookings SET password = @Password WHERE customerID = @CustomerID;"
+            cmd = New MySqlCommand(updateEventBookingsPasswordQuery, Con)
+            cmd.Parameters.AddWithValue("@Password", password)
+            cmd.Parameters.AddWithValue("@CustomerID", uid)
+            cmd.ExecuteNonQuery()
+
+        Catch ex As Exception
+            MessageBox.Show("Error updating event bookings password: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            Con.Close()
+        End Try
+
+
+
+
+
+
     End Sub
     Private Function GetVendorID() As Integer
         'Get connection from globals
@@ -87,15 +148,15 @@ Public Class EventVendorLoginWindow
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim pass As String = ""
         Dim mail As String = ""
-        Dim uid As Integer = -1
+        'Dim uid As Integer = -1
         If Not String.IsNullOrWhiteSpace(TextBox1.Text) Then
             Try
-                uid = Convert.ToInt32(TextBox1.Text)
+                'uid = Convert.ToInt32(TextBox1.Text)
                 Dim conStr As String = Globals.getdbConnectionString()
                 Dim cmd As String = "SELECT email FROM users WHERE user_id = @uid"
                 Using connection As New MySqlConnection(conStr)
                     Using sqlCommand As New MySqlCommand(cmd, connection)
-                        sqlCommand.Parameters.AddWithValue("@uid", TextBox1.Text)
+                        sqlCommand.Parameters.AddWithValue("@uid", uid)
                         ' Execute the query and retrieve the user ID
                         connection.Open()
                         Using reader As MySqlDataReader = sqlCommand.ExecuteReader()
@@ -108,6 +169,7 @@ Public Class EventVendorLoginWindow
 
                 Dim otp = New UserGetOtp(mail, pass, 1)
                 otp.Show()
+                Me.ParentForm.Close()
                 Me.Close()
             Catch ex As Exception
                 MessageBox.Show("Error converting TextBox1.Text to integer: " & ex.Message)
