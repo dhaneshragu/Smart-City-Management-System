@@ -587,7 +587,7 @@ Public Class Ed_Coursera_Handler
         cmd.Parameters.AddWithValue("@CourseID", courseID)
         cmd.ExecuteNonQuery()
         Con.Close()
-        GenerateCertificateAndSave(studentID, "E-Course", DateTime.Now.Year, courseID)
+        GenerateCertificateAndSave(studentID, "E-Course", DateTime.Now.Year, courseID, "NO NAME")
     End Function
 
     Public Function RateCourse(ByVal studentID As Integer, ByVal courseID As Integer, ByVal rating As Integer)
@@ -602,11 +602,12 @@ Public Class Ed_Coursera_Handler
         Con.Close()
     End Function
 
-    Public Sub GenerateCertificateAndSave(studentID As Integer, CertType As String, year As Integer, courseID As Integer)
+    Public Sub GenerateCertificateAndSave(studentID As Integer, CertType As String, year As Integer, courseID As Integer, certName As String)
         Using Con = Globals.GetDBConnection()
             Con.Open()
-            Dim query As String = "INSERT INTO ed_certificates (Student_ID, Type, Year, Course_ID) VALUES (@studentID, @Type, @year, @courseID)"
+            Dim query As String = "INSERT INTO ed_certificates (CeretName, Student_ID, Type, Year, Course_ID) VALUES (@certName, @studentID, @Type, @year, @courseID)"
             Dim cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@certName", certName)
             cmd.Parameters.AddWithValue("@studentID", studentID)
             cmd.Parameters.AddWithValue("@courseID", courseID)
             cmd.Parameters.AddWithValue("@year", year)
@@ -726,6 +727,83 @@ Public Class Ed_Coursera_Handler
         cmd.ExecuteNonQuery()
         Con.Close()
     End Sub
+
+    Public Function CheckRecordExists(ByVal studentID As Integer, ByVal courseID As Integer) As Integer
+        Dim recordExists As Integer = 0 ' Default value if record doesn't exist
+
+        ' Create a database connection
+        Dim Con = Globals.GetDBConnection()
+
+        ' Open the database connection
+        Con.Open()
+
+        ' SQL query to check if record exists
+        Dim query As String = "SELECT EXISTS (" &
+                          "SELECT 1 " &
+                          "FROM ec_studentcourse " &
+                          "WHERE Student_ID = @studentID AND Course_ID = @courseID" &
+                          ") AS RecordExists"
+
+        ' Create a MySqlCommand object
+        Dim cmd As New MySqlCommand(query, Con)
+        cmd.Parameters.AddWithValue("@studentID", studentID)
+        cmd.Parameters.AddWithValue("@courseID", courseID)
+
+        ' Execute the SQL command
+        Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+        ' Check if any rows are returned
+        If reader.Read() Then
+            ' Get the value of RecordExists column (0 or 1)
+            recordExists = If(reader("RecordExists") IsNot DBNull.Value, Convert.ToInt32(reader("RecordExists")), 0)
+        End If
+
+        ' Close the database connection
+        Con.Close()
+
+        ' Return 1 if record exists, otherwise return 0
+        Return recordExists
+    End Function
+
+    Public Function InsertStudentCourseRecord(ByVal studentID As Integer, ByVal courseID As Integer, ByVal completionStatus As String, ByVal feeamt As Integer, paidon As Date, startdate As Date) As Boolean
+        ' Create a variable to track whether the insertion was successful
+        Dim success As Boolean = False
+
+        ' Create a database connection
+        Dim Con = Globals.GetDBConnection()
+
+        ' Open the database connection
+        Con.Open()
+
+        ' SQL query to insert a record into ec_studentcourse table
+        Dim query As String = "INSERT INTO ec_studentcourse (Student_ID, Course_ID, Completion_Status, Fee_Amt, Paid_On, Start_Date) " &
+                          "VALUES (@studentID, @courseID, @completionStatus, @fee, @paidon, @startdate)"
+
+        ' Create a MySqlCommand object
+        Dim cmd As New MySqlCommand(query, Con)
+        cmd.Parameters.AddWithValue("@studentID", studentID)
+        cmd.Parameters.AddWithValue("@courseID", courseID)
+        cmd.Parameters.AddWithValue("@completionStatus", completionStatus)
+        cmd.Parameters.AddWithValue("@paidon", paidon)
+        cmd.Parameters.AddWithValue("@fee", feeamt)
+        cmd.Parameters.AddWithValue("@startdate", startdate)
+
+        ' Execute the SQL command
+        Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+        ' Check if any rows were affected (successful insertion)
+        If rowsAffected > 0 Then
+            success = True
+        End If
+
+        ' Close the database connection
+        Con.Close()
+
+        ' Return the success status
+        Return success
+    End Function
+
+
 
 
 

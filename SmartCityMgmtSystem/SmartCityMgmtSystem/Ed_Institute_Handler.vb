@@ -152,12 +152,13 @@ Public Class Ed_Institute_Handler
         ' SQL query to insert data into the database
         Using Con = Globals.GetDBConnection()
             Con.Open()
-            Dim query As String = "INSERT INTO ed_certificates (Inst_ID, Student_ID, Type, Class, Sem, Year, Certificate) " &
-                                  "VALUES (@Inst_ID, @Student_ID, @Type, @Class, @Sem, @Year, @Certificate)"
+            Dim query As String = "INSERT INTO ed_certificates (CertName, Inst_ID, Student_ID, Type, Class, Sem, Year, Certificate) " &
+                                  "VALUES (@CertName, @Inst_ID, @Student_ID, @Type, @Class, @Sem, @Year, @Certificate)"
 
             ' Create a MySqlCommand object with the SQL query and connection
             Using command As New MySqlCommand(query, Con)
                 ' Add parameters to the command
+                command.Parameters.AddWithValue("@CertName", certData.CertName)
                 command.Parameters.AddWithValue("@Inst_ID", certData.Inst_ID)
                 command.Parameters.AddWithValue("@Student_ID", certData.Student_ID)
                 command.Parameters.AddWithValue("@Type", certData.Type)
@@ -197,6 +198,7 @@ Public Class Ed_Institute_Handler
                     Dim certData As New CertificateData()
 
                     ' Set properties of CertificateData object
+                    certData.CertName = If(Not IsDBNull(reader("CertName")), reader("CertName").ToString(), String.Empty)
                     certData.Inst_ID = If(Not IsDBNull(reader("Inst_ID")), Convert.ToInt32(reader("Inst_ID")), 0)
                     certData.Student_ID = If(Not IsDBNull(reader("Student_ID")), Convert.ToInt32(reader("Student_ID")), 0)
                     certData.Type = If(Not IsDBNull(reader("Type")), reader("Type").ToString(), String.Empty)
