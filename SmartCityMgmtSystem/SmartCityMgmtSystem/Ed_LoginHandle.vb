@@ -8,8 +8,7 @@ Public Class Ed_LoginHandle
         ' Get connection from globals
         Dim Con = Globals.GetDBConnection()
 
-        Try
-            Con.Open()
+        Con.Open()
 
             ' Check if an entry corresponding to the userID exists in the ed_profile table
             Dim query As String = "SELECT * FROM ed_profile WHERE Ed_User_ID = @userID"
@@ -66,17 +65,17 @@ Public Class Ed_LoginHandle
                 reader = cmd.ExecuteReader()
 
                 If reader.Read() Then
-                    ' Populate profile with data from users table
-                    If Not reader.IsDBNull(reader.GetOrdinal("Ed_User_ID")) Then
-                        profile.Ed_User_ID = reader.GetInt32(reader.GetOrdinal("Ed_User_ID"))
-                    End If
-                    If Not reader.IsDBNull(reader.GetOrdinal("Ed_Name")) Then
-                        profile.Ed_Name = reader.GetString(reader.GetOrdinal("Ed_Name"))
-                    End If
-                    If Not reader.IsDBNull(reader.GetOrdinal("Ed_DOB")) Then
-                        profile.Ed_DOB = reader.GetDateTime(reader.GetOrdinal("Ed_DOB"))
-                    End If
-                    profile.Ed_User_Type = Ed_GlobalDashboard.UserType.Student
+                ' Populate profile with data from users table
+                If Not reader.IsDBNull(reader.GetOrdinal("user_id")) Then
+                    profile.Ed_User_ID = reader.GetInt32(reader.GetOrdinal("user_id"))
+                End If
+                If Not reader.IsDBNull(reader.GetOrdinal("name")) Then
+                    profile.Ed_Name = reader.GetString(reader.GetOrdinal("name"))
+                End If
+                If Not reader.IsDBNull(reader.GetOrdinal("dob")) Then
+                    profile.Ed_DOB = reader.GetDateTime(reader.GetOrdinal("dob"))
+                End If
+                profile.Ed_User_Type = Ed_GlobalDashboard.UserType.Student
                     ' You need to determine how to set other fields like Ed_User_Type, Ed_User_Role, etc.
                     ' For now, I'm leaving them blank.
                 End If
@@ -91,12 +90,8 @@ Public Class Ed_LoginHandle
                 cmd.ExecuteNonQuery()
             End If
 
-            reader.Close()
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            Con.Close()
-        End Try
+        reader.Close()
+        Con.Close()
 
         ' Set the profile in Ed_GlobalDashboard
         Ed_GlobalDashboard.Ed_Profile = profile
