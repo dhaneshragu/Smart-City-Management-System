@@ -308,6 +308,54 @@
     <Compile Include="ElectionInnerScreenAdminAccDenied.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry9.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry9.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry9.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry8.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry8.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry8.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry7.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry7.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry7.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry6.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry6.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry6.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry5.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry5.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry4.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry3.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry2.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ElectionInnerScreenViewStatisticsMinistry.Designer.vb">
       <DependentUpon>ElectionInnerScreenViewStatisticsMinistry.vb</DependentUpon>
     </Compile>
@@ -625,6 +673,54 @@
     <Compile Include="ElectionInnerScreenNominateNoElection.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Employment_portal.Designer.vb">
+      <DependentUpon>Employment_portal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employment_portal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment_portal_admin.Designer.vb">
+      <DependentUpon>Employment_portal_admin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employment_portal_admin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment_portal_admin_add.Designer.vb">
+      <DependentUpon>Employment_portal_admin_add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employment_portal_admin_add.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment_portal_admin_usercredentials.Designer.vb">
+      <DependentUpon>Employment_portal_admin_usercredentials.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employment_portal_admin_usercredentials.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment_portal_admin_withdraw.Designer.vb">
+      <DependentUpon>Employment_portal_admin_withdraw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employment_portal_admin_withdraw.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment_portal_applicationstatus.Designer.vb">
+      <DependentUpon>Employment_portal_applicationstatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employment_portal_applicationstatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment_portal_apply.Designer.vb">
+      <DependentUpon>Employment_portal_apply.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employment_portal_apply.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment_portal_search.Designer.vb">
+      <DependentUpon>Employment_portal_search.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employment_portal_search.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HealthcareAssignDoctorAdmin.Designer.vb">
       <DependentUpon>HealthcareAssignDoctorAdmin.vb</DependentUpon>
     </Compile>
@@ -781,6 +877,12 @@
     <Compile Include="lib_NewRequest.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Request-Cancel_Service.Designer.vb">
+      <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Request-Cancel_Service.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="NewsDashboard.Designer.vb">
       <DependentUpon>NewsDashboard.vb</DependentUpon>
     </Compile>
@@ -797,6 +899,60 @@
       <DependentUpon>NotificationInnerScreen.vb</DependentUpon>
     </Compile>
     <Compile Include="NotificationInnerScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service_History.Designer.vb">
+      <DependentUpon>Service_History.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service_History.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service_Leave.Designer.vb">
+      <DependentUpon>Service_Leave.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service_Leave.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service_Portal.Designer.vb">
+      <DependentUpon>Service_Portal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service_Portal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service_Post.Designer.vb">
+      <DependentUpon>Service_Post.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service_Post.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service_Provider.Designer.vb">
+      <DependentUpon>Service_Provider.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service_Provider.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service_Scheduled.Designer.vb">
+      <DependentUpon>Service_Scheduled.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service_Scheduled.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service_search_results.Designer.vb">
+      <DependentUpon>Service_search_results.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service_search_results.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service_View_Offered.Designer.vb">
+      <DependentUpon>Service_View_Offered.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service_View_Offered.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service_Withdraw.Designer.vb">
+      <DependentUpon>Service_Withdraw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Service_Withdraw.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PaymentGateway.Designer.vb">
@@ -1444,6 +1600,30 @@
     <EmbeddedResource Include="ElectionInnerScreenAdminAccDenied.resx">
       <DependentUpon>ElectionInnerScreenAdminAccDenied.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry9.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry9.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry8.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry8.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry7.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry7.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry6.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry6.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry5.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry5.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry4.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry3.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry2.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry.resx">
       <DependentUpon>ElectionInnerScreenViewStatisticsMinistry.vb</DependentUpon>
     </EmbeddedResource>
@@ -1603,6 +1783,30 @@
     <EmbeddedResource Include="ElectionInnerScreenNominateNoElection.resx">
       <DependentUpon>ElectionInnerScreenNominateNoElection.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employment_portal.resx">
+      <DependentUpon>Employment_portal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment_portal_admin.resx">
+      <DependentUpon>Employment_portal_admin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment_portal_admin_add.resx">
+      <DependentUpon>Employment_portal_admin_add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment_portal_admin_usercredentials.resx">
+      <DependentUpon>Employment_portal_admin_usercredentials.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment_portal_admin_withdraw.resx">
+      <DependentUpon>Employment_portal_admin_withdraw.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment_portal_applicationstatus.resx">
+      <DependentUpon>Employment_portal_applicationstatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment_portal_apply.resx">
+      <DependentUpon>Employment_portal_apply.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment_portal_search.resx">
+      <DependentUpon>Employment_portal_search.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HealthcareAssignDoctorAdmin.resx">
       <DependentUpon>HealthcareAssignDoctorAdmin.vb</DependentUpon>
     </EmbeddedResource>
@@ -1684,8 +1888,38 @@
     <EmbeddedResource Include="lib_request.resx">
       <DependentUpon>lib_request.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Request-Cancel_Service.resx">
+      <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewsDashboard.resx">
       <DependentUpon>NewsDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service_History.resx">
+      <DependentUpon>Service_History.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service_Leave.resx">
+      <DependentUpon>Service_Leave.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service_Portal.resx">
+      <DependentUpon>Service_Portal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service_Post.resx">
+      <DependentUpon>Service_Post.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service_Provider.resx">
+      <DependentUpon>Service_Provider.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service_Scheduled.resx">
+      <DependentUpon>Service_Scheduled.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service_search_results.resx">
+      <DependentUpon>Service_search_results.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service_View_Offered.resx">
+      <DependentUpon>Service_View_Offered.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service_Withdraw.resx">
+      <DependentUpon>Service_Withdraw.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NotificationBubble.resx">
       <DependentUpon>NotificationBubble.vb</DependentUpon>
@@ -2427,6 +2661,7 @@
     <Content Include="Resources\icons8-person-80.png" />
     <None Include="Resources\icons8-person-801.png" />
     <None Include="Resources\icons8-rupee-30.png" />
+    <None Include="Resources\icons8-photo-gallery-48.png" />
     <Content Include="Resources\icons8-student-center-100.png" />
     <Content Include="Resources\icons8-system-information-100.png" />
     <Content Include="Resources\icons8-taj-mahal-100.png" />
