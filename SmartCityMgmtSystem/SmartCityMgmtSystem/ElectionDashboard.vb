@@ -1,17 +1,18 @@
 ﻿Public Class ElectionDashboard
-
-    Public Property LoggedInUserId As Integer = 2
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
     Public Property ElectionCommissionerId As Integer = 8
     Private Sub election_Click(sender As Object, e As EventArgs) Handles election.Click
         Globals.viewChildForm(childformPanel, ElectionInnerScreen1)
     End Sub
 
     Private Sub ElectionDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Label2.Text = u_name
+        Label3.Text = uid
     End Sub
 
     Private Sub admin_Click(sender As Object, e As EventArgs) Handles admin.Click
-        If LoggedInUserId = ElectionCommissionerId Then
+        If uid = ElectionCommissionerId Then
             ' If the logged-in user is the election commissioner, open one page
             Globals.viewChildForm(childformPanel, ElectionInnerScreenAdmin)
         Else
@@ -30,5 +31,13 @@
 
     Private Sub about_us_Click(sender As Object, e As EventArgs) Handles about_us.Click
         Globals.viewChildForm(childformPanel, ElectionInnerScreenWelcomeScreen)
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim home = New HomePageDashboard() With {
+            .uid = uid
+        }
+        home.Show()
+        Me.Close()
     End Sub
 End Class

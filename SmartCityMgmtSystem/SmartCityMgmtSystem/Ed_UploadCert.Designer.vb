@@ -41,6 +41,8 @@ Partial Class Ed_UploadCert
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'DataGridViewImageColumn1
@@ -220,12 +222,32 @@ Partial Class Ed_UploadCert
         Me.Button6.Text = "     "
         Me.Button6.UseVisualStyleBackColor = False
         '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(621, 145)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(277, 30)
+        Me.TextBox5.TabIndex = 61
+        '
+        'Label6
+        '
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(374, 145)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(249, 34)
+        Me.Label6.TabIndex = 60
+        Me.Label6.Text = "Certificate Name"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Ed_UploadCert
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1270, 736)
+        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.TextBox4)
@@ -262,4 +284,6 @@ Partial Class Ed_UploadCert
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button6 As Button
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Label6 As Label
 End Class

@@ -1,41 +1,24 @@
 ﻿Imports System.Data.SqlClient
+
 Public Class Ed_EcourseApproveCourses
     Private Sub Ed_Stud_Coursera_Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim labels As Ed_ECourseApproveItem() = New Ed_ECourseApproveItem(7) {}
+        ' Create an instance of Ed_Coursera_Handler to access its methods
+        Dim courseraHandler As New Ed_Coursera_Handler()
 
-        ' Create labels and set properties
-        For i As Integer = 0 To 6
-            labels(i) = New Ed_ECourseApproveItem()
+        ' Call the GetPendingCourses function to retrieve pending courses
+        Dim pendingCourses As Ed_Coursera_Handler.Course() = courseraHandler.GetPendingCourses()
+
+        ' Create Ed_ECourseApproveItem controls for each pending course and add them to FlowLayoutPanel
+        For Each course As Ed_Coursera_Handler.Course In pendingCourses
+            Dim approveItem As New Ed_ECourseApproveItem()
+            ' Set properties of Ed_ECourseApproveItem control based on course information
+            approveItem.CourseID = course.CourseID
+            approveItem.CourseItem = course
+            approveItem.Label6.Text = course.Name
+            approveItem.Label1.Text = course.TeacherName
+            approveItem.Label3.Text = course.Fees
+            ' Add Ed_ECourseApproveItem control to FlowLayoutPanel
+            FlowLayoutPanel1.Controls.Add(approveItem)
         Next
-
-        ' Add labels to the FlowLayoutPanel
-        For Each Ed_ECourseApproveItem As Ed_ECourseApproveItem In labels
-            FlowLayoutPanel1.Controls.Add(Ed_ECourseApproveItem)
-        Next
-    End Sub
-
-
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs)
-
-    End Sub
-
-    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs)
-
-    End Sub
-
-    Private Sub Label6_Click_1(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub FlowLayoutPanel1_Paint_1(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
-
     End Sub
 End Class

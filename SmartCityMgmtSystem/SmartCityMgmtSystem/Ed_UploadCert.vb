@@ -32,13 +32,13 @@ Public Class Ed_UploadCert
                 MessageBox.Show("Error reading file: " & ex.Message)
             End Try
         End If
-        Dim certData As CertificateData = CreateCertificateFromInputs(TextBox1, Ed_GlobalDashboard.userID, ComboBox1, TextBox2, TextBox3, TextBox4, uploadedFileBytes)
+        Dim certData As CertificateData = CreateCertificateFromInputs(TextBox1, Ed_GlobalDashboard.userID, ComboBox1, TextBox2, TextBox3, TextBox4, uploadedFileBytes, TextBox5)
         Dim institute_handler As New Ed_Institute_Handler()
         ' Use the connection in the InsertCertificate function
         institute_handler.InsertCertificate(certData)
         Button6_Click(sender, e)
     End Sub
-    Public Function CreateCertificateFromInputs(instIdTextBox As TextBox, studentId As Integer, typeComboBox As ComboBox, classTextBox As TextBox, semTextBox As TextBox, yearTextBox As TextBox, uploadedFileBytes As Byte()) As CertificateData
+    Public Function CreateCertificateFromInputs(instIdTextBox As TextBox, studentId As Integer, typeComboBox As ComboBox, classTextBox As TextBox, semTextBox As TextBox, yearTextBox As TextBox, uploadedFileBytes As Byte(), certNameTextBox As TextBox) As CertificateData
         ' Create a new CertificateData object
         Dim certData As New CertificateData()
 
@@ -49,6 +49,7 @@ Public Class Ed_UploadCert
         certData.sClass = If(String.IsNullOrWhiteSpace(classTextBox.Text), 0, Convert.ToInt32(classTextBox.Text))
         certData.sSem = If(String.IsNullOrWhiteSpace(semTextBox.Text), 0, Convert.ToInt32(semTextBox.Text))
         certData.Year = If(String.IsNullOrWhiteSpace(yearTextBox.Text), 0, Convert.ToInt32(yearTextBox.Text))
+        certData.CertName = If(String.IsNullOrWhiteSpace(yearTextBox.Text), "NO NAME", Convert.ToInt32(certNameTextBox.Text))
         certData.Certificate = uploadedFileBytes
 
 

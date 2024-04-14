@@ -113,7 +113,7 @@ Public Class TransportTollPlaza
         With RidePost
             .Name = "post_" & postNum
         End With
-        RidePost.SetDetails(postNum, valdity, drvlicensenum, dt, fare)
+        RidePost.SetDetails(ft_id, postNum, valdity, drvlicensenum, dt, fare)
         PostsPanel2.Controls.Add(RidePost)
     End Sub
     Private Sub AddPostPlan(postNum As Integer, vehtype As String,

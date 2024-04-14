@@ -1,13 +1,14 @@
 ﻿Public Class Ed_MinisterDashboard
     Private currentlyOpenChildForm As Form = Nothing
     Private Sub Ed_MinisterDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        currentlyOpenChildForm = New Ed_Institute_List(childformPanel, "Admin")
+        Label2.Text = Ed_GlobalDashboard.Ed_Profile.Ed_Name
+        currentlyOpenChildForm = New Ed_Minister_Institute_List(childformPanel, "Admin")
         Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         CloseCurrentChildForm()
-        currentlyOpenChildForm = New Ed_Institute_List(childformPanel, "Admin")
+        currentlyOpenChildForm = New Ed_Minister_Institute_List(childformPanel, "Admin")
         Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 
