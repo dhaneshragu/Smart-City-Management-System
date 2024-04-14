@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Web.UI.WebControls
 Imports MySql.Data.MySqlClient
 Public Class EventLoginWindow
 
@@ -60,6 +61,42 @@ Public Class EventLoginWindow
 
 
 
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim pass As String = ""
+        Dim mail As String = ""
+        Dim uid As Integer = -1
+        If Not String.IsNullOrWhiteSpace(TextBox1.Text) Then
+            Try
+                uid = Convert.ToInt32(TextBox1.Text)
+                Dim conStr As String = Globals.getdbConnectionString()
+                Dim cmd As String = "SELECT email FROM users WHERE user_id = @uid"
+                Using connection As New MySqlConnection(conStr)
+                    Using sqlCommand As New MySqlCommand(cmd, connection)
+                        sqlCommand.Parameters.AddWithValue("@uid", TextBox1.Text)
+                        ' Execute the query and retrieve the user ID
+                        connection.Open()
+                        Using reader As MySqlDataReader = sqlCommand.ExecuteReader()
+                            If reader.Read() Then
+                                mail = Convert.ToString(reader("email"))
+                            End If
+                        End Using
+                    End Using
+                End Using
+
+                Dim otp = New UserGetOtp(mail, pass, 1)
+                otp.Show()
+                Me.Close()
+            Catch ex As Exception
+                MessageBox.Show("Error converting TextBox1.Text to integer: " & ex.Message)
+                TextBox1.Clear()
+                TextBox2.Clear()
+            End Try
+        Else
+            MessageBox.Show("Please enter your User ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
 
     End Sub
 End Class
