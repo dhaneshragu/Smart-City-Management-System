@@ -93,7 +93,7 @@ Public Class Ed_Moodle_CourseAss
 
         Label1.Text = course.Name
         Label2.Text = content.ContentName
-        RichTextBox1.Text = content.Content
+        RichTextBox1.Rtf = content.Content
 
     End Sub
 

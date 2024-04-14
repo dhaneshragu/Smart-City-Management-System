@@ -556,6 +556,57 @@ Public Class Ed_Moodle_Handler
         Return assignments.ToArray()
     End Function
 
+    Public Function GetAssignmentsSubmitted(ByVal roomID As Integer, ByVal seqNo As Integer)
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
 
+        Dim assignments As New List(Of StudentAssRecord)()
+
+        ' Query to fetch assignments of course'
+        Dim query As String = "Select * from moodle_studentcourse where Room_ID = @roomid and Seq_no = @seqno"
+
+        Using cmd As New MySqlCommand(query, Con)
+
+            cmd.Parameters.AddWithValue("@roomid", roomID)
+            cmd.Parameters.AddWithValue("@seqno", seqNo)
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                While reader.Read()
+                    Dim AssRec As New StudentAssRecord()
+                    AssRec.Room_ID = If(reader.IsDBNull(reader.GetOrdinal("Room_ID")), -1, Convert.ToInt32(reader("Room_ID")))
+                    AssRec.Seq_no = If(reader.IsDBNull(reader.GetOrdinal("Seq_no")), -1, Convert.ToInt32(reader("Seq_no")))
+                    AssRec.Student_ID = If(reader.IsDBNull(reader.GetOrdinal("Student_ID")), -1, Convert.ToInt32(reader("Student_ID")))
+                    AssRec.FileData = If(reader.IsDBNull(reader.GetOrdinal("File")), Nothing, DirectCast(reader("File"), Byte()))
+                    AssRec.Submit_Time = If(reader.IsDBNull(reader.GetOrdinal("Submit_Time")), DateTime.MinValue, Convert.ToDateTime(reader("Submit_Time")))
+                    AssRec.Marks = If(reader.IsDBNull(reader.GetOrdinal("Marks")), -1, Convert.ToInt32(reader("Marks")))
+
+                    assignments.Add(AssRec)
+                End While
+            End Using
+        End Using
+
+        Con.Close()
+
+
+        Return assignments.ToArray()
+    End Function
+
+
+    Public Function UpdateMarks(ByVal marks As Integer, ByVal roomId As Integer, ByVal stuID As Integer, ByVal seqNo As Integer) As Integer
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+
+        Dim query As String = "UPDATE moodle_studentcourse SET Marks = @marks WHERE Room_ID = @roomID AND Student_ID = @stuID AND Seq_no = @seqNo"
+
+        Dim cmd As New MySqlCommand(query, Con)
+        cmd.Parameters.AddWithValue("@roomID", roomId)
+        cmd.Parameters.AddWithValue("@stuID", stuID)
+        cmd.Parameters.AddWithValue("@seqNo", seqNo)
+        cmd.Parameters.AddWithValue("@marks", marks)
+        Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+        Con.Close()
+
+        Return rowsAffected
+    End Function
 
 End Class
