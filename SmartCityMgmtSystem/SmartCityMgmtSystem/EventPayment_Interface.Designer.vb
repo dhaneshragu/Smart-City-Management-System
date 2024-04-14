@@ -22,10 +22,10 @@ Partial Class EventPayment_Interface
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim Button1 As System.Windows.Forms.Button
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EventPayment_Interface))
-        Dim Button1 As System.Windows.Forms.Button
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
@@ -36,7 +36,6 @@ Partial Class EventPayment_Interface
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        'Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
@@ -53,6 +52,21 @@ Partial Class EventPayment_Interface
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'Button1
+        '
+        Button1.BackColor = System.Drawing.Color.Maroon
+        Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Button1.Font = New System.Drawing.Font("Verdana", 17.76271!, System.Drawing.FontStyle.Bold)
+        Button1.ForeColor = System.Drawing.Color.Linen
+        Button1.Location = New System.Drawing.Point(638, 547)
+        Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Button1.Name = "Button1"
+        Button1.Size = New System.Drawing.Size(279, 51)
+        Button1.TabIndex = 25
+        Button1.Text = "Pay Now"
+        Button1.UseVisualStyleBackColor = False
+        AddHandler Button1.Click, AddressOf Me.Button1_Click
         '
         'DataGridViewImageColumn1
         '
@@ -152,19 +166,10 @@ Partial Class EventPayment_Interface
         Me.RadioButton1.Text = "UPI"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
-        'ShapeContainer1
-        '
-        ' Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
-        'Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        'Me.ShapeContainer1.Name = "ShapeContainer1"
-        'Me.ShapeContainer1.Size = New System.Drawing.Size(1338, 715)
-        'Me.ShapeContainer1.TabIndex = 15
-        'Me.ShapeContainer1.TabStop = False
-        '
         'Label3
         '
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Agency FB", 27.79661!, System.Drawing.FontStyle.Bold)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.79661!, System.Drawing.FontStyle.Bold)
         Me.Label3.ForeColor = System.Drawing.Color.Maroon
         Me.Label3.Location = New System.Drawing.Point(348, 95)
         Me.Label3.Name = "Label3"
@@ -188,20 +193,6 @@ Partial Class EventPayment_Interface
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1246, 303)
         Me.Panel1.TabIndex = 30
-        '
-        'Button1
-        '
-        Button1.BackColor = System.Drawing.Color.Maroon
-        Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Button1.Font = New System.Drawing.Font("Verdana", 17.76271!, System.Drawing.FontStyle.Bold)
-        Button1.ForeColor = System.Drawing.Color.Linen
-        Button1.Location = New System.Drawing.Point(638, 547)
-        Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Button1.Name = "Button1"
-        Button1.Size = New System.Drawing.Size(279, 51)
-        Button1.TabIndex = 25
-        Button1.Text = "Pay Now"
-        Button1.UseVisualStyleBackColor = False
         '
         'PictureBox3
         '
@@ -253,14 +244,14 @@ Partial Class EventPayment_Interface
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.Label4.Font = New System.Drawing.Font("Agency FB", 23.79661!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 23.79661!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Label4.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_online_payment_64
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label4.Location = New System.Drawing.Point(21, 7)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(330, 50)
+        Me.Label4.Size = New System.Drawing.Size(468, 46)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "         Payment Gateway"
         '

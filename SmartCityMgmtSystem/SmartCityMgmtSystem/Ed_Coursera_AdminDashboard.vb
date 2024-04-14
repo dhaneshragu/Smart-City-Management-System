@@ -1,17 +1,32 @@
 ﻿Public Class Ed_Coursera_AdminDashboard
-    Private Sub childformPanel_Paint(sender As Object, e As PaintEventArgs) Handles childformPanel.Paint
-
-    End Sub
-
+    Private currentlyOpenChildForm As Form = Nothing
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Globals.viewChildForm(childformPanel, Ed_EcourseApproveCourses)
+        CloseCurrentChildForm()
+        currentlyOpenChildForm = New Ed_EcourseApproveCourses()
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(Ed_RoleSelect)
+        CloseCurrentChildForm()
+        Ed_GlobalDashboard.OpenFormInGlobalEdPanel(New Ed_RoleSelect())
+        Me.Close()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(childformPanel, Ed_ECourseManage_Stats)
+        CloseCurrentChildForm()
+        currentlyOpenChildForm = New Ed_ECourseManage_Stats()
+        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
+    End Sub
+
+    Private Sub Ed_Coursera_AdminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+    Private Sub CloseCurrentChildForm()
+        ' Check if there's a currently open child form
+        If currentlyOpenChildForm IsNot Nothing Then
+            ' Close the currently open child form
+            currentlyOpenChildForm.Close()
+            currentlyOpenChildForm = Nothing
+        End If
     End Sub
 End Class

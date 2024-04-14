@@ -22,280 +22,235 @@ Partial Class EventInvoice
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Label1 = New Label()
-        Label2 = New Label()
-        Label3 = New Label()
-        Label5 = New Label()
-        Label6 = New Label()
-        Label8 = New Label()
-        DataGridView1 = New DataGridView()
-        TRANSACTIONID = New DataGridViewTextBoxColumn()
-        RATE = New DataGridViewTextBoxColumn()
-        DAYS = New DataGridViewTextBoxColumn()
-        AMOUNT = New DataGridViewTextBoxColumn()
-        Label7 = New Label()
-        Label9 = New Label()
-        Label10 = New Label()
-        eventID = New Label()
-        vendorID = New Label()
-        Label12 = New Label()
-        bank = New Label()
-        account = New Label()
-        subtotal = New Label()
-        tax = New Label()
-        total = New Label()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
-        SuspendLayout()
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Bodoni MT Condensed", 28.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(0, 0)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(135, 55)
-        Label1.TabIndex = 0
-        Label1.Text = "INVOICE"
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Agency FB", 14.0F)
-        Label2.Location = New Point(66, 86)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(74, 28)
-        Label2.TabIndex = 1
-        Label2.Text = "Billed To"
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Agency FB", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(66, 138)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(59, 28)
-        Label3.TabIndex = 2
-        Label3.Text = "Pay To"
-        ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.Font = New Font("Agency FB", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label5.Location = New Point(66, 302)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(123, 28)
-        Label5.TabIndex = 4
-        Label5.Text = "Account Number"
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.Font = New Font("Agency FB", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label6.Location = New Point(66, 265)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(45, 28)
-        Label6.TabIndex = 5
-        Label6.Text = "Bank"
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Location = New Point(202, 399)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(0, 20)
-        Label8.TabIndex = 7
-        ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.BackgroundColor = SystemColors.ControlLightLight
-        DataGridView1.BorderStyle = BorderStyle.None
-        DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {TRANSACTIONID, RATE, DAYS, AMOUNT})
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = SystemColors.Window
-        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9.0F)
-        DataGridViewCellStyle1.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.ButtonHighlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
-        DataGridView1.GridColor = SystemColors.Info
-        DataGridView1.Location = New Point(37, 341)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersVisible = False
-        DataGridView1.RowHeadersWidth = 51
-        DataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect
-        DataGridView1.Size = New Size(514, 137)
-        DataGridView1.TabIndex = 8
-        ' 
-        ' TRANSACTIONID
-        ' 
-        TRANSACTIONID.HeaderText = "TRANSACTION ID"
-        TRANSACTIONID.MinimumWidth = 6
-        TRANSACTIONID.Name = "TRANSACTIONID"
-        TRANSACTIONID.Width = 125
-        ' 
-        ' RATE
-        ' 
-        RATE.HeaderText = "RATE"
-        RATE.MinimumWidth = 6
-        RATE.Name = "RATE"
-        RATE.Width = 125
-        ' 
-        ' DAYS
-        ' 
-        DAYS.HeaderText = "DAYS"
-        DAYS.MinimumWidth = 6
-        DAYS.Name = "DAYS"
-        DAYS.Width = 125
-        ' 
-        ' AMOUNT
-        ' 
-        AMOUNT.HeaderText = "AMOUNT"
-        AMOUNT.MinimumWidth = 6
-        AMOUNT.Name = "AMOUNT"
-        AMOUNT.Width = 125
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Agency FB", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label7.Location = New Point(61, 489)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(79, 28)
-        Label7.TabIndex = 9
-        Label7.Text = "Sub Total "
-        ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Agency FB", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label9.Location = New Point(231, 489)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(36, 28)
-        Label9.TabIndex = 10
-        Label9.Text = "Tax"
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Font = New Font("Agency FB", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label10.Location = New Point(384, 481)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(76, 36)
-        Label10.TabIndex = 11
-        Label10.Text = "TOTAL "
-        ' 
-        ' eventID
-        ' 
-        eventID.AutoSize = True
-        eventID.Font = New Font("Agency FB", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        eventID.Location = New Point(202, 90)
-        eventID.Name = "eventID"
-        eventID.Size = New Size(126, 24)
-        eventID.TabIndex = 12
-        eventID.Text = "432790,Customer_1"
-        ' 
-        ' vendorID
-        ' 
-        vendorID.AutoSize = True
-        vendorID.Font = New Font("Agency FB", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        vendorID.Location = New Point(202, 138)
-        vendorID.Name = "vendorID"
-        vendorID.Size = New Size(115, 72)
-        vendorID.TabIndex = 13
-        vendorID.Text = "1235890,Vendor_1" & vbCrLf & "Bharalumukh," & vbCrLf & "Guwahati-781009"
-        ' 
-        ' Label12
-        ' 
-        Label12.AutoSize = True
-        Label12.Font = New Font("Agency FB", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label12.Location = New Point(202, 187)
-        Label12.Name = "Label12"
-        Label12.Size = New Size(0, 24)
-        Label12.TabIndex = 14
-        ' 
-        ' bank
-        ' 
-        bank.AutoSize = True
-        bank.Font = New Font("Agency FB", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        bank.Location = New Point(202, 265)
-        bank.Name = "bank"
-        bank.Size = New Size(73, 24)
-        bank.TabIndex = 15
-        bank.Text = "ABCD Bank"
-        ' 
-        ' account
-        ' 
-        account.AutoSize = True
-        account.Font = New Font("Agency FB", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        account.Location = New Point(202, 305)
-        account.Name = "account"
-        account.Size = New Size(82, 24)
-        account.TabIndex = 16
-        account.Text = "xxx-xxx-xxxx"
-        ' 
-        ' subtotal
-        ' 
-        subtotal.AutoSize = True
-        subtotal.Font = New Font("Agency FB", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        subtotal.Location = New Point(150, 493)
-        subtotal.Name = "subtotal"
-        subtotal.Size = New Size(52, 24)
-        subtotal.TabIndex = 17
-        subtotal.Text = "₹4096"
-        ' 
-        ' tax
-        ' 
-        tax.AutoSize = True
-        tax.Font = New Font("Agency FB", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        tax.Location = New Point(273, 493)
-        tax.Name = "tax"
-        tax.Size = New Size(29, 24)
-        tax.TabIndex = 18
-        tax.Text = "138"
-        ' 
-        ' total
-        ' 
-        total.AutoSize = True
-        total.Font = New Font("Agency FB", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        total.Location = New Point(470, 481)
-        total.Name = "total"
-        total.Size = New Size(81, 36)
-        total.TabIndex = 19
-        total.Text = "₹4234"
-        ' 
-        ' Invoice
-        ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
-        AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.ButtonHighlight
-        ClientSize = New Size(582, 553)
-        Controls.Add(total)
-        Controls.Add(tax)
-        Controls.Add(subtotal)
-        Controls.Add(account)
-        Controls.Add(bank)
-        Controls.Add(Label12)
-        Controls.Add(vendorID)
-        Controls.Add(eventID)
-        Controls.Add(Label10)
-        Controls.Add(Label9)
-        Controls.Add(Label7)
-        Controls.Add(DataGridView1)
-        Controls.Add(Label8)
-        Controls.Add(Label6)
-        Controls.Add(Label5)
-        Controls.Add(Label3)
-        Controls.Add(Label2)
-        Controls.Add(Label1)
-        Name = "EventInvoice"
-        Text = "Invoice"
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
-        ResumeLayout(False)
-        PerformLayout()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TRANSACTION_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DAYS = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AMOUNT = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.customerDescription = New System.Windows.Forms.Label()
+        Me.vendorAddress = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.bank = New System.Windows.Forms.Label()
+        Me.account = New System.Windows.Forms.Label()
+        Me.total = New System.Windows.Forms.Label()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(223, 54)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "INVOICE"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.Label2.Location = New System.Drawing.Point(66, 69)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(111, 29)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Billed To"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(66, 110)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(89, 29)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Pay To"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(66, 242)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(191, 29)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "Account Number"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(66, 212)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(67, 29)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "Bank"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(202, 319)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(0, 16)
+        Me.Label8.TabIndex = 7
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TRANSACTION_ID, Me.RATE, Me.DAYS, Me.AMOUNT})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.GridColor = System.Drawing.SystemColors.Info
+        Me.DataGridView1.Location = New System.Drawing.Point(39, 273)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowHeadersWidth = 51
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(503, 110)
+        Me.DataGridView1.TabIndex = 8
+        '
+        'TRANSACTION_ID
+        '
+        Me.TRANSACTION_ID.HeaderText = "TRANSACTION ID"
+        Me.TRANSACTION_ID.MinimumWidth = 6
+        Me.TRANSACTION_ID.Name = "TRANSACTION_ID"
+        Me.TRANSACTION_ID.Width = 125
+        '
+        'RATE
+        '
+        Me.RATE.HeaderText = "RATE"
+        Me.RATE.MinimumWidth = 6
+        Me.RATE.Name = "RATE"
+        Me.RATE.Width = 125
+        '
+        'DAYS
+        '
+        Me.DAYS.HeaderText = "DAYS"
+        Me.DAYS.MinimumWidth = 6
+        Me.DAYS.Name = "DAYS"
+        Me.DAYS.Width = 125
+        '
+        'AMOUNT
+        '
+        Me.AMOUNT.HeaderText = "AMOUNT"
+        Me.AMOUNT.MinimumWidth = 6
+        Me.AMOUNT.Name = "AMOUNT"
+        Me.AMOUNT.Width = 125
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(351, 385)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(125, 36)
+        Me.Label10.TabIndex = 11
+        Me.Label10.Text = "TOTAL "
+        '
+        'customerDescription
+        '
+        Me.customerDescription.AutoSize = True
+        Me.customerDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.customerDescription.Location = New System.Drawing.Point(202, 72)
+        Me.customerDescription.Name = "customerDescription"
+        Me.customerDescription.Size = New System.Drawing.Size(190, 25)
+        Me.customerDescription.TabIndex = 12
+        Me.customerDescription.Text = "432790,Customer_1"
+        '
+        'vendorAddress
+        '
+        Me.vendorAddress.AutoSize = True
+        Me.vendorAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.vendorAddress.Location = New System.Drawing.Point(202, 110)
+        Me.vendorAddress.Name = "vendorAddress"
+        Me.vendorAddress.Size = New System.Drawing.Size(180, 75)
+        Me.vendorAddress.TabIndex = 13
+        Me.vendorAddress.Text = "1235890,Vendor_1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Bharalumukh," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Guwahati-781009"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(202, 150)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(0, 25)
+        Me.Label12.TabIndex = 14
+        '
+        'bank
+        '
+        Me.bank.AutoSize = True
+        Me.bank.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bank.Location = New System.Drawing.Point(202, 212)
+        Me.bank.Name = "bank"
+        Me.bank.Size = New System.Drawing.Size(118, 25)
+        Me.bank.TabIndex = 15
+        Me.bank.Text = "ABCD Bank"
+        '
+        'account
+        '
+        Me.account.AutoSize = True
+        Me.account.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.account.Location = New System.Drawing.Point(202, 244)
+        Me.account.Name = "account"
+        Me.account.Size = New System.Drawing.Size(126, 25)
+        Me.account.TabIndex = 16
+        Me.account.Text = "xxx-xxx-xxxx"
+        '
+        'total
+        '
+        Me.total.AutoSize = True
+        Me.total.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.total.Location = New System.Drawing.Point(470, 385)
+        Me.total.Name = "total"
+        Me.total.Size = New System.Drawing.Size(105, 36)
+        Me.total.TabIndex = 19
+        Me.total.Text = "₹4234"
+        '
+        'EventInvoice
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ClientSize = New System.Drawing.Size(582, 442)
+        Me.Controls.Add(Me.total)
+        Me.Controls.Add(Me.account)
+        Me.Controls.Add(Me.bank)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.vendorAddress)
+        Me.Controls.Add(Me.customerDescription)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Name = "EventInvoice"
+        Me.Text = "Invoice"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
     End Sub
 
     Friend WithEvents Label1 As Label
@@ -305,20 +260,15 @@ Partial Class EventInvoice
     Friend WithEvents Label6 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents eventID As Label
-    Friend WithEvents vendorID As Label
+    Friend WithEvents customerDescription As Label
+    Friend WithEvents vendorAddress As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents bank As Label
     Friend WithEvents account As Label
-    Friend WithEvents subtotal As Label
-    Friend WithEvents tax As Label
     Friend WithEvents total As Label
-    Friend WithEvents TRANSACTIONID As DataGridViewTextBoxColumn
+    Friend WithEvents TRANSACTION_ID As DataGridViewTextBoxColumn
     Friend WithEvents RATE As DataGridViewTextBoxColumn
     Friend WithEvents DAYS As DataGridViewTextBoxColumn
     Friend WithEvents AMOUNT As DataGridViewTextBoxColumn
-
 End Class
