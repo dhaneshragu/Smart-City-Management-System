@@ -1,7 +1,10 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Public Class ElectionInnerScreenAdminCoC
-
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Dim electionInnerScreenAdmin As ElectionInnerScreenAdmin = Nothing
+    Public Property innerPanel As Panel
     Private Sub PreviousCoC()
         ' Get connection from globals
         Dim Con = Globals.GetDBConnection()
@@ -123,6 +126,12 @@ Public Class ElectionInnerScreenAdminCoC
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenAdmin)
+        electionInnerScreenAdmin?.Dispose()
+        electionInnerScreenAdmin = New ElectionInnerScreenAdmin With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenAdmin)
     End Sub
 End Class

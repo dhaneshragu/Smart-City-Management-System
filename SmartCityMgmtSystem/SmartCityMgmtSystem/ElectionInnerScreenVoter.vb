@@ -1,12 +1,17 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Public Class ElectionInnerScreenVoter
+
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+
+    Public Property innerPanel As Panel
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreen1)
+        Globals.viewChildForm(innerPanel, ElectionInnerScreen1)
     End Sub
 
     Private Function CompareUserInfo(ByVal name As String, ByVal uid As Integer, ByVal age As Integer) As Boolean
@@ -59,10 +64,10 @@ Public Class ElectionInnerScreenVoter
             End If
 
             Dim name As String = TextBox1.Text.ToString
-            Dim uid As Integer = Integer.Parse(TextBox2.Text)
+            Dim uid1 As Integer = Integer.Parse(TextBox2.Text)
             Dim age As Integer = Integer.Parse(TextBox3.Text)
 
-            If ElectionDashboard.LoggedInUserId = uid Then
+            If uid = uid1 Then
                 Dim check As Boolean = CompareUserInfo(name, uid, age)
 
                 If check Then

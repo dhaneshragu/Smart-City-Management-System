@@ -1,6 +1,12 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Public Class ElectionInnerScreenAdminVotesTurnout
+
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Public Property innerPanel As Panel
+
+    Dim electionInnerScreenAdminVotes As ElectionInnerScreenAdminVotes = Nothing
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadandBindDataGridView()
     End Sub
@@ -51,6 +57,12 @@ Public Class ElectionInnerScreenAdminVotesTurnout
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenAdmin)
+        electionInnerScreenAdminVotes?.Dispose()
+        electionInnerScreenAdminVotes = New ElectionInnerScreenAdminVotes With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenAdminVotes)
     End Sub
 End Class

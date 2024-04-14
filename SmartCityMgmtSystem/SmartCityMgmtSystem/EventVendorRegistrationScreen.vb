@@ -76,7 +76,10 @@ Public Class EventVendorRegistrationScreen
         TextBox4.Text = cost
         'Error Handling needs to be done to check the situation in which this aint an int
         TextBox5.PasswordChar = "*"
-
+        Dim Password As String
+        Password = GetPasswordFromUserId()
+        TextBox5.Text = Password
+        TextBox5.ReadOnly = True
 
         ' Add options to the ComboBox
         ComboBox1.Items.Add("Marriage")
@@ -136,6 +139,34 @@ Public Class EventVendorRegistrationScreen
         End If
     End Function
 
+    Public Function GetPasswordFromUserId() As String
+        Dim password As String = ""
+
+        ' Get connection from globals
+        Dim con As MySqlConnection = Globals.GetDBConnection()
+
+        Try
+            con.Open()
+
+            ' Query to retrieve password from the users table based on user_id
+            Dim query As String = "SELECT password FROM users WHERE user_id = @UserId;"
+            Dim cmd As New MySqlCommand(query, con)
+            cmd.Parameters.AddWithValue("@UserId", uid)
+
+            ' Execute the query to fetch the password
+            Dim reader As MySqlDataReader = cmd.ExecuteReader()
+            If reader.Read() Then
+                password = reader.GetString(0)
+            End If
+            reader.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+
+        Return password
+    End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim VendorName As String = TextBox1.Text
