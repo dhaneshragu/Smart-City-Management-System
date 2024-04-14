@@ -119,7 +119,7 @@ Public Class Healthcare_DonateBlood
                     Catch ex As Exception
                         MessageBox.Show("Error: " & ex.Message)
                     End Try
-
+                    con.Close()
                 End Using
             Else
                 MessageBox.Show("Age is not a valid integer")

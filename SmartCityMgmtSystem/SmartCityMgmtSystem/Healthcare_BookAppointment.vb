@@ -125,6 +125,7 @@ Public Class Healthcare_BookAppointment
         hos_id = hospital_Button.Name
         Dim hospital_Id As String = hospital_Button.Name
         prev_hos_Button = hospital_Button
+        dep_id = -1
         ClearPanel(Panel1)
         ' Update the current question ID and display the question text and optisons
         LoadandBindDataGridView2(hospital_Id)
