@@ -6,6 +6,7 @@ Public Class ElectionInnerScreenViewStatistics
     Public Property lastElectionID As Integer
     Public Property totalVoted As Integer
     Dim turnoutPercentage As Double
+    Dim Male As Integer
     Private Sub Chart_Init()
         ' Clear existing series and chart areas
         Chart1.Series.Clear()
@@ -22,8 +23,8 @@ Public Class ElectionInnerScreenViewStatistics
         Chart1.Series.Add(series)
 
         ' Add data points for each day of the week manually
-        Chart1.Series("DataSeries").Points.AddXY("Voted", turnoutPercentage)
-        Chart1.Series("DataSeries").Points.AddXY("Not Voted", 100 - turnoutPercentage)
+        Chart1.Series("DataSeries").Points.AddXY("Male", Male)
+        Chart1.Series("DataSeries").Points.AddXY("Female", totalVoted - Male)
     End Sub
 
     Private Sub LoadData()
@@ -65,6 +66,19 @@ Public Class ElectionInnerScreenViewStatistics
 
         If reader.Read() Then
             totalVoted = Convert.ToInt32(reader("total_voted"))
+        End If
+
+        reader.Close()
+
+        ' Execute the second SQL query to count the number of rows where the voted column is 1
+        cmd = New MySqlCommand("SELECT COUNT(*) AS male 
+                                FROM users 
+                                WHERE voted = 1 AND gender = 'Male'", Con)
+        reader = cmd.ExecuteReader()
+
+
+        If reader.Read() Then
+            Male = Convert.ToInt32(reader("male"))
         End If
 
         reader.Close()
