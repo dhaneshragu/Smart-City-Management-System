@@ -234,10 +234,10 @@ Partial Class HealthcareApproveAppointmentAdmin
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(83, 27)
+        Me.Label3.Location = New System.Drawing.Point(50, 40)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(295, 37)
+        Me.Label3.Size = New System.Drawing.Size(321, 37)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Approve/Cancel Appointment"
         '
@@ -283,7 +283,7 @@ Partial Class HealthcareApproveAppointmentAdmin
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(122, 37)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Add"
+        Me.Button1.Text = "Update"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'DataGridViewImageColumn3
@@ -330,14 +330,14 @@ Partial Class HealthcareApproveAppointmentAdmin
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("AgencyFB", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Label4.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.WhatsApp_Image_2024_03_14_at_18_45_12_9fee6e45
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label4.Location = New System.Drawing.Point(13, 9)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(491, 46)
+        Me.Label4.Size = New System.Drawing.Size(673, 46)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "         Approve/Cancel Appointment"
         '
