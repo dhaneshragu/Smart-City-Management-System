@@ -2,7 +2,8 @@
 
 Public Class Employment_portal_admin_add
 
-    Public Property uid As Integer = 4
+    Public uid As Integer
+    Public u_name As String
 
 
     Private Sub Salary_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Salary.KeyPress

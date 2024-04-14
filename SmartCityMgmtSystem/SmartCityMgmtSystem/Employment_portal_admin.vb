@@ -122,6 +122,12 @@ Public Class Employment_portal_admin
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
         'View the TransportationAdminHome screen by default - first argument, name of the panel in the parent panel, second - name of the child form
         Globals.viewChildForm(childformPanel, Employment_portal_admin_add)
+
+        Dim add = New Employment_portal_admin_add() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(childformPanel, add)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
