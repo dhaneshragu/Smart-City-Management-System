@@ -223,7 +223,7 @@ Public Class EventRegistrationScreen
     End Sub
 
     Private Sub Insert_table()
-        Mysqlconn.ConnectionString = "server=localhost;userid=root;password=Aasneh18;database=TelephoneDatabase;"
+        Mysqlconn.ConnectionString = "server=localhost;userid=root;password=123456;database=TelephoneDatabase;"
         Mysqlconn.Open()
 
         'SqlQuery = "Insert into UserData(name,IITG_email,phonenumber,role,password,department,plan_id,expiry_date,talktimeLeft,dataLeft,user_visibility) values ('Aasneh','p.aasneh@iitg.ac.in','7021901677','Student','Aasneh','CSE',0,'03-03-2024',0,0,'Public');"
@@ -251,6 +251,47 @@ Public Class EventRegistrationScreen
 
     End Sub
 
+    Private Sub password_strength_check()
+        Dim password As String = TextBox5.Text
+        Dim password_len As Integer = password.Length
+
+        ' Checking lower alphabet in string 
+        Dim hasLower As Boolean = False, hasUpper As Boolean = False
+        Dim hasDigit As Boolean = False, specialChar As Boolean = False
+        Dim normalChars As String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 "
+
+        For i As Integer = 0 To password_len - 1
+            If Char.IsLower(password(i)) Then
+                hasLower = True
+            End If
+            If Char.IsUpper(password(i)) Then
+                hasUpper = True
+            End If
+            If Char.IsDigit(password(i)) Then
+                hasDigit = True
+            End If
+
+            Dim special As Integer = password.IndexOfAny(normalChars.ToCharArray())
+            If special <> -1 Then
+                specialChar = True
+            End If
+        Next
+
+        If hasLower AndAlso hasUpper AndAlso hasDigit AndAlso specialChar AndAlso (password_len >= 8) Then
+            Label12.Text = "Strong"
+            Label12.ForeColor = Color.Green
+            'Console.WriteLine("Strong")
+        ElseIf (hasLower OrElse hasUpper) AndAlso specialChar AndAlso (password_len >= 6) Then
+            Label12.Text = "Moderate"
+            Label12.ForeColor = Color.Blue
+            'Console.WriteLine("Moderate")
+        Else
+            Label12.Text = "Weak"
+            Label12.ForeColor = Color.Red
+            'Console.WriteLine("Weak")
+        End If
+    End Sub
+
     Private Sub EventRegistrationScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
         ' Add options to the ComboBox
@@ -266,6 +307,9 @@ Public Class EventRegistrationScreen
 
         TextBox1.Text = u_name
         TextBox2.Text = uid
+        TextBox1.ReadOnly = True
+        TextBox2.ReadOnly = True
+
 
 
         TextBox5.PasswordChar = "*"
@@ -379,6 +423,11 @@ Public Class EventRegistrationScreen
         Dim EventEndDate1 As Date = DateTimePicker2.Value
         Dim EventType1 As String = ComboBox1.SelectedItem.ToString()
         LoadandBindDataGridView(EventStartDate1, EventEndDate1, EventType1)
+    End Sub
+
+    Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
+        ' Your tracing logic here
+        password_strength_check()
     End Sub
 
 
