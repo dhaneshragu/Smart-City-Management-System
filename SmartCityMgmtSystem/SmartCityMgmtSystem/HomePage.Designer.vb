@@ -53,7 +53,7 @@ Partial Class HomePage
         Me.DataGridViewImageColumn1.ReadOnly = True
         Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn1.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn1.Width = 125
+        Me.DataGridViewImageColumn1.Width = 150
         '
         'DataGridViewImageColumn2
         '
@@ -72,14 +72,14 @@ Partial Class HomePage
         Me.DataGridViewImageColumn2.ReadOnly = True
         Me.DataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn2.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn2.Width = 125
+        Me.DataGridViewImageColumn2.Width = 150
         '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.Button2.ForeColor = System.Drawing.Color.Maroon
         Me.Button2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_services_64
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -96,7 +96,7 @@ Partial Class HomePage
         Me.lib_dept.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.lib_dept.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
         Me.lib_dept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lib_dept.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
+        Me.lib_dept.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.lib_dept.ForeColor = System.Drawing.Color.Maroon
         Me.lib_dept.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_books_64
         Me.lib_dept.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -113,7 +113,7 @@ Partial Class HomePage
         Me.bankDept.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.bankDept.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
         Me.bankDept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bankDept.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
+        Me.bankDept.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.bankDept.ForeColor = System.Drawing.Color.Maroon
         Me.bankDept.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_rupee_64
         Me.bankDept.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -130,7 +130,7 @@ Partial Class HomePage
         Me.electionDept.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.electionDept.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
         Me.electionDept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.electionDept.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
+        Me.electionDept.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.electionDept.ForeColor = System.Drawing.Color.Maroon
         Me.electionDept.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_admin_64
         Me.electionDept.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -147,7 +147,7 @@ Partial Class HomePage
         Me.event_dept.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.event_dept.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
         Me.event_dept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.event_dept.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
+        Me.event_dept.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.event_dept.ForeColor = System.Drawing.Color.Maroon
         Me.event_dept.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_confetti_64
         Me.event_dept.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -164,7 +164,7 @@ Partial Class HomePage
         Me.Button9.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.Button9.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button9.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
+        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.Button9.ForeColor = System.Drawing.Color.Maroon
         Me.Button9.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_strike_64
         Me.Button9.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -181,7 +181,7 @@ Partial Class HomePage
         Me.tranDept.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.tranDept.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
         Me.tranDept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.tranDept.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
+        Me.tranDept.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.tranDept.ForeColor = System.Drawing.Color.Maroon
         Me.tranDept.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_driving_license_641
         Me.tranDept.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -198,7 +198,7 @@ Partial Class HomePage
         Me.ed_dept.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.ed_dept.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
         Me.ed_dept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ed_dept.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
+        Me.ed_dept.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.ed_dept.ForeColor = System.Drawing.Color.Maroon
         Me.ed_dept.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_graduation_cap_64
         Me.ed_dept.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -215,7 +215,7 @@ Partial Class HomePage
         Me.healthDept.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.healthDept.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
         Me.healthDept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.healthDept.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
+        Me.healthDept.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.healthDept.ForeColor = System.Drawing.Color.Maroon
         Me.healthDept.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_heart_with_pulse_64
         Me.healthDept.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -232,7 +232,7 @@ Partial Class HomePage
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Bodoni MT Condensed", 18.30509!, System.Drawing.FontStyle.Bold)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.30509!, System.Drawing.FontStyle.Bold)
         Me.Button1.ForeColor = System.Drawing.Color.Maroon
         Me.Button1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_services_64
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -261,11 +261,11 @@ Partial Class HomePage
         Me.DataGridViewImageColumn3.Name = "DataGridViewImageColumn3"
         Me.DataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn3.Width = 125
+        Me.DataGridViewImageColumn3.Width = 150
         '
         'HomePage
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(15.0!, 26.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.ClientSize = New System.Drawing.Size(1270, 736)
