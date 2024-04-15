@@ -200,8 +200,40 @@ Public Class TransportVehicleRegReq
                     command.Parameters.AddWithValue("@Value6", uid)
                     command.Parameters.AddWithValue("@Value7", invid)
                     If filteredDataTable.Rows.Count > 0 Then
-                        MessageBox.Show("User has already registered a vehicle with vehicle type : " & vtype & " and invoice id :" & invid)
-                        Exit Sub
+                        Dim Status As String = filteredDataTable.Rows(0)(5).ToString()
+                        If Status = "approved" Then
+                            MessageBox.Show("User has already registered a vehicle with vehicle type : " & vtype & " and invoice id :" & invid)
+                            Con.Close()
+                            Exit Sub
+                        ElseIf Status = "rejected" Then
+                            Dim result As DialogResult = MessageBox.Show($"Your previous request for vehicle registration for the vehicle type {vtype} , invoice Id {invid} was rejected. Do you want to apply again?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
+                            If result = DialogResult.OK Then
+                                Dim pay = New PaymentGateway() With {
+                                    .uid = uid,
+                                    .readonly_prop = True
+                                }
+                                pay.TextBox1.Text = 5
+                                pay.TextBox2.Text = 100
+                                pay.TextBox3.Text = $"Vehicle Registration for vehicle Type :{vtype} , Invoice ID :{invid}"
+                                If (pay.ShowDialog() = DialogResult.OK) Then
+                                    MessageBox.Show("Payment Successful!")
+                                    reqProceed = True
+                                    Me.Close()
+                                Else
+                                    MessageBox.Show("payment failed!")
+                                    Con.Close()
+                                    Exit Sub
+                                End If
+                            Else
+                                Con.Close()
+                                Exit Sub
+                            End If
+                        Else
+                            MessageBox.Show("You Already placed a vehicle registration request for vehicle type :" & vtype & " , invoice Id :" & invid, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Con.Close()
+                            Exit Sub
+                        End If
+
                     Else
                         command.Parameters.AddWithValue("@Value1", GenerateRandomId())
                         Dim pay = New PaymentGateway() With {
