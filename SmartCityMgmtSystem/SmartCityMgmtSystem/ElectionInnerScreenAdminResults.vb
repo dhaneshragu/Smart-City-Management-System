@@ -2,6 +2,13 @@
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports MySql.Data.MySqlClient
 Public Class ElectionInnerScreenAdminResults
+
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Dim electionInnerScreenAdmin As ElectionInnerScreenAdmin = Nothing
+
+    Public Property innerPanel As Panel
+
     Private Sub LoadandBindDataGridView()
         'Get connection from globals
         Dim Con = Globals.GetDBConnection()
@@ -22,7 +29,7 @@ Public Class ElectionInnerScreenAdminResults
         End If
         reader.Close()
 
-
+        MessageBox.Show(lastElectionID)
 
         Dim updateCmd As New MySqlCommand("SELECT users.name, m.ministry_name, cr.votes, t.votes_received, cr.status
                                             FROM candidate_register cr
@@ -32,7 +39,7 @@ Public Class ElectionInnerScreenAdminResults
                                             JOIN (
                                                 SELECT ministry_id, MAX(votes) AS max_votes
                                                 FROM candidate_register
-                                                WHERE @electionID = 3 and status = 'Approved'
+                                                WHERE election_id = @electionID and status = 'Approved'
                                                 GROUP BY ministry_id
                                             ) max_votes_per_ministry ON cr.ministry_id = max_votes_per_ministry.ministry_id AND cr.votes = max_votes_per_ministry.max_votes
                                             WHERE cr.election_id = @electionID and cr.status = 'Approved';", Con)
@@ -71,7 +78,13 @@ Public Class ElectionInnerScreenAdminResults
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenAdmin)
+        electionInnerScreenAdmin?.Dispose()
+        electionInnerScreenAdmin = New ElectionInnerScreenAdmin With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenAdmin)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -109,7 +122,7 @@ Public Class ElectionInnerScreenAdminResults
         reader.Close()
 
         If announced = 0 Then
-            Dim current_date As String = "2024-01-03"
+            Dim current_date As String = "2024-04-11"
             Dim resultAnnouncementDate As DateTime = DateTime.MinValue
 
             ' Retrieve the value of nomination_start from the last row of the election_time table

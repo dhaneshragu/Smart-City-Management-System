@@ -60,7 +60,6 @@ Public Class Ed_Teacher_Moodle_CourseResource
         Dim form As New Ed_Teacher_Moodle_CourseContent(callingPanel)
         form.CourseContent = course
         Globals.viewChildForm(callingPanel, form)
-        'Globals.viewChildForm(callingPanel, New Ed_Teacher_Moodle_CourseContent(CourseID, callingPanel))
 
     End Sub
 

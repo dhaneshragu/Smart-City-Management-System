@@ -2,7 +2,15 @@
 Public Class Ed_Teacher_EditAssgn
     Private newFont As Font = New Font("Arial", 12)
     Private newFontColor As Color = Color.Black
+    Public CourseItem As Ed_Moodle_Handler.MoodleCourse
+    Public content As Ed_Moodle_Handler.RoomContent
+    Dim handler As New Ed_Moodle_Handler()
+    Public callingPanel As Panel
 
+    Public Sub New(content As Ed_Moodle_Handler.RoomContent)
+        InitializeComponent()
+        Me.content = content
+    End Sub
 
 
     Private Sub btnFont_Click(sender As Object, e As EventArgs) Handles btnFont.Click
@@ -31,6 +39,26 @@ Public Class Ed_Teacher_EditAssgn
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        'Retrieve content from textboxes and call handler to update assgn'
+        Dim resourceName As String = TextBox2.Text
+        Dim textcontent As String = RichTextBox1.Rtf
+
+        handler.UpdateCourseContent(content.RoomID, content.SeqNo, resourceName, "Assignment", "", textcontent)
+
         Me.Close()
+
+        Dim resourceForm As New Ed_Teacher_Moodle_CourseAss(callingPanel)
+
+        resourceForm.content = handler.LoadCourseContent(content.RoomID, content.SeqNo)
+        resourceForm.RoomID = resourceForm.content.RoomID
+        Globals.viewChildForm(callingPanel, resourceForm)
+    End Sub
+
+    Private Sub Ed_Teacher_EditAssgn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Load the content of the course content'
+        Me.AutoScroll = True
+        RichTextBox1.Rtf = content.Content
+        TextBox2.Text = content.ContentName
     End Sub
 End Class

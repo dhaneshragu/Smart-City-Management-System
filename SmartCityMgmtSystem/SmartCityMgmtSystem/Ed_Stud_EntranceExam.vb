@@ -64,7 +64,7 @@
     End Sub
 
     Private Sub Ed_Stud_EntranceExam_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Label2.Text = Ed_GlobalDashboard.userName
     End Sub
 
     Private Sub PictureButtonvb1_Load(sender As Object, e As EventArgs) Handles PictureButtonvb1.Load

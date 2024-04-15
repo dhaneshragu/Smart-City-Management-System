@@ -133,8 +133,26 @@ Public Class TransportManageTollGatesAdmin
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        If String.IsNullOrWhiteSpace(TextBox1.Text) Then
-            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If Not String.IsNullOrWhiteSpace(TextBox1.Text) Then
+            Dim userInput As String = TextBox1.Text
+            Dim intValue As Integer
+
+            If Integer.TryParse(userInput, intValue) Then
+                ' The TextBox contains an integer value
+            Else
+                ' The TextBox does not contain an integer value
+                MessageBox.Show("The Lane ID TextBox does not contain an integer value")
+                Label3.Text = "Add Toll Booth"
+                Button3.Text = "Add"
+                TextBox1.Clear()
+                TextBox6.Clear()
+                ComboBox1.SelectedIndex = -1
+                TextBox3.Clear()
+                Return
+            End If
+        Else
+            ' The TextBox is empty
+            MessageBox.Show("Please enter some input in the Lane ID textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add Toll Booth"
             Button3.Text = "Add"
             TextBox1.Clear()
@@ -143,6 +161,7 @@ Public Class TransportManageTollGatesAdmin
             TextBox3.Clear()
             Return
         End If
+
         If String.IsNullOrWhiteSpace(TextBox6.Text) Then
             MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add Toll Booth"
@@ -163,8 +182,27 @@ Public Class TransportManageTollGatesAdmin
             TextBox3.Clear()
             Return
         End If
-        If String.IsNullOrWhiteSpace(TextBox3.Text) Then
-            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        If Not String.IsNullOrWhiteSpace(TextBox3.Text) Then
+            Dim userInput As String = TextBox3.Text
+            Dim intValue As Integer
+
+            If Integer.TryParse(userInput, intValue) Then
+                ' The TextBox contains an integer value
+            Else
+                ' The TextBox does not contain an integer value
+                MessageBox.Show("The Fare TextBox does not contain an integer value")
+                Label3.Text = "Add Toll Booth"
+                Button3.Text = "Add"
+                TextBox1.Clear()
+                TextBox6.Clear()
+                ComboBox1.SelectedIndex = -1
+                TextBox3.Clear()
+                Return
+            End If
+        Else
+            ' The TextBox is empty
+            MessageBox.Show("Please enter some input in the Fare textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add Toll Booth"
             Button3.Text = "Add"
             TextBox1.Clear()
@@ -173,6 +211,7 @@ Public Class TransportManageTollGatesAdmin
             TextBox3.Clear()
             Return
         End If
+
         If Button3.Text = "Update" Then
             Dim cmd As String
             cmd = "UPDATE tollboothdb SET lane_id = " & Convert.ToInt32(TextBox1.Text) & " , description = '" & TextBox6.Text & "' , allowed_vehicle_types ='" & ComboBox1.SelectedItem.Name & "' , fare_per_vehicle = '" & TextBox3.Text & "' WHERE lane_id =" & primaryKeyEdit

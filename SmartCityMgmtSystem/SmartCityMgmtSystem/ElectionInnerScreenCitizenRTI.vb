@@ -2,22 +2,11 @@
 Imports MySql.Data.MySqlClient
 Public Class ElectionInnerScreenCitizenRTI
 
-    Public Class ProfileClass
-        Private _uid As Integer
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
 
-        ' Public Property declaration
-        Public Property UID() As Integer
-            Get
-                Return _uid
-            End Get
-            Set(value As Integer)
-                _uid = value
-            End Set
-        End Property
-
-    End Class
-
-    Dim instance As New ProfileClass()
+    Public Property innerPanel As Panel
+    Dim electionInnerScreenCitizenRTIPA As ElectionInnerScreenCitizenRTIPA = Nothing
 
     Dim ministryToId As New Dictionary(Of String, Integer)
 
@@ -31,14 +20,16 @@ Public Class ElectionInnerScreenCitizenRTI
         ministryToId.Add("Finance", 7)
         ministryToId.Add("Broadcasting", 8)
         ministryToId.Add("IT", 9)
-
-        instance.UID = 10 ' Setting the value
-        Dim value As Integer = instance.UID ' Getting the value
-
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenCitizenRTIPA)
+        electionInnerScreenCitizenRTIPA?.Dispose()
+        electionInnerScreenCitizenRTIPA = New ElectionInnerScreenCitizenRTIPA With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenCitizenRTIPA)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -58,7 +49,7 @@ Public Class ElectionInnerScreenCitizenRTI
 
         'Get connection from globals
         Dim Con = Globals.GetDBConnection()
-        Dim reader As MySqlDataReader
+        'Dim reader As MySqlDataReader
         Dim cmd As MySqlCommand
 
         Try
@@ -73,7 +64,7 @@ Public Class ElectionInnerScreenCitizenRTI
         Dim queryid = electionTimeRowCount + 1
 
         Dim insertQuery As String = "INSERT INTO rti_queries_table(query_id, citizen_uid, ministry, 
-                                    query, status) VALUES(" & queryid & "," & instance.UID & "," & ministryToId(selectedValue.ToString) & ", """ & TextBox1.Text & """, ""Pending"" )"
+                                    query, status) VALUES(" & queryid & "," & uid & "," & ministryToId(selectedValue.ToString) & ", """ & TextBox1.Text & """, ""Pending"" )"
 
         Dim inserted As Boolean = Globals.ExecuteInsertQuery(insertQuery)
 

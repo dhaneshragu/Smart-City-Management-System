@@ -33,7 +33,7 @@ Public Class Ed_Moodle_CourseResource
 
         AddHandler RichTextBox1.ContentsResized, AddressOf RichTextBox_ContentsResized
 
-        RichTextBox1.Text = content.Content
+        RichTextBox1.Rtf = content.Content
         Label1.Text = content.ContentName
         Dim youtubeUrl As String = content.VideoLink ' Your YouTube video URL
         Dim videoId As String = ExtractYouTubeVideoId(youtubeUrl)

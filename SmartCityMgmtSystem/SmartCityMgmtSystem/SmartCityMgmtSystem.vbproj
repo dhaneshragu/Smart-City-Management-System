@@ -170,6 +170,12 @@
     <Compile Include="Ed_Add_Institution.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ed_admissionPopUp.Designer.vb">
+      <DependentUpon>Ed_admissionPopUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_admissionPopUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_CertButton.Designer.vb">
       <DependentUpon>Ed_CertButton.vb</DependentUpon>
     </Compile>
@@ -223,6 +229,18 @@
     </Compile>
     <Compile Include="Ed_ManageEntrHome.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_List.Designer.vb">
+      <DependentUpon>Ed_Minister_Institute_List.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_List.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_ListItem.Designer.vb">
+      <DependentUpon>Ed_Minister_Institute_ListItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_ListItem.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ed_MoodleResouceLinkItem.Designer.vb">
       <DependentUpon>Ed_MoodleResouceLinkItem.vb</DependentUpon>
@@ -883,6 +901,12 @@
     <Compile Include="lib_NewRequest.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="medicine_buy.Designer.vb">
+      <DependentUpon>medicine_buy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="medicine_buy.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Request-Cancel_Service.Designer.vb">
       <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
     </Compile>
@@ -1206,6 +1230,12 @@
       <DependentUpon>TransportAdminRSReq.vb</DependentUpon>
     </Compile>
     <Compile Include="TransportAdminRSReq.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportSendNotification.Designer.vb">
+      <DependentUpon>TransportSendNotification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TransportSendNotification.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TransportTGEnter.Designer.vb">
@@ -1537,6 +1567,9 @@
     <EmbeddedResource Include="Ed_Add_Institution.resx">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ed_admissionPopUp.resx">
+      <DependentUpon>Ed_admissionPopUp.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ed_CertButton.resx">
       <DependentUpon>Ed_CertButton.vb</DependentUpon>
     </EmbeddedResource>
@@ -1563,6 +1596,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_ManageEntrHome.resx">
       <DependentUpon>Ed_ManageEntrHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Minister_Institute_List.resx">
+      <DependentUpon>Ed_Minister_Institute_List.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Minister_Institute_ListItem.resx">
+      <DependentUpon>Ed_Minister_Institute_ListItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_MoodleResouceLinkItem.resx">
       <DependentUpon>Ed_MoodleResouceLinkItem.vb</DependentUpon>
@@ -1897,6 +1936,9 @@
     <EmbeddedResource Include="lib_request.resx">
       <DependentUpon>lib_request.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="medicine_buy.resx">
+      <DependentUpon>medicine_buy.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Request-Cancel_Service.resx">
       <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
     </EmbeddedResource>
@@ -2052,6 +2094,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransportAdminRSReq.resx">
       <DependentUpon>TransportAdminRSReq.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportSendNotification.resx">
+      <DependentUpon>TransportSendNotification.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransportTGEnter.resx">
       <DependentUpon>TransportTGEnter.vb</DependentUpon>

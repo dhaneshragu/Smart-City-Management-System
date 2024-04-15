@@ -78,7 +78,7 @@ Public Class Ed_Institute_List
         Next
     End Sub
     Private Sub Edit_Label_Click(sender As Object, e As EventArgs)
-        Globals.viewChildForm(callingPanel, New Ed_Institute_Edit(callingPanel))
+        'Globals.viewChildForm(callingPanel, New Ed_Institute_Edit(callingPanel))
     End Sub
 
     Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint

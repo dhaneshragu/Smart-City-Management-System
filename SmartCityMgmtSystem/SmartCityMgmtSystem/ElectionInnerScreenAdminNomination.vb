@@ -10,6 +10,11 @@ Imports System.Threading
 
 Public Class ElectionInnerScreenAdminNomination
 
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+
+    Public Property innerPanel As Panel
+    Dim electionInnerScreenAdmin As ElectionInnerScreenAdmin = Nothing
     ' Create a new dictionary with Integer keys and String values
     Dim ministryToId As New Dictionary(Of String, Integer)
 
@@ -219,7 +224,13 @@ Public Class ElectionInnerScreenAdminNomination
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenAdmin)
+        electionInnerScreenAdmin?.Dispose()
+        electionInnerScreenAdmin = New ElectionInnerScreenAdmin With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenAdmin)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

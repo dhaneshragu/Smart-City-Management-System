@@ -2,8 +2,9 @@
 Public Class Ed_Teacher_AddAssgn
     Private newFont As Font = New Font("Arial", 12)
     Private newFontColor As Color = Color.Black
-
-
+    Public Property callingPanel As Panel
+    Public CourseItem As New Ed_Moodle_Handler.MoodleCourse
+    Dim handler As New Ed_Moodle_Handler()
 
     Private Sub btnFont_Click(sender As Object, e As EventArgs) Handles btnFont.Click
         ' Open font dialog to select font
@@ -31,7 +32,19 @@ Public Class Ed_Teacher_AddAssgn
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        'Retrieve content from textboxes and call handler to add resource'
+        Dim resourceName As String = TextBox2.Text
+        Dim content As String = RichTextBox1.Rtf
+
+        handler.AddCourseContent(CourseItem.RoomID, resourceName, "Assignment", "", content)
+
         Me.Close()
+
+        Dim form As New Ed_Teacher_Moodle_CourseContent(callingPanel)
+        form.CourseContent = CourseItem
+        Globals.viewChildForm(callingPanel, form)
+
     End Sub
 
 End Class

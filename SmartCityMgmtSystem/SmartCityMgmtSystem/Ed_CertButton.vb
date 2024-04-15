@@ -6,6 +6,9 @@ Public Class Ed_CertButton
 
     Private Sub Ed_CertButton_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim certificateName As String = $"{certData.Year}_{certData.Inst_ID}_{certData.Course_ID}_{certData.sClass}"
+        If certData.CertName <> "NO NAME" Then
+            certificateName = certData.CertName
+        End If
 
         Button1.Text = certificateName
     End Sub
