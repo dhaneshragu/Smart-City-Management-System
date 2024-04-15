@@ -95,4 +95,26 @@ Public Class HomePage
         Me.ParentForm.Close()
         Me.Close()
     End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        If uid >= 552 AndAlso uid <= 556 Then
+            Dim Complaints_admin_dashboard = New Complaints_admin_dashboard() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+            Complaints_admin_dashboard.Show()
+            Me.ParentForm.Close()
+            Me.Close()
+
+        Else
+            Dim Complaint_User_Dashboard = New Complaint_User_Dashboard() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+            Complaint_User_Dashboard.Show()
+            Me.ParentForm.Close()
+            Me.Close()
+        End If
+
+    End Sub
 End Class

@@ -411,8 +411,9 @@ Public Class RideSharingChats
             .readonly_prop = True,
             .TopMost = True
             }
-            paymentGateway.TextBox1.Text = 5 'Transport minister UID
 
+            'Pay to the UID of the driver
+            paymentGateway.TextBox1.Text = poster_uid
             paymentGateway.TextBox2.Text = getFare() 'Amount to pay
             paymentGateway.TextBox3.Text = "Ride Sharing Amount payment"
             If paymentGateway.ShowDialog() = DialogResult.OK Then

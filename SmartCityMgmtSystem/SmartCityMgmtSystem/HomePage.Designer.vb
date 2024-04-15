@@ -265,7 +265,7 @@ Partial Class HomePage
         '
         'HomePage
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(15.0!, 26.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.ClientSize = New System.Drawing.Size(1270, 736)
