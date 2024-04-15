@@ -22,25 +22,33 @@ Public Class Employment_portal_applicationstatus
                 con.Open()
 
                 Dim sql As String = "SELECT A.job_id as Job_ID, 
-                     J.job_desc as Description, 
-                     A.status_application as Status,
-                     A.apply_time as Apply_Time
-                     FROM employment_applications as A JOIN employment_jobs as J
-                     WHERE (A.job_id = J.job_id) AND (A.applicant_id = @applicant) 
-                     AND (LOWER(A.status_application) LIKE LOWER(@status) OR @status IS NULL)"
+                 J.job_desc as Description, 
+                 A.status_application as Status,
+                 A.apply_time as Apply_Time
+                 FROM employment_applications as A JOIN employment_jobs as J
+                 WHERE (A.job_id = J.job_id) AND (A.applicant_id = @applicant) 
+                 AND (LOWER(A.status_application) LIKE LOWER(@status) OR @status IS NULL)"
 
                 Using cmd As New MySqlCommand(sql, con)
                     cmd.Parameters.AddWithValue("@applicant", uid)
                     cmd.Parameters.AddWithValue("@status", If(String.IsNullOrEmpty(StatusBox.Text), DBNull.Value, "%" & StatusBox.Text.ToLower() & "%"))
 
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
-                        dataTable.Load(reader)
-                        MessageBox.Show("Read Success")
+                        If reader.HasRows Then
+                            dataTable.Load(reader)
+                            MessageBox.Show("Read Success")
+                        Else
+                            MessageBox.Show("No matching records found.")
+                        End If
                     End Using
                 End Using
             End Using
+        Catch ex As MySqlException When ex.Number = 0 ' MySQL error number for server errors
+            MessageBox.Show("Error: Unable to connect to the database server. Please check your internet connection or contact support.")
+        Catch ex As MySqlException
+            MessageBox.Show("Error: Database error occurred. Please try again later.")
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+            MessageBox.Show("An unexpected error occurred. Please contact support.")
         End Try
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table

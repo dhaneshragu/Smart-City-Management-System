@@ -149,6 +149,7 @@ Partial Class Employment_portal_search
         '
         Me.Qual.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Qual.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Qual.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Qual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Qual.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.Qual.ForeColor = System.Drawing.Color.White

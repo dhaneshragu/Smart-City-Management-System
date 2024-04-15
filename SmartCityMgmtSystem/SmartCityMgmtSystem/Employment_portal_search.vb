@@ -121,19 +121,18 @@ ORDER BY employment_jobs.department, n.digit;"
                 con.Open()
 
                 Dim sql As String = "SELECT job_id as ID, 
-                             job_desc as Description, 
-                             department as Department,
-                             salary as Salary,
-                             deadline as Deadline,
-                             qualification as Qualification 
-                             FROM employment_jobs
-                             WHERE (job_id = @jobid OR @jobid IS NULL) 
-                             AND (LOWER(job_desc) LIKE LOWER(@jobdesc) OR @jobdesc IS NULL) 
-                             AND (LOWER(department) LIKE LOWER(@dept) OR @dept IS NULL) 
-                             AND (salary >= @salary OR @salary IS NULL) 
-                             AND (LOWER(qualification) LIKE LOWER(@qualification) OR @qualification IS NULL)
-                             AND (deadline > @deadline)"
-
+                         job_desc as Description, 
+                         department as Department,
+                         salary as Salary,
+                         deadline as Deadline,
+                         qualification as Qualification 
+                         FROM employment_jobs
+                         WHERE (job_id = @jobid OR @jobid IS NULL) 
+                         AND (LOWER(job_desc) LIKE LOWER(@jobdesc) OR @jobdesc IS NULL) 
+                         AND (LOWER(department) LIKE LOWER(@dept) OR @dept IS NULL) 
+                         AND (salary >= @salary OR @salary IS NULL) 
+                         AND (LOWER(qualification) LIKE LOWER(@qualification) OR @qualification IS NULL)
+                         AND (deadline > @deadline)"
 
                 Using cmd As New MySqlCommand(sql, con)
                     cmd.Parameters.AddWithValue("@jobid", If(String.IsNullOrEmpty(Job_ID.Text), DBNull.Value, Job_ID.Text))
@@ -143,14 +142,22 @@ ORDER BY employment_jobs.department, n.digit;"
                     cmd.Parameters.AddWithValue("@deadline", Date.Now())
                     cmd.Parameters.AddWithValue("@qualification", If(String.IsNullOrEmpty(Qual.Text), DBNull.Value, "%" & Qual.Text.ToLower() & "%"))
 
-
                     Dim adapter As New MySqlDataAdapter(cmd)
                     adapter.Fill(dataTable)
-                    MessageBox.Show("Read Success")
+
+                    If dataTable.Rows.Count = 0 Then
+                        MessageBox.Show("No matching records found.")
+                    Else
+                        MessageBox.Show("Search successful.")
+                    End If
                 End Using
             End Using
+        Catch ex As MySqlException When ex.Number = 0 ' MySQL error number for server errors
+            MessageBox.Show("Error: Unable to connect to the database server. Please check your internet connection or contact support.")
+        Catch ex As MySqlException
+            MessageBox.Show("Error: Database error occurred. Please try again later.")
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+            MessageBox.Show("An unexpected error occurred. Please contact support.")
         End Try
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table

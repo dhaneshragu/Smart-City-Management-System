@@ -113,6 +113,7 @@ Partial Class Employment_portal_admin_add
         '
         Me.Qualification.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Qualification.BackColor = System.Drawing.SystemColors.Window
+        Me.Qualification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Qualification.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Qualification.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.Qualification.ForeColor = System.Drawing.Color.Black
