@@ -302,7 +302,7 @@ Public Class TransportationAdminHome
     End Sub
 
     Private Sub PictureBox10_Click(sender As Object, e As EventArgs) Handles PictureBox10.Click
-        'All admins can view this
+        'All admins can view notification screen
         transportSendNotification?.Dispose()
         transportSendNotification = New TransportSendNotification()
         Globals.viewChildForm(innerPanel, transportSendNotification)
