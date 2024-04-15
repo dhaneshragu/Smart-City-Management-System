@@ -298,6 +298,7 @@ Public Class TransportDrivingLicenseReq
         End If
         payClicked = True
         LoadAndBindData()
+        VTypeCb.SelectedIndex = -1
     End Sub
 
     Private Sub Canceltb_Click(sender As Object, e As EventArgs) Handles Canceltb.Click
