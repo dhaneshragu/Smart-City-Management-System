@@ -23,6 +23,7 @@ Partial Class Service_Provider
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -52,7 +53,6 @@ Partial Class Service_Provider
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.childformPanel.SuspendLayout()
@@ -76,6 +76,26 @@ Partial Class Service_Provider
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(282, 783)
         Me.Panel1.TabIndex = 0
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Tahoma", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_reject_64
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button1.Location = New System.Drawing.Point(-8, 686)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button1.Size = New System.Drawing.Size(294, 82)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "      Leave                   Scheduler"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Button7
         '
@@ -239,7 +259,7 @@ Partial Class Service_Provider
         Me.RichTextBox14.Name = "RichTextBox14"
         Me.RichTextBox14.Size = New System.Drawing.Size(313, 42)
         Me.RichTextBox14.TabIndex = 10
-        Me.RichTextBox14.Text = "Placeholder"
+        Me.RichTextBox14.Text = ".............."
         '
         'RichTextBox13
         '
@@ -259,7 +279,7 @@ Partial Class Service_Provider
         Me.RichTextBox12.Name = "RichTextBox12"
         Me.RichTextBox12.Size = New System.Drawing.Size(227, 42)
         Me.RichTextBox12.TabIndex = 8
-        Me.RichTextBox12.Text = "Placeholder"
+        Me.RichTextBox12.Text = "................"
         '
         'RichTextBox11
         '
@@ -306,7 +326,7 @@ Partial Class Service_Provider
         Me.RichTextBox7.Name = "RichTextBox7"
         Me.RichTextBox7.Size = New System.Drawing.Size(313, 42)
         Me.RichTextBox7.TabIndex = 3
-        Me.RichTextBox7.Text = "Placeholder"
+        Me.RichTextBox7.Text = "..............."
         '
         'RichTextBox8
         '
@@ -326,7 +346,7 @@ Partial Class Service_Provider
         Me.RichTextBox9.Name = "RichTextBox9"
         Me.RichTextBox9.Size = New System.Drawing.Size(227, 42)
         Me.RichTextBox9.TabIndex = 1
-        Me.RichTextBox9.Text = "Placeholder"
+        Me.RichTextBox9.Text = "..............."
         '
         'DateTimePicker1
         '
@@ -428,26 +448,6 @@ Partial Class Service_Provider
         Me.Button6.TabIndex = 7
         Me.Button6.Text = "      Home Page"
         Me.Button6.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.NavajoWhite
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Tahoma", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_reject_64
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button1.Location = New System.Drawing.Point(-8, 686)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button1.Size = New System.Drawing.Size(294, 82)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "      Leave                   Scheduler"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'Service_Provider
         '

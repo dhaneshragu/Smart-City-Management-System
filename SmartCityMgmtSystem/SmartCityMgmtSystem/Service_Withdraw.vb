@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Runtime.Remoting
+Imports Microsoft.VisualBasic.ApplicationServices
+Imports System.Security.Cryptography
 Imports MySql.Data.MySqlClient
 Public Class Service_Withdraw
     Public Property uid As Integer = 1
@@ -48,16 +50,49 @@ Public Class Service_Withdraw
 
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
-
     End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs)
+
+        Dim usersScheduled As New List(Of Integer)()
+
+
         Try
             Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
                 con.Open()
                 Dim rowsToRemove As New List(Of DataGridViewRow)
                 For Each row As DataGridViewRow In DataGridView1.Rows
                     If CBool(row.Cells("Column6").Value) Then
+                        Dim sqlSelectUsers As String = "SELECT DISTINCT requester_id FROM services_scheduled WHERE provider_id = @userID;"
+
+                        Using cmdSelectUsers As New MySqlCommand(sqlSelectUsers, con)
+                            cmdSelectUsers.Parameters.AddWithValue("@userID", uid)
+
+                            Using reader As MySqlDataReader = cmdSelectUsers.ExecuteReader()
+                                While reader.Read()
+                                    usersScheduled.Add(reader.GetInt32("requester_id"))
+                                End While
+                            End Using
+                        End Using
+
+                        For Each userID As Integer In usersScheduled
+                            Dim userNotification As String = "Sorry! You scheduled Service from the Provider UID " & uid & " has been withdrawn."
+                            Globals.SendNotifications(2, userID, "Service Cancelled", userNotification)
+                            MessageBox.Show("All scheduled Users have been notified", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Next
+
+                        Dim sql1 As String = "DELETE FROM services_scheduled
+                                             WHERE provider_id = @userID;"
+                        Using cmd1 As New MySqlCommand(sql1, con)
+                            cmd1.Parameters.AddWithValue("@userID", uid)
+                            cmd1.ExecuteNonQuery()
+                        End Using
+
+                        Dim sql2 As String = "DELETE FROM service_leave
+                                              WHERE user_id = @userID;"
+                        Using cmd2 As New MySqlCommand(sql2, con)
+                            cmd2.Parameters.AddWithValue("@userID", uid)
+                            cmd2.ExecuteNonQuery()
+                        End Using
 
                         Dim sql As String = "DELETE FROM service_desc
                                              WHERE user_id = @userID;"

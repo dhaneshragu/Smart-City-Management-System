@@ -20,7 +20,9 @@ Public Class Service_Scheduled
                                     start_time AS startTime
                                     From services_scheduled ss
                                     WHERE provider_id = @serviceID
-                                    AND schedule_date >= @cur_date;"
+                                    AND schedule_date >= @cur_date
+                                    ORDER BY schedule_date ASC,
+                                    start_time ASC;"
 
                 Using cmd As New MySqlCommand(sql, con)
                     cmd.Parameters.AddWithValue("@serviceID", uid)
