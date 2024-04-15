@@ -72,7 +72,7 @@ Public Class TransportRSReqPost
                 Dim src As String = reader("src").ToString
                 Dim dest As String = reader("dest").ToString
                 Dim DT As String = reader("DT").ToString
-                Globals.SendNotifications(5, uid, "Your ride sharing request is Approved", $"Your ride sharing request with request id {req_id} from {src} to {dest} at {DT} is approved ")
+                Globals.SendNotifications(4, uid, "Your ride sharing request is Approved", $"Your ride sharing request with request id {req_id} from {src} to {dest} at {DT} is approved ")
             End While
             reader.Close()
             acceptclick = False
@@ -98,7 +98,7 @@ Public Class TransportRSReqPost
             Dim src As String = reader("src").ToString
             Dim dest As String = reader("dest").ToString
             Dim DT As String = reader("DT").ToString
-            Globals.SendNotifications(5, uid, "Your ride sharing request is Rejected", $"Your ride sharing request with request id {req_id} from {src} to {dest} at {DT} is rejected ")
+                Globals.SendNotifications(4, uid, "Your ride sharing request is Rejected", $"Your ride sharing request with request id {req_id} from {src} to {dest} at {DT} is rejected ")
             End While
             reader.Close()
             rejectclick = False
