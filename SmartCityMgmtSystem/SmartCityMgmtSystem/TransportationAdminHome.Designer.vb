@@ -202,7 +202,7 @@ Partial Class TransportationAdminHome
         Me.DataGridViewImageColumn1.ReadOnly = True
         Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn1.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn1.Width = 123
+        Me.DataGridViewImageColumn1.Width = 125
         '
         'DataGridViewImageColumn2
         '
@@ -221,7 +221,7 @@ Partial Class TransportationAdminHome
         Me.DataGridViewImageColumn2.ReadOnly = True
         Me.DataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn2.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn2.Width = 123
+        Me.DataGridViewImageColumn2.Width = 125
         '
         'Panel3
         '
@@ -627,7 +627,7 @@ Partial Class TransportationAdminHome
         Me.Label4.Location = New System.Drawing.Point(21, 7)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(223, 46)
+        Me.Label4.Size = New System.Drawing.Size(235, 50)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "      Admin Home"
         '

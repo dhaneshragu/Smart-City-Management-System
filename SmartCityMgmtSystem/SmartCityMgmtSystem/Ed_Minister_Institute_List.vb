@@ -1,8 +1,12 @@
 ﻿Imports System.Data.SqlClient
+Imports SmartCityMgmtSystem.Ed_Coursera_Handler
 Imports SmartCityMgmtSystem.Ed_Institute_Handler
 Public Class Ed_Minister_Institute_List
 
     Dim handler As New Ed_Institute_Handler()
+
+    ' Fetch institutes data from the database
+    Dim institutes As EdInstitution() = handler.GetAllInstitutions()
 
     Private callingPanel As Panel
     Public Property user_type As String
@@ -16,12 +20,9 @@ Public Class Ed_Minister_Institute_List
         user_type = usertype
     End Sub
 
-    Private Sub Ed_Stud_Coursera_Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Get the database connection string
-        Dim connectionString As String = Globals.getdbConnectionString()
-
-        ' Fetch institutes data from the database
-        Dim institutes As EdInstitution() = handler.GetAllInstitutions()
+    Private Sub DisplayInst(institutes As EdInstitution())
+        ' Clear existing institute items from the FlowLayoutPanel
+        FlowLayoutPanel1.Controls.Clear()
 
 
         ' Create and populate Ed_Institute_ListItem controls
@@ -65,6 +66,21 @@ Public Class Ed_Minister_Institute_List
         Next
     End Sub
 
+    Private Sub Ed_Stud_Coursera_Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        DisplayInst(institutes)
+
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        Dim searchText As String = TextBox1.Text.Trim() ' Get the search text from the textbox
+
+        ' Filter institues based on the matching institute  name'
+        Dim filteredInstitutes As EdInstitution() = institutes.Where(Function(institute) institute.Inst_Name.Contains(searchText)).ToArray()
+        DisplayInst(filteredInstitutes)
+    End Sub
 
     Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
 

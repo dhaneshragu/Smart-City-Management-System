@@ -134,8 +134,32 @@ Public Class TransportationManageFastagAdmin
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        If String.IsNullOrWhiteSpace(TextBox1.Text) Then
-            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Dim t1, t2, t3, t4 As Int16
+        t1 = 0
+        t2 = 1
+        t3 = 0
+        t4 = 0
+        If Not String.IsNullOrWhiteSpace(TextBox1.Text) Then
+            Dim userInput As String = TextBox1.Text
+            Dim intValue As Integer
+
+            If Integer.TryParse(userInput, intValue) Then
+                ' The TextBox contains an integer value
+                t1 = 1
+            Else
+                ' The TextBox does not contain an integer value
+                MessageBox.Show("The Plan Number TextBox does not contain an integer value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Label3.Text = "Add Fastag Plan"
+                Button3.Text = "Add"
+                TextBox1.Clear()
+                ComboBox1.SelectedIndex = -1
+                TextBox2.Clear()
+                TextBox3.Clear()
+                Return
+            End If
+        Else
+            ' The TextBox is empty
+            MessageBox.Show("Please enter some input in the Plan Number textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add Fastag Plan"
             Button3.Text = "Add"
             TextBox1.Clear()
@@ -145,6 +169,7 @@ Public Class TransportationManageFastagAdmin
             Return
         End If
         If ComboBox1.SelectedIndex = -1 Then
+            t2 = 0
             MessageBox.Show("Please enter some thing into comboBox", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add Fastag Plan"
             Button3.Text = "Add"
@@ -154,8 +179,27 @@ Public Class TransportationManageFastagAdmin
             TextBox3.Clear()
             Return
         End If
-        If String.IsNullOrWhiteSpace(TextBox2.Text) Then
-            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If Not String.IsNullOrWhiteSpace(TextBox2.Text) Then
+            Dim userInput As String = TextBox2.Text
+            Dim intValue As Integer
+
+            If Integer.TryParse(userInput, intValue) Then
+                ' The TextBox contains an integer value
+                t3 = 1
+            Else
+                ' The TextBox does not contain an integer value
+                MessageBox.Show("The Fee amount TextBox does not contain an integer value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Label3.Text = "Add Fastag Plan"
+                Button3.Text = "Add"
+                TextBox1.Clear()
+                ComboBox1.SelectedIndex = -1
+                TextBox2.Clear()
+                TextBox3.Clear()
+                Return
+            End If
+        Else
+            ' The TextBox is empty
+            MessageBox.Show("Please enter some input in the Fee amount textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add Fastag Plan"
             Button3.Text = "Add"
             TextBox1.Clear()
@@ -164,8 +208,26 @@ Public Class TransportationManageFastagAdmin
             TextBox3.Clear()
             Return
         End If
-        If String.IsNullOrWhiteSpace(TextBox3.Text) Then
-            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If Not String.IsNullOrWhiteSpace(TextBox3.Text) Then
+            Dim userInput As String = TextBox3.Text
+            Dim intValue As Integer
+
+            If Integer.TryParse(userInput, intValue) Then
+                ' The TextBox contains an integer value
+                t4 = 1
+            Else
+                MessageBox.Show("The Validity TextBox does not contain an integer value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Label3.Text = "Add Fastag Plan"
+                Button3.Text = "Add"
+                TextBox1.Clear()
+                ComboBox1.SelectedIndex = -1
+                TextBox2.Clear()
+                TextBox3.Clear()
+                Return
+            End If
+        Else
+            ' The TextBox is empty
+            MessageBox.Show("Please enter some input in the Validity textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add Fastag Plan"
             Button3.Text = "Add"
             TextBox1.Clear()
@@ -175,34 +237,38 @@ Public Class TransportationManageFastagAdmin
             Return
         End If
         If Button3.Text = "Update" Then
-            Dim cmd As String
-            cmd = "UPDATE fastag_plans SET id = " & Convert.ToInt32(TextBox1.Text) & " , vehicle_type = " & ComboBox1.SelectedValue & " , fee_amt =" & Convert.ToInt32(TextBox2.Text) & " , validity_months = " & Convert.ToInt32(TextBox3.Text) & " WHERE id =" & primaryKeyEdit
-            Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
-            If success Then
-                LoadandBindDataGridView()
+            If t1 = 1 And t2 = 1 And t3 = 1 And t4 = 1 Then
+                Dim cmd As String
+                cmd = "UPDATE fastag_plans SET id = " & Convert.ToInt32(TextBox1.Text) & " , vehicle_type = " & ComboBox1.SelectedValue & " , fee_amt =" & Convert.ToInt32(TextBox2.Text) & " , validity_months = " & Convert.ToInt32(TextBox3.Text) & " WHERE id =" & primaryKeyEdit
+                Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
+                If success Then
+                    LoadandBindDataGridView()
 
+                End If
+                Dim veh As String = ComboBox1.SelectedItem.GetType().GetProperty("Name").GetValue(ComboBox1.SelectedItem).ToString()
+                Globals.SendNotifications(4, -1, "Fastag Plan Updated", "An existing fastag plan with id " & TextBox1.Text & " has been updated by the admin with new vehicle type " & veh & ", fee as " & TextBox2.Text & " rupees and validity for " & TextBox3.Text & " months.")
+                Label3.Text = "Add Fastag Plan"
+                Button3.Text = "Add"
+                TextBox1.Clear()
+                ComboBox1.SelectedIndex = -1
+                TextBox2.Clear()
+                TextBox3.Clear()
             End If
-            Dim veh As String = ComboBox1.SelectedItem.GetType().GetProperty("Name").GetValue(ComboBox1.SelectedItem).ToString()
-            Globals.SendNotifications(4, -1, "Fastag Plan Updated", "An existing fastag plan with id " & TextBox1.Text & " has been updated by the admin with new vehicle type " & veh & ", fee as " & TextBox2.Text & " rupees and validity for " & TextBox3.Text & " months.")
-            Label3.Text = "Add Fastag Plan"
-            Button3.Text = "Add"
-            TextBox1.Clear()
-            ComboBox1.SelectedIndex = -1
-            TextBox2.Clear()
-            TextBox3.Clear()
         Else
-            Dim cmd As String
-            cmd = "INSERT into fastag_plans(id,vehicle_type,fee_amt,validity_months) VALUES (" & Convert.ToInt32(TextBox1.Text) & "," & ComboBox1.SelectedValue & "," & Convert.ToInt32(TextBox2.Text) & "," & Convert.ToInt32(TextBox3.Text) & ")"
-            Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
-            If success Then
-                LoadandBindDataGridView()
+            If t1 = 1 And t2 = 1 And t3 = 1 And t4 = 1 Then
+                Dim cmd As String
+                cmd = "INSERT into fastag_plans(id,vehicle_type,fee_amt,validity_months) VALUES (" & Convert.ToInt32(TextBox1.Text) & "," & ComboBox1.SelectedValue & "," & Convert.ToInt32(TextBox2.Text) & "," & Convert.ToInt32(TextBox3.Text) & ")"
+                Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
+                If success Then
+                    LoadandBindDataGridView()
+                End If
+                Dim veh As String = ComboBox1.SelectedItem.GetType().GetProperty("Name").GetValue(ComboBox1.SelectedItem).ToString()
+                Globals.SendNotifications(4, -1, "Fastag Plan Added", "A new fastag plan with id " & TextBox1.Text & " has been added by the admin with vehicle type " & veh & ", fee as " & TextBox2.Text & " rupees and validity for " & TextBox3.Text & " months.")
+                TextBox1.Clear()
+                ComboBox1.SelectedIndex = -1
+                TextBox2.Clear()
+                TextBox3.Clear()
             End If
-            Dim veh As String = ComboBox1.SelectedItem.GetType().GetProperty("Name").GetValue(ComboBox1.SelectedItem).ToString()
-            Globals.SendNotifications(4, -1, "Fastag Plan Added", "A new fastag plan with id " & TextBox1.Text & " has been added by the admin with vehicle type " & veh & ", fee as " & TextBox2.Text & " rupees and validity for " & TextBox3.Text & " months.")
-            TextBox1.Clear()
-            ComboBox1.SelectedIndex = -1
-            TextBox2.Clear()
-            TextBox3.Clear()
         End If
     End Sub
 End Class
