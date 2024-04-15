@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.ComponentModel.DataAnnotations
+Imports System.Data.SqlClient
 Imports System.Runtime.InteropServices.ComTypes
 Imports MySql.Data.MySqlClient
 Imports Mysqlx
@@ -17,8 +18,8 @@ Public Class TransportAdminDLReq
             row1 = e.RowIndex
             Dim cellValue As Object = DataGridView1.Rows(row1).Cells(0).Value
             Integer.TryParse(cellValue.ToString(), uid)
-            vTypeId = DataGridView1.Rows(row1).Cells(3).Value
-            vType = TransportGlobals.GetVehicleType(vTypeId)
+            vType = DataGridView1.Rows(row1).Cells(3).Value
+            vTypeId = TransportGlobals.GetVehicleTypeID(vType)
             LoadandBindDataGridView()
 
             ' Check if the clicked cell is in the "Column8" column and not a header cell
@@ -28,8 +29,8 @@ Public Class TransportAdminDLReq
             row1 = e.RowIndex
             Dim cellValue As Object = DataGridView1.Rows(row1).Cells(0).Value
             Integer.TryParse(cellValue.ToString(), uid)
-            vTypeId = DataGridView1.Rows(row1).Cells(3).Value
-            vType = TransportGlobals.GetVehicleType(vTypeId)
+            vType = DataGridView1.Rows(row1).Cells(3).Value
+            vTypeId = TransportGlobals.GetVehicleTypeID(vType)
             LoadandBindDataGridView()
 
         End If
@@ -63,7 +64,7 @@ Public Class TransportAdminDLReq
                 Accept_click = 0
                 ' Execute the command (Update statement)
                 command.ExecuteNonQuery()
-                Globals.SendNotifications(4, uid, "Driving License Approved", "Your Request for Driving License for vehicle Type " & vType & " is approved you can view your Driving License in the Driving License Request Page")
+                Globals.SendNotifications(4, uid, "Driving License Approved", "You have passed your Driving License Test for vehicle Type " & vType & ". You can view your Driving License in your Driving License Page. Happy Driving!")
             ElseIf Reject_click = 1 Then
 
                 command.Parameters.AddWithValue("@c", "fail")
@@ -72,12 +73,12 @@ Public Class TransportAdminDLReq
                 Reject_click = 0
                 ' Execute the command (Update statement)
                 command.ExecuteNonQuery()
-                Globals.SendNotifications(4, uid, "Driving License Request Rejected", "Your Request for Driving License for vehicle Type " & vType & " is rejected you can view your Driving License in the Driving License Request Page")
+                Globals.SendNotifications(4, uid, "Driving License Request Rejected", "You have failed your Driving License test for vehicle Type " & vType & ". Better luck next time!")
             End If
 
         End Using
 
-        cmd = New MySqlCommand("SELECT uid, vehicle_type, req_type, fee_paid, name, age FROM dl_entries JOIN users ON dl_entries.uid = users.user_id where test_status is NULL ", Con)
+        cmd = New MySqlCommand("SELECT uid, vehicle_type as vehicle_type_ID, req_type, fee_paid, name, age FROM dl_entries JOIN users ON dl_entries.uid = users.user_id where test_status is NULL ", Con)
         reader = cmd.ExecuteReader
         ' Create a DataTable to store the data
         Dim dataTable As New DataTable()
@@ -86,6 +87,17 @@ Public Class TransportAdminDLReq
         dataTable.Load(reader)
         reader.Close()
         Con.Close()
+        Dim NewColumn As DataColumn = New DataColumn("vehicle_type", GetType(String))
+
+        ' Add the new column to the DataTable
+        dataTable.Columns.Add(NewColumn)
+        If dataTable.Rows.Count > 0 Then
+            For Each row As DataRow In dataTable.Rows
+                Dim id As Integer = If(Not IsDBNull(row("vehicle_type_ID")), Convert.ToInt32(row("vehicle_type_ID")), "")
+                Dim name As String = (TransportGlobals.GetVehicleType(id)).ToString()
+                row("vehicle_type") = name
+            Next
+        End If
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False

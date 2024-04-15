@@ -34,7 +34,7 @@ Public Class TransportDrivingLicenseReq
                                     End Using
                                 End If
                             End If
-                            PictureBox1.Image = Nothing
+                            PictureBox1.Image = PictureBox1.Image
                             ' Load profile photo
                             If Not IsDBNull(reader("profile_photo")) Then
                                 Dim profilePhotoData As Byte() = DirectCast(reader("profile_photo"), Byte())
@@ -174,6 +174,7 @@ Public Class TransportDrivingLicenseReq
                             command.Parameters.AddWithValue("@Value4", 1)
                             Dim row As Integer = Convert.ToInt32(foundRowIndex)
                             Dim isValid As Boolean = True
+                            Dim reqProceed As Boolean = False
                             If dataTable2.Rows.Count > 0 Then
                                 command.Parameters.AddWithValue("@Value1", dataTable2.Rows(0)("dl_id"))
                                 command.Parameters.AddWithValue("@Value5", "renew")
@@ -186,32 +187,65 @@ Public Class TransportDrivingLicenseReq
                                         ' Process the test status
                                         If testStatus = "pass" Then
                                             MessageBox.Show("You already have a driving license for the vehicle type " & vtype, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                            isValid = False
                                         ElseIf testStatus = "fail" Then
                                             Dim result As DialogResult = MessageBox.Show("Your previous request for this vehicle type was rejected. Do you want to apply again?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
                                             If result = DialogResult.OK Then
-                                                MessageBox.Show("Payment request will be sent", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                                Dim pay = New PaymentGateway() With {
+                                                    .uid = uid,
+                                                    .readonly_prop = True
+                                                }
+                                                pay.TextBox1.Text = 5
+                                                pay.TextBox2.Text = 100
+                                                pay.TextBox3.Text = $"Driving License Registration Fee for Vehicle Type : {vtype}"
+                                                If (pay.ShowDialog() = DialogResult.OK) Then
+                                                    MessageBox.Show("Payment Successful!")
+                                                    reqProceed = True
+                                                    Me.Close()
+                                                Else
+                                                    MessageBox.Show("payment failed!")
+                                                    connection.Close()
+                                                    Exit Sub
+                                                End If
                                             Else
                                                 isValid = False
                                             End If
                                         End If
                                     Else
                                         MessageBox.Show("You Already placed a request for vehicle type :" & vtype, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                        isValid = False
                                     End If
                                 Else
-                                    MessageBox.Show("Payment request will be sent", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    Dim pay = New PaymentGateway() With {
+                                                   .uid = uid,
+                                                   .readonly_prop = True
+                                               }
+                                    pay.TextBox1.Text = 5
+                                    pay.TextBox2.Text = 100
+                                    pay.TextBox3.Text = $"Driving License Registration Fee for Vehicle Type : {vtype}"
+                                    If (pay.ShowDialog() = DialogResult.OK) Then
+                                        MessageBox.Show("Payment Successful!")
+                                        reqProceed = True
+                                        Me.Close()
+                                    Else
+                                        MessageBox.Show("payment failed!")
+                                        connection.Close()
+                                        Exit Sub
+                                    End If
                                 End If
                             Else
                                 currentDlId += 1
                                 command.Parameters.AddWithValue("@Value1", currentDlId)
                                 command.Parameters.AddWithValue("@Value5", "fresh")
                             End If
-                            If isValid Then
+                            If isValid AndAlso reqProceed Then
                                 command.ExecuteNonQuery()
                             End If
                         End Using
                     End If
                     payClicked = False
                 End If
+                connection.Close()
             End Using
 
         Catch ex As Exception

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class UserLogin
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class UserLogin
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -31,9 +31,7 @@ Partial Class UserLogin
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -94,9 +92,7 @@ Partial Class UserLogin
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.TextBox3)
@@ -110,10 +106,10 @@ Partial Class UserLogin
         '
         Me.TextBox1.BackColor = System.Drawing.Color.Linen
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(193, 52)
+        Me.TextBox1.Location = New System.Drawing.Point(193, 71)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(273, 26)
+        Me.TextBox1.Size = New System.Drawing.Size(273, 33)
         Me.TextBox1.TabIndex = 1
         '
         'Button3
@@ -134,7 +130,7 @@ Partial Class UserLogin
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(55, 52)
+        Me.Label2.Location = New System.Drawing.Point(55, 78)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(81, 26)
         Me.Label2.TabIndex = 0
@@ -150,16 +146,6 @@ Partial Class UserLogin
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "Don't have an account?"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(55, 108)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(88, 26)
-        Me.Label4.TabIndex = 2
-        Me.Label4.Text = "Email ID"
-        '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.Goldenrod
@@ -172,16 +158,6 @@ Partial Class UserLogin
         Me.Button2.TabIndex = 7
         Me.Button2.Text = "Login"
         Me.Button2.UseVisualStyleBackColor = False
-        '
-        'TextBox2
-        '
-        Me.TextBox2.BackColor = System.Drawing.Color.Linen
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox2.Location = New System.Drawing.Point(193, 109)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(273, 26)
-        Me.TextBox2.TabIndex = 3
         '
         'Button1
         '
@@ -201,7 +177,7 @@ Partial Class UserLogin
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(55, 164)
+        Me.Label5.Location = New System.Drawing.Point(55, 153)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(100, 26)
         Me.Label5.TabIndex = 4
@@ -211,10 +187,10 @@ Partial Class UserLogin
         '
         Me.TextBox3.BackColor = System.Drawing.Color.Linen
         Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox3.Location = New System.Drawing.Point(193, 164)
+        Me.TextBox3.Location = New System.Drawing.Point(193, 143)
         Me.TextBox3.Multiline = True
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(273, 26)
+        Me.TextBox3.Size = New System.Drawing.Size(273, 36)
         Me.TextBox3.TabIndex = 5
         '
         'UserLogin
@@ -229,6 +205,7 @@ Partial Class UserLogin
         Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MaximizeBox = False
         Me.Name = "UserLogin"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Transportation"
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -246,8 +223,6 @@ Partial Class UserLogin
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents Button2 As Button

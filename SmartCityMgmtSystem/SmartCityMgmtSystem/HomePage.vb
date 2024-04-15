@@ -16,7 +16,10 @@ Public Class HomePage
     End Sub
 
     Private Sub electionDept_Click(sender As Object, e As EventArgs) Handles electionDept.Click
-        Dim elec = New ElectionDashboard()
+        Dim elec = New ElectionDashboard With {
+            .uid = uid,
+            .u_name = u_name
+        }
         elec.Show()
         Me.ParentForm.Close()
         Me.Close()
@@ -60,7 +63,10 @@ Public Class HomePage
     End Sub
 
     Private Sub healthDept_Click(sender As Object, e As EventArgs) Handles healthDept.Click
-        Dim health = New Healthcare_homepage()
+        Dim health = New Healthcare_homepage() With {
+            .uid = uid,
+            .u_name = u_name
+        }
         health.Show()
         Me.ParentForm.Close()
         Me.Close()
@@ -68,6 +74,26 @@ Public Class HomePage
 
     Private Sub HomePage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'MessageBox.Show(uid.ToString + " " + u_name)
+    End Sub
+
+    Private Sub Service_dept_Click(sender As Object, e As EventArgs) Handles Service_dept.Click
+        Dim service_portal = New Service_Portal() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        service_portal.Show()
+        Me.ParentForm.Close()
+        Me.Close()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim employment_portal = New Employment_portal() With {
+            .uid = uid,
+            .u_name = u_name
+        }
+        employment_portal.Show()
+        Me.ParentForm.Close()
+        Me.Close()
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click

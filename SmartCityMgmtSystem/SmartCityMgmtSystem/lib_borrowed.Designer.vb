@@ -24,6 +24,12 @@ Partial Class lib_borrowed
     Private Sub InitializeComponent()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.childformPanel = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.borrowedTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel20 = New System.Windows.Forms.Panel()
@@ -49,6 +55,8 @@ Partial Class lib_borrowed
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.childformPanel.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        Me.Panel7.SuspendLayout()
         Me.borrowedTableLayout.SuspendLayout()
         Me.Panel20.SuspendLayout()
         Me.Panel13.SuspendLayout()
@@ -80,6 +88,7 @@ Partial Class lib_borrowed
         'childformPanel
         '
         Me.childformPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.childformPanel.Controls.Add(Me.Panel6)
         Me.childformPanel.Controls.Add(Me.Button7)
         Me.childformPanel.Controls.Add(Me.borrowedTableLayout)
         Me.childformPanel.Controls.Add(Me.RenewButton)
@@ -92,6 +101,75 @@ Partial Class lib_borrowed
         Me.childformPanel.Name = "childformPanel"
         Me.childformPanel.Size = New System.Drawing.Size(1276, 737)
         Me.childformPanel.TabIndex = 9
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
+        Me.Panel6.Controls.Add(Me.Label4)
+        Me.Panel6.Controls.Add(Me.Button8)
+        Me.Panel6.Controls.Add(Me.Panel7)
+        Me.Panel6.Controls.Add(Me.TextBox2)
+        Me.Panel6.Location = New System.Drawing.Point(431, 236)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(365, 341)
+        Me.Panel6.TabIndex = 40
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(120, 213)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(132, 23)
+        Me.Label4.TabIndex = 26
+        Me.Label4.Text = "(Rate from 0-5)"
+        '
+        'Button8
+        '
+        Me.Button8.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Button8.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Font = New System.Drawing.Font("Agency FB", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Location = New System.Drawing.Point(114, 246)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(143, 53)
+        Me.Button8.TabIndex = 25
+        Me.Button8.Text = "Confirm"
+        Me.Button8.UseVisualStyleBackColor = False
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Panel7.Controls.Add(Me.Label3)
+        Me.Panel7.Location = New System.Drawing.Point(0, 2)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(364, 95)
+        Me.Panel7.TabIndex = 11
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Agency FB", 25.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(132, 23)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(104, 51)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Rating"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.ForeColor = System.Drawing.Color.DimGray
+        Me.TextBox2.Location = New System.Drawing.Point(59, 156)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(264, 38)
+        Me.TextBox2.TabIndex = 9
+        Me.TextBox2.Text = "Enter your Rating"
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Button7
         '
@@ -127,7 +205,7 @@ Partial Class lib_borrowed
         Me.borrowedTableLayout.Margin = New System.Windows.Forms.Padding(0)
         Me.borrowedTableLayout.Name = "borrowedTableLayout"
         Me.borrowedTableLayout.RowCount = 1
-        Me.borrowedTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.borrowedTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73.0!))
         Me.borrowedTableLayout.Size = New System.Drawing.Size(1080, 68)
         Me.borrowedTableLayout.TabIndex = 23
         '
@@ -136,7 +214,7 @@ Partial Class lib_borrowed
         Me.Panel20.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel20.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Panel20.Controls.Add(Me.Label23)
-        Me.Panel20.Location = New System.Drawing.Point(808, 2)
+        Me.Panel20.Location = New System.Drawing.Point(808, 3)
         Me.Panel20.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel20.Name = "Panel20"
         Me.Panel20.Size = New System.Drawing.Size(161, 68)
@@ -160,7 +238,7 @@ Partial Class lib_borrowed
         Me.Panel13.AutoScroll = True
         Me.Panel13.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Panel13.Controls.Add(Me.Label8)
-        Me.Panel13.Location = New System.Drawing.Point(970, 2)
+        Me.Panel13.Location = New System.Drawing.Point(970, 3)
         Me.Panel13.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel13.Name = "Panel13"
         Me.Panel13.Size = New System.Drawing.Size(109, 68)
@@ -183,7 +261,7 @@ Partial Class lib_borrowed
         Me.Panel12.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Panel12.Controls.Add(Me.Label6)
-        Me.Panel12.Location = New System.Drawing.Point(378, 2)
+        Me.Panel12.Location = New System.Drawing.Point(378, 3)
         Me.Panel12.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(429, 68)
@@ -206,7 +284,7 @@ Partial Class lib_borrowed
         Me.Panel14.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel14.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Panel14.Controls.Add(Me.Label17)
-        Me.Panel14.Location = New System.Drawing.Point(130, 2)
+        Me.Panel14.Location = New System.Drawing.Point(130, 3)
         Me.Panel14.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel14.Name = "Panel14"
         Me.Panel14.Size = New System.Drawing.Size(247, 68)
@@ -229,7 +307,7 @@ Partial Class lib_borrowed
         Me.Panel15.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel15.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Panel15.Controls.Add(Me.Label18)
-        Me.Panel15.Location = New System.Drawing.Point(1, 2)
+        Me.Panel15.Location = New System.Drawing.Point(1, 3)
         Me.Panel15.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel15.Name = "Panel15"
         Me.Panel15.Size = New System.Drawing.Size(128, 68)
@@ -448,8 +526,13 @@ Partial Class lib_borrowed
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Label2)
         Me.Name = "lib_borrowed"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "lib_borrowed"
         Me.childformPanel.ResumeLayout(False)
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
         Me.borrowedTableLayout.ResumeLayout(False)
         Me.Panel20.ResumeLayout(False)
         Me.Panel20.PerformLayout()
@@ -494,4 +577,10 @@ Partial Class lib_borrowed
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Button7 As Button
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Label4 As Label
 End Class

@@ -1,4 +1,6 @@
-﻿Public Class TransportationDashboard
+﻿Imports System.Data.MySqlClient
+Imports MySql.Data.MySqlClient
+Public Class TransportationDashboard
     'To be passed from Login Dashboard
     Public Property uid As Integer = 1
     Public Property u_name As String = "Dhanesh"
@@ -17,6 +19,33 @@
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
         'View the TransportationAdminHome screen by default - first argument, name of the panel in the parent panel, second - name of the child form
+        'Check Authentication and allow only the transport department admins to access this page
+        Dim allowedUIDs As New List(Of Integer) From {5} ' Transportation minister
+        Dim query As String = "SELECT DISTINCT uid FROM admin_officers"
+
+        Try
+            ' Assuming conn is your MySqlConnection object
+            Using conn As New MySqlConnection(Globals.getdbConnectionString())
+                conn.Open()
+                Using cmd As New MySqlCommand(query, conn)
+                    Using reader As MySqlDataReader = cmd.ExecuteReader()
+                        While reader.Read()
+                            Dim uid As Integer = Convert.ToInt32(reader("uid"))
+                            allowedUIDs.Add(uid)
+                        End While
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            ' Handle exceptions here by showing a message box
+            MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+        If Not allowedUIDs.Contains(uid) Then
+            MessageBox.Show("You are not authorized to access this page", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         transportationAdminHome?.Dispose()
         transportationAdminHome = New TransportationAdminHome With {
             .innerPanel = childformPanel,
@@ -36,7 +65,7 @@
             .uid = uid,
             .u_name = u_name
         }
-        Globals.viewChildForm(childformPanel, RideSharingMainForm)
+        Globals.viewChildForm(childformPanel, rideSharingMainForm)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -99,8 +128,8 @@
         'View the Toll Plaza Screen
         transportTollPlaza?.Dispose()
         transportTollPlaza = New TransportTollPlaza() With {
-            .uid = uid,
-            .u_name = u_name
+        .uid = uid,
+        .u_name = u_name
         }
         Globals.viewChildForm(childformPanel, transportTollPlaza)
     End Sub

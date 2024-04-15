@@ -1,8 +1,11 @@
-﻿Public Class Ed_GlobalDashboard
+﻿Imports MySql.Data.MySqlClient
+
+Public Class Ed_GlobalDashboard
     Public innerpanel As Panel
     Public userID As Integer
     Public userName As String
     Private hasLoaded As Boolean = False
+    Public PreviousVisibility As Boolean = False
     Public Structure Profile
         Public Ed_User_ID As Integer
         Public Ed_Username As String
@@ -30,6 +33,19 @@
         Bus
         Security
     End Enum
+
+    Public Class CertificateData
+        Public Property Inst_ID As Integer
+        Public Property Student_ID As Integer
+        Public Property Type As String
+        Public Property sClass As Integer
+        Public Property sSem As Integer
+        Public Property Year As Integer
+        Public Property Certificate As Byte()
+        Public Property Course_ID As Integer
+        Public Property CertName As String
+    End Class
+
 
     Public Ed_Profile As Profile
     Public Sub OpenFormInGlobalEdPanel(ByVal formToShow As Form)
@@ -71,9 +87,44 @@
             form.Close()
         Next
     End Sub
-    Private Sub Form1_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        If Not hasLoaded Then
+    Private Sub Form1_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+        If Me.Visible AndAlso hasLoaded AndAlso Me.PreviousVisibility = False Then
             Globals.viewChildForm(Panel1, New Ed_RoleSelect())
         End If
+        Me.PreviousVisibility = Me.Visible
     End Sub
+
+    Public Function InsertCertificate(certData As CertificateData) As Boolean
+        ' SQL query to insert data into the database
+        Using Con = Globals.GetDBConnection()
+            Con.Open()
+            Dim query As String = "INSERT INTO ed_certificates (CertName, Inst_ID, Student_ID, Type, Class, Sem, Year, Certificate, Course_ID) " &
+                              "VALUES (@CertName, @Inst_ID, @Student_ID, @Type, @Class, @Sem, @Year, @Certificate, @Course_ID)"
+
+            ' Create a MySqlCommand object with the SQL query and connection
+            Using command As New MySqlCommand(query, Con)
+                ' Add parameters to the command
+                command.Parameters.AddWithValue("@CertName", certData.CertName)
+                command.Parameters.AddWithValue("@Inst_ID", certData.Inst_ID)
+                command.Parameters.AddWithValue("@Student_ID", certData.Student_ID)
+                command.Parameters.AddWithValue("@Type", certData.Type)
+                command.Parameters.AddWithValue("@Class", certData.sClass)
+                command.Parameters.AddWithValue("@Sem", certData.sSem)
+                command.Parameters.AddWithValue("@Year", certData.Year)
+                command.Parameters.AddWithValue("@Certificate", certData.Certificate)
+
+                Try
+                    ' Execute the SQL command
+                    Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+                    ' If one or more rows were affected, return true (insert successful)
+                    Return rowsAffected > 0
+                Catch ex As Exception
+                    ' Handle exception
+                    Console.WriteLine("Error inserting data into database: " & ex.Message)
+                    Return False
+                End Try
+            End Using
+        End Using
+    End Function
 End Class
