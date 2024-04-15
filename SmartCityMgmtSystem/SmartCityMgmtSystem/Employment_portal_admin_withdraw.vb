@@ -24,7 +24,7 @@ Public Class Employment_portal_admin_withdraw
 
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
                         dataTable.Load(reader)
-                        MessageBox.Show("Read Success")
+                        'MessageBox.Show("Read Success")
                     End Using
                 End Using
             End Using
