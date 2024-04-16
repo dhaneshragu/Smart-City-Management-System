@@ -68,7 +68,7 @@ Public Class AddOrWithdraw
                     UpdateBalance(connection, transaction, accn, amount)
 
                     ' Insert transaction record
-                    InsertTransaction(connection, transaction, accn, accn, amount, note)
+                    InsertTransaction(connection, transaction, accn, accn, (-1) * amount, note)
 
                     ' Commit the transaction
                     transaction.Commit()

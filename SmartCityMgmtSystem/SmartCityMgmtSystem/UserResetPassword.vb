@@ -89,4 +89,8 @@ one number, special character, uppercase letter, and lowercase letter.", "Error"
             End If
         End If
     End Sub
+
+    Private Sub childformPanel_Paint(sender As Object, e As PaintEventArgs) Handles childformPanel.Paint
+
+    End Sub
 End Class
