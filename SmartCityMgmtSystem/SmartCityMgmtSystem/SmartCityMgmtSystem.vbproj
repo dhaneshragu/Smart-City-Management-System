@@ -73,8 +73,8 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="FastReport.Compat, Version=2024.1.10.0, Culture=neutral, PublicKeyToken=5ceb240df42bf6e8, processorArchitecture=MSIL">
       <HintPath>..\packages\FastReport.Compat.2024.1.10\lib\net462\FastReport.Compat.dll</HintPath>
@@ -120,6 +120,9 @@
     </Reference>
     <Reference Include="itext.svg, Version=8.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext.8.0.3\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
@@ -227,10 +230,22 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="ApplyForLoan.Designer.vb">
+      <DependentUpon>ApplyForLoan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ApplyForLoan.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BankAdminTransactions.Designer.vb">
       <DependentUpon>BankAdminTransactions.vb</DependentUpon>
     </Compile>
     <Compile Include="BankAdminTransactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BankPasswordResetvb.Designer.vb">
+      <DependentUpon>BankPasswordResetvb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BankPasswordResetvb.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ed_Add_Institution.Designer.vb">
@@ -946,11 +961,16 @@
     <Compile Include="Healthcare_Pharmacy.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="iText\Kernel.vb" />
     <Compile Include="lib_NewRequest.Designer.vb">
       <DependentUpon>lib_NewRequest.vb</DependentUpon>
     </Compile>
     <Compile Include="lib_NewRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PayforLoan.Designer.vb">
+      <DependentUpon>PayforLoan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PayforLoan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Request-Cancel_Service.Designer.vb">
@@ -1595,8 +1615,14 @@
     <EmbeddedResource Include="AddOrWithdraw.resx">
       <DependentUpon>AddOrWithdraw.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ApplyForLoan.resx">
+      <DependentUpon>ApplyForLoan.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BankAdminTransactions.resx">
       <DependentUpon>BankAdminTransactions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BankPasswordResetvb.resx">
+      <DependentUpon>BankPasswordResetvb.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Add_Institution.resx">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
@@ -1960,6 +1986,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="lib_request.resx">
       <DependentUpon>lib_request.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PayforLoan.resx">
+      <DependentUpon>PayforLoan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Request-Cancel_Service.resx">
       <DependentUpon>Request-Cancel_Service.vb</DependentUpon>

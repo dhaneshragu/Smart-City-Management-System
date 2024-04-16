@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ListView
 Imports MySql.Data.MySqlClient
 
 Public Class BankingLogin
@@ -74,4 +75,39 @@ Public Class BankingLogin
             }
         createAccountForm.Show()
     End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Dim query As String = "SELECT email FROM users WHERE user_id = @UserId"
+        Dim emailid As String = ""
+
+        If String.IsNullOrWhiteSpace(TextBox1.Text) Then
+            MessageBox.Show("Please enter your user ID.")
+        Else
+            Dim userid As String = TextBox1.Text.Trim()
+
+            Using conn As MySqlConnection = Globals.GetDBConnection()
+                conn.Open()
+
+                Using command As New MySqlCommand(query, conn)
+                    command.Parameters.AddWithValue("@UserId", userid)
+                    command.Parameters.AddWithValue("@email", emailid)
+
+                    Using reader As MySqlDataReader = command.ExecuteReader()
+                        If reader.Read() Then
+                            emailid = reader.GetString("email")
+                        Else
+                            MessageBox.Show("User not found.")
+                        End If
+                    End Using
+                End Using
+            End Using
+
+            If Not String.IsNullOrEmpty(emailid) Then
+                Dim getForm As New UserGetOtp(emailid, "", 2)
+                getForm.Show()
+                Me.Close()
+            End If
+        End If
+    End Sub
+
 End Class

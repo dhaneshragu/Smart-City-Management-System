@@ -77,7 +77,7 @@ Public Class BankingDashboard
 
             ' Set the accn property to the current account number
             viewTransactionsForm.accn = accountNumber ' Assuming accountNumber is the property storing the current account number
-
+            viewTransactionsForm.u_name = u_name
             ' Display ViewBankTransactions form
             Globals.viewChildForm(childformPanel, viewTransactionsForm)
         Catch ex As Exception
@@ -135,4 +135,48 @@ Public Class BankingDashboard
         Dim adminTransactions As New BankAdminTransactions()
         Globals.viewChildForm(childformPanel, adminTransactions)
     End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+
+        Dim isUserPresent As Boolean = IsUserPresentInLoansTable(uid)
+
+        If isUserPresent Then
+            Dim viewTransactionsForm As New PayforLoan()
+
+            viewTransactionsForm.uid = uid
+            viewTransactionsForm.accountNumber = accountNumber
+
+            Globals.viewChildForm(childformPanel, viewTransactionsForm)
+        Else
+            'Label5.Visible = False
+            Dim viewTransactionsForm As New ApplyForLoan()
+
+            viewTransactionsForm.uid = uid
+            viewTransactionsForm.accountNumber = accountNumber
+            viewTransactionsForm.valid = 0
+
+            Globals.viewChildForm(childformPanel, viewTransactionsForm)
+        End If
+
+    End Sub
+
+    Private Function IsUserPresentInLoansTable(userID As Integer) As Boolean
+        'Dim connectionString As String = "Your_Connection_String_Here"
+        Try
+            Using connection As MySqlConnection = Globals.GetDBConnection()
+                connection.Open()
+
+                Dim query As String = "SELECT COUNT(*) FROM bankloans WHERE UserID = @UserID"
+                Using command As New MySqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@UserID", uid)
+
+                    Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
+                    Return count > 0
+                End Using
+            End Using
+        Catch ex As Exception
+            'MessageBox.Show("An error occurred while checking user in loans table: " & ex.Message)
+            Return False
+        End Try
+    End Function
 End Class

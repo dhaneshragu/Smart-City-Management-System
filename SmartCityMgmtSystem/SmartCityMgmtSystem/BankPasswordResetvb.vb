@@ -1,8 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Security.Cryptography
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Public Class BankPasswordResetvb
 
-Public Class UserResetPassword
     Private ReadOnly email As String
     Private ReadOnly password As String
 
@@ -50,7 +50,7 @@ Public Class UserResetPassword
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Dim uid As Integer = -1
         If (TextBox1.Text.Equals(TextBox2.Text) AndAlso CheckPasswordStrength(TextBox2.Text)) Then
-            Dim cmd As String = "UPDATE users SET password= @password WHERE email = @email"
+            Dim cmd As String = "UPDATE account SET password = @password WHERE user_id = (SELECT user_id FROM users WHERE email = @email)"
             Dim conStr As String = Globals.getdbConnectionString()
             Using connection As New MySqlConnection(conStr)
                 Using sqlCommand As New MySqlCommand(cmd, connection)
@@ -60,7 +60,7 @@ Public Class UserResetPassword
                         connection.Open()
                         sqlCommand.ExecuteNonQuery()
                         MessageBox.Show("Password updated successfully.")
-                        Dim q As String = "SELECT user_id FROM users WHERE email = @email"
+                        Dim q As String = "SELECT account_number FROM account WHERE user_id = (SELECT user_id FROM users WHERE email = @email)"
 
                         Using getUid As New MySqlCommand(q, connection)
                             getUid.Parameters.AddWithValue("@email", email)
@@ -70,7 +70,7 @@ Public Class UserResetPassword
                                 uid = Convert.ToInt32(result)
                             End If
                         End Using
-                        Dim home = New HomePageDashboard With {
+                        Dim home = New BankingLogin With {
                             .uid = uid
                         }
                         home.Show()
@@ -93,4 +93,5 @@ one number, special character, uppercase letter, and lowercase letter.", "Error"
     Private Sub childformPanel_Paint(sender As Object, e As PaintEventArgs) Handles childformPanel.Paint
 
     End Sub
+
 End Class

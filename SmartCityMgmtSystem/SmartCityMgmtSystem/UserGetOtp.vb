@@ -91,6 +91,10 @@ Public Class UserGetOtp
             Dim reset = New UserResetPassword(email, password)
             reset.Show()
             Me.Close()
+        ElseIf (TextBox1.Text.Equals(randstr) AndAlso nextPage = 2) Then
+            Dim reset = New BankPasswordResetvb(email, "")
+            reset.Show()
+            Me.Close()
         Else
             MessageBox.Show("OTP verification failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
