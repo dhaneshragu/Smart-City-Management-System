@@ -223,6 +223,7 @@ Partial Class TransportBusSchedule
         '
         'ComboBox1
         '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(198, 11)
         Me.ComboBox1.Name = "ComboBox1"
@@ -273,6 +274,7 @@ Partial Class TransportBusSchedule
         '
         'ComboBox3
         '
+        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Location = New System.Drawing.Point(198, 11)
         Me.ComboBox3.Name = "ComboBox3"

@@ -105,7 +105,7 @@ Public Class TransportVehicleRegReq
         End Try
 
         'Fetch vehicle details
-        cmd = New MySqlCommand("SELECT uid, vehicle_type as vehicle_type_ID, vehicle_ID, vehicle_pic, inv_pdf, status, inv_id FROM vehicle_reg where uid = @a ", Con)
+        cmd = New MySqlCommand("SELECT uid, vehicle_type as vehicle_type_ID, vehicle_ID, vehicle_pic, inv_pdf, status FROM vehicle_reg where uid = @a ", Con)
         cmd.Parameters.AddWithValue("@a", uid)
         reader = cmd.ExecuteReader
         ' Create a DataTable to store the data
@@ -170,99 +170,60 @@ Public Class TransportVehicleRegReq
                 End If
             End Using
         End Using
+        Con.Close()
 
         'if pay button clicked 
         If payClicked Then
-            Dim insertStatement As String = "INSERT INTO vehicle_reg (vehicle_id, inv_pdf, vehicle_pic, vehicle_type, status, uid,inv_id) 
-                                                    VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6, @Value7)"
+            Dim insertStatement As String = "INSERT INTO vehicle_reg (vehicle_id, inv_pdf, vehicle_pic, vehicle_type, status, uid) 
+                                            SELECT @Value1, @Value2, @Value3, @Value4, @Value5, @Value6
+                                            FROM dual
+                                            WHERE NOT EXISTS (
+                                                SELECT 1
+                                                FROM vehicle_reg
+                                                WHERE vehicle_id = @Value1 AND status <> 'rejected'
+                                            );
+                                            "
             If VTypeCb.SelectedItem IsNot Nothing Then
                 Dim vtype As String = VTypeCb.SelectedItem.ToString()
                 Dim vTypeId As Integer = TransportGlobals.GetVehicleTypeID(vtype)
-                Dim invid As Integer = Convert.ToInt32(Inv_idtb.Text)
-
-                Dim filteredRows2() As DataRow = dataTable.Select($"vehicle_type_ID = {vTypeId} and inv_id = {invid} ")
-                Dim filteredRows2List As New List(Of DataRow)()
-                ' Create a new DataTable to store the filtered results
-                Dim filteredDataTable As DataTable = dataTable.Clone()
-                ' Copy filtered rows to the new DataTable
-                For Each row As DataRow In filteredRows2
-                    filteredDataTable.ImportRow(row)
-                Next
-                Using command As New MySqlCommand(insertStatement, Con)
-                    command.Parameters.AddWithValue("@Value2", pdfBytes)
-                    ' Convert the image in the picture box to a byte array
-                    Dim image As Image = PictureBox1.Image
-                    Dim backgroundImage As Image = My.Resources.icons8_car_100
-
-                    Dim imageByteArray As Byte() = ImageToByteArray(image)
-                    command.Parameters.AddWithValue("@Value3", imageByteArray)
-                    command.Parameters.AddWithValue("@Value4", vTypeId)
-                    command.Parameters.AddWithValue("@Value6", uid)
-                    command.Parameters.AddWithValue("@Value7", invid)
-                    If filteredDataTable.Rows.Count > 0 Then
-                        Dim Status As String = filteredDataTable.Rows(0)(5).ToString()
-                        If Status = "approved" Then
-                            MessageBox.Show("User has already registered a vehicle with vehicle type : " & vtype & " and invoice id :" & invid)
-                            Con.Close()
-                            Exit Sub
-                        ElseIf Status = "rejected" Then
-                            Dim result As DialogResult = MessageBox.Show($"Your previous request for vehicle registration for the vehicle type {vtype} , invoice Id {invid} was rejected. Do you want to apply again?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
-                            If result = DialogResult.OK Then
-                                Dim pay = New PaymentGateway() With {
-                                    .uid = uid,
-                                    .readonly_prop = True
-                                }
-                                pay.TextBox1.Text = 5
-                                pay.TextBox2.Text = 100
-                                pay.TextBox3.Text = $"Vehicle Registration for vehicle Type :{vtype} , Invoice ID :{invid}"
-                                If (pay.ShowDialog() = DialogResult.OK) Then
-                                    MessageBox.Show("Payment Successful!")
-                                    reqProceed = True
-                                    Me.Close()
-                                Else
-                                    MessageBox.Show("payment failed!")
-                                    Con.Close()
-                                    Exit Sub
-                                End If
-                            Else
-                                Con.Close()
-                                Exit Sub
-                            End If
-                        Else
-                            MessageBox.Show("You Already placed a vehicle registration request for vehicle type :" & vtype & " , invoice Id :" & invid, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Con.Close()
-                            Exit Sub
-                        End If
-
-                    Else
-                        command.Parameters.AddWithValue("@Value1", GenerateRandomId())
-                        Dim pay = New PaymentGateway() With {
+                Dim pay = New PaymentGateway() With {
                             .uid = uid,
                             .readonly_prop = True
-                        }
-                        pay.TextBox1.Text = 5
-                        pay.TextBox2.Text = 100
-                        pay.TextBox3.Text = $"Vehicle Registration for vehicle Type :{vtype} ,Invoice ID :{invid}"
-                        If (pay.ShowDialog() = DialogResult.OK) Then
-                            MessageBox.Show("Payment Successful!")
-                            reqProceed = True
-                            Me.Close()
-                        Else
-                            MessageBox.Show("payment failed!")
-                            Con.Close()
-                            Exit Sub
-                        End If
-                    End If
-                    command.Parameters.AddWithValue("@Value5", "requested")
-                    If reqProceed Then
+                }
+                pay.TextBox1.Text = 5
+                pay.TextBox2.Text = 100
+                pay.TextBox3.Text = $"Vehicle Registration for vehicle Type :{vtype} "
+                If (pay.ShowDialog() = DialogResult.OK) Then
+                    'MessageBox.Show("Payment Successful!")
+                    reqProceed = True
+                Else
+                    MessageBox.Show("payment failed!")
+                    Exit Sub
+                End If
+                Con.Open()
+                If reqProceed Then
+                    Using command As New MySqlCommand(insertStatement, Con)
+                        command.Parameters.AddWithValue("@Value2", pdfBytes)
+                        ' Convert the image in the picture box to a byte array
+                        Dim image As Image = PictureBox1.Image
+                        Dim backgroundImage As Image = My.Resources.icons8_car_100
+                        PictureBox1.BackgroundImage = backgroundImage
+                        Dim imageByteArray As Byte() = ImageToByteArray(image)
+                        command.Parameters.AddWithValue("@Value3", imageByteArray)
+                        command.Parameters.AddWithValue("@Value4", vTypeId)
+                        command.Parameters.AddWithValue("@Value6", uid)
+                        command.Parameters.AddWithValue("@Value1", GenerateRandomId())
+                        command.Parameters.AddWithValue("@Value5", "requested")
                         command.ExecuteNonQuery()
-                    End If
-                End Using
+                    End Using
+                    reqProceed = False
+                End If
+                Con.Close()
             End If
             payClicked = False
         End If
 
-        Con.Close()
+
     End Sub
 
     Private Shared RandomGenerator As New Random()
@@ -314,20 +275,18 @@ Public Class TransportVehicleRegReq
             vehicleType = TransportGlobals.GetVehicleType(vtypeid)
         End While
         VTypeCb.SelectedIndex = -1
-        Inv_idtb.Text = ""
         Inv_pdftb.Text = ""
         PictureBox1.Image = Nothing
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         payClicked = True
-        If Not String.IsNullOrEmpty(Inv_idtb.Text) Then
-            If VTypeCb.SelectedItem IsNot Nothing Then
+        If VTypeCb.SelectedItem IsNot Nothing Then
+            If VTypeCb.Items.Contains(VTypeCb.Text) Then
                 If PictureBox1.Image IsNot Nothing Then
                     If Not String.IsNullOrEmpty(Inv_pdftb.Text) Then
                         LoadandBindDataGridView()
                         VTypeCb.SelectedIndex = -1
-                        Inv_idtb.Text = ""
                         Inv_pdftb.Text = ""
                         PictureBox1.Image = Nothing
                     Else
@@ -337,17 +296,16 @@ Public Class TransportVehicleRegReq
                     MessageBox.Show("Select a Vehicle picture to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             Else
-                MessageBox.Show("Select a vehicle type to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Invalid vehicle type selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Else
-            MessageBox.Show("Fill invoice id box to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Select a vehicle type to proceed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         VTypeCb.SelectedIndex = -1
-        Inv_idtb.Text = ""
         Inv_pdftb.Text = ""
         PictureBox1.Image = Nothing
         MessageBox.Show("Registration will not proceed ", "", MessageBoxButtons.OK, MessageBoxIcon.Information)

@@ -174,14 +174,14 @@ Public Class TransportAdminVRReq
                 Accept_click = False
                 ' Execute the command (Update statement)
                 command.ExecuteNonQuery()
-                Globals.SendNotifications(5, uid, "Vehicle Registration Request Approved", "Your Request for Vehicle Registration is approved for vehicle Type " & vType & ". You can view your Vehicle ID in your Vehicle Registration Page.")
+                Globals.SendNotifications(4, uid, "Vehicle Registration Request Approved", "Your Request for Vehicle Registration is approved for vehicle Type " & vType & ". You can view your Vehicle ID in your Vehicle Registration Page.")
             ElseIf Reject_click Then
 
                 command.Parameters.AddWithValue("@c", "rejected")
                 Reject_click = False
                 ' Execute the command (Update statement)
                 command.ExecuteNonQuery()
-                Globals.SendNotifications(5, uid, "Vehicle Registration Request Rejected", "Your Request for Vehicle Registration is rejected for vehicle Type " & vType & ". Better luck next time!")
+                Globals.SendNotifications(4, uid, "Vehicle Registration Request Rejected", "Your Request for Vehicle Registration is rejected for vehicle Type " & vType & ". Better luck next time!")
             End If
 
         End Using
