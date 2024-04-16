@@ -34,9 +34,9 @@ Public Class Healthcare_History
         DataGridView1.Columns(0).HeaderText = "Date"
         DataGridView1.Columns(0).DataPropertyName = "date"
         DataGridView1.Columns(1).HeaderText = "Hospital name"
-        DataGridView1.Columns(1).DataPropertyName = "hospital_ID"
+        DataGridView1.Columns(1).DataPropertyName = "hospital_name"
         DataGridView1.Columns(2).HeaderText = "Doctor name"
-        DataGridView1.Columns(2).DataPropertyName = "doctor_ID"
+        DataGridView1.Columns(2).DataPropertyName = "name"
         DataGridView1.Columns(3).HeaderText = "Status"
         DataGridView1.Columns(3).DataPropertyName = "status"
 
