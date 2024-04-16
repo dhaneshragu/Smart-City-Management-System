@@ -54,7 +54,7 @@ Public Class Service_Leave
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         End Try
-
+        DataGridView1.AllowUserToAddRows = False
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)

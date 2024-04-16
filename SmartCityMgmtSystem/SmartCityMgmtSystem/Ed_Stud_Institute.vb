@@ -12,11 +12,6 @@
         Me.Close()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        CloseCurrentChildForm()
-        currentlyOpenChildForm = New Ed_Institute_BusList()
-        Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
-    End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         CloseCurrentChildForm()

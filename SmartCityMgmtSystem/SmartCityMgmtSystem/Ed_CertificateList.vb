@@ -39,8 +39,8 @@ Public Class Ed_CertificateList
             ' Configure FlowLayoutPanel3
             ConfigureFlowLayoutPanel(FlowLayoutPanel3)
             Add_ButtonsByType(FlowLayoutPanel1, "Marksheet")
-            Add_ButtonsByType(FlowLayoutPanel1, "Entrance-Result")
-            Add_ButtonsByType(FlowLayoutPanel1, "Extra-Curricular")
+            Add_ButtonsByType(FlowLayoutPanel2, "Entrance-Result")
+            Add_ButtonsByType(FlowLayoutPanel3, "Extra-Curricular")
 
         End If
 
