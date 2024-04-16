@@ -4,7 +4,12 @@ Imports FastReport.DataVisualization.Charting
 Imports MySql.Data.MySqlClient
 Imports SmartCityMgmtSystem.ElectionInnerScreenCitizenRTI
 Public Class ElectionInnerScreenViewStatisticsMinistry5
-
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Public Property innerPanel As Panel
+    Public Property lastElectionID As Integer
+    Public Property totalVoted As Integer
+    Dim electionInnerScreenViewStatistics As ElectionInnerScreenViewStatistics = Nothing
     Private Sub LoadData()
         Dim Con As MySqlConnection = Globals.GetDBConnection()
         Dim cmd As MySqlCommand
@@ -20,7 +25,7 @@ Public Class ElectionInnerScreenViewStatisticsMinistry5
         cmd = New MySqlCommand("SELECT votes_received FROM turnout WHERE election_id = @election_id AND ministry_id = @ministry_id", Con)
 
         ' Add parameters to the command
-        cmd.Parameters.AddWithValue("@election_id", ElectionInnerScreenViewStatistics.lastElectionID)
+        cmd.Parameters.AddWithValue("@election_id", lastElectionID)
         cmd.Parameters.AddWithValue("@ministry_id", 5)
 
         reader = cmd.ExecuteReader()
@@ -33,8 +38,8 @@ Public Class ElectionInnerScreenViewStatisticsMinistry5
 
         Label2.Text = "Total Votes : " & votesReceived
         ' Calculate the turnout only if totalVoters is not zero to avoid division by zero error
-        If ElectionInnerScreenViewStatistics.totalVoted <> 0 Then
-            Label3.Text = "Turnout : " & (votesReceived / ElectionInnerScreenViewStatistics.totalVoted) * 100 & "%"
+        If totalVoted <> 0 Then
+            Label3.Text = "Turnout : " & (votesReceived / totalVoted) * 100 & "%"
         Else
             Label3.Text = "No voters"
         End If
@@ -45,9 +50,10 @@ Public Class ElectionInnerScreenViewStatisticsMinistry5
         cmd = New MySqlCommand("SELECT users.name AS candidate_name, candidate_register.votes
                                 FROM candidate_register
                                 JOIN users ON candidate_register.candidate_uid = users.user_id
-                                WHERE election_id = @election_id AND ministry_id = @ministry_id", Con)
+                                WHERE election_id = @election_id AND ministry_id = @ministry_id
+                                ORDER BY candidate_register.votes DESC;", Con)
 
-        cmd.Parameters.AddWithValue("@election_id", ElectionInnerScreenViewStatistics.lastElectionID)
+        cmd.Parameters.AddWithValue("@election_id", lastElectionID)
         cmd.Parameters.AddWithValue("@ministry_id", 5)
         reader = cmd.ExecuteReader()
 
@@ -112,7 +118,14 @@ Public Class ElectionInnerScreenViewStatisticsMinistry5
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatistics)
+        ElectionInnerScreenViewStatistics?.Dispose()
+        ElectionInnerScreenViewStatistics = New ElectionInnerScreenViewStatistics With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatistics)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatistics)
     End Sub
 
 End Class
