@@ -65,4 +65,11 @@ one number, special character, uppercase letter, and lowercase letter.", "Error"
 
     End Sub
 
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        TextBox3.UseSystemPasswordChar = CheckBox1.Checked
+    End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+        TextBox4.UseSystemPasswordChar = CheckBox2.Checked
+    End Sub
 End Class
