@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class lib_adminBM
+Partial Class lib_adminEBM
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,10 +24,10 @@ Partial Class lib_adminBM
     Private Sub InitializeComponent()
         Me.childformPanel = New System.Windows.Forms.Panel()
         Me.ManualTransactions_panel = New System.Windows.Forms.Panel()
+        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.borrowedTableLayout = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.bdgenre = New System.Windows.Forms.TextBox()
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.bdauthor = New System.Windows.Forms.TextBox()
         Me.Panel9 = New System.Windows.Forms.Panel()
@@ -42,6 +42,10 @@ Partial Class lib_adminBM
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.bdlink = New System.Windows.Forms.TextBox()
+        Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.bdgenre = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.rbookid = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -58,7 +62,6 @@ Partial Class lib_adminBM
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
@@ -69,10 +72,11 @@ Partial Class lib_adminBM
         Me.Button5 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.childformPanel.SuspendLayout()
         Me.ManualTransactions_panel.SuspendLayout()
+        Me.Panel13.SuspendLayout()
         Me.borrowedTableLayout.SuspendLayout()
-        Me.Panel11.SuspendLayout()
         Me.Panel10.SuspendLayout()
         Me.Panel9.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -80,6 +84,8 @@ Partial Class lib_adminBM
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel15.SuspendLayout()
+        Me.Panel12.SuspendLayout()
+        Me.Panel11.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -106,16 +112,41 @@ Partial Class lib_adminBM
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ManualTransactions_panel.BackColor = System.Drawing.Color.Transparent
+        Me.ManualTransactions_panel.Controls.Add(Me.Panel13)
         Me.ManualTransactions_panel.Controls.Add(Me.Label12)
         Me.ManualTransactions_panel.Controls.Add(Me.borrowedTableLayout)
         Me.ManualTransactions_panel.Controls.Add(Me.Panel3)
         Me.ManualTransactions_panel.Controls.Add(Me.Panel7)
         Me.ManualTransactions_panel.Controls.Add(Me.Panel8)
-        Me.ManualTransactions_panel.Location = New System.Drawing.Point(38, 96)
+        Me.ManualTransactions_panel.Location = New System.Drawing.Point(17, 96)
         Me.ManualTransactions_panel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ManualTransactions_panel.Name = "ManualTransactions_panel"
-        Me.ManualTransactions_panel.Size = New System.Drawing.Size(1188, 629)
+        Me.ManualTransactions_panel.Size = New System.Drawing.Size(1247, 629)
         Me.ManualTransactions_panel.TabIndex = 47
+        '
+        'Panel13
+        '
+        Me.Panel13.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel13.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
+        Me.Panel13.Controls.Add(Me.Label8)
+        Me.Panel13.Location = New System.Drawing.Point(995, 67)
+        Me.Panel13.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel13.Name = "Panel13"
+        Me.Panel13.Size = New System.Drawing.Size(251, 56)
+        Me.Panel13.TabIndex = 48
+        '
+        'Label8
+        '
+        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Agency FB", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(81, 10)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(55, 40)
+        Me.Label8.TabIndex = 0
+        Me.Label8.Text = "Link"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label12
         '
@@ -125,21 +156,21 @@ Partial Class lib_adminBM
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Label12.Location = New System.Drawing.Point(472, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(197, 51)
+        Me.Label12.Size = New System.Drawing.Size(227, 51)
         Me.Label12.TabIndex = 48
-        Me.Label12.Text = "Book Details"
+        Me.Label12.Text = "e-Book Details"
         '
         'borrowedTableLayout
         '
         Me.borrowedTableLayout.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.borrowedTableLayout.BackColor = System.Drawing.Color.Transparent
         Me.borrowedTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.borrowedTableLayout.ColumnCount = 4
-        Me.borrowedTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.borrowedTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.borrowedTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.borrowedTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.borrowedTableLayout.Controls.Add(Me.Panel11, 3, 1)
+        Me.borrowedTableLayout.ColumnCount = 5
+        Me.borrowedTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.borrowedTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.borrowedTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.borrowedTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.borrowedTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.borrowedTableLayout.Controls.Add(Me.Panel10, 2, 1)
         Me.borrowedTableLayout.Controls.Add(Me.Panel9, 1, 1)
         Me.borrowedTableLayout.Controls.Add(Me.Panel2, 0, 1)
@@ -147,47 +178,26 @@ Partial Class lib_adminBM
         Me.borrowedTableLayout.Controls.Add(Me.Panel5, 2, 0)
         Me.borrowedTableLayout.Controls.Add(Me.Panel4, 1, 0)
         Me.borrowedTableLayout.Controls.Add(Me.Panel15, 0, 0)
-        Me.borrowedTableLayout.Location = New System.Drawing.Point(37, 67)
+        Me.borrowedTableLayout.Controls.Add(Me.Panel12, 4, 1)
+        Me.borrowedTableLayout.Controls.Add(Me.Panel11, 3, 1)
+        Me.borrowedTableLayout.Location = New System.Drawing.Point(0, 67)
         Me.borrowedTableLayout.Margin = New System.Windows.Forms.Padding(0)
         Me.borrowedTableLayout.Name = "borrowedTableLayout"
         Me.borrowedTableLayout.RowCount = 2
         Me.borrowedTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.borrowedTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.borrowedTableLayout.Size = New System.Drawing.Size(1112, 190)
+        Me.borrowedTableLayout.Size = New System.Drawing.Size(1247, 190)
         Me.borrowedTableLayout.TabIndex = 53
-        '
-        'Panel11
-        '
-        Me.Panel11.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Panel11.BackColor = System.Drawing.Color.White
-        Me.Panel11.Controls.Add(Me.bdgenre)
-        Me.Panel11.Location = New System.Drawing.Point(842, 95)
-        Me.Panel11.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(258, 55)
-        Me.Panel11.TabIndex = 55
-        '
-        'bdgenre
-        '
-        Me.bdgenre.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.bdgenre.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.bdgenre.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bdgenre.Location = New System.Drawing.Point(3, 15)
-        Me.bdgenre.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.bdgenre.Name = "bdgenre"
-        Me.bdgenre.Size = New System.Drawing.Size(252, 20)
-        Me.bdgenre.TabIndex = 41
-        Me.bdgenre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Panel10
         '
         Me.Panel10.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel10.BackColor = System.Drawing.Color.White
         Me.Panel10.Controls.Add(Me.bdauthor)
-        Me.Panel10.Location = New System.Drawing.Point(564, 95)
+        Me.Panel10.Location = New System.Drawing.Point(499, 95)
         Me.Panel10.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(258, 55)
+        Me.Panel10.Size = New System.Drawing.Size(248, 55)
         Me.Panel10.TabIndex = 55
         '
         'bdauthor
@@ -195,7 +205,7 @@ Partial Class lib_adminBM
         Me.bdauthor.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.bdauthor.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.bdauthor.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bdauthor.Location = New System.Drawing.Point(3, 13)
+        Me.bdauthor.Location = New System.Drawing.Point(-2, 13)
         Me.bdauthor.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bdauthor.Name = "bdauthor"
         Me.bdauthor.Size = New System.Drawing.Size(252, 20)
@@ -207,10 +217,10 @@ Partial Class lib_adminBM
         Me.Panel9.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel9.BackColor = System.Drawing.Color.White
         Me.Panel9.Controls.Add(Me.bdtitle)
-        Me.Panel9.Location = New System.Drawing.Point(287, 95)
+        Me.Panel9.Location = New System.Drawing.Point(250, 95)
         Me.Panel9.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(258, 55)
+        Me.Panel9.Size = New System.Drawing.Size(248, 55)
         Me.Panel9.TabIndex = 55
         '
         'bdtitle
@@ -218,7 +228,7 @@ Partial Class lib_adminBM
         Me.bdtitle.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.bdtitle.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.bdtitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bdtitle.Location = New System.Drawing.Point(3, 15)
+        Me.bdtitle.Location = New System.Drawing.Point(-2, 15)
         Me.bdtitle.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bdtitle.Name = "bdtitle"
         Me.bdtitle.Size = New System.Drawing.Size(252, 20)
@@ -230,10 +240,10 @@ Partial Class lib_adminBM
         Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.bdid)
-        Me.Panel2.Location = New System.Drawing.Point(10, 95)
+        Me.Panel2.Location = New System.Drawing.Point(1, 95)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(258, 55)
+        Me.Panel2.Size = New System.Drawing.Size(248, 55)
         Me.Panel2.TabIndex = 54
         '
         'bdid
@@ -241,7 +251,7 @@ Partial Class lib_adminBM
         Me.bdid.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.bdid.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.bdid.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bdid.Location = New System.Drawing.Point(3, 13)
+        Me.bdid.Location = New System.Drawing.Point(-2, 13)
         Me.bdid.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bdid.Name = "bdid"
         Me.bdid.Size = New System.Drawing.Size(252, 20)
@@ -253,10 +263,10 @@ Partial Class lib_adminBM
         Me.Panel6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.Panel6.Controls.Add(Me.Label6)
-        Me.Panel6.Location = New System.Drawing.Point(832, 1)
+        Me.Panel6.Location = New System.Drawing.Point(748, 1)
         Me.Panel6.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(279, 55)
+        Me.Panel6.Size = New System.Drawing.Size(248, 55)
         Me.Panel6.TabIndex = 24
         '
         'Label6
@@ -265,7 +275,7 @@ Partial Class lib_adminBM
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Agency FB", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(95, 9)
+        Me.Label6.Location = New System.Drawing.Point(80, 9)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(77, 40)
         Me.Label6.TabIndex = 0
@@ -277,10 +287,10 @@ Partial Class lib_adminBM
         Me.Panel5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.Panel5.Controls.Add(Me.Label4)
-        Me.Panel5.Location = New System.Drawing.Point(555, 1)
+        Me.Panel5.Location = New System.Drawing.Point(499, 1)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(276, 55)
+        Me.Panel5.Size = New System.Drawing.Size(248, 55)
         Me.Panel5.TabIndex = 23
         '
         'Label4
@@ -289,7 +299,7 @@ Partial Class lib_adminBM
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Agency FB", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(102, 9)
+        Me.Label4.Location = New System.Drawing.Point(88, 9)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(84, 40)
         Me.Label4.TabIndex = 0
@@ -301,10 +311,10 @@ Partial Class lib_adminBM
         Me.Panel4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.Panel4.Controls.Add(Me.Label3)
-        Me.Panel4.Location = New System.Drawing.Point(278, 1)
+        Me.Panel4.Location = New System.Drawing.Point(250, 1)
         Me.Panel4.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(276, 55)
+        Me.Panel4.Size = New System.Drawing.Size(248, 55)
         Me.Panel4.TabIndex = 22
         '
         'Label3
@@ -313,7 +323,7 @@ Partial Class lib_adminBM
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Agency FB", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(114, 9)
+        Me.Label3.Location = New System.Drawing.Point(100, 9)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(58, 40)
         Me.Label3.TabIndex = 0
@@ -328,7 +338,7 @@ Partial Class lib_adminBM
         Me.Panel15.Location = New System.Drawing.Point(1, 1)
         Me.Panel15.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(276, 55)
+        Me.Panel15.Size = New System.Drawing.Size(248, 55)
         Me.Panel15.TabIndex = 21
         '
         'Label5
@@ -337,12 +347,58 @@ Partial Class lib_adminBM
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Agency FB", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(98, 9)
+        Me.Label5.Location = New System.Drawing.Point(84, 9)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(92, 40)
+        Me.Label5.Size = New System.Drawing.Size(114, 40)
         Me.Label5.TabIndex = 0
-        Me.Label5.Text = "Book ID"
+        Me.Label5.Text = "e-Book ID"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel12
+        '
+        Me.Panel12.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel12.BackColor = System.Drawing.Color.White
+        Me.Panel12.Controls.Add(Me.bdlink)
+        Me.Panel12.Location = New System.Drawing.Point(997, 95)
+        Me.Panel12.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel12.Name = "Panel12"
+        Me.Panel12.Size = New System.Drawing.Size(249, 55)
+        Me.Panel12.TabIndex = 56
+        '
+        'bdlink
+        '
+        Me.bdlink.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.bdlink.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.bdlink.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bdlink.Location = New System.Drawing.Point(-2, 15)
+        Me.bdlink.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.bdlink.Name = "bdlink"
+        Me.bdlink.Size = New System.Drawing.Size(252, 20)
+        Me.bdlink.TabIndex = 41
+        Me.bdlink.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Panel11
+        '
+        Me.Panel11.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel11.BackColor = System.Drawing.Color.White
+        Me.Panel11.Controls.Add(Me.bdgenre)
+        Me.Panel11.Location = New System.Drawing.Point(748, 95)
+        Me.Panel11.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel11.Name = "Panel11"
+        Me.Panel11.Size = New System.Drawing.Size(248, 55)
+        Me.Panel11.TabIndex = 55
+        '
+        'bdgenre
+        '
+        Me.bdgenre.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.bdgenre.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.bdgenre.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bdgenre.Location = New System.Drawing.Point(-2, 15)
+        Me.bdgenre.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.bdgenre.Name = "bdgenre"
+        Me.bdgenre.Size = New System.Drawing.Size(252, 20)
+        Me.bdgenre.TabIndex = 41
+        Me.bdgenre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Panel3
         '
@@ -405,7 +461,7 @@ Partial Class lib_adminBM
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(317, 65)
         Me.Label10.TabIndex = 26
-        Me.Label10.Text = "Remove Book"
+        Me.Label10.Text = "Remove e-Book"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel7
@@ -469,7 +525,7 @@ Partial Class lib_adminBM
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(317, 65)
         Me.Label17.TabIndex = 26
-        Me.Label17.Text = "Book Details"
+        Me.Label17.Text = "e-Book Details"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel8
@@ -478,10 +534,10 @@ Partial Class lib_adminBM
         Me.Panel8.Controls.Add(Me.Button12)
         Me.Panel8.Controls.Add(Me.Button11)
         Me.Panel8.Controls.Add(Me.Button10)
-        Me.Panel8.Location = New System.Drawing.Point(37, 67)
+        Me.Panel8.Location = New System.Drawing.Point(0, 67)
         Me.Panel8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(1113, 248)
+        Me.Panel8.Size = New System.Drawing.Size(1247, 248)
         Me.Panel8.TabIndex = 47
         '
         'Button12
@@ -491,7 +547,7 @@ Partial Class lib_adminBM
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button12.Font = New System.Drawing.Font("Agency FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button12.ForeColor = System.Drawing.Color.White
-        Me.Button12.Location = New System.Drawing.Point(742, 183)
+        Me.Button12.Location = New System.Drawing.Point(843, 183)
         Me.Button12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(155, 64)
@@ -506,7 +562,7 @@ Partial Class lib_adminBM
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button11.Font = New System.Drawing.Font("Agency FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button11.ForeColor = System.Drawing.Color.White
-        Me.Button11.Location = New System.Drawing.Point(476, 183)
+        Me.Button11.Location = New System.Drawing.Point(539, 183)
         Me.Button11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(155, 64)
@@ -521,7 +577,7 @@ Partial Class lib_adminBM
         Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button10.Font = New System.Drawing.Font("Agency FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button10.ForeColor = System.Drawing.Color.White
-        Me.Button10.Location = New System.Drawing.Point(194, 183)
+        Me.Button10.Location = New System.Drawing.Point(246, 183)
         Me.Button10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(155, 64)
@@ -537,9 +593,9 @@ Partial Class lib_adminBM
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Label11.Location = New System.Drawing.Point(447, 12)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(343, 61)
+        Me.Label11.Size = New System.Drawing.Size(380, 61)
         Me.Label11.TabIndex = 30
-        Me.Label11.Text = "Book Management"
+        Me.Label11.Text = "e-Book Management"
         '
         'Label2
         '
@@ -553,24 +609,6 @@ Partial Class lib_adminBM
         Me.Label2.Size = New System.Drawing.Size(58, 28)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Admin"
-        '
-        'Button6
-        '
-        Me.Button6.CausesValidation = False
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Agency FB", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.ForeColor = System.Drawing.Color.Ivory
-        Me.Button6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_back_arrow_25
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(1389, 1)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button6.Size = New System.Drawing.Size(163, 39)
-        Me.Button6.TabIndex = 11
-        Me.Button6.Text = "     Back"
-        Me.Button6.UseVisualStyleBackColor = False
         '
         'Panel1
         '
@@ -598,7 +636,7 @@ Partial Class lib_adminBM
         Me.Button8.FlatAppearance.BorderSize = 0
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button8.Font = New System.Drawing.Font("Agency FB", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.Button8.ForeColor = System.Drawing.Color.White
+        Me.Button8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button8.Location = New System.Drawing.Point(0, 540)
         Me.Button8.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -646,7 +684,7 @@ Partial Class lib_adminBM
         Me.Button3.FlatAppearance.BorderSize = 0
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Agency FB", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Button3.ForeColor = System.Drawing.Color.White
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button3.Location = New System.Drawing.Point(0, 470)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -732,7 +770,25 @@ Partial Class lib_adminBM
         Me.Label1.Text = "SmartGhy" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Central Library" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lib_adminBM
+        'Button6
+        '
+        Me.Button6.CausesValidation = False
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Agency FB", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ForeColor = System.Drawing.Color.Ivory
+        Me.Button6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_back_arrow_25
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button6.Location = New System.Drawing.Point(1389, 1)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button6.Size = New System.Drawing.Size(163, 39)
+        Me.Button6.TabIndex = 11
+        Me.Button6.Text = "     Back"
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'lib_adminEBM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -742,16 +798,16 @@ Partial Class lib_adminBM
         Me.Controls.Add(Me.childformPanel)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Label2)
-        Me.Name = "lib_adminBM"
+        Me.Name = "lib_adminEBM"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "lib_adminBM"
+        Me.Text = "lib_adminEBM"
         Me.childformPanel.ResumeLayout(False)
         Me.childformPanel.PerformLayout()
         Me.ManualTransactions_panel.ResumeLayout(False)
         Me.ManualTransactions_panel.PerformLayout()
+        Me.Panel13.ResumeLayout(False)
+        Me.Panel13.PerformLayout()
         Me.borrowedTableLayout.ResumeLayout(False)
-        Me.Panel11.ResumeLayout(False)
-        Me.Panel11.PerformLayout()
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
         Me.Panel9.ResumeLayout(False)
@@ -766,6 +822,10 @@ Partial Class lib_adminBM
         Me.Panel4.PerformLayout()
         Me.Panel15.ResumeLayout(False)
         Me.Panel15.PerformLayout()
+        Me.Panel12.ResumeLayout(False)
+        Me.Panel12.PerformLayout()
+        Me.Panel11.ResumeLayout(False)
+        Me.Panel11.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel7.ResumeLayout(False)
@@ -824,4 +884,8 @@ Partial Class lib_adminBM
     Friend WithEvents Button5 As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Panel12 As Panel
+    Friend WithEvents bdlink As TextBox
+    Friend WithEvents Panel13 As Panel
+    Friend WithEvents Label8 As Label
 End Class

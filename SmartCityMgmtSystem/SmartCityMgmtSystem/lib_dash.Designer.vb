@@ -41,15 +41,10 @@ Partial Class lib_dash
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.overdueBooksTablePanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnAddBalance = New System.Windows.Forms.Button()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Button8 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.childformPanel.SuspendLayout()
@@ -192,12 +187,6 @@ Partial Class lib_dash
         Me.childformPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.childformPanel.Controls.Add(Me.overdueBooksTitleTable)
         Me.childformPanel.Controls.Add(Me.overdueBooksTablePanel)
-        Me.childformPanel.Controls.Add(Me.btnAddBalance)
-        Me.childformPanel.Controls.Add(Me.Label13)
-        Me.childformPanel.Controls.Add(Me.Label7)
-        Me.childformPanel.Controls.Add(Me.Label9)
-        Me.childformPanel.Controls.Add(Me.Label10)
-        Me.childformPanel.Controls.Add(Me.Button8)
         Me.childformPanel.Controls.Add(Me.Label11)
         Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.childformPanel.Location = New System.Drawing.Point(314, 58)
@@ -224,7 +213,7 @@ Partial Class lib_dash
         Me.overdueBooksTitleTable.Margin = New System.Windows.Forms.Padding(0)
         Me.overdueBooksTitleTable.Name = "overdueBooksTitleTable"
         Me.overdueBooksTitleTable.RowCount = 1
-        Me.overdueBooksTitleTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74.0!))
+        Me.overdueBooksTitleTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77.0!))
         Me.overdueBooksTitleTable.Size = New System.Drawing.Size(1115, 68)
         Me.overdueBooksTitleTable.TabIndex = 48
         '
@@ -233,10 +222,10 @@ Partial Class lib_dash
         Me.Panel3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Location = New System.Drawing.Point(892, 5)
+        Me.Panel3.Location = New System.Drawing.Point(892, 1)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(250, 82)
+        Me.Panel3.Size = New System.Drawing.Size(222, 77)
         Me.Panel3.TabIndex = 15
         '
         'Label3
@@ -245,7 +234,7 @@ Partial Class lib_dash
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(74, 14)
+        Me.Label3.Location = New System.Drawing.Point(66, 16)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(188, 46)
         Me.Label3.TabIndex = 17
@@ -256,10 +245,10 @@ Partial Class lib_dash
         Me.Panel4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Panel4.Controls.Add(Me.Label4)
-        Me.Panel4.Location = New System.Drawing.Point(558, 5)
+        Me.Panel4.Location = New System.Drawing.Point(558, 1)
         Me.Panel4.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(374, 82)
+        Me.Panel4.Size = New System.Drawing.Size(333, 77)
         Me.Panel4.TabIndex = 14
         '
         'Label4
@@ -268,7 +257,7 @@ Partial Class lib_dash
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(158, 14)
+        Me.Label4.Location = New System.Drawing.Point(140, 16)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(95, 46)
         Me.Label4.TabIndex = 1
@@ -279,10 +268,10 @@ Partial Class lib_dash
         Me.Panel5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Panel5.Controls.Add(Me.Label5)
-        Me.Panel5.Location = New System.Drawing.Point(224, 5)
+        Me.Panel5.Location = New System.Drawing.Point(224, 1)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(374, 82)
+        Me.Panel5.Size = New System.Drawing.Size(333, 77)
         Me.Panel5.TabIndex = 13
         '
         'Label5
@@ -291,7 +280,7 @@ Partial Class lib_dash
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(148, 14)
+        Me.Label5.Location = New System.Drawing.Point(132, 16)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(138, 46)
         Me.Label5.TabIndex = 1
@@ -302,10 +291,10 @@ Partial Class lib_dash
         Me.Panel10.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel10.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Panel10.Controls.Add(Me.Label6)
-        Me.Panel10.Location = New System.Drawing.Point(1, 5)
+        Me.Panel10.Location = New System.Drawing.Point(1, 1)
         Me.Panel10.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(249, 82)
+        Me.Panel10.Size = New System.Drawing.Size(222, 77)
         Me.Panel10.TabIndex = 0
         '
         'Label6
@@ -314,7 +303,7 @@ Partial Class lib_dash
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(62, 14)
+        Me.Label6.Location = New System.Drawing.Point(56, 16)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(163, 46)
         Me.Label6.TabIndex = 0
@@ -336,81 +325,8 @@ Partial Class lib_dash
         Me.overdueBooksTablePanel.Name = "overdueBooksTablePanel"
         Me.overdueBooksTablePanel.RowCount = 1
         Me.overdueBooksTablePanel.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.overdueBooksTablePanel.Size = New System.Drawing.Size(1254, 491)
+        Me.overdueBooksTablePanel.Size = New System.Drawing.Size(1115, 459)
         Me.overdueBooksTablePanel.TabIndex = 47
-        '
-        'btnAddBalance
-        '
-        Me.btnAddBalance.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnAddBalance.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.btnAddBalance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddBalance.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.btnAddBalance.ForeColor = System.Drawing.Color.White
-        Me.btnAddBalance.Location = New System.Drawing.Point(380, 806)
-        Me.btnAddBalance.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnAddBalance.Name = "btnAddBalance"
-        Me.btnAddBalance.Size = New System.Drawing.Size(181, 66)
-        Me.btnAddBalance.TabIndex = 46
-        Me.btnAddBalance.Text = "Add Balance"
-        Me.btnAddBalance.UseVisualStyleBackColor = False
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.Label13.Location = New System.Drawing.Point(226, 814)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(157, 46)
-        Me.Label13.TabIndex = 45
-        Me.Label13.Text = "Rs. 200"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.Label7.Location = New System.Drawing.Point(93, 814)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(209, 46)
-        Me.Label7.TabIndex = 44
-        Me.Label7.Text = "Balance   :"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.Label9.Location = New System.Drawing.Point(960, 814)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(157, 46)
-        Me.Label9.TabIndex = 41
-        Me.Label9.Text = "Rs. 150"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.Label10.Location = New System.Drawing.Point(822, 814)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(206, 46)
-        Me.Label10.TabIndex = 40
-        Me.Label10.Text = "Total fine :"
-        '
-        'Button8
-        '
-        Me.Button8.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.Button8.ForeColor = System.Drawing.Color.White
-        Me.Button8.Location = New System.Drawing.Point(1123, 806)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(181, 66)
-        Me.Button8.TabIndex = 42
-        Me.Button8.Text = "Pay Now"
-        Me.Button8.UseVisualStyleBackColor = False
         '
         'Label11
         '
@@ -455,12 +371,26 @@ Partial Class lib_dash
         Me.Button6.Text = "     Back"
         Me.Button6.UseVisualStyleBackColor = False
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.CausesValidation = False
+        Me.Label8.Font = New System.Drawing.Font("Agency FB", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Ivory
+        Me.Label8.Location = New System.Drawing.Point(840, 9)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(54, 28)
+        Me.Label8.TabIndex = 53
+        Me.Label8.Text = "{UID}"
+        '
         'lib_dash
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1750, 979)
+        Me.ClientSize = New System.Drawing.Size(1556, 783)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.childformPanel)
         Me.Controls.Add(Me.Button6)
@@ -496,12 +426,6 @@ Partial Class lib_dash
     Friend WithEvents Label2 As Label
     Friend WithEvents Button4 As Button
     Friend WithEvents Label11 As Label
-    Friend WithEvents btnAddBalance As Button
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Button8 As Button
     Public WithEvents childformPanel As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents overdueBooksTitleTable As TableLayoutPanel
@@ -514,4 +438,5 @@ Partial Class lib_dash
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Label6 As Label
     Friend WithEvents overdueBooksTablePanel As TableLayoutPanel
+    Friend WithEvents Label8 As Label
 End Class

@@ -1045,6 +1045,18 @@
     <Compile Include="Healthcare_Pharmacy.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="lib_adminEBM.Designer.vb">
+      <DependentUpon>lib_adminEBM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lib_adminEBM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib_fineForm.Designer.vb">
+      <DependentUpon>lib_fineForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lib_fineForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="lib_NewRequest.Designer.vb">
       <DependentUpon>lib_NewRequest.vb</DependentUpon>
     </Compile>
@@ -2116,8 +2128,14 @@
     <EmbeddedResource Include="Healthcare_Pharmacy.resx">
       <DependentUpon>Healthcare_Pharmacy.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="lib_adminEBM.resx">
+      <DependentUpon>lib_adminEBM.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="lib_borrowed.resx">
       <DependentUpon>lib_borrowed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib_fineForm.resx">
+      <DependentUpon>lib_fineForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="lib_NewRequest.resx">
       <DependentUpon>lib_NewRequest.vb</DependentUpon>
@@ -2905,6 +2923,8 @@
     <None Include="Resources\icons8-person-801.png" />
     <None Include="Resources\icons8-rupee-30.png" />
     <None Include="Resources\icons8-photo-gallery-48.png" />
+    <Content Include="Resources\icons8-star-48.png" />
+    <Content Include="Resources\icons8-star-96.png" />
     <Content Include="Resources\icons8-student-center-100.png" />
     <Content Include="Resources\icons8-system-information-100.png" />
     <Content Include="Resources\icons8-taj-mahal-100.png" />
