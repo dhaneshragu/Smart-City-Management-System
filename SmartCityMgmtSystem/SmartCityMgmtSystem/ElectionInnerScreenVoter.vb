@@ -4,14 +4,21 @@ Public Class ElectionInnerScreenVoter
 
     Public Property uid As Integer = 8
     Public Property u_name As String = "admin"
-
+    Dim electionInnerScreen1 As ElectionInnerScreen1 = Nothing
     Public Property innerPanel As Panel
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(innerPanel, ElectionInnerScreen1)
+        electionInnerScreen1?.Dispose()
+        electionInnerScreen1 = New ElectionInnerScreen1 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreen1)
+        Globals.viewChildForm(innerPanel, electionInnerScreen1)
     End Sub
 
     Private Function CompareUserInfo(ByVal name As String, ByVal uid As Integer, ByVal age As Integer) As Boolean

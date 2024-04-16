@@ -24,7 +24,6 @@ Partial Class ElectionDashboard
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.rti = New System.Windows.Forms.Button()
-        Me.kym = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.election = New System.Windows.Forms.Button()
         Me.organizational_structure = New System.Windows.Forms.Button()
@@ -77,7 +76,6 @@ Partial Class ElectionDashboard
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Panel1.Controls.Add(Me.rti)
-        Me.Panel1.Controls.Add(Me.kym)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.election)
         Me.Panel1.Controls.Add(Me.organizational_structure)
@@ -101,7 +99,7 @@ Partial Class ElectionDashboard
         Me.rti.ForeColor = System.Drawing.Color.Black
         Me.rti.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_information_50
         Me.rti.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.rti.Location = New System.Drawing.Point(0, 629)
+        Me.rti.Location = New System.Drawing.Point(0, 589)
         Me.rti.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.rti.Name = "rti"
         Me.rti.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
@@ -111,24 +109,6 @@ Partial Class ElectionDashboard
         Me.rti.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.rti.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.rti.UseVisualStyleBackColor = False
-        '
-        'kym
-        '
-        Me.kym.BackColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.kym.FlatAppearance.BorderSize = 0
-        Me.kym.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.kym.Font = New System.Drawing.Font("Tahoma", 12.81356!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.kym.ForeColor = System.Drawing.Color.Black
-        Me.kym.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_city_hall_64
-        Me.kym.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.kym.Location = New System.Drawing.Point(4, 550)
-        Me.kym.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.kym.Name = "kym"
-        Me.kym.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.kym.Size = New System.Drawing.Size(335, 76)
-        Me.kym.TabIndex = 8
-        Me.kym.Text = "Know your " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Ministers"
-        Me.kym.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -151,7 +131,7 @@ Partial Class ElectionDashboard
         Me.election.ForeColor = System.Drawing.Color.Black
         Me.election.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_election_50
         Me.election.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.election.Location = New System.Drawing.Point(0, 473)
+        Me.election.Location = New System.Drawing.Point(0, 513)
         Me.election.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.election.Name = "election"
         Me.election.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
@@ -169,7 +149,7 @@ Partial Class ElectionDashboard
         Me.organizational_structure.ForeColor = System.Drawing.Color.Black
         Me.organizational_structure.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_hierarchy_50
         Me.organizational_structure.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.organizational_structure.Location = New System.Drawing.Point(0, 400)
+        Me.organizational_structure.Location = New System.Drawing.Point(0, 440)
         Me.organizational_structure.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.organizational_structure.Name = "organizational_structure"
         Me.organizational_structure.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
@@ -187,7 +167,7 @@ Partial Class ElectionDashboard
         Me.about_us.ForeColor = System.Drawing.Color.Black
         Me.about_us.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons_about_us
         Me.about_us.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.about_us.Location = New System.Drawing.Point(0, 330)
+        Me.about_us.Location = New System.Drawing.Point(0, 370)
         Me.about_us.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.about_us.Name = "about_us"
         Me.about_us.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
@@ -205,7 +185,7 @@ Partial Class ElectionDashboard
         Me.admin.ForeColor = System.Drawing.Color.Black
         Me.admin.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_admin_50
         Me.admin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.admin.Location = New System.Drawing.Point(0, 707)
+        Me.admin.Location = New System.Drawing.Point(0, 667)
         Me.admin.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.admin.Name = "admin"
         Me.admin.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
@@ -578,7 +558,6 @@ Partial Class ElectionDashboard
     Friend WithEvents childformPanel As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents kym As System.Windows.Forms.Button
     Friend WithEvents rti As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
