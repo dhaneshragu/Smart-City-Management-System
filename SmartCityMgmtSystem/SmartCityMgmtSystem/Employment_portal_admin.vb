@@ -48,7 +48,7 @@ Public Class Employment_portal_admin
 
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
                         dataTable.Load(reader)
-                        MessageBox.Show("Read Success")
+                        'MessageBox.Show("Read Success")
                     End Using
                 End Using
             End Using
@@ -86,7 +86,7 @@ Public Class Employment_portal_admin
                     Dim count As Integer = Convert.ToInt32(cmd1.ExecuteScalar())
                     RichTextBox1.Text = "Hey there, " & count.ToString() & " applications are pending to be reviewed"
 
-                    MessageBox.Show("Read Success")
+                    'MessageBox.Show("Read Success")
                 End Using
             End Using
         Catch ex As Exception

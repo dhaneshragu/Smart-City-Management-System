@@ -36,7 +36,7 @@ Public Class Employment_portal_applicationstatus
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
                         If reader.HasRows Then
                             dataTable.Load(reader)
-                            MessageBox.Show("Read Success")
+                            'MessageBox.Show("Read Success")
                         Else
                             MessageBox.Show("No matching records found.")
                         End If
