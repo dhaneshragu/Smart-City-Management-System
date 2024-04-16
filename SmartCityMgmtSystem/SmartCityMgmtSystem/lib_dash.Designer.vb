@@ -68,9 +68,9 @@ Partial Class lib_dash
         Me.Panel1.Font = New System.Drawing.Font("Tahoma", 11.8209!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.ForeColor = System.Drawing.Color.SaddleBrown
         Me.Panel1.Location = New System.Drawing.Point(1, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(317, 979)
+        Me.Panel1.Size = New System.Drawing.Size(282, 783)
         Me.Panel1.TabIndex = 8
         '
         'Button4
@@ -78,13 +78,13 @@ Partial Class lib_dash
         Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.Button4.FlatAppearance.BorderSize = 0
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.Button4.Font = New System.Drawing.Font("Agency FB", 18.0!, System.Drawing.FontStyle.Bold)
         Me.Button4.ForeColor = System.Drawing.Color.White
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(0, 675)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button4.Location = New System.Drawing.Point(0, 540)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(317, 76)
+        Me.Button4.Size = New System.Drawing.Size(282, 61)
         Me.Button4.TabIndex = 22
         Me.Button4.Text = "Request Book"
         Me.Button4.UseVisualStyleBackColor = False
@@ -94,13 +94,13 @@ Partial Class lib_dash
         Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.Button3.FlatAppearance.BorderSize = 0
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.Button3.Font = New System.Drawing.Font("Agency FB", 18.0!, System.Drawing.FontStyle.Bold)
         Me.Button3.ForeColor = System.Drawing.Color.White
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(0, 588)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button3.Location = New System.Drawing.Point(0, 470)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(317, 76)
+        Me.Button3.Size = New System.Drawing.Size(282, 61)
         Me.Button3.TabIndex = 21
         Me.Button3.Text = "Borrowed Books"
         Me.Button3.UseVisualStyleBackColor = False
@@ -110,13 +110,13 @@ Partial Class lib_dash
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.Button2.Font = New System.Drawing.Font("Agency FB", 18.0!, System.Drawing.FontStyle.Bold)
         Me.Button2.ForeColor = System.Drawing.Color.White
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(0, 500)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Location = New System.Drawing.Point(0, 400)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(317, 76)
+        Me.Button2.Size = New System.Drawing.Size(282, 61)
         Me.Button2.TabIndex = 20
         Me.Button2.Text = "e-Books"
         Me.Button2.UseVisualStyleBackColor = False
@@ -126,13 +126,13 @@ Partial Class lib_dash
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.Button1.Font = New System.Drawing.Font("Agency FB", 18.0!, System.Drawing.FontStyle.Bold)
         Me.Button1.ForeColor = System.Drawing.Color.White
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(0, 412)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Location = New System.Drawing.Point(0, 330)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(317, 76)
+        Me.Button1.Size = New System.Drawing.Size(282, 61)
         Me.Button1.TabIndex = 19
         Me.Button1.Text = "Search"
         Me.Button1.UseVisualStyleBackColor = False
@@ -142,13 +142,13 @@ Partial Class lib_dash
         Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.Button5.FlatAppearance.BorderSize = 0
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Font = New System.Drawing.Font("Agency FB", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(0, 325)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button5.Location = New System.Drawing.Point(0, 260)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(317, 76)
+        Me.Button5.Size = New System.Drawing.Size(282, 61)
         Me.Button5.TabIndex = 18
         Me.Button5.Text = "Dashboard"
         Me.Button5.UseVisualStyleBackColor = False
@@ -157,9 +157,9 @@ Partial Class lib_dash
         '
         Me.PictureBox1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.final
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(317, 191)
+        Me.PictureBox1.Size = New System.Drawing.Size(282, 153)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
@@ -171,12 +171,12 @@ Partial Class lib_dash
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(136, Byte), Integer))
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Font = New System.Drawing.Font("Agency FB", 20.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(0, 199)
+        Me.Label1.Location = New System.Drawing.Point(0, 159)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(317, 119)
+        Me.Label1.Size = New System.Drawing.Size(282, 95)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "SmartGhy" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Central Library" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -189,10 +189,10 @@ Partial Class lib_dash
         Me.childformPanel.Controls.Add(Me.overdueBooksTablePanel)
         Me.childformPanel.Controls.Add(Me.Label11)
         Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.childformPanel.Location = New System.Drawing.Point(314, 58)
-        Me.childformPanel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.childformPanel.Location = New System.Drawing.Point(279, 46)
+        Me.childformPanel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.childformPanel.Name = "childformPanel"
-        Me.childformPanel.Size = New System.Drawing.Size(1435, 921)
+        Me.childformPanel.Size = New System.Drawing.Size(1276, 737)
         Me.childformPanel.TabIndex = 9
         '
         'overdueBooksTitleTable
@@ -209,7 +209,7 @@ Partial Class lib_dash
         Me.overdueBooksTitleTable.Controls.Add(Me.Panel4, 2, 0)
         Me.overdueBooksTitleTable.Controls.Add(Me.Panel5, 1, 0)
         Me.overdueBooksTitleTable.Controls.Add(Me.Panel10, 0, 0)
-        Me.overdueBooksTitleTable.Location = New System.Drawing.Point(76, 174)
+        Me.overdueBooksTitleTable.Location = New System.Drawing.Point(68, 139)
         Me.overdueBooksTitleTable.Margin = New System.Windows.Forms.Padding(0)
         Me.overdueBooksTitleTable.Name = "overdueBooksTitleTable"
         Me.overdueBooksTitleTable.RowCount = 1
@@ -232,11 +232,11 @@ Partial Class lib_dash
         '
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
+        Me.Label3.Font = New System.Drawing.Font("Agency FB", 20.0!)
         Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(66, 16)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(188, 46)
+        Me.Label3.Size = New System.Drawing.Size(110, 42)
         Me.Label3.TabIndex = 17
         Me.Label3.Text = "Due Date"
         '
@@ -255,11 +255,11 @@ Partial Class lib_dash
         '
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
+        Me.Label4.Font = New System.Drawing.Font("Agency FB", 20.0!)
         Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(140, 16)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(95, 46)
+        Me.Label4.Size = New System.Drawing.Size(59, 42)
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Title"
         '
@@ -278,11 +278,11 @@ Partial Class lib_dash
         '
         Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
+        Me.Label5.Font = New System.Drawing.Font("Agency FB", 20.0!)
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(132, 16)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(138, 46)
+        Me.Label5.Size = New System.Drawing.Size(85, 42)
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "Author"
         '
@@ -301,11 +301,11 @@ Partial Class lib_dash
         '
         Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
+        Me.Label6.Font = New System.Drawing.Font("Agency FB", 20.0!)
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(56, 16)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(163, 46)
+        Me.Label6.Size = New System.Drawing.Size(94, 42)
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "Book ID"
         '
@@ -320,7 +320,7 @@ Partial Class lib_dash
         Me.overdueBooksTablePanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.overdueBooksTablePanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.overdueBooksTablePanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.overdueBooksTablePanel.Location = New System.Drawing.Point(76, 259)
+        Me.overdueBooksTablePanel.Location = New System.Drawing.Point(68, 207)
         Me.overdueBooksTablePanel.Margin = New System.Windows.Forms.Padding(0)
         Me.overdueBooksTablePanel.Name = "overdueBooksTablePanel"
         Me.overdueBooksTablePanel.RowCount = 1
@@ -332,11 +332,11 @@ Partial Class lib_dash
         '
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 40.0!, System.Drawing.FontStyle.Bold)
+        Me.Label11.Font = New System.Drawing.Font("Agency FB", 40.0!, System.Drawing.FontStyle.Bold)
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(487, 20)
+        Me.Label11.Location = New System.Drawing.Point(433, 16)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(599, 91)
+        Me.Label11.Size = New System.Drawing.Size(375, 80)
         Me.Label11.TabIndex = 30
         Me.Label11.Text = "Overdue Books"
         '
@@ -344,12 +344,12 @@ Partial Class lib_dash
         '
         Me.Label2.AutoSize = True
         Me.Label2.CausesValidation = False
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Agency FB", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Ivory
-        Me.Label2.Location = New System.Drawing.Point(331, 12)
+        Me.Label2.Location = New System.Drawing.Point(294, 10)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(113, 32)
+        Me.Label2.Size = New System.Drawing.Size(72, 28)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "{Name}"
         '
@@ -358,15 +358,15 @@ Partial Class lib_dash
         Me.Button6.CausesValidation = False
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Font = New System.Drawing.Font("Agency FB", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.ForeColor = System.Drawing.Color.Ivory
         Me.Button6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_back_arrow_25
         Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(1563, 1)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button6.Location = New System.Drawing.Point(1389, 1)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button6.Name = "Button6"
-        Me.Button6.Padding = New System.Windows.Forms.Padding(14, 0, 0, 0)
-        Me.Button6.Size = New System.Drawing.Size(183, 49)
+        Me.Button6.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button6.Size = New System.Drawing.Size(163, 39)
         Me.Button6.TabIndex = 11
         Me.Button6.Text = "     Back"
         Me.Button6.UseVisualStyleBackColor = False
@@ -386,7 +386,7 @@ Partial Class lib_dash
         '
         'lib_dash
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1556, 783)
@@ -395,7 +395,6 @@ Partial Class lib_dash
         Me.Controls.Add(Me.childformPanel)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Label2)
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "lib_dash"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "lib_dash"
