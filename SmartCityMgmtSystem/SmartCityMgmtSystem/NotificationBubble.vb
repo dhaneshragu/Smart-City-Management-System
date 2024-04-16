@@ -18,12 +18,12 @@
                 PictureBox1.Image = My.Resources.icons8_books_64
                 'PictureBox1.Image = My.Resources.icons8_politician_96
             Case 3
-                PictureBox1.Image = My.Resources.indian_wedding
+                'PictureBox1.Image = My.Resources.indian_wedding
+                PictureBox1.Image = My.Resources.icons8_medical_doctor_50
             Case 4
-                PictureBox1.Image = My.Resources.icons8_money_48
-                'PictureBox1.Image = My.Resources.icons8_driving_license_64
-            Case 5
                 PictureBox1.Image = My.Resources.icons8_driving_license_64
+            Case 5
+                PictureBox1.Image = My.Resources.indian_wedding
                 'PictureBox1.Image = My.Resources.icons8_medicine_96
             Case 6
                 'PictureBox1.Image = My.Resources.icons8_books_64

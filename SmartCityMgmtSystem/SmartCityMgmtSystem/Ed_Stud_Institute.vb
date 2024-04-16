@@ -1,6 +1,7 @@
 ﻿Public Class Ed_Stud_Institute
     Private currentlyOpenChildForm As Form = Nothing
     Private Sub Ed_Stud_Institute_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label2.Text = Ed_GlobalDashboard.userName
         currentlyOpenChildForm = New Ed_Institute_List()
         Globals.viewChildForm(childformPanel, currentlyOpenChildForm)
     End Sub

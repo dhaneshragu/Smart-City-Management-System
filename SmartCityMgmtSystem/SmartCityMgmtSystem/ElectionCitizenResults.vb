@@ -1,6 +1,12 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Public Class ElectionCitizenResults
+
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Public Property innerPanel As Panel
+
+    Dim electionInnerScreen1 As ElectionInnerScreen1 = Nothing
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Dim row0 As New DataGridViewRow()
         'DataGridView1.Rows.Add(row0)
@@ -98,7 +104,7 @@ Public Class ElectionCitizenResults
                                             JOIN (
                                                 SELECT ministry_id, MAX(votes) AS max_votes
                                                 FROM candidate_register
-                                                WHERE @electionID = 3 and status = 'Approved'
+                                                WHERE election_id = @electionID and status = 'Approved'
                                                 GROUP BY ministry_id
                                             ) max_votes_per_ministry ON cr.ministry_id = max_votes_per_ministry.ministry_id AND cr.votes = max_votes_per_ministry.max_votes
                                             WHERE cr.election_id = @electionID and cr.status = 'Approved';", Con)
@@ -122,6 +128,12 @@ Public Class ElectionCitizenResults
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreen1)
+        electionInnerScreen1?.Dispose()
+        electionInnerScreen1 = New ElectionInnerScreen1 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreen1)
     End Sub
 End Class

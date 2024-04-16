@@ -1,6 +1,9 @@
 ﻿Imports System.Data.SqlClient
+Imports Google.Protobuf.WellKnownTypes
 Imports MySql.Data.MySqlClient
 Public Class Healthcare_Pharmacy
+
+    Public Property uid As Integer = 130
     Private Sub LoadandBindDataGridView()
         'Get connection from globals
         Dim Con = Globals.GetDBConnection()
@@ -13,14 +16,17 @@ Public Class Healthcare_Pharmacy
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-        cmd = New MySqlCommand("SELECT * FROM pharmacydb", Con)
+        cmd = New MySqlCommand("SELECT pharmacydb.pharmacy_name, pharmacydb.location, pharmacydb.pharmacy_id, medicine.medicine_id FROM pharmacydb INNER JOIN medicine ON pharmacydb.pharmacy_id=medicine.pharmacy_id WHERE medicine.medicine_name LIKE CONCAT('%', @Value, '%'); ", Con)
+        cmd.Parameters.AddWithValue("@Value", RichTextBox1.Text)
         reader = cmd.ExecuteReader()
         Dim i As Integer = 0
-        'Fill the DataTable with data from the SQL table
+        'Fill the DataTable with data from the SQL tables
         If reader.HasRows Then
             While reader.Read()
                 Dim Value As String = reader("pharmacy_name").ToString()
+                Dim Value2 As String = reader("pharmacy_id").ToString()
                 Dim Value1 As String = reader("location").ToString()
+                Dim Value3 As String = reader("medicine_id").ToString()
                 Dim label As New Windows.Forms.Label()
                 label.BackColor = Color.LightSkyBlue
                 label.Width = 700
@@ -50,7 +56,8 @@ Public Class Healthcare_Pharmacy
                 lblBuy.Width = 100
                 lblBuy.Height = 100
                 lblBuy.Location = New Point(860, 50 + i)
-
+                lblBuy.Name = Value2 & "_" & Value3
+                AddHandler lblBuy.Click, AddressOf Buy_Click
                 i += 120
                 Panel1.Controls.Add(lblBuy)
                 ' Add the button to the form
@@ -62,11 +69,32 @@ Public Class Healthcare_Pharmacy
         Con.Close()
     End Sub
 
-    Private Sub Healthcare_Pharmacy_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadandBindDataGridView()
+    Private Sub Buy_Click(ByVal sender As Object, ByVal e As EventArgs)
+        Dim pharmacy_Button As Button = DirectCast(sender, Button)
+        Dim parts() As String = pharmacy_Button.Name.Split("_"c)
+        Dim medicine_Id As Integer = Integer.Parse(parts(1))
+        Dim pharmacy_Id As Integer = Integer.Parse(parts(0))
+
+        Dim medicine_buy = New medicine_buy() With {
+            .medicine_Id = medicine_Id,
+            .uid = uid
+        }
+        If (medicine_buy.ShowDialog() = DialogResult.OK) Then
+            MessageBox.Show("opened")
+            Me.Close()
+        Else
+
+        End If
+
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
+    Private Sub Healthcare_Pharmacy_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    End Sub
+    Sub ClearPanel(panel As Panel)
+        panel.Controls.Clear()
+    End Sub
+    Private Sub d1_Click(sender As Object, e As EventArgs) Handles d1.Click
+        ClearPanel(Panel1)
+        LoadandBindDataGridView()
     End Sub
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class EventLoginWindow
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class EventLoginWindow
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -29,15 +29,16 @@ Partial Class EventLoginWindow
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -80,14 +81,29 @@ Partial Class EventLoginWindow
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Panel4)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Location = New System.Drawing.Point(436, 212)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(418, 250)
+        Me.Panel1.Size = New System.Drawing.Size(418, 300)
         Me.Panel1.TabIndex = 6
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(153, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Button1.ForeColor = System.Drawing.Color.Maroon
+        Me.Button1.Location = New System.Drawing.Point(10, 190)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(188, 33)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Forget Password?"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Panel4
         '
@@ -100,6 +116,15 @@ Partial Class EventLoginWindow
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(369, 51)
         Me.Panel4.TabIndex = 3
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.TextBox2.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold)
+        Me.TextBox2.Location = New System.Drawing.Point(161, 11)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(190, 30)
+        Me.TextBox2.TabIndex = 25
         '
         'Label2
         '
@@ -119,7 +144,7 @@ Partial Class EventLoginWindow
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.Linen
-        Me.Button2.Location = New System.Drawing.Point(151, 183)
+        Me.Button2.Location = New System.Drawing.Point(159, 229)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(122, 37)
@@ -138,6 +163,15 @@ Partial Class EventLoginWindow
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(369, 51)
         Me.Panel2.TabIndex = 2
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.TextBox1.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold)
+        Me.TextBox1.Location = New System.Drawing.Point(161, 13)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(190, 30)
+        Me.TextBox1.TabIndex = 24
         '
         'Label1
         '
@@ -183,24 +217,6 @@ Partial Class EventLoginWindow
         Me.DataGridViewImageColumn3.ToolTipText = "Delete"
         Me.DataGridViewImageColumn3.Width = 125
         '
-        'TextBox1
-        '
-        Me.TextBox1.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.TextBox1.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold)
-        Me.TextBox1.Location = New System.Drawing.Point(161, 13)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(190, 30)
-        Me.TextBox1.TabIndex = 24
-        '
-        'TextBox2
-        '
-        Me.TextBox2.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.TextBox2.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold)
-        Me.TextBox2.Location = New System.Drawing.Point(161, 11)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(190, 30)
-        Me.TextBox2.TabIndex = 25
-        '
         'EventLoginWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
@@ -235,4 +251,5 @@ Partial Class EventLoginWindow
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Button1 As Button
 End Class

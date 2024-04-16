@@ -4,6 +4,8 @@ Imports MySql.Data.MySqlClient
 
 Public Class Ed_Institute_ListItem
     Public instituteID As Integer
+    Private SemOrClass As Boolean
+    Private Value As Integer
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         ' Get the student ID
         Dim studentID As Integer = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
@@ -13,10 +15,21 @@ Public Class Ed_Institute_ListItem
             MessageBox.Show("You have already applied to some institute.", "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             ' Apply for the institute
-            ApplyToInstitute(studentID, instituteID)
-            ' Change the button text
-            Button2.Text = "Application Sent"
-            Button2.BackColor = Color.FromArgb(153, 102, 0)
+            Dim admPopUp As New Ed_admissionPopUp()
+            admPopUp.ShowDialog()
+            If (admPopUp.DialogResult = DialogResult.OK) Then
+                SemOrClass = admPopUp.SemOrClass
+                Value = admPopUp.Value
+                If (SemOrClass) Then
+                    Ed_GlobalDashboard.Ed_Profile.Ed_Sem = Value
+                Else
+                    Ed_GlobalDashboard.Ed_Profile.Ed_Class = Value
+                End If
+                ApplyToInstitute(studentID, instituteID)
+                ' Change the button text
+                Button2.Text = "Application Sent"
+                Button2.BackColor = Color.FromArgb(153, 102, 0)
+            End If
         End If
     End Sub
     Private Function StudentAlreadyApplied(studentID As Integer) As Boolean

@@ -3,6 +3,10 @@ Imports MySql.Data.MySqlClient
 Imports Mysqlx
 Public Class ElectionInnerScreenCastVote
 
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Public Property innerPanel As Panel
+    Dim electionInnerScreen1 As ElectionInnerScreen1 = Nothing
     Dim current_election_id As Integer
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         helpOptionsAdd()
@@ -82,7 +86,13 @@ Public Class ElectionInnerScreenCastVote
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreen1)
+        electionInnerScreen1?.Dispose()
+        electionInnerScreen1 = New ElectionInnerScreen1 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreen1)
     End Sub
     Private Function UpdateQuery(query As String) As Boolean
 
@@ -271,7 +281,13 @@ Public Class ElectionInnerScreenCastVote
 
         MessageBox.Show("You have voted!")
 
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreen1)
+        electionInnerScreen1?.Dispose()
+        electionInnerScreen1 = New ElectionInnerScreen1 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreen1)
 
     End Sub
 End Class

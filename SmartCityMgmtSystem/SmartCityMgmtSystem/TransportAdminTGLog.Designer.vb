@@ -54,11 +54,11 @@ Partial Class TransportAdminTGLog
         Me.txtFastagID = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.label13 = New System.Windows.Forms.Label()
-        Me.txtVehicleType = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.label14 = New System.Windows.Forms.Label()
-        Me.txtLaneID = New System.Windows.Forms.TextBox()
         Me.btnfilter = New System.Windows.Forms.Button()
+        Me.VTypeCb = New System.Windows.Forms.ComboBox()
+        Me.laneidCb = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelName.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -348,8 +348,8 @@ Partial Class TransportAdminTGLog
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.VTypeCb)
         Me.Panel2.Controls.Add(Me.label13)
-        Me.Panel2.Controls.Add(Me.txtVehicleType)
         Me.Panel2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel2.Location = New System.Drawing.Point(554, 147)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -367,21 +367,11 @@ Partial Class TransportAdminTGLog
         Me.label13.TabIndex = 4
         Me.label13.Text = "Vehicle Type :"
         '
-        'txtVehicleType
-        '
-        Me.txtVehicleType.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtVehicleType.Location = New System.Drawing.Point(176, 11)
-        Me.txtVehicleType.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txtVehicleType.Multiline = True
-        Me.txtVehicleType.Name = "txtVehicleType"
-        Me.txtVehicleType.Size = New System.Drawing.Size(228, 27)
-        Me.txtVehicleType.TabIndex = 1
-        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.laneidCb)
         Me.Panel3.Controls.Add(Me.label14)
-        Me.Panel3.Controls.Add(Me.txtLaneID)
         Me.Panel3.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel3.Location = New System.Drawing.Point(554, 89)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -399,16 +389,6 @@ Partial Class TransportAdminTGLog
         Me.label14.TabIndex = 4
         Me.label14.Text = "Lane Number :"
         '
-        'txtLaneID
-        '
-        Me.txtLaneID.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLaneID.Location = New System.Drawing.Point(176, 11)
-        Me.txtLaneID.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txtLaneID.Multiline = True
-        Me.txtLaneID.Name = "txtLaneID"
-        Me.txtLaneID.Size = New System.Drawing.Size(223, 27)
-        Me.txtLaneID.TabIndex = 1
-        '
         'btnfilter
         '
         Me.btnfilter.BackColor = System.Drawing.Color.Maroon
@@ -422,6 +402,22 @@ Partial Class TransportAdminTGLog
         Me.btnfilter.TabIndex = 8
         Me.btnfilter.Text = "Filter Log"
         Me.btnfilter.UseVisualStyleBackColor = False
+        '
+        'VTypeCb
+        '
+        Me.VTypeCb.FormattingEnabled = True
+        Me.VTypeCb.Location = New System.Drawing.Point(176, 11)
+        Me.VTypeCb.Name = "VTypeCb"
+        Me.VTypeCb.Size = New System.Drawing.Size(248, 26)
+        Me.VTypeCb.TabIndex = 13
+        '
+        'laneidCb
+        '
+        Me.laneidCb.FormattingEnabled = True
+        Me.laneidCb.Location = New System.Drawing.Point(176, 12)
+        Me.laneidCb.Name = "laneidCb"
+        Me.laneidCb.Size = New System.Drawing.Size(248, 26)
+        Me.laneidCb.TabIndex = 14
         '
         'TransportAdminTGLog
         '
@@ -447,9 +443,7 @@ Partial Class TransportAdminTGLog
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -473,9 +467,9 @@ Partial Class TransportAdminTGLog
     Friend WithEvents txtFastagID As TextBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents label13 As Label
-    Friend WithEvents txtVehicleType As TextBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents label14 As Label
-    Friend WithEvents txtLaneID As TextBox
     Friend WithEvents btnfilter As Button
+    Friend WithEvents VTypeCb As ComboBox
+    Friend WithEvents laneidCb As ComboBox
 End Class

@@ -4,6 +4,7 @@ Public Class TransportationAdminHome
     Public Property uid As Integer = 1
     Public Property u_name As String = "Dhanesh"
     Private transportAddsecys As TransportAddSecys = Nothing
+    Private transportSendNotification As TransportSendNotification = Nothing
     Private transportationBusSchedulesAdmin As TransportationBusSchedulesAdmin = Nothing
     Private transportManageFastagAdmin As TransportationManageFastagAdmin = Nothing
     Private transportFRAdmin As TransportFRAdmin = Nothing
@@ -297,6 +298,13 @@ Public Class TransportationAdminHome
         transportAdminRSReq?.Dispose()
         transportMangeBusStopAdmin?.Dispose()
         transportManageTollGatesAdmin?.Dispose()
+        transportSendNotification?.Dispose()
     End Sub
 
+    Private Sub PictureBox10_Click(sender As Object, e As EventArgs) Handles PictureBox10.Click
+        'All admins can view notification screen
+        transportSendNotification?.Dispose()
+        transportSendNotification = New TransportSendNotification()
+        Globals.viewChildForm(innerPanel, transportSendNotification)
+    End Sub
 End Class

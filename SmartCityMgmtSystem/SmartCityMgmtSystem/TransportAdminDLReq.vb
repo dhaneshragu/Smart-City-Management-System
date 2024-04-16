@@ -64,7 +64,7 @@ Public Class TransportAdminDLReq
                 Accept_click = 0
                 ' Execute the command (Update statement)
                 command.ExecuteNonQuery()
-                Globals.SendNotifications(5, uid, "Driving License Approved", "You have passed your Driving License Test for vehicle Type " & vType & ". You can view your Driving License in your Driving License Page. Happy Driving!")
+                Globals.SendNotifications(4, uid, "Driving License Approved", "You have passed your Driving License Test for vehicle Type " & vType & ". You can view your Driving License in your Driving License Page. Happy Driving!")
             ElseIf Reject_click = 1 Then
 
                 command.Parameters.AddWithValue("@c", "fail")
@@ -73,7 +73,7 @@ Public Class TransportAdminDLReq
                 Reject_click = 0
                 ' Execute the command (Update statement)
                 command.ExecuteNonQuery()
-                Globals.SendNotifications(5, uid, "Driving License Request Rejected", "You have failed your Driving License test for vehicle Type " & vType & ". Better luck next time!")
+                Globals.SendNotifications(4, uid, "Driving License Request Rejected", "You have failed your Driving License test for vehicle Type " & vType & ". Better luck next time!")
             End If
 
         End Using

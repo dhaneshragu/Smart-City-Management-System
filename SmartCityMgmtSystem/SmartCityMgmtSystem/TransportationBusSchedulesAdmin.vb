@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.DirectoryServices
 Imports System.Numerics
+Imports System.Web.UI.WebControls
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar
@@ -262,21 +263,75 @@ Public Class TransportationBusSchedulesAdmin
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        If String.IsNullOrWhiteSpace(TextBox6.Text) Then
+        Dim t1, t2, t3, t4, t5 As Int16
+        t1 = 0
+        t2 = 0
+        t3 = 0
+        t4 = 1
+        t5 = 1
+        If Not String.IsNullOrWhiteSpace(TextBox6.Text) Then
+            Dim userInput As String = TextBox6.Text
+            Dim intValue As Integer
+
+            If Integer.TryParse(userInput, intValue) Then
+                t1 = 1
+                ' The TextBox contains an integer value
+            Else
+                ' The TextBox does not contain an integer value
+                MessageBox.Show("The Bus Number TextBox does not contain an integer value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Label3.Text = "Add New Bus Schedule"
+                Button3.Text = "Add"
+                TextBox6.Clear()
+                Return
+            End If
+        Else
+            ' The TextBox is empty
             MessageBox.Show("Please enter some input in the Bus Number textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add New Bus Schedule"
             Button3.Text = "Add"
             TextBox6.Clear()
             Return
         End If
-        If String.IsNullOrWhiteSpace(TextBox8.Text) Then
+        If Not String.IsNullOrWhiteSpace(TextBox8.Text) Then
+            Dim userInput As String = TextBox8.Text
+            Dim intValue As Integer
+
+            If Integer.TryParse(userInput, intValue) Then
+                ' The TextBox contains an integer value
+                t2 = 1
+            Else
+                ' The TextBox does not contain an integer value
+                MessageBox.Show("The Fare textbox does not contain an integer value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Label3.Text = "Add New Bus Schedule"
+                Button3.Text = "Add"
+                TextBox8.Clear()
+                Return
+            End If
+        Else
+            ' The TextBox is empty
             MessageBox.Show("Please enter some input in the Fare textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add New Bus Schedule"
             Button3.Text = "Add"
             TextBox8.Clear()
             Return
         End If
-        If String.IsNullOrWhiteSpace(TextBox7.Text) Then
+        If Not String.IsNullOrWhiteSpace(TextBox7.Text) Then
+            Dim userInput As String = TextBox7.Text
+            Dim intValue As Integer
+
+            If Integer.TryParse(userInput, intValue) Then
+                ' The TextBox contains an integer value
+                t3 = 1
+            Else
+                ' The TextBox does not contain an integer value
+                MessageBox.Show("The Seats TextBox does not contain an integer value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Label3.Text = "Add New Bus Schedule"
+                Button3.Text = "Add"
+                TextBox7.Clear()
+                Return
+            End If
+        Else
+            ' The TextBox is empty
             MessageBox.Show("Please enter some input in the Seats textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add New Bus Schedule"
             Button3.Text = "Add"
@@ -285,6 +340,7 @@ Public Class TransportationBusSchedulesAdmin
         End If
         If ComboBox1.SelectedIndex = -1 Then
             ' No item is selected
+            t4 = 0
             MessageBox.Show("No Source is selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add New Bus Schedule"
             Button3.Text = "Add"
@@ -292,6 +348,7 @@ Public Class TransportationBusSchedulesAdmin
         End If
         If ComboBox2.SelectedIndex = -1 Then
             ' No item is selected
+            t5 = 0
             MessageBox.Show("No Destination is selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Label3.Text = "Add New Bus Schedule"
             Button3.Text = "Add"
@@ -362,28 +419,30 @@ Public Class TransportationBusSchedulesAdmin
 
             Dim decimalValue As Integer = Convert.ToInt32(bitString, 2)
 
-            cmd = "UPDATE bus_schedules SET bus_no = '" & TextBox6.Text & "', starting_time = '" & DateTimePicker2.Value.TimeOfDay.ToString() & "', days_operating = " & decimalValue.ToString() & ", src_id = " & ComboBox1.SelectedValue & ", dest_id = " & ComboBox2.SelectedValue & ", bus_fare = '" & TextBox8.Text & "', capacity = '" & TextBox7.Text & "' WHERE bus_no = " & primaryKeyEdit
-            Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
-            Globals.ExecuteUpdateQuery("Update bus_capacity set mon = " & arr(0) & ",tue = " & arr(1) & ", wed = " & arr(2) & ", thu = " & arr(3) & ", fri = " & arr(4) & ", sat = " & arr(5) & ", sun = " & arr(6) & " where bus_no = " & primaryKeyEdit)
-            If success Then
-                LoadandBindDataGridView()
+            If t1 = 1 And t2 = 1 And t3 = 1 And t4 = 1 And t5 = 1 Then
+                cmd = "UPDATE bus_schedules SET bus_no = '" & TextBox6.Text & "', starting_time = '" & DateTimePicker2.Value.TimeOfDay.ToString() & "', days_operating = " & decimalValue.ToString() & ", src_id = " & ComboBox1.SelectedValue & ", dest_id = " & ComboBox2.SelectedValue & ", bus_fare = '" & TextBox8.Text & "', capacity = '" & TextBox7.Text & "' WHERE bus_no = " & primaryKeyEdit
+                Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
+                Globals.ExecuteUpdateQuery("Update bus_capacity set mon = " & arr(0) & ",tue = " & arr(1) & ", wed = " & arr(2) & ", thu = " & arr(3) & ", fri = " & arr(4) & ", sat = " & arr(5) & ", sun = " & arr(6) & " where bus_no = " & primaryKeyEdit)
+                If success Then
+                    LoadandBindDataGridView()
+                End If
+                Globals.SendNotifications(4, -1, "Bus Schedule Updated", "An existing bus schedule for bus no " & TextBox6.Text & " has been updated by the admin")
+                Label3.Text = "Add New Bus Schedule"
+                Button3.Text = "Add"
+                TextBox6.Clear()
+                DateTimePicker2.Value = DateTime.Now
+                TextBox8.Clear()
+                TextBox7.Clear()
+                CheckBox1.Checked = False
+                CheckBox2.Checked = False
+                CheckBox3.Checked = False
+                CheckBox4.Checked = False
+                CheckBox5.Checked = False
+                CheckBox6.Checked = False
+                CheckBox7.Checked = False
+                ComboBox1.SelectedIndex = -1
+                ComboBox2.SelectedIndex = -1
             End If
-            Globals.SendNotifications(4, -1, "Bus Schedule Updated", "An existing bus schedule for bus no " & TextBox6.Text & " has been updated by the admin")
-            Label3.Text = "Add New Bus Schedule"
-            Button3.Text = "Add"
-            TextBox6.Clear()
-            DateTimePicker2.Value = DateTime.Now
-            TextBox8.Clear()
-            TextBox7.Clear()
-            CheckBox1.Checked = False
-            CheckBox2.Checked = False
-            CheckBox3.Checked = False
-            CheckBox4.Checked = False
-            CheckBox5.Checked = False
-            CheckBox6.Checked = False
-            CheckBox7.Checked = False
-            ComboBox1.SelectedIndex = -1
-            ComboBox2.SelectedIndex = -1
         Else
             Dim cmd As String
 
@@ -447,27 +506,29 @@ Public Class TransportationBusSchedulesAdmin
                 arr(6) = 0
             End If
 
-            Dim decimalValue As Integer = Convert.ToInt32(bitString, 2)
-            cmd = "INSERT into bus_schedules (bus_no,starting_time,days_operating,src_id,dest_id,bus_fare,capacity) VALUES ('" & TextBox6.Text & "','" & DateTimePicker2.Value.TimeOfDay.ToString() & "'," & decimalValue.ToString() & "," & ComboBox1.SelectedValue & "," & ComboBox2.SelectedValue & ",'" & TextBox8.Text & "','" & TextBox7.Text & "')"
-            Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
-            Globals.ExecuteInsertQuery("Insert into bus_capacity values(" & Convert.ToInt32(TextBox6.Text) & "," & arr(0) & "," & arr(1) & "," & arr(2) & "," & arr(3) & "," & arr(4) & "," & arr(5) & "," & arr(6) & ")")
-            If success Then
-                LoadandBindDataGridView()
+            If t1 = 1 And t2 = 1 And t3 = 1 And t4 = 1 And t5 = 1 Then
+                Dim decimalValue As Integer = Convert.ToInt32(bitString, 2)
+                cmd = "INSERT into bus_schedules (bus_no,starting_time,days_operating,src_id,dest_id,bus_fare,capacity) VALUES ('" & TextBox6.Text & "','" & DateTimePicker2.Value.TimeOfDay.ToString() & "'," & decimalValue.ToString() & "," & ComboBox1.SelectedValue & "," & ComboBox2.SelectedValue & ",'" & TextBox8.Text & "','" & TextBox7.Text & "')"
+                Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
+                Globals.ExecuteInsertQuery("Insert into bus_capacity values(" & Convert.ToInt32(TextBox6.Text) & "," & arr(0) & "," & arr(1) & "," & arr(2) & "," & arr(3) & "," & arr(4) & "," & arr(5) & "," & arr(6) & ")")
+                If success Then
+                    LoadandBindDataGridView()
+                End If
+                Globals.SendNotifications(4, -1, "Bus Schedule Added", "A new bus schedule added for bus no " & TextBox6.Text & " running from " & ComboBox1.SelectedItem.Name & " to " & ComboBox2.SelectedItem.Name & " has been added by the admin")
+                TextBox6.Clear()
+                DateTimePicker2.Value = DateTime.Now
+                TextBox8.Clear()
+                TextBox7.Clear()
+                CheckBox1.Checked = False
+                CheckBox2.Checked = False
+                CheckBox3.Checked = False
+                CheckBox4.Checked = False
+                CheckBox5.Checked = False
+                CheckBox6.Checked = False
+                CheckBox7.Checked = False
+                ComboBox1.SelectedIndex = -1
+                ComboBox2.SelectedIndex = -1
             End If
-            Globals.SendNotifications(4, -1, "Bus Schedule Added", "A new bus schedule added for bus no " & TextBox6.Text & " running from " & ComboBox1.SelectedItem.Name & " to " & ComboBox2.SelectedItem.Name & " has been added by the admin")
-            TextBox6.Clear()
-            DateTimePicker2.Value = DateTime.Now
-            TextBox8.Clear()
-            TextBox7.Clear()
-            CheckBox1.Checked = False
-            CheckBox2.Checked = False
-            CheckBox3.Checked = False
-            CheckBox4.Checked = False
-            CheckBox5.Checked = False
-            CheckBox6.Checked = False
-            CheckBox7.Checked = False
-            ComboBox1.SelectedIndex = -1
-            ComboBox2.SelectedIndex = -1
         End If
     End Sub
 End Class
