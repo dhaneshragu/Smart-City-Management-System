@@ -49,7 +49,7 @@ Public Class Ed_UploadCert
         certData.sClass = If(String.IsNullOrWhiteSpace(classTextBox.Text), 0, Convert.ToInt32(classTextBox.Text))
         certData.sSem = If(String.IsNullOrWhiteSpace(semTextBox.Text), 0, Convert.ToInt32(semTextBox.Text))
         certData.Year = If(String.IsNullOrWhiteSpace(yearTextBox.Text), 0, Convert.ToInt32(yearTextBox.Text))
-        certData.CertName = If(String.IsNullOrWhiteSpace(yearTextBox.Text), "NO NAME", Convert.ToInt32(certNameTextBox.Text))
+        certData.CertName = If(String.IsNullOrWhiteSpace(yearTextBox.Text), "NO NAME", Convert.ToString(certNameTextBox.Text))
         certData.Certificate = uploadedFileBytes
 
 

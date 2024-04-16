@@ -56,7 +56,9 @@ Public Class HomePage
     End Sub
 
     Private Sub bankDept_Click(sender As Object, e As EventArgs) Handles bankDept.Click
-        Dim bank = New BankingLogin()
+        Dim bank = New BankingLogin() With {
+                .uid = uid
+            }
         bank.Show()
         Me.ParentForm.Close()
         Me.Close()
