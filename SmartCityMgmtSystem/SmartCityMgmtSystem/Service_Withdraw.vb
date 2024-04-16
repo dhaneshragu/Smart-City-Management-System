@@ -111,6 +111,10 @@ Public Class Service_Withdraw
                 For Each row As DataGridViewRow In rowsToRemove
                     DataGridView1.Rows.Remove(row)
                 Next
+                If rowsToRemove.Count = 0 Then
+                    MessageBox.Show("No Service to Withdraw.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
                 MessageBox.Show("Service Withdrawn Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Using
         Catch ex As Exception
