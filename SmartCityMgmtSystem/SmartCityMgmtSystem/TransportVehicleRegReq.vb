@@ -105,7 +105,7 @@ Public Class TransportVehicleRegReq
         End Try
 
         'Fetch vehicle details
-        cmd = New MySqlCommand("SELECT uid, vehicle_type as vehicle_type_ID, vehicle_ID, vehicle_pic, inv_pdf, status, inv_id FROM vehicle_reg where uid = @a ", Con)
+        cmd = New MySqlCommand("SELECT uid, vehicle_type as vehicle_type_ID, vehicle_ID, vehicle_pic, inv_pdf, status FROM vehicle_reg where uid = @a ", Con)
         cmd.Parameters.AddWithValue("@a", uid)
         reader = cmd.ExecuteReader
         ' Create a DataTable to store the data
