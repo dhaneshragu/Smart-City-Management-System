@@ -46,5 +46,16 @@ Public Class Service_Scheduled
 
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
+
+        If DataGridView1.Rows.Count > 0 Then
+            ' Access the first row and retrieve values from specific cells
+            Dim userID As Integer = Convert.ToInt32(DataGridView1.Rows(0).Cells("Column1").Value)
+            Dim depat As String = Convert.ToString(DataGridView1.Rows(0).Cells("Column3").Value)
+            Dim dateValue As DateTime = Convert.ToDateTime(DataGridView1.Rows(0).Cells("Column5").Value)
+
+            RichTextBox9.Text = depat
+            DateTimePicker2.Value = dateValue
+            RichTextBox7.Text = userID
+        End If
     End Sub
 End Class

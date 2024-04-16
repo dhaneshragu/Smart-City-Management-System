@@ -50,6 +50,7 @@ Public Class Service_Withdraw
 
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
+        DataGridView1.AllowUserToAddRows = False
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs)
 

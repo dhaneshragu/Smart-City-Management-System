@@ -54,7 +54,7 @@ Public Class Employment_portal_apply
 
                     End Try
                 Else
-                    MessageBox.Show("Deadline has passed.")
+                    MessageBox.Show("Requested Job Opening Not available.")
                 End If
             Catch ex As MySqlException When ex.Number = 0 ' MySQL error number for server errors
                 MessageBox.Show("Error: Unable to connect to the database server. Please check your internet connection or contact support.")

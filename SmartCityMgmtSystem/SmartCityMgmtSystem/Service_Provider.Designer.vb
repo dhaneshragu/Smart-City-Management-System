@@ -244,9 +244,11 @@ Partial Class Service_Provider
         'RichTextBox15
         '
         Me.RichTextBox15.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox15.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox15.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox15.Location = New System.Drawing.Point(452, 422)
         Me.RichTextBox15.Name = "RichTextBox15"
+        Me.RichTextBox15.ReadOnly = True
         Me.RichTextBox15.Size = New System.Drawing.Size(178, 42)
         Me.RichTextBox15.TabIndex = 11
         Me.RichTextBox15.Text = "On the Day"
@@ -254,6 +256,7 @@ Partial Class Service_Provider
         'RichTextBox14
         '
         Me.RichTextBox14.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox14.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox14.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox14.Location = New System.Drawing.Point(111, 422)
         Me.RichTextBox14.Name = "RichTextBox14"
@@ -264,9 +267,11 @@ Partial Class Service_Provider
         'RichTextBox13
         '
         Me.RichTextBox13.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox13.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox13.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox13.Location = New System.Drawing.Point(802, 340)
         Me.RichTextBox13.Name = "RichTextBox13"
+        Me.RichTextBox13.ReadOnly = True
         Me.RichTextBox13.Size = New System.Drawing.Size(210, 42)
         Me.RichTextBox13.TabIndex = 9
         Me.RichTextBox13.Text = "for Customer"
@@ -274,6 +279,7 @@ Partial Class Service_Provider
         'RichTextBox12
         '
         Me.RichTextBox12.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox12.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox12.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox12.Location = New System.Drawing.Point(544, 340)
         Me.RichTextBox12.Name = "RichTextBox12"
@@ -284,9 +290,11 @@ Partial Class Service_Provider
         'RichTextBox11
         '
         Me.RichTextBox11.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox11.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox11.Location = New System.Drawing.Point(52, 340)
         Me.RichTextBox11.Name = "RichTextBox11"
+        Me.RichTextBox11.ReadOnly = True
         Me.RichTextBox11.Size = New System.Drawing.Size(475, 42)
         Me.RichTextBox11.TabIndex = 7
         Me.RichTextBox11.Text = "your next scheduled service is"
@@ -294,9 +302,11 @@ Partial Class Service_Provider
         'RichTextBox10
         '
         Me.RichTextBox10.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox10.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox10.Location = New System.Drawing.Point(52, 98)
         Me.RichTextBox10.Name = "RichTextBox10"
+        Me.RichTextBox10.ReadOnly = True
         Me.RichTextBox10.Size = New System.Drawing.Size(511, 42)
         Me.RichTextBox10.TabIndex = 6
         Me.RichTextBox10.Text = "your current scheduled service is"
@@ -311,9 +321,11 @@ Partial Class Service_Provider
         'RichTextBox6
         '
         Me.RichTextBox6.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox6.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox6.Location = New System.Drawing.Point(452, 177)
         Me.RichTextBox6.Name = "RichTextBox6"
+        Me.RichTextBox6.ReadOnly = True
         Me.RichTextBox6.Size = New System.Drawing.Size(178, 42)
         Me.RichTextBox6.TabIndex = 4
         Me.RichTextBox6.Text = "On the Day"
@@ -321,6 +333,7 @@ Partial Class Service_Provider
         'RichTextBox7
         '
         Me.RichTextBox7.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox7.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox7.Location = New System.Drawing.Point(111, 179)
         Me.RichTextBox7.Name = "RichTextBox7"
@@ -331,9 +344,11 @@ Partial Class Service_Provider
         'RichTextBox8
         '
         Me.RichTextBox8.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox8.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox8.Location = New System.Drawing.Point(824, 98)
         Me.RichTextBox8.Name = "RichTextBox8"
+        Me.RichTextBox8.ReadOnly = True
         Me.RichTextBox8.Size = New System.Drawing.Size(210, 42)
         Me.RichTextBox8.TabIndex = 2
         Me.RichTextBox8.Text = "for Customer"
@@ -341,6 +356,7 @@ Partial Class Service_Provider
         'RichTextBox9
         '
         Me.RichTextBox9.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox9.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox9.Location = New System.Drawing.Point(577, 98)
         Me.RichTextBox9.Name = "RichTextBox9"
