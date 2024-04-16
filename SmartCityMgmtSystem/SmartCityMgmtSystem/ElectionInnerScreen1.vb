@@ -2,9 +2,24 @@
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports MySql.Data.MySqlClient
 Public Class ElectionInnerScreen1
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Public Property innerPanel As Panel
+
+    Dim electionInnerScreenVoter As ElectionInnerScreenVoter = Nothing
+    Dim electionInnerScreenCitizenViolation As ElectionInnerScreenCitizenViolation = Nothing
+    Dim electionVoterNominate As ElectionVoterNominate = Nothing
+    Dim electionCitizenKYC As ElectionCitizenKYC = Nothing
+    Dim electionCitizenResults As ElectionCitizenResults = Nothing
+    Dim electionCitizenTimeline As ElectionCitizenTimeline = Nothing
+    Dim electionInnerScreenCastVote As ElectionInnerScreenCastVote = Nothing
+    Dim electionInnerScreenPastElections As ElectionInnerScreenPastElections = Nothing
+    Dim electionInnerScreenCitizenCoC As ElectionInnerScreenCitizenCoC = Nothing
+    Dim electionInnerScreenViewStatistics As ElectionInnerScreenViewStatistics = Nothing
+
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
+    End Sub 
 
     Private Function AreDatesIncreasing(dates() As String) As Boolean
         ' Iterate through the array starting from the second element
@@ -59,13 +74,24 @@ Public Class ElectionInnerScreen1
         Return True
     End Function
 
-
     Private Sub Panel1_Click(sender As Object, e As EventArgs) Handles Panel1.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenVoter)
+        electionInnerScreenVoter?.Dispose()
+        electionInnerScreenVoter = New ElectionInnerScreenVoter With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenVoter)
     End Sub
 
     Private Sub Panel3_Click(sender As Object, e As EventArgs) Handles Panel3.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionCitizenKYC)
+        electionCitizenKYC?.Dispose()
+        electionCitizenKYC = New ElectionCitizenKYC With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionCitizenKYC)
     End Sub
 
     Private Sub Panel5_Click(sender As Object, e As EventArgs) Handles Panel5.Click
@@ -90,7 +116,13 @@ Public Class ElectionInnerScreen1
 
 
         If announced = 1 Then
-            Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionCitizenResults)
+            electionCitizenResults?.Dispose()
+            electionCitizenResults = New ElectionCitizenResults With {
+                .innerPanel = innerPanel,
+                .uid = uid,
+                .u_name = u_name
+            }
+            Globals.viewChildForm(innerPanel, ElectionCitizenResults)
         Else
             MessageBox.Show("Results haven't been announced yet. View Election Timeline to know the dates.")
         End If
@@ -100,7 +132,13 @@ Public Class ElectionInnerScreen1
     End Sub
 
     Private Sub Panel8_Click(sender As Object, e As EventArgs) Handles Panel8.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionCitizenTimeline)
+        electionCitizenTimeline?.Dispose()
+        electionCitizenTimeline = New ElectionCitizenTimeline With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionCitizenTimeline)
     End Sub
 
     Private Sub Panel2_Click(sender As Object, e As EventArgs) Handles Panel2.Click
@@ -134,7 +172,7 @@ Public Class ElectionInnerScreen1
         'Dim month As Integer = dt.Month
         'Dim day As Integer = dt.Day
         'Dim current_date As String = year.ToString + "-" + month.ToString + "-" + day.ToString
-        Dim current_date As String = "2024-03-02"
+        Dim current_date As String = "2024-04-05"
 
         Dim nominationStartDate As DateTime = DateTime.MinValue
         Dim nominationEndDate As DateTime = DateTime.MinValue
@@ -167,7 +205,14 @@ Public Class ElectionInnerScreen1
         If check = True Then
             MessageBox.Show("Nominations haven't begun yet.")
         ElseIf check1 = True Then
-            Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionVoterNominate)
+
+            electionVoterNominate?.Dispose()
+            electionVoterNominate = New ElectionVoterNominate With {
+                .innerPanel = innerPanel,
+                .uid = uid,
+                .u_name = u_name
+            }
+            Globals.viewChildForm(innerPanel, electionVoterNominate)
         Else
             MessageBox.Show("No nominations are accepted now.")
         End If
@@ -200,7 +245,7 @@ Public Class ElectionInnerScreen1
             Exit Sub
         End If
 
-        Dim current_date As String = "2024-03-10"
+        Dim current_date As String = "2024-04-09"
 
         Dim election As DateTime = DateTime.MinValue
 
@@ -219,7 +264,7 @@ Public Class ElectionInnerScreen1
         If check Then
 
             Dim voter As Integer = 0 ' Default value in case there are no rows in election_time
-            Dim voterQuery As String = "SELECT voter FROM users WHERE user_id = " & ElectionDashboard.LoggedInUserId & " ;"
+            Dim voterQuery As String = "SELECT voter FROM users WHERE user_id = " & uid & " ;"
             cmd = New MySqlCommand(voterQuery, Con)
             reader = cmd.ExecuteReader()
             If reader.Read() Then
@@ -229,7 +274,7 @@ Public Class ElectionInnerScreen1
 
             If voter = 1 Then
                 Dim voted As Integer = 0 ' Default value in case there are no rows in election_time
-                Dim votedQuery As String = "SELECT voted FROM users WHERE user_id = " & ElectionDashboard.LoggedInUserId & " ;"
+                Dim votedQuery As String = "SELECT voted FROM users WHERE user_id = " & uid & " ;"
                 cmd = New MySqlCommand(votedQuery, Con)
                 reader = cmd.ExecuteReader()
                 If reader.Read() Then
@@ -237,7 +282,13 @@ Public Class ElectionInnerScreen1
                 End If
                 reader.Close()
                 If voted = 0 Then
-                    Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenCastVote)
+                    electionInnerScreenCastVote?.Dispose()
+                    electionInnerScreenCastVote = New ElectionInnerScreenCastVote With {
+                        .innerPanel = innerPanel,
+                        .uid = uid,
+                        .u_name = u_name
+                    }
+                    Globals.viewChildForm(innerPanel, electionInnerScreenCastVote)
                 Else
                     MessageBox.Show("You have already voted in this election.")
                 End If
@@ -253,11 +304,23 @@ Public Class ElectionInnerScreen1
     End Sub
 
     Private Sub Panel7_Click(sender As Object, e As EventArgs) Handles Panel7.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenPastElections)
+        electionInnerScreenPastElections?.Dispose()
+        electionInnerScreenPastElections = New ElectionInnerScreenPastElections With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenPastElections)
     End Sub
 
     Private Sub Panel9_Click(sender As Object, e As EventArgs) Handles Panel9.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenCitizenCoC)
+        electionInnerScreenCitizenCoC?.Dispose()
+        electionInnerScreenCitizenCoC = New ElectionInnerScreenCitizenCoC With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenCitizenCoC)
     End Sub
 
     Private Sub Panel10_Click(sender As Object, e As EventArgs) Handles Panel10.Click
@@ -290,7 +353,7 @@ Public Class ElectionInnerScreen1
                                 FROM election_time 
                                 WHERE election_id = @electionId;"
             cmd = New MySqlCommand(query, Con)
-            cmd.Parameters.AddWithValue("@electionId", electionId)
+            cmd.Parameters.AddWithValue("@electionId", electionID)
             reader = cmd.ExecuteReader()
             If reader.Read() Then
                 announced = Convert.ToInt32(reader("announced"))
@@ -300,7 +363,14 @@ Public Class ElectionInnerScreen1
             If announced = 1 Then
                 MessageBox.Show("There are no active elections currently.")
             Else
-                Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenCitizenViolation)
+                electionInnerScreenCitizenViolation?.Dispose()
+                electionInnerScreenCitizenViolation = New ElectionInnerScreenCitizenViolation With {
+                    .innerPanel = innerPanel,
+                    .uid = uid,
+                    .u_name = u_name
+                }
+
+                Globals.viewChildForm(innerPanel, electionInnerScreenCitizenViolation)
             End If
 
         Catch ex As Exception
@@ -315,6 +385,12 @@ Public Class ElectionInnerScreen1
     End Sub
 
     Private Sub Panel6_Click(sender As Object, e As EventArgs) Handles Panel6.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatistics)
+        electionInnerScreenViewStatistics?.Dispose()
+        electionInnerScreenViewStatistics = New ElectionInnerScreenViewStatistics With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenViewStatistics)
     End Sub
 End Class

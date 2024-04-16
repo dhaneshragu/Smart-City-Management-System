@@ -21,9 +21,35 @@ Public Class UserResetPassword
         'Globals.viewChildForm(childformPanel, TransportationAdminHome)
     End Sub
 
+    Private Function CheckPasswordStrength(password As String) As Boolean
+        ' Check if password meets criteria
+        Dim hasNumber As Boolean = False
+        Dim hasSpecialChar As Boolean = False
+        Dim hasUpperCase As Boolean = False
+        Dim hasLowerCase As Boolean = False
+
+        ' Define special characters
+        Dim specialCharacters As String = "!@#$%^&*()_+-=[]{}|;:',.<>?/~"
+
+        For Each c As Char In password
+            If Char.IsDigit(c) Then
+                hasNumber = True
+            ElseIf specialCharacters.Contains(c) Then
+                hasSpecialChar = True
+            ElseIf Char.IsUpper(c) Then
+                hasUpperCase = True
+            ElseIf Char.IsLower(c) Then
+                hasLowerCase = True
+            End If
+        Next
+
+        ' Check all criteria
+        Return password.Length >= 8 AndAlso hasNumber AndAlso hasSpecialChar AndAlso hasUpperCase AndAlso hasLowerCase
+    End Function
+
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Dim uid As Integer = -1
-        If (TextBox1.Text.Equals(TextBox2.Text)) Then
+        If (TextBox1.Text.Equals(TextBox2.Text) AndAlso CheckPasswordStrength(TextBox2.Text)) Then
             Dim cmd As String = "UPDATE users SET password= @password WHERE email = @email"
             Dim conStr As String = Globals.getdbConnectionString()
             Using connection As New MySqlConnection(conStr)
@@ -55,7 +81,12 @@ Public Class UserResetPassword
                 End Using
             End Using
         Else
-            MessageBox.Show("Passwords not matching!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If Not CheckPasswordStrength(TextBox2.Text) Then
+                MessageBox.Show("Password must be at least 8 characters long and contain at least 
+one number, special character, uppercase letter, and lowercase letter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                MessageBox.Show("Passwords not matching!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
 End Class

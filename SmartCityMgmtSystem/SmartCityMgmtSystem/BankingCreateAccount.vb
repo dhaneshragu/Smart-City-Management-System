@@ -2,13 +2,6 @@
 
 Public Class BankingCreateAccount
 
-    'Private lastAccountNumber As Integer = 10000000
-
-    'Private Function GenerateNextAccountNumber() As Integer
-    '   lastAccountNumber += 1
-    'Return lastAccountNumber
-    'End Function
-
     Private Function GenerateNextAccountNumber() As Integer
         ' Get connection from globals
         Dim Con As MySqlConnection = Globals.GetDBConnection()
@@ -46,7 +39,8 @@ Public Class BankingCreateAccount
 
 
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        TextBox3.PasswordChar = "*"
+        TextBox4.PasswordChar = "*"
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)

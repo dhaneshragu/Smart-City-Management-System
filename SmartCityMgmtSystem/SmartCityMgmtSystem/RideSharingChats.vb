@@ -2,6 +2,7 @@
 Imports System.Data.SqlClient
 Imports System.Data.SqlTypes
 Imports System.IO
+Imports System.Runtime.Remoting.Channels
 Imports System.Threading
 Imports MySql.Data.MySqlClient
 Imports Mysqlx.XDevAPI.Common
@@ -33,7 +34,7 @@ Public Class RideSharingChats
                         If Globals.ExecuteInsertQuery(query) Then
                             query = "UPDATE ridesharing_chats_users SET status = 'not-added' WHERE req_id = " & req_id & " AND uid = " & Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value) & ";"
                             If Globals.ExecuteInsertQuery(query) Then
-                                Globals.SendNotifications(5, Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value), "Ride Sharing Request Rejected", "Your request to join " & u_name & "'s Ride Sharing has been rejected by them. You will be receiving the refund for your payment soon.")
+                                Globals.SendNotifications(4, Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value), "Ride Sharing Request Rejected", "Your request to join " & u_name & "'s Ride Sharing has been rejected by them. You will be receiving the refund for your payment soon.")
                                 LoadandBindDataGridView()
                             End If
                         End If
@@ -50,7 +51,7 @@ Public Class RideSharingChats
                                 If Globals.ExecuteInsertQuery(query) Then
                                     query = "UPDATE ridesharing_chats_users SET status = 'added' WHERE req_id = " & req_id & " AND uid = " & Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value) & ";"
                                     If Globals.ExecuteInsertQuery(query) Then
-                                        Globals.SendNotifications(5, Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value), "Ride Sharing Request Accepted", "Your request to join " & u_name & "'s Ride Sharing has been approved by them. Happy Car Pooling!")
+                                        Globals.SendNotifications(4, Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("Id").Value), "Ride Sharing Request Accepted", "Your request to join " & u_name & "'s Ride Sharing has been approved by them. Happy Car Pooling!")
                                         LoadandBindDataGridView()
                                     End If
                                 End If
@@ -315,22 +316,126 @@ Public Class RideSharingChats
         LoadChats()
         LoadandBindDataGridView()
     End Sub
+    Private Function getFare() As Integer
+        'Get the fare per person
+        Dim query As String = "SELECT fare_per_person FROM ride_sharing_entries WHERE req_id = " & req_id & ";"
+        Dim fare As Integer = 0
+        Using connection As New MySqlConnection(Globals.getdbConnectionString())
+            Using command As New MySqlCommand(query, connection)
+                Try
+                    connection.Open()
+                    Dim reader As MySqlDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        fare = Convert.ToInt32(reader("fare_per_person"))
+                    End If
+                    reader.Close()
+                Catch ex As Exception
+                    MessageBox.Show("Error getting fare: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Finally
+                    connection.Close()
+                End Try
+            End Using
+        End Using
 
+    End Function
+
+    Private Function ProcessPaymentFromMinistry() As Boolean
+        Dim ans As Boolean = False
+        Dim acc_from, acc_to, receiver, amt, from_bal As Integer
+        Dim pass As String = ""
+        Dim Con = Globals.GetDBConnection()
+        Dim reader As MySqlDataReader
+        Dim cmd As MySqlCommand
+        Try
+            Con.Open()
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+        cmd = New MySqlCommand("SELECT account_number, password, balance FROM account WHERE user_id = 5", Con)
+        reader = cmd.ExecuteReader
+        If reader.Read() Then
+            acc_from = reader("account_number")
+            pass = reader("password")
+            from_bal = reader("balance")
+        End If
+        reader.Close()
+
+        receiver = uid
+        amt = getFare()
+        If from_bal < amt Then
+            MessageBox.Show("Insufficient balance in transport department, Can't process your refund.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            cmd = New MySqlCommand("SELECT account_number FROM account WHERE user_id = " & receiver, Con)
+            reader = cmd.ExecuteReader
+            If reader.Read() Then
+                acc_to = reader("account_number")
+                reader.Close()
+
+                Dim q As String = "INSERT INTO transactions (sender_account, receiver_account, time, amount, message) 
+                        VALUES (@sa, @ra, @time, @amt, @msg)"
+                Dim bal_from As String = "UPDATE account SET balance = balance - " & amt & " WHERE user_id = " & 5
+                Dim bal_to As String = "UPDATE account SET balance = balance + " & amt & " WHERE user_id = " & receiver
+                'Dim conStr As String = Globals.getdbConnectionString()
+                'Using connection As New MySqlConnection(conStr)
+                Using sqlCommand As New MySqlCommand(q, Con)
+                    sqlCommand.Parameters.AddWithValue("@sa", acc_from)
+                    sqlCommand.Parameters.AddWithValue("@ra", acc_to)
+                    sqlCommand.Parameters.AddWithValue("@time", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+                    sqlCommand.Parameters.AddWithValue("@amt", amt)
+                    sqlCommand.Parameters.AddWithValue("@msg", "Refund for Ride Sharing Payment")
+                    Try
+                        Dim success As Boolean = Globals.ExecuteUpdateQuery(bal_from)
+                        Globals.ExecuteUpdateQuery(bal_to)
+                        sqlCommand.ExecuteNonQuery()
+                        ans = True
+                    Catch ex As Exception
+                        MessageBox.Show("Error: " & ex.Message)
+                    End Try
+                End Using
+            Else
+                MessageBox.Show("Reciever does not have a bank account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+        Return ans
+
+    End Function
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         'Pay or withdraw fees
         If Button1.Text = "Pay" Then
-            Dim query As String = "UPDATE ridesharing_chats_users SET fee_paid = 1 WHERE req_id = " & req_id & " AND uid = " & uid & ";"
-            If Globals.ExecuteUpdateQuery(query) Then
-                MsgBox("Fee Paid Successfully")
-                LoadandBindDataGridView()
-                Button1.Text = "Withdraw"
+            'Call the payment gateway
+            Dim paymentGateway As New PaymentGateway() With
+            {
+            .uid = uid,
+            .readonly_prop = True,
+            .TopMost = True
+            }
+
+            'Pay to the UID of the driver
+            paymentGateway.TextBox1.Text = poster_uid
+            paymentGateway.TextBox2.Text = getFare() 'Amount to pay
+            paymentGateway.TextBox3.Text = "Ride Sharing Amount payment"
+            If paymentGateway.ShowDialog() = DialogResult.OK Then
+                Dim query As String = "UPDATE ridesharing_chats_users SET fee_paid = 1 WHERE req_id = " & req_id & " AND uid = " & uid & ";"
+                If Globals.ExecuteUpdateQuery(query) Then
+                    MsgBox("Fee Paid Successfully")
+                    LoadandBindDataGridView()
+                    Button1.Text = "Withdraw"
+                End If
             End If
+
         Else 'Automatically remove accept status also
-            Dim query As String = "UPDATE ridesharing_chats_users SET fee_paid = 0,status='not-added' WHERE req_id = " & req_id & " AND uid = " & uid & ";"
-            If Globals.ExecuteUpdateQuery(query) Then
-                MsgBox("Fee Payment Withdrawn")
-                LoadandBindDataGridView()
-                Button1.Text = "Pay"
+            'Transfer money from transport minister to user with amount as the fee paid
+            If ProcessPaymentFromMinistry() Then
+                Dim query As String = "UPDATE ridesharing_chats_users SET fee_paid = 0,status='not-added' WHERE req_id = " & req_id & " AND uid = " & uid & ";"
+                If Globals.ExecuteUpdateQuery(query) Then
+                    MsgBox("Fee Payment Withdrawn")
+                    LoadandBindDataGridView()
+                    Button1.Text = "Pay"
+                    'Send notifications that you have received a refund with details about RideSharing Post
+                    Globals.SendNotifications(4, uid, "Ride Sharing Fee Refund", "You have received a refund for the Ride Sharing Request Number " & req_id & ".")
+                End If
             End If
         End If
     End Sub

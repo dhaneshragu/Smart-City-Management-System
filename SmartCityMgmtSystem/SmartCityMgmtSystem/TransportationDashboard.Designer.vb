@@ -271,7 +271,7 @@ Partial Class TransportationDashboard
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.ClientSize = New System.Drawing.Size(1440, 779)
+        Me.ClientSize = New System.Drawing.Size(1552, 780)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)

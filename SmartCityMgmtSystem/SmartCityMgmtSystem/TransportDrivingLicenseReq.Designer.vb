@@ -224,6 +224,7 @@ Partial Class TransportDrivingLicenseReq
         '
         'VTypeCb
         '
+        Me.VTypeCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.VTypeCb.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VTypeCb.FormattingEnabled = True
         Me.VTypeCb.Location = New System.Drawing.Point(175, 11)

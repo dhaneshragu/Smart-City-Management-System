@@ -134,6 +134,7 @@ Public Class TransportDrivingLicenseReq
                     reader.Close()
                 End Using
 
+                connection.Close()
 
                 If payClicked Then
                     Dim insertStatement As String = "INSERT INTO dl_entries (dl_id, uid, vehicle_type, fee_paid, req_type) 
@@ -159,60 +160,112 @@ Public Class TransportDrivingLicenseReq
                         Dim vTypeId As Integer = TransportGlobals.GetVehicleTypeID(vtype)
 
                         Dim foundRowIndex As Integer = -1 ' Initialize with -1 to indicate not found
-                        For Each row As DataRow In dataTable2.Rows
-                            Dim columnValue As Integer = Convert.ToInt32(row("vehicle_type"))
+                        For Each row1 As DataRow In dataTable2.Rows
+                            Dim columnValue As Integer = Convert.ToInt32(row1("vehicle_type"))
                             If columnValue = vTypeId Then
-                                foundRowIndex = dataTable2.Rows.IndexOf(row)
+                                foundRowIndex = dataTable2.Rows.IndexOf(row1)
                                 Exit For
                             End If
                         Next
+                        Dim row As Integer = Convert.ToInt32(foundRowIndex)
+                        Dim isValid As Boolean = True
+                        Dim reqProceed As Boolean = False
+                        If dataTable2.Rows.Count > 0 Then
+                            If row <> -1 Then
 
+                                Dim r As DataRow = dataTable2.Rows(row)
+                                If Not IsDBNull(r("test_status")) Then
+                                    Dim testStatus As String = r("test_status").ToString()
 
-                        Using command As New MySqlCommand(insertStatement, connection)
-                            command.Parameters.AddWithValue("@Value2", uid)
-                            command.Parameters.AddWithValue("@Value3", vTypeId)
-                            command.Parameters.AddWithValue("@Value4", 1)
-                            Dim row As Integer = Convert.ToInt32(foundRowIndex)
-                            Dim isValid As Boolean = True
-                            If dataTable2.Rows.Count > 0 Then
-                                command.Parameters.AddWithValue("@Value1", dataTable2.Rows(0)("dl_id"))
-                                command.Parameters.AddWithValue("@Value5", "renew")
-                                If row <> -1 Then
-
-                                    Dim r As DataRow = dataTable2.Rows(row)
-                                    If Not IsDBNull(r("test_status")) Then
-                                        Dim testStatus As String = r("test_status").ToString()
-
-                                        ' Process the test status
-                                        If testStatus = "pass" Then
-                                            MessageBox.Show("You already have a driving license for the vehicle type " & vtype, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                        ElseIf testStatus = "fail" Then
-                                            Dim result As DialogResult = MessageBox.Show("Your previous request for this vehicle type was rejected. Do you want to apply again?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
-                                            If result = DialogResult.OK Then
-                                                MessageBox.Show("Payment request will be sent", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    ' Process the test status
+                                    If testStatus = "pass" Then
+                                        MessageBox.Show("You already have a driving license for the vehicle type " & vtype, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                        isValid = False
+                                    ElseIf testStatus = "fail" Then
+                                        Dim result As DialogResult = MessageBox.Show("Your previous request for this vehicle type was rejected. Do you want to apply again?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
+                                        If result = DialogResult.OK Then
+                                            Dim pay = New PaymentGateway() With {
+                                                    .uid = uid,
+                                                    .readonly_prop = True
+                                            }
+                                            pay.TextBox1.Text = 5
+                                            pay.TextBox2.Text = 100
+                                            pay.TextBox3.Text = $"Driving License Registration Fee for Vehicle Type : {vtype}"
+                                            If (pay.ShowDialog() = DialogResult.OK) Then
+                                                'MessageBox.Show("Payment Successful!")
+                                                reqProceed = True
                                             Else
-                                                isValid = False
+                                                MessageBox.Show("payment failed!")
+                                                Exit Sub
                                             End If
+                                        Else
+                                            isValid = False
                                         End If
                                     Else
                                         MessageBox.Show("You Already placed a request for vehicle type :" & vtype, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                        isValid = False
                                     End If
-                                Else
-                                    MessageBox.Show("Payment request will be sent", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 End If
                             Else
-                                currentDlId += 1
-                                command.Parameters.AddWithValue("@Value1", currentDlId)
-                                command.Parameters.AddWithValue("@Value5", "fresh")
+                                Dim pay = New PaymentGateway() With {
+                                                   .uid = uid,
+                                                   .readonly_prop = True
+                                }
+                                pay.TextBox1.Text = 5
+                                pay.TextBox2.Text = 100
+                                pay.TextBox3.Text = $"Driving License Registration Fee for Vehicle Type : {vtype}"
+                                If (pay.ShowDialog() = DialogResult.OK) Then
+                                    'MessageBox.Show("Payment Successful!")
+                                    reqProceed = True
+                                Else
+                                    MessageBox.Show("payment failed!")
+                                    Exit Sub
+                                End If
                             End If
-                            If isValid Then
+                        Else
+                            Dim pay = New PaymentGateway() With {
+                                                   .uid = uid,
+                                                   .readonly_prop = True
+                                }
+                            pay.TextBox1.Text = 5
+                            pay.TextBox2.Text = 100
+                            pay.TextBox3.Text = $"Driving License Registration Fee for Vehicle Type : {vtype}"
+                            If (pay.ShowDialog() = DialogResult.OK) Then
+                                'MessageBox.Show("Payment Successful!")
+                                reqProceed = True
+                            Else
+                                MessageBox.Show("payment failed!")
+                                Exit Sub
+                            End If
+                        End If
+
+                        If isValid AndAlso reqProceed Then
+                            connection.Open()
+                            Using command As New MySqlCommand(insertStatement, connection)
+                                command.Parameters.AddWithValue("@Value2", uid)
+                                command.Parameters.AddWithValue("@Value3", vTypeId)
+                                command.Parameters.AddWithValue("@Value4", 1)
+                                Dim row1 As Integer = Convert.ToInt32(foundRowIndex)
+                                Dim isValid1 As Boolean = True
+                                Dim reqProceed1 As Boolean = False
+                                If dataTable2.Rows.Count > 0 Then
+                                    command.Parameters.AddWithValue("@Value1", dataTable2.Rows(0)("dl_id"))
+                                    command.Parameters.AddWithValue("@Value5", "renew")
+                                Else
+                                    currentDlId += 1
+                                    command.Parameters.AddWithValue("@Value1", currentDlId)
+                                    command.Parameters.AddWithValue("@Value5", "fresh")
+                                End If
+
                                 command.ExecuteNonQuery()
-                            End If
-                        End Using
+                                connection.Close()
+
+                            End Using
+                        End If
                     End If
                     payClicked = False
                 End If
-                connection.Close()
+
             End Using
 
         Catch ex As Exception
@@ -238,8 +291,14 @@ Public Class TransportDrivingLicenseReq
     End Sub
 
     Private Sub Paytb_Click(sender As Object, e As EventArgs) Handles Paytb.Click
+        ' Check if the selected value in VTypeCb combo box is one of its items
+        If Not VTypeCb.Items.Contains(VTypeCb.Text) Then
+            MessageBox.Show("Invalid vehicle type selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub ' Exit the sub if the value is not valid
+        End If
         payClicked = True
         LoadAndBindData()
+        VTypeCb.SelectedIndex = -1
     End Sub
 
     Private Sub Canceltb_Click(sender As Object, e As EventArgs) Handles Canceltb.Click

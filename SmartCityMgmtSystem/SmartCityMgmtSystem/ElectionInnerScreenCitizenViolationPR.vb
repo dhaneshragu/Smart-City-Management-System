@@ -3,7 +3,11 @@ Imports System.Management.Instrumentation
 Imports MySql.Data.MySqlClient
 Imports SmartCityMgmtSystem.ElectionInnerScreenCitizenViolation
 Public Class ElectionInnerScreenCitizenViolationPR
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Public Property innerPanel As Panel
 
+    Dim electionInnerScreenCitizenViolation As ElectionInnerScreenCitizenViolation = Nothing
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.Columns(0).DefaultCellStyle.WrapMode = DataGridViewTriState.True
         DataGridView1.Columns(1).DefaultCellStyle.WrapMode = DataGridViewTriState.True
@@ -27,7 +31,7 @@ Public Class ElectionInnerScreenCitizenViolationPR
         cmd = New MySqlCommand("SELECT vr.report_id, u.name, vr.violation_text, vr.response
                                 FROM violations_reported vr
                                 JOIN users u ON vr.candidate_uid = u.user_id
-                                WHERE vr.reporter_uid = " & ElectionDashboard.LoggedInUserId & " AND vr.election_id = " & ElectionInnerScreenCitizenViolation.LastElectionIDpass & ";", Con)
+                                WHERE vr.reporter_uid = " & ElectionDashboard.uid & " AND vr.election_id = " & ElectionInnerScreenCitizenViolation.LastElectionIDpass & ";", Con)
         reader = cmd.ExecuteReader()
 
         ' Create a DataTable to store the data
@@ -50,7 +54,13 @@ Public Class ElectionInnerScreenCitizenViolationPR
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenCitizenViolation)
+        electionInnerScreenCitizenViolation?.Dispose()
+        electionInnerScreenCitizenViolation = New ElectionInnerScreenCitizenViolation With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+        }
+        Globals.viewChildForm(innerPanel, electionInnerScreenCitizenViolation)
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick

@@ -151,11 +151,107 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOrWithdraw.Designer.vb">
+      <DependentUpon>AddOrWithdraw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddOrWithdraw.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Complaints_admin_dashboard.Designer.vb">
+      <DependentUpon>Complaints_admin_dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Complaints_admin_dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Complaints_Admin_Take_action.Designer.vb">
+      <DependentUpon>Complaints_Admin_Take_action.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Complaints_Admin_Take_action.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Complaints_Lodge_Complaint.Designer.vb">
+      <DependentUpon>Complaints_Lodge_Complaint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Complaints_Lodge_Complaint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Complaints_manage_complaints.Designer.vb">
+      <DependentUpon>Complaints_manage_complaints.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Complaints_manage_complaints.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Complaints_User_Com_History.Designer.vb">
+      <DependentUpon>Complaints_User_Com_History.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Complaints_User_Com_History.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Complaint_admin_complaints_details.Designer.vb">
+      <DependentUpon>Complaint_admin_complaints_details.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Complaint_admin_complaints_details.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Complaint_Admin_details.Designer.vb">
+      <DependentUpon>Complaint_Admin_details.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Complaint_Admin_details.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="complaint_details_users.Designer.vb">
+      <DependentUpon>complaint_details_users.vb</DependentUpon>
+    </Compile>
+    <Compile Include="complaint_details_users.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Complaint_User_Dashboard.Designer.vb">
+      <DependentUpon>Complaint_User_Dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Complaint_User_Dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Complaint_User_Details.Designer.vb">
+      <DependentUpon>Complaint_User_Details.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Complaint_User_Details.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Complaint_User_Info.Designer.vb">
+      <DependentUpon>Complaint_User_Info.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Complaint_User_Info.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BankAdminTransactions.Designer.vb">
+      <DependentUpon>BankAdminTransactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BankAdminTransactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_Add_Institution.Designer.vb">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
     </Compile>
     <Compile Include="Ed_Add_Institution.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_admissionPopUp.Designer.vb">
+      <DependentUpon>Ed_admissionPopUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_admissionPopUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_CertButton.Designer.vb">
+      <DependentUpon>Ed_CertButton.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_CertButton.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ed_Certificate.Designer.vb">
+      <DependentUpon>Ed_Certificate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Certificate.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ed_EditECourse.Designer.vb">
@@ -164,11 +260,23 @@
     <Compile Include="Ed_EditECourse.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ed_ExamAdmitCard.Designer.vb">
+      <DependentUpon>Ed_ExamAdmitCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_ExamAdmitCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_ExamApprvItem.Designer.vb">
       <DependentUpon>Ed_ExamApprvItem.vb</DependentUpon>
     </Compile>
     <Compile Include="Ed_ExamApprvItem.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ed_ExamResultCard.Designer.vb">
+      <DependentUpon>Ed_ExamResultCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_ExamResultCard.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ed_Institute_Edit.Designer.vb">
       <DependentUpon>Ed_Institute_Edit.vb</DependentUpon>
@@ -187,6 +295,18 @@
     </Compile>
     <Compile Include="Ed_ManageEntrHome.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_List.Designer.vb">
+      <DependentUpon>Ed_Minister_Institute_List.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_List.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_ListItem.Designer.vb">
+      <DependentUpon>Ed_Minister_Institute_ListItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Minister_Institute_ListItem.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ed_MoodleResouceLinkItem.Designer.vb">
       <DependentUpon>Ed_MoodleResouceLinkItem.vb</DependentUpon>
@@ -230,6 +350,18 @@
     <Compile Include="Ed_Teacher_EditResource.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ed_Teacher_Moodle_AddResource.Designer.vb">
+      <DependentUpon>Ed_Teacher_Moodle_AddResource.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_AddResource.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_EditResource.Designer.vb">
+      <DependentUpon>Ed_Teacher_Moodle_EditResource.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_Teacher_Moodle_EditResource.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_Teacher_Moodle_ResourceLinkItem.Designer.vb">
       <DependentUpon>Ed_Teacher_Moodle_ResourceLinkItem.vb</DependentUpon>
     </Compile>
@@ -242,6 +374,18 @@
     <Compile Include="Ed_Teacher_ResourceLinkItem.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ed_UpdateForm.Designer.vb">
+      <DependentUpon>Ed_UpdateForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_UpdateForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ed_UploadCert.Designer.vb">
+      <DependentUpon>Ed_UploadCert.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ed_UploadCert.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ed_VenueItem.Designer.vb">
       <DependentUpon>Ed_VenueItem.vb</DependentUpon>
     </Compile>
@@ -252,6 +396,54 @@
       <DependentUpon>ElectionInnerScreenAdminAccDenied.vb</DependentUpon>
     </Compile>
     <Compile Include="ElectionInnerScreenAdminAccDenied.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry9.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry9.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry9.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry8.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry8.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry8.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry7.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry7.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry7.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry6.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry6.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry6.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry5.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry5.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry4.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry3.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry2.Designer.vb">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionInnerScreenViewStatisticsMinistry2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ElectionInnerScreenViewStatisticsMinistry.Designer.vb">
@@ -775,6 +967,12 @@
     <Compile Include="lib_NewRequest.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="medicine_buy.Designer.vb">
+      <DependentUpon>medicine_buy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="medicine_buy.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Request-Cancel_Service.Designer.vb">
       <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
     </Compile>
@@ -1100,6 +1298,12 @@
     <Compile Include="TransportAdminRSReq.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TransportSendNotification.Designer.vb">
+      <DependentUpon>TransportSendNotification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TransportSendNotification.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TransportTGEnter.Designer.vb">
       <DependentUpon>TransportTGEnter.vb</DependentUpon>
     </Compile>
@@ -1406,6 +1610,12 @@
     <Compile Include="UserSignUp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UserToUserTransaction.Designer.vb">
+      <DependentUpon>UserToUserTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserToUserTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ViewBankTransactions.Designer.vb">
       <DependentUpon>ViewBankTransactions.vb</DependentUpon>
     </Compile>
@@ -1414,14 +1624,68 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Complaints_admin_dashboard.resx">
+      <DependentUpon>Complaints_admin_dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Complaints_Admin_Take_action.resx">
+      <DependentUpon>Complaints_Admin_Take_action.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Complaints_Lodge_Complaint.resx">
+      <DependentUpon>Complaints_Lodge_Complaint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Complaints_manage_complaints.resx">
+      <DependentUpon>Complaints_manage_complaints.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Complaints_User_Com_History.resx">
+      <DependentUpon>Complaints_User_Com_History.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Complaint_admin_complaints_details.resx">
+      <DependentUpon>Complaint_admin_complaints_details.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Complaint_Admin_details.resx">
+      <DependentUpon>Complaint_Admin_details.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="complaint_details_users.resx">
+      <DependentUpon>complaint_details_users.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Complaint_User_Dashboard.resx">
+      <DependentUpon>Complaint_User_Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Complaint_User_Details.resx">
+      <DependentUpon>Complaint_User_Details.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Complaint_User_Info.resx">
+      <DependentUpon>Complaint_User_Info.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOrWithdraw.resx">
+      <DependentUpon>AddOrWithdraw.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BankAdminTransactions.resx">
+      <DependentUpon>BankAdminTransactions.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ed_Add_Institution.resx">
       <DependentUpon>Ed_Add_Institution.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_admissionPopUp.resx">
+      <DependentUpon>Ed_admissionPopUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_CertButton.resx">
+      <DependentUpon>Ed_CertButton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Certificate.resx">
+      <DependentUpon>Ed_Certificate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_EditECourse.resx">
       <DependentUpon>Ed_EditECourse.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ed_ExamAdmitCard.resx">
+      <DependentUpon>Ed_ExamAdmitCard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ed_ExamApprvItem.resx">
       <DependentUpon>Ed_ExamApprvItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_ExamResultCard.resx">
+      <DependentUpon>Ed_ExamResultCard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Institute_Edit.resx">
       <DependentUpon>Ed_Institute_Edit.vb</DependentUpon>
@@ -1431,6 +1695,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_ManageEntrHome.resx">
       <DependentUpon>Ed_ManageEntrHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Minister_Institute_List.resx">
+      <DependentUpon>Ed_Minister_Institute_List.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Minister_Institute_ListItem.resx">
+      <DependentUpon>Ed_Minister_Institute_ListItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_MoodleResouceLinkItem.resx">
       <DependentUpon>Ed_MoodleResouceLinkItem.vb</DependentUpon>
@@ -1453,17 +1723,53 @@
     <EmbeddedResource Include="Ed_Teacher_EditResource.resx">
       <DependentUpon>Ed_Teacher_EditResource.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_Moodle_AddResource.resx">
+      <DependentUpon>Ed_Teacher_Moodle_AddResource.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_Teacher_Moodle_EditResource.resx">
+      <DependentUpon>Ed_Teacher_Moodle_EditResource.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ed_Teacher_Moodle_ResourceLinkItem.resx">
       <DependentUpon>Ed_Teacher_Moodle_ResourceLinkItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ed_Teacher_ResourceLinkItem.resx">
       <DependentUpon>Ed_Teacher_ResourceLinkItem.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ed_UpdateForm.resx">
+      <DependentUpon>Ed_UpdateForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ed_UploadCert.resx">
+      <DependentUpon>Ed_UploadCert.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ed_VenueItem.resx">
       <DependentUpon>Ed_VenueItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ElectionInnerScreenAdminAccDenied.resx">
       <DependentUpon>ElectionInnerScreenAdminAccDenied.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry9.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry9.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry8.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry8.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry7.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry7.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry6.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry6.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry5.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry5.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry4.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry3.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry2.resx">
+      <DependentUpon>ElectionInnerScreenViewStatisticsMinistry2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ElectionInnerScreenViewStatisticsMinistry.resx">
       <DependentUpon>ElectionInnerScreenViewStatisticsMinistry.vb</DependentUpon>
@@ -1473,6 +1779,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ElectionInnerScreenViewStatistics.resx">
       <DependentUpon>ElectionInnerScreenViewStatistics.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventInvoice.resx">
+      <DependentUpon>EventInvoice.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EventLoginWindow.resx">
       <DependentUpon>EventLoginWindow.vb</DependentUpon>
@@ -1726,6 +2035,9 @@
     <EmbeddedResource Include="lib_request.resx">
       <DependentUpon>lib_request.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="medicine_buy.resx">
+      <DependentUpon>medicine_buy.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Request-Cancel_Service.resx">
       <DependentUpon>Request-Cancel_Service.vb</DependentUpon>
     </EmbeddedResource>
@@ -1882,6 +2194,9 @@
     <EmbeddedResource Include="TransportAdminRSReq.resx">
       <DependentUpon>TransportAdminRSReq.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TransportSendNotification.resx">
+      <DependentUpon>TransportSendNotification.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TransportTGEnter.resx">
       <DependentUpon>TransportTGEnter.vb</DependentUpon>
     </EmbeddedResource>
@@ -2031,6 +2346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserSignUp.resx">
       <DependentUpon>UserSignUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserToUserTransaction.resx">
+      <DependentUpon>UserToUserTransaction.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewBankTransactions.resx">
       <DependentUpon>ViewBankTransactions.vb</DependentUpon>
@@ -2465,6 +2783,7 @@
     <None Include="Resources\ed_course_resource.png" />
     <None Include="Resources\healthcare_bg.jpg" />
     <None Include="Resources\icons8-appointment-time-64.png" />
+    <None Include="Resources\icons8-bus-50 - Copy.png" />
     <Content Include="Resources\icons8-car-100.png" />
     <None Include="Resources\icons8-vendor-48.png" />
     <None Include="Resources\icons8-car-1001.png" />
@@ -2495,6 +2814,7 @@
     <Content Include="Resources\icons8-person-80.png" />
     <None Include="Resources\icons8-person-801.png" />
     <None Include="Resources\icons8-rupee-30.png" />
+    <None Include="Resources\icons8-photo-gallery-48.png" />
     <Content Include="Resources\icons8-student-center-100.png" />
     <Content Include="Resources\icons8-system-information-100.png" />
     <Content Include="Resources\icons8-taj-mahal-100.png" />

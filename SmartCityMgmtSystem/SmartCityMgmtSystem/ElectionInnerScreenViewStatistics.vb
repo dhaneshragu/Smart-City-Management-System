@@ -3,8 +3,15 @@ Imports System.IO
 Imports FastReport.DataVisualization.Charting
 Imports MySql.Data.MySqlClient
 Public Class ElectionInnerScreenViewStatistics
-    Public Property SelectedMinistry As Integer
+
+    Public Property uid As Integer = 8
+    Public Property u_name As String = "admin"
+    Public Property innerPanel As Panel
+
+    Public Property lastElectionID As Integer
+    Public Property totalVoted As Integer
     Dim turnoutPercentage As Double
+    Dim Male As Integer
     Private Sub Chart_Init()
         ' Clear existing series and chart areas
         Chart1.Series.Clear()
@@ -21,8 +28,8 @@ Public Class ElectionInnerScreenViewStatistics
         Chart1.Series.Add(series)
 
         ' Add data points for each day of the week manually
-        Chart1.Series("DataSeries").Points.AddXY("Voted", turnoutPercentage)
-        Chart1.Series("DataSeries").Points.AddXY("Not Voted", 100-turnoutPercentage)
+        Chart1.Series("DataSeries").Points.AddXY("Male", Male)
+        Chart1.Series("DataSeries").Points.AddXY("Female", totalVoted - Male)
     End Sub
 
     Private Sub LoadData()
@@ -37,9 +44,6 @@ Public Class ElectionInnerScreenViewStatistics
             Return
         End Try
 
-
-        ' Retrieve the value of the election_id column from the last row of the election_time table
-        Dim lastElectionID As Integer = -1 ' Default value in case there are no rows in election_time
         cmd = New MySqlCommand("SELECT election_id FROM election_time ORDER BY election_id DESC LIMIT 1;", Con)
         reader = cmd.ExecuteReader()
         If reader.Read() Then
@@ -64,10 +68,22 @@ Public Class ElectionInnerScreenViewStatistics
         cmd = New MySqlCommand("SELECT COUNT(*) AS total_voted FROM users WHERE voted = 1", Con)
         reader = cmd.ExecuteReader()
 
-        Dim totalVoted As Integer = 0
 
         If reader.Read() Then
             totalVoted = Convert.ToInt32(reader("total_voted"))
+        End If
+
+        reader.Close()
+
+        ' Execute the second SQL query to count the number of rows where the voted column is 1
+        cmd = New MySqlCommand("SELECT COUNT(*) AS male 
+                                FROM users 
+                                WHERE voted = 1 AND gender = 'Male'", Con)
+        reader = cmd.ExecuteReader()
+
+
+        If reader.Read() Then
+            Male = Convert.ToInt32(reader("male"))
         End If
 
         reader.Close()
@@ -122,48 +138,47 @@ Public Class ElectionInnerScreenViewStatistics
     End Sub
 
     Private Sub Panel7_Click(sender As Object, e As EventArgs) Handles Panel7.Click
-        SelectedMinistry = 2
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
+        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry2)
+
     End Sub
 
     Private Sub Panel8_Click(sender As Object, e As EventArgs) Handles Panel8.Click
-        SelectedMinistry = 1
         Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
     End Sub
 
     Private Sub Panel9_Click(sender As Object, e As EventArgs) Handles Panel9.Click
-        SelectedMinistry = 5
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
+
+        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry5)
     End Sub
 
     Private Sub Panel10_Click(sender As Object, e As EventArgs) Handles Panel10.Click
-        SelectedMinistry = 7
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
+
+        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry7)
     End Sub
 
     Private Sub Panel11_Click(sender As Object, e As EventArgs) Handles Panel11.Click
-        SelectedMinistry = 4
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
+
+        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry4)
     End Sub
 
     Private Sub Panel12_Click(sender As Object, e As EventArgs) Handles Panel12.Click
-        SelectedMinistry = 6
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
+
+        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry6)
     End Sub
 
     Private Sub Panel13_Click(sender As Object, e As EventArgs) Handles Panel13.Click
-        SelectedMinistry = 3
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
+
+        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry3)
     End Sub
 
     Private Sub Panel14_Click(sender As Object, e As EventArgs) Handles Panel14.Click
-        SelectedMinistry = 12
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
+
+        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry8)
     End Sub
 
     Private Sub Panel15_Click(sender As Object, e As EventArgs) Handles Panel15.Click
-        SelectedMinistry = 11
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
+
+        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry9)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

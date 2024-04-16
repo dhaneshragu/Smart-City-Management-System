@@ -35,4 +35,8 @@ Public Class Ed_Moodle_AssList
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
+
+    Private Sub FlowLayoutPanel1_Paint_1(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
+
+    End Sub
 End Class

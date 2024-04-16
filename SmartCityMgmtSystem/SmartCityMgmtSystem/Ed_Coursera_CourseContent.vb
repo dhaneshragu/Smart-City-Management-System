@@ -30,7 +30,7 @@ Public Class Ed_Coursera_CourseContent
 
         AddHandler RichTextBox1.ContentsResized, AddressOf RichTextBox_ContentsResized
 
-        RichTextBox1.Text = CourseItem.Syllabus
+        RichTextBox1.Rtf = CourseItem.Syllabus
         FlowLayoutPanel1.Height = RichTextBox1.Height + 391
 
 
@@ -38,7 +38,7 @@ Public Class Ed_Coursera_CourseContent
         Label1.Text = CourseItem.Name
         Label2.Text = CourseItem.TeacherName
         Label3.Text = CourseItem.Institution
-        RichTextBox1.Text = CourseItem.Syllabus
+        RichTextBox1.Rtf = CourseItem.Syllabus
         Dim youtubeUrl As String = CourseItem.IntroVideoLink
         Dim videoId As String = ExtractYouTubeVideoId(youtubeUrl)
 

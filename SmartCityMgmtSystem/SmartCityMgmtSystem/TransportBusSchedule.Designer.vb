@@ -51,9 +51,6 @@ Partial Class TransportBusSchedule
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn4 = New System.Windows.Forms.DataGridViewImageColumn()
@@ -61,7 +58,6 @@ Partial Class TransportBusSchedule
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -227,6 +223,7 @@ Partial Class TransportBusSchedule
         '
         'ComboBox1
         '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(198, 11)
         Me.ComboBox1.Name = "ComboBox1"
@@ -248,7 +245,7 @@ Partial Class TransportBusSchedule
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.ComboBox1)
         Me.Panel2.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(758, 213)
+        Me.Panel2.Location = New System.Drawing.Point(758, 424)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(380, 51)
@@ -260,7 +257,7 @@ Partial Class TransportBusSchedule
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.ComboBox3)
         Me.Panel1.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel1.Location = New System.Drawing.Point(758, 144)
+        Me.Panel1.Location = New System.Drawing.Point(758, 321)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(380, 51)
@@ -277,6 +274,7 @@ Partial Class TransportBusSchedule
         '
         'ComboBox3
         '
+        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Location = New System.Drawing.Point(198, 11)
         Me.ComboBox3.Name = "ComboBox3"
@@ -289,7 +287,7 @@ Partial Class TransportBusSchedule
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Controls.Add(Me.TextBox1)
         Me.Panel3.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel3.Location = New System.Drawing.Point(758, 69)
+        Me.Panel3.Location = New System.Drawing.Point(758, 222)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(380, 51)
@@ -313,44 +311,13 @@ Partial Class TransportBusSchedule
         Me.TextBox1.TabIndex = 8
         Me.TextBox1.Text = "Monday"
         '
-        'WebBrowser1
-        '
-        Me.WebBrowser1.AllowNavigation = False
-        Me.WebBrowser1.Location = New System.Drawing.Point(13, 28)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.ScrollBarsEnabled = False
-        Me.WebBrowser1.Size = New System.Drawing.Size(524, 376)
-        Me.WebBrowser1.TabIndex = 13
-        '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
-        Me.Panel4.Controls.Add(Me.Label5)
-        Me.Panel4.Controls.Add(Me.WebBrowser1)
-        Me.Panel4.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel4.Location = New System.Drawing.Point(708, 291)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(549, 416)
-        Me.Panel4.TabIndex = 14
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(8, 7)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(55, 20)
-        Me.Label5.TabIndex = 15
-        Me.Label5.Text = "Map:"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.Label4.Font = New System.Drawing.Font("Agency FB", 23.79661!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label4.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_secretary_48
+        Me.Label4.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_driver_48
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label4.Location = New System.Drawing.Point(21, 7)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
@@ -403,7 +370,6 @@ Partial Class TransportBusSchedule
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.ClientSize = New System.Drawing.Size(1270, 736)
-        Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label4)
@@ -421,8 +387,6 @@ Partial Class TransportBusSchedule
         Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -442,9 +406,6 @@ Partial Class TransportBusSchedule
     Friend WithEvents Panel3 As Panel
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents WebBrowser1 As WebBrowser
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents Label5 As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
