@@ -22,13 +22,12 @@ Partial Class ElectionInnerScreenVoter
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
@@ -44,18 +43,20 @@ Partial Class ElectionInnerScreenVoter
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridViewImageColumn1
         '
         Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.NullValue = "System.Drawing.Bitmap"
-        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.NullValue = "System.Drawing.Bitmap"
+        Me.DataGridViewImageColumn1.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewImageColumn1.HeaderText = "  "
         Me.DataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn1.MinimumWidth = 6
@@ -68,13 +69,13 @@ Partial Class ElectionInnerScreenVoter
         'DataGridViewImageColumn2
         '
         Me.DataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.PaleGreen
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle2.NullValue = Nothing
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Maroon
-        Me.DataGridViewImageColumn2.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.PaleGreen
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle5.NullValue = Nothing
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Maroon
+        Me.DataGridViewImageColumn2.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewImageColumn2.HeaderText = ""
         Me.DataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn2.MinimumWidth = 6
@@ -93,14 +94,6 @@ Partial Class ElectionInnerScreenVoter
         Me.Label1.Size = New System.Drawing.Size(304, 57)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Register as Voter"
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(93, Byte), Integer), CType(CType(63, Byte), Integer), CType(CType(211, Byte), Integer))
-        Me.Panel1.Location = New System.Drawing.Point(122, 165)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(284, 284)
-        Me.Panel1.TabIndex = 2
         '
         'Label3
         '
@@ -126,13 +119,13 @@ Partial Class ElectionInnerScreenVoter
         'DataGridViewImageColumn3
         '
         Me.DataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.PaleGreen
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle3.NullValue = Nothing
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Maroon
-        Me.DataGridViewImageColumn3.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.PaleGreen
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle6.NullValue = Nothing
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Maroon
+        Me.DataGridViewImageColumn3.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewImageColumn3.HeaderText = ""
         Me.DataGridViewImageColumn3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_edit_40
         Me.DataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
@@ -266,12 +259,28 @@ Partial Class ElectionInnerScreenVoter
         Me.Button2.Text = "Back"
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox3.ErrorImage = Nothing
+        Me.PictureBox3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_administrator_male_100
+        Me.PictureBox3.ImageLocation = ""
+        Me.PictureBox3.InitialImage = Nothing
+        Me.PictureBox3.Location = New System.Drawing.Point(159, 165)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(222, 269)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 24
+        Me.PictureBox3.TabStop = False
+        '
         'ElectionInnerScreenVoter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
         Me.ClientSize = New System.Drawing.Size(1270, 736)
+        Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CheckBox1)
@@ -282,7 +291,6 @@ Partial Class ElectionInnerScreenVoter
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -297,6 +305,7 @@ Partial Class ElectionInnerScreenVoter
         Me.Panel3.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -306,7 +315,6 @@ Partial Class ElectionInnerScreenVoter
     Friend WithEvents DataGridViewImageColumn3 As DataGridViewImageColumn
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
@@ -320,4 +328,5 @@ Partial Class ElectionInnerScreenVoter
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Button2 As Button
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

@@ -2,8 +2,8 @@
 Imports FastReport.DataVisualization.Charting
 Imports System.Net
 Imports MySql.Data.MySqlClient
+Public Class lib_adminEBM
 
-Public Class lib_adminBM
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Dim lib_adminDash = New lib_adminDash()
         lib_adminDash.Show()
@@ -12,6 +12,12 @@ Public Class lib_adminBM
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim lib_admin_eBooks = New lib_admin_eBooks()
         lib_admin_eBooks.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim lib_adminBM = New lib_adminBM()
+        lib_adminBM.Show()
         Me.Close()
     End Sub
 
@@ -27,12 +33,6 @@ Public Class lib_adminBM
         Me.Close()
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        Dim lib_adminEBM = New lib_adminEBM()
-        lib_adminEBM.Show()
-        Me.Close()
-    End Sub
-
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Dim lib_adminSearch = New lib_adminSearch()
         lib_adminSearch.Show()
@@ -43,7 +43,7 @@ Public Class lib_adminBM
         If ubook_id.Text = "" Then
             MsgBox("Missing Information", 0 + 0, "Error")
         Else
-            Dim query As String = "SELECT book_ID, title, author, genre FROM lib_books WHERE book_ID='" & ubook_id.Text & "'"
+            Dim query As String = "SELECT book_ID, title, author, genre, link FROM lib_ebooks WHERE book_ID='" & ubook_id.Text & "'"
             Dim Con = Globals.GetDBConnection()
 
             Try
@@ -57,11 +57,13 @@ Public Class lib_adminBM
                         Dim author As String = reader("author").ToString()
                         Dim title As String = reader("title").ToString()
                         Dim genre As String = reader("genre").ToString()
+                        Dim link As String = reader("link").ToString()
 
                         bdid.Text = bookID
                         bdauthor.Text = author
                         bdtitle.Text = title
                         bdgenre.Text = genre
+                        bdlink.Text = link
                     End While
                 Else
                     MessageBox.Show("No records found for the given book ID.", "Information")
@@ -74,28 +76,12 @@ Public Class lib_adminBM
         End If
     End Sub
 
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Dim HomePageDashboard = New HomePageDashboard()
-        HomePageDashboard.Show()
-        Me.Close()
-    End Sub
-
-    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
-        bdid.Text = ""
-        bdauthor.Text = ""
-        bdtitle.Text = ""
-        bdgenre.Text = ""
-        ubook_id.Text = ""
-        rbookid.Text = ""
-    End Sub
-
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Dim valid As Boolean
         If rbookid.Text = "" Then
             MsgBox("Missing Information", 0 + 0, "Error")
         Else
-            Dim query As String = "SELECT * FROM lib_books WHERE book_ID='" & rbookid.Text & "'"
+            Dim query As String = "SELECT * FROM lib_ebooks WHERE book_ID='" & rbookid.Text & "'"
             Dim Con = Globals.GetDBConnection()
 
             Try
@@ -104,17 +90,7 @@ Public Class lib_adminBM
                 Dim reader As MySqlDataReader = cmd.ExecuteReader()
 
                 If reader.HasRows Then
-                    While reader.Read()
-                        Dim isIssued As Boolean = Convert.ToBoolean(reader("issued"))
-
-                        If isIssued Then
-
-                            MessageBox.Show("Book with ID: " + rbookid.Text + " is issued and cannot be removed.")
-                            valid = False
-                        Else
-                            valid = True
-                        End If
-                    End While
+                    valid = True
                 Else
                     MessageBox.Show("No records found for the given book ID.", "Information")
                 End If
@@ -126,7 +102,7 @@ Public Class lib_adminBM
         End If
 
         If valid Then
-            Dim query As String = "DELETE FROM lib_books WHERE book_ID = '" & rbookid.Text & "' "
+            Dim query As String = "DELETE FROM lib_ebooks WHERE book_ID = '" & rbookid.Text & "' "
             Dim Con = Globals.GetDBConnection()
 
             Try
@@ -141,6 +117,7 @@ Public Class lib_adminBM
                     bdauthor.Text = ""
                     bdtitle.Text = ""
                     bdgenre.Text = ""
+                    bdlink.Text = ""
                     ubook_id.Text = ""
                     rbookid.Text = ""
                 Else
@@ -155,40 +132,8 @@ Public Class lib_adminBM
 
     End Sub
 
-    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        If bdid.Text = "" Or bdauthor.Text = "" Or bdtitle.Text = "" Or bdgenre.Text = "" Then
-            MsgBox("Missing Information", 0 + 0, "Error")
-        Else
-            Dim bookID As Integer
-            Integer.TryParse(bdid.Text, bookID)
-            Dim author As String = bdauthor.Text
-            Dim title As String = bdtitle.Text
-            Dim genre As String = bdgenre.Text
-
-            Dim query As String = "UPDATE lib_books SET author='" & author & "',title='" & title & "',genre='" & genre & "' WHERE book_ID='" & bookID & "'"
-            Dim Con = Globals.GetDBConnection()
-
-            Try
-                Con.Open()
-                Dim cmd As New MySqlCommand(query, Con)
-                Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
-
-                If rowsAffected > 0 Then
-                    MessageBox.Show("Book details updated successfully.")
-                    ' Additional actions if needed after update
-                Else
-                    MessageBox.Show("No book found with ID: " & bookID)
-                End If
-            Catch ex As Exception
-                MessageBox.Show("Error: " & ex.Message)
-            Finally
-                Con.Close() ' Close the connection in the end
-            End Try
-        End If
-    End Sub
-
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-        If bdid.Text = "" Or bdauthor.Text = "" Or bdtitle.Text = "" Or bdgenre.Text = "" Then
+        If bdid.Text = "" Or bdauthor.Text = "" Or bdtitle.Text = "" Or bdgenre.Text = "" Or bdlink.Text = "" Then
             MsgBox("Missing Information", 0 + 0, "Error")
         Else
             Dim bookID As Integer
@@ -197,14 +142,14 @@ Public Class lib_adminBM
                 Return
             End If
 
-            Dim issued As Integer = 0
             Dim author As String = bdauthor.Text
             Dim title As String = bdtitle.Text
             Dim genre As String = bdgenre.Text
+            Dim link As String = bdlink.Text
 
-            Dim checkQuery As String = "SELECT * FROM lib_books WHERE book_ID='" & bookID & "'"
+            Dim checkQuery As String = "SELECT * FROM lib_ebooks WHERE book_ID='" & bookID & "'"
             Dim bookExists As Boolean = False
-            Dim query As String = "INSERT INTO lib_books (book_ID, issued, author, title, genre) VALUES ('" & bookID & "','" & issued & "','" & author & "','" & title & "','" & genre & "')"
+            Dim query As String = "INSERT INTO lib_ebooks (book_ID,link, author, title, genre) VALUES ('" & bookID & "','" & link & "','" & author & "','" & title & "','" & genre & "')"
 
             Dim Con = Globals.GetDBConnection()
 
@@ -238,8 +183,52 @@ Public Class lib_adminBM
         End If
     End Sub
 
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        bdid.Text = ""
+        bdauthor.Text = ""
+        bdtitle.Text = ""
+        bdgenre.Text = ""
+        bdlink.Text = ""
+        ubook_id.Text = ""
+        rbookid.Text = ""
+    End Sub
 
-    Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        If bdid.Text = "" Or bdauthor.Text = "" Or bdtitle.Text = "" Or bdgenre.Text = "" Or bdlink.Text = "" Then
+            MsgBox("Missing Information", 0 + 0, "Error")
+        Else
+            Dim bookID As Integer
+            Integer.TryParse(bdid.Text, bookID)
+            Dim author As String = bdauthor.Text
+            Dim title As String = bdtitle.Text
+            Dim genre As String = bdgenre.Text
+            Dim link As String = bdlink.Text
 
+            Dim query As String = "UPDATE lib_ebooks SET author='" & author & "',title='" & title & "',genre='" & genre & "',link='" & link & "' WHERE book_ID='" & bookID & "'"
+            Dim Con = Globals.GetDBConnection()
+
+            Try
+                Con.Open()
+                Dim cmd As New MySqlCommand(query, Con)
+                Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+                If rowsAffected > 0 Then
+                    MessageBox.Show("Book details updated successfully.")
+                    ' Additional actions if needed after update
+                Else
+                    MessageBox.Show("No book found with ID: " & bookID)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message)
+            Finally
+                Con.Close() ' Close the connection in the end
+            End Try
+        End If
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim HomePageDashboard = New HomePageDashboard()
+        HomePageDashboard.Show()
+        Me.Close()
     End Sub
 End Class
