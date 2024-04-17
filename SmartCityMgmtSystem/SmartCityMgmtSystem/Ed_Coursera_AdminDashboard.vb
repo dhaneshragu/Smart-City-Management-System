@@ -19,6 +19,7 @@
     End Sub
 
     Private Sub Ed_Coursera_AdminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label2.Text = Ed_GlobalDashboard.Ed_Profile.Ed_Name
 
     End Sub
     Private Sub CloseCurrentChildForm()
@@ -29,4 +30,6 @@
             currentlyOpenChildForm = Nothing
         End If
     End Sub
+
+
 End Class
