@@ -14,6 +14,7 @@ Public Class HealthcareAdminHome
     Private healthcareMedicineInventoryAdmin As HealthcareMedicineInventoryAdmin = Nothing
     Private healthcareManageBloodAppointmentAdmin As HealthcareManageBloodAppointmentAdmin = Nothing
     Private healthcareManageBloodBankAdmin As HealthcareManageBloodBankAdmin = Nothing
+    Private healthcareSendNotif1 As healthcareSendNotif = Nothing
     Public innerPanel As Panel
 
 
@@ -75,5 +76,12 @@ Public Class HealthcareAdminHome
         healthcareManageBloodBankAdmin?.Dispose()
         healthcareManageBloodBankAdmin = New HealthcareManageBloodBankAdmin()
         Globals.viewChildForm(innerPanel, healthcareManageBloodBankAdmin)
+    End Sub
+
+    Private Sub PictureBox10_Click(sender As Object, e As EventArgs) Handles PictureBox10.Click
+        'All admins can view notification screen
+        healthcareSendNotif1?.Dispose()
+        healthcareSendNotif1 = New healthcareSendNotif()
+        Globals.viewChildForm(innerPanel, healthcareSendNotif1)
     End Sub
 End Class

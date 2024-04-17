@@ -41,7 +41,6 @@ Partial Class HealthcareApproveAppointmentAdmin
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -50,6 +49,7 @@ Partial Class HealthcareApproveAppointmentAdmin
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn4 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -201,8 +201,8 @@ Partial Class HealthcareApproveAppointmentAdmin
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.Panel4.Controls.Add(Me.ComboBox1)
         Me.Panel4.Controls.Add(Me.Label2)
-        Me.Panel4.Controls.Add(Me.TextBox6)
         Me.Panel4.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel4.Location = New System.Drawing.Point(33, 195)
         Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -218,16 +218,7 @@ Partial Class HealthcareApproveAppointmentAdmin
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(135, 27)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Approve/Decline"
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Font = New System.Drawing.Font("Verdana", 9.762712!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(147, 11)
-        Me.TextBox6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(208, 27)
-        Me.TextBox6.TabIndex = 2
+        Me.Label2.Text = "Update Status"
         '
         'Label3
         '
@@ -341,6 +332,15 @@ Partial Class HealthcareApproveAppointmentAdmin
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "         Approve/Cancel Appointment"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"completed", "cancelled"})
+        Me.ComboBox1.Location = New System.Drawing.Point(147, 13)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(208, 26)
+        Me.ComboBox1.TabIndex = 12
+        '
         'HealthcareApproveAppointmentAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 22.0!)
@@ -360,7 +360,6 @@ Partial Class HealthcareApproveAppointmentAdmin
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
@@ -375,7 +374,6 @@ Partial Class HealthcareApproveAppointmentAdmin
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox6 As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents TextBox1 As TextBox
@@ -384,4 +382,5 @@ Partial Class HealthcareApproveAppointmentAdmin
     Friend WithEvents Label4 As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
