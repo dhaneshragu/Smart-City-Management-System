@@ -3,7 +3,11 @@ Imports MySql.Data.MySqlClient
 Public Class Healthcare_History
     Public Property uid As Integer = 13
     Private Sub d1_Click(sender As Object, e As EventArgs) Handles d1.Click
-        'Get connection from globals
+        ' Set d1's background color to green
+        d1.BackColor = Color.Green
+        ' Set d2 and d3's background color to the default color
+        d2.BackColor = SystemColors.Highlight
+        d3.BackColor = SystemColors.Highlight
         Dim Con = Globals.GetDBConnection()
         Dim reader As MySqlDataReader
         Dim cmd As MySqlCommand
@@ -28,6 +32,10 @@ Public Class Healthcare_History
         dataTable.Load(reader)
         reader.Close()
         Con.Close()
+        ' Set font and size for the text in DataGridView
+        DataGridView1.DefaultCellStyle.Font = New Font("Arial", 14, FontStyle.Bold) ' 
+
+
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False
@@ -40,7 +48,6 @@ Public Class Healthcare_History
         DataGridView1.Columns(3).HeaderText = "Status"
         DataGridView1.Columns(3).DataPropertyName = "status"
 
-
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
     End Sub
@@ -48,6 +55,11 @@ Public Class Healthcare_History
 
 
     Private Sub d2_Click(sender As Object, e As EventArgs) Handles d2.Click
+        ' Set d1's background color to green
+        d1.BackColor = SystemColors.Highlight
+        ' Set d2 and d3's background color to the default color
+        d2.BackColor = Color.Green
+        d3.BackColor = SystemColors.Highlight
         Dim Con = Globals.GetDBConnection()
         Dim reader As MySqlDataReader
         Dim cmd As MySqlCommand
@@ -73,6 +85,9 @@ Public Class Healthcare_History
         dataTable.Load(reader)
         reader.Close()
         Con.Close()
+        ' Set font and size for the text in DataGridView
+        DataGridView1.DefaultCellStyle.Font = New Font("Arial", 14, FontStyle.Bold) ' 
+
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False
@@ -85,6 +100,8 @@ Public Class Healthcare_History
         DataGridView1.Columns(3).HeaderText = "Quantity"
         DataGridView1.Columns(3).DataPropertyName = "quantity"
 
+
+
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
     End Sub
@@ -92,6 +109,11 @@ Public Class Healthcare_History
 
 
     Private Sub d3_Click(sender As Object, e As EventArgs) Handles d3.Click
+        ' Set d1's background color to green
+        d1.BackColor = SystemColors.Highlight
+        ' Set d2 and d3's background color to the default color
+        d2.BackColor = SystemColors.Highlight
+        d3.BackColor = Color.Green
         Dim Con = Globals.GetDBConnection()
         Dim reader As MySqlDataReader
         Dim cmd As MySqlCommand
@@ -112,6 +134,9 @@ Public Class Healthcare_History
         dataTable.Load(reader)
         reader.Close()
         Con.Close()
+        ' Set font and size for the text in DataGridView
+        DataGridView1.DefaultCellStyle.Font = New Font("Arial", 14, FontStyle.Bold) '
+
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False
@@ -124,12 +149,15 @@ Public Class Healthcare_History
         DataGridView1.Columns(3).HeaderText = "Status"
         DataGridView1.Columns(3).DataPropertyName = "status"
 
-
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub Healthcare_History_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class

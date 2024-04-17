@@ -73,7 +73,7 @@ Partial Class Healthcare_History
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column5, Me.Column6})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Verdana", 10.98305!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightBlue
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop
@@ -137,8 +137,9 @@ Partial Class Healthcare_History
         '
         'd1
         '
-        Me.d1.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.d1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.d1.BackColor = System.Drawing.SystemColors.Highlight
+        Me.d1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.d1.Font = New System.Drawing.Font("Verdana", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.d1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.d1.Location = New System.Drawing.Point(562, 35)
         Me.d1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -150,8 +151,8 @@ Partial Class Healthcare_History
         '
         'd2
         '
-        Me.d2.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.d2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.d2.BackColor = System.Drawing.SystemColors.Highlight
+        Me.d2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.d2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.d2.Location = New System.Drawing.Point(757, 35)
         Me.d2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -163,8 +164,8 @@ Partial Class Healthcare_History
         '
         'd3
         '
-        Me.d3.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.d3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.d3.BackColor = System.Drawing.SystemColors.Highlight
+        Me.d3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.d3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.d3.Location = New System.Drawing.Point(956, 35)
         Me.d3.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)

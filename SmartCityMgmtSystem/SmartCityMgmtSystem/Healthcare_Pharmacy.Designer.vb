@@ -32,7 +32,7 @@ Partial Class Healthcare_Pharmacy
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox1.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox1.Location = New System.Drawing.Point(262, 130)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(637, 65)
@@ -41,8 +41,8 @@ Partial Class Healthcare_Pharmacy
         '
         'd1
         '
-        Me.d1.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.d1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.d1.BackColor = System.Drawing.SystemColors.Highlight
+        Me.d1.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.d1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.d1.Location = New System.Drawing.Point(932, 130)
         Me.d1.Margin = New System.Windows.Forms.Padding(2)
