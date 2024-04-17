@@ -71,6 +71,7 @@ Public Class Healthcare_DonateBlood
         ComboBox1.Items.Add("A-")
         ComboBox1.Items.Add("B-")
         ComboBox1.Items.Add("O-")
+        ComboBox1.SelectedIndex = 0
         DateTimePicker1.ShowUpDown = True
         DateTimePicker1.Format = DateTimePickerFormat.Custom
         DateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss"
@@ -82,7 +83,7 @@ Public Class Healthcare_DonateBlood
         If prev_hos_Button IsNot Nothing Then
             prev_hos_Button.BackColor = Color.LightBlue
         End If
-        hospital_Button.BackColor = Color.FromArgb(117, 187, 220)
+        hospital_Button.BackColor = Color.DeepSkyBlue
         hos_id = hospital_Button.Name
         Dim hospital_Id As String = hospital_Button.Name
         prev_hos_Button = hospital_Button
@@ -129,5 +130,9 @@ Public Class Healthcare_DonateBlood
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         b_grp = ComboBox1.SelectedItem.ToString()
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
     End Sub
 End Class

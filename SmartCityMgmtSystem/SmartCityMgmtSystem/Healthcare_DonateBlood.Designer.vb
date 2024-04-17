@@ -22,6 +22,7 @@ Partial Class Healthcare_DonateBlood
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Healthcare_DonateBlood))
         Me.d1 = New System.Windows.Forms.Button()
         Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -35,7 +36,7 @@ Partial Class Healthcare_DonateBlood
         '
         'd1
         '
-        Me.d1.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.d1.BackColor = System.Drawing.SystemColors.Highlight
         Me.d1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.d1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.d1.Location = New System.Drawing.Point(786, 552)
@@ -102,14 +103,14 @@ Partial Class Healthcare_DonateBlood
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_drop_of_blood_96
-        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Label2.Image = CType(resources.GetObject("Label2.Image"), System.Drawing.Image)
+        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label2.Location = New System.Drawing.Point(30, 0)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(382, 101)
         Me.Label2.TabIndex = 47
-        Me.Label2.Text = "     Donate Blood"
+        Me.Label2.Text = "    Donate Blood"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ComboBox1

@@ -135,7 +135,7 @@ Public Class Healthcare_BookAppointment
         If prev_dep_Button IsNot Nothing Then
             prev_dep_Button.BackColor = Color.LightSkyBlue
         End If
-        department_Button.BackColor = Color.FromArgb(70, 130, 180)
+        department_Button.BackColor = SystemColors.Highlight
         dep_id = department_Button.Name
         prev_dep_Button = department_Button
         Dim department_Id As String = department_Button.Name
@@ -173,7 +173,7 @@ Public Class Healthcare_BookAppointment
                         RichTextBox1.Text = ""
                         hos_id = -1
                         dep_id = -1
-                        prev_dep_Button.BackColor = Color.LightSkyBlue
+                        prev_dep_Button.BackColor = Color.LightBlue
                         prev_hos_Button.BackColor = Color.LightBlue
                         prev_hos_Button = Nothing
                         prev_dep_Button = Nothing
