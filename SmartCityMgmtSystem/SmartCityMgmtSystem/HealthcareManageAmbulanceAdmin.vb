@@ -3,13 +3,15 @@ Imports MySql.Data.MySqlClient
 Public Class HealthcareManageAmbulanceAdmin
     Private primaryKeyEdit As String
 
-    Private Sub ShowEditOption(ByVal txt1 As String, ByVal txt2 As String, ByVal txt3 As String, ByVal txt4 As String)
+    Private Sub ShowEditOption(ByVal txt1 As String, ByVal txt2 As String, ByVal txt3 As String, ByVal txt4 As String, ByVal txt5 As String, ByVal txt6 As String)
         Label3.Text = "Update Ambulance"
         Button1.Text = "Update"
         TextBox6.Text = txt1
         TextBox3.Text = txt2
         TextBox2.Text = txt3
         TextBox1.Text = txt4
+        TextBox5.Text = txt5
+        DateTimePicker1.Text = txt6
 
     End Sub
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
@@ -18,7 +20,7 @@ Public Class HealthcareManageAmbulanceAdmin
             ' Change this to DB logic later
             'MessageBox.Show("Edit button clicked for row " & e.RowIndex.ToString(), "Edit Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
             primaryKeyEdit = DataGridView1.Rows(e.RowIndex).Cells(0).Value
-            ShowEditOption(DataGridView1.Rows(e.RowIndex).Cells(0).Value, DataGridView1.Rows(e.RowIndex).Cells(1).Value, DataGridView1.Rows(e.RowIndex).Cells(2).Value, DataGridView1.Rows(e.RowIndex).Cells(3).Value)
+            ShowEditOption(DataGridView1.Rows(e.RowIndex).Cells(0).Value, DataGridView1.Rows(e.RowIndex).Cells(1).Value, DataGridView1.Rows(e.RowIndex).Cells(2).Value, DataGridView1.Rows(e.RowIndex).Cells(3).Value, DataGridView1.Rows(e.RowIndex).Cells(4).Value, DataGridView1.Rows(e.RowIndex).Cells(5).Value)
 
             ' Check if the clicked cell is in the "DeleteBut" column and not a header cell
         ElseIf e.ColumnIndex = DataGridView1.Columns("DeleteBut").Index AndAlso e.RowIndex >= 0 Then
@@ -30,7 +32,7 @@ Public Class HealthcareManageAmbulanceAdmin
             If result = DialogResult.Yes Then
 
                 ' Call a method to delete the row from the database using the primary key
-                Dim success As Boolean = Globals.ExecuteDeleteQuery("DELETE FROM ambulance where Ambulance_id = " & DataGridView1.Rows(e.RowIndex).Cells(0).Value)
+                Dim success As Boolean = Globals.ExecuteDeleteQuery("DELETE FROM ambulanceappointment where AmbulanceAppointment_id = " & DataGridView1.Rows(e.RowIndex).Cells(0).Value)
 
                 If success Then
                     ' If deletion is successful, then refresh the datagridview
@@ -53,7 +55,7 @@ Public Class HealthcareManageAmbulanceAdmin
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-        cmd = New MySqlCommand("SELECT * FROM ambulance", Con)
+        cmd = New MySqlCommand("SELECT * FROM ambulanceappointment", Con)
         reader = cmd.ExecuteReader
         ' Create a DataTable to store the data
         Dim dataTable As New DataTable()
@@ -65,10 +67,13 @@ Public Class HealthcareManageAmbulanceAdmin
 
         'IMP: Specify the Column Mappings from DataGridView to SQL Table
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "Ambulance_id"
-        DataGridView1.Columns(1).DataPropertyName = "hospital_id"
-        DataGridView1.Columns(2).DataPropertyName = "phone_number"
-        DataGridView1.Columns(3).DataPropertyName = "availability"
+        DataGridView1.Columns(0).DataPropertyName = "AmbulanceAppointment_id"
+        DataGridView1.Columns(1).DataPropertyName = "Location"
+        DataGridView1.Columns(2).DataPropertyName = "hospital_id"
+        DataGridView1.Columns(3).DataPropertyName = "Ambulance_id"
+        DataGridView1.Columns(4).DataPropertyName = "patient_id"
+        DataGridView1.Columns(5).DataPropertyName = "time"
+
 
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
@@ -96,6 +101,7 @@ Public Class HealthcareManageAmbulanceAdmin
         TextBox3.Clear()
         TextBox2.Clear()
         TextBox1.Clear()
+        TextBox5.Clear()
 
     End Sub
 
@@ -135,22 +141,32 @@ Public Class HealthcareManageAmbulanceAdmin
             Return
         End If
 
+        If String.IsNullOrWhiteSpace(TextBox5.Text) Then
+            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Label3.Text = "Add Ambulance Details"
+            Button1.Text = "Add"
+
+            TextBox5.Clear()
+            Return
+        End If
+
         If Button1.Text = "Update" Then
             Dim cmd As String
-            cmd = "UPDATE ambulance SET Ambulance_id = " & Convert.ToInt32(TextBox6.Text) & " , hospital_id = " & Convert.ToInt32(TextBox3.Text) & " , phone_number ='" & TextBox2.Text & "' , availability = " & Convert.ToInt32(TextBox1.Text) & " WHERE Ambulance_id =" & primaryKeyEdit
+            cmd = "UPDATE ambulanceappointment SET AmbulanceAppointment_id = " & Convert.ToInt32(TextBox6.Text) & " , Location = '" & TextBox3.Text & "' , hospital_id =" & Convert.ToInt32(TextBox2.Text) & " , Ambulance_id = " & Convert.ToInt32(TextBox1.Text) & ", patient_id = " & Convert.ToInt32(TextBox5.Text) & ",  time = '" & DateTimePicker1.Value.Date.ToString("yyyy-MM-dd") & "' WHERE AmbulanceAppointment_id =" & primaryKeyEdit
             Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
             If success Then
                 LoadandBindDataGridView()
             End If
-            Label3.Text = "Add Ambulance Plan"
+            Label3.Text = "Add Ambulance Appointment"
             Button1.Text = "Add"
             TextBox6.Clear()
             TextBox3.Clear()
             TextBox2.Clear()
             TextBox1.Clear()
+            TextBox5.Clear()
         Else
             Dim cmd As String
-            cmd = "INSERT into ambulance(Ambulance_id,hospital_id,phone_number,availability) VALUES (" & Convert.ToInt32(TextBox6.Text) & "," & Convert.ToInt32(TextBox3.Text) & ",'" & TextBox2.Text & "'," & Convert.ToInt32(TextBox1.Text) & ")"
+            cmd = "INSERT into ambulanceappointment(AmbulanceAppointment_id,Location,hospital_id,Ambulance_id, patient_id, time) VALUES (" & Convert.ToInt32(TextBox6.Text) & ",'" & TextBox3.Text & "'," & Convert.ToInt32(TextBox2.Text) & "," & Convert.ToInt32(TextBox1.Text) & ", " & Convert.ToInt32(TextBox5.Text) & ", '" & DateTimePicker1.Value.Date.ToString("yyyy-MM-dd") & "' )"
             Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
             If success Then
                 LoadandBindDataGridView()
@@ -159,6 +175,8 @@ Public Class HealthcareManageAmbulanceAdmin
             TextBox3.Clear()
             TextBox2.Clear()
             TextBox1.Clear()
+            TextBox5.Clear()
+
         End If
     End Sub
     Private Sub DataGridView1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
