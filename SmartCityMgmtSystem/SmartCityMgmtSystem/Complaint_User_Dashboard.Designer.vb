@@ -149,11 +149,11 @@ Partial Class Complaint_User_Dashboard
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(1063, 368)
+        Me.Label3.Location = New System.Drawing.Point(1160, 368)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(288, 26)
+        Me.Label3.Size = New System.Drawing.Size(97, 26)
         Me.Label3.TabIndex = 24
-        Me.Label3.Text = "Complaints have been closed"
+        Me.Label3.Text = "Resolved"
         '
         'Button3
         '
@@ -167,11 +167,11 @@ Partial Class Complaint_User_Dashboard
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(592, 368)
+        Me.Label2.Location = New System.Drawing.Point(678, 368)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(282, 26)
+        Me.Label2.Size = New System.Drawing.Size(108, 26)
         Me.Label2.TabIndex = 21
-        Me.Label2.Text = "Complaints Status in process"
+        Me.Label2.Text = "In Process"
         '
         'Button2
         '
@@ -185,11 +185,11 @@ Partial Class Complaint_User_Dashboard
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(126, 368)
+        Me.Label1.Location = New System.Drawing.Point(210, 368)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(259, 26)
+        Me.Label1.Size = New System.Drawing.Size(62, 26)
         Me.Label1.TabIndex = 18
-        Me.Label1.Text = "Complaints not Proces yet"
+        Me.Label1.Text = "Open"
         '
         'PictureBox7
         '

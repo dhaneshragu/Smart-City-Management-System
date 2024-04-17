@@ -17,7 +17,7 @@ Public Class Events_vendorLoginInnerScreen
             Con.Open()
 
             ' Use parameterized query to prevent SQL injection
-            Dim query As String = "SELECT serviceCost FROM Vendor WHERE vendorID = @VendorID;"
+            Dim query As String = "SELECT serviceCost FROM vendor WHERE vendorID = @VendorID;"
             cmd = New MySqlCommand(query, Con)
             cmd.Parameters.AddWithValue("@VendorID", vendorID)
 
@@ -45,7 +45,7 @@ Public Class Events_vendorLoginInnerScreen
             Con.Open()
 
             ' Use parameterized query to prevent SQL injection
-            Dim query As String = "SELECT vendorName FROM Vendor WHERE vendorID = @VendorID;"
+            Dim query As String = "SELECT vendorName FROM vendor WHERE vendorID = @VendorID;"
             cmd = New MySqlCommand(query, Con)
             cmd.Parameters.AddWithValue("@VendorID", vendorID)
 
@@ -98,7 +98,7 @@ Public Class Events_vendorLoginInnerScreen
                 Con.Open()
 
                 ' Use parameterized query to prevent SQL injection
-                Dim query As String = "SELECT DATEDIFF(eb.enddate, eb.startdate) AS Duration FROM eventBookings AS eb INNER JOIN Vendor AS v ON eb.vendorID = v.vendorID WHERE eb.customerID = @CustomerID AND eb.transactionID = @TransactionID;"
+                Dim query As String = "SELECT DATEDIFF(eb.enddate, eb.startdate) AS Duration FROM eventbookings AS eb INNER JOIN vendor AS v ON eb.vendorID = v.vendorID WHERE eb.customerID = @CustomerID AND eb.transactionID = @TransactionID;"
                 Using cmd As New MySqlCommand(query, Con)
                     cmd.Parameters.AddWithValue("@VendorID", vendorID)
                     cmd.Parameters.AddWithValue("@CustomerID", customerID)
@@ -132,7 +132,7 @@ Public Class Events_vendorLoginInnerScreen
         End Try
 
         ' Use parameterized query to prevent SQL injection and handle dates properly
-        Dim query As String = "SELECT  eb.customerID AS CustomerID, eb.transactionID AS TransactionID FROM eventBookings AS eb INNER JOIN  Vendor AS v ON eb.vendorID = v.vendorID WHERE v.vendorID = @VendorID AND v.password = @Password"
+        Dim query As String = "SELECT  eb.customerID AS CustomerID, eb.transactionID AS TransactionID FROM eventbookings AS eb INNER JOIN  vendor AS v ON eb.vendorID = v.vendorID WHERE v.vendorID = @VendorID AND v.password = @Password"
 
         cmd = New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@VendorID", uid)
