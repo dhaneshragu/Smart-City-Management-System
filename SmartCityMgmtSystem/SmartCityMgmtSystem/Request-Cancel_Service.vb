@@ -116,6 +116,7 @@ Public Class Request_Cancel_Service
         If timeSpan < gstartTime Or timeSpan >= gendTime + TimeSpan.FromHours(1) Then
             MessageBox.Show("Requested Service Provider is unavailable during this hour", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
+
             Dim dataTable1 As New DataTable()
             Try
                 Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
@@ -141,9 +142,9 @@ Public Class Request_Cancel_Service
                 serv_charge += temp_charge
                 ReloadDataGridView()
             Catch ex As Exception
-                MessageBox.Show("Error: " & ex.Message)
+                MessageBox.Show("Another User has Requested Service in this slot. Please Choose another Slot ")
+                Exit Sub
             End Try
-
 
             Try
                 Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
