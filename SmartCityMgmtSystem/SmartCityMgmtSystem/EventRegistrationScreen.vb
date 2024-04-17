@@ -127,7 +127,7 @@ Public Class EventRegistrationScreen
         End Try
 
         ' Use parameterized query to prevent SQL injection and handle dates properly
-        Dim query As String = "SELECT v.vendorID, v.vendorName, v.specialisation, v.rating, v.experience " &
+        Dim query As String = "SELECT DISTINCT v.vendorID, v.vendorName, v.specialisation, v.rating, v.experience " &
                           "FROM vendor v " &
                           "LEFT JOIN eventbookings eb ON v.vendorID = eb.vendorID " &
                           "WHERE v.specialisation = @EventType " &
