@@ -50,7 +50,7 @@ Public Class Healthcare_Emergency
 
                 Dim apply_date As DateTime = DateTime.Now
 
-                Dim stmnt As String = "INSERT INTO AmbulanceAppointment VALUES (NULL,@Location, @hospital_ID, @Ambulance_id, @patient_ID, @time)"
+                Dim stmnt As String = "INSERT INTO ambulanceappointment VALUES (NULL,@Location, @hospital_ID, @Ambulance_id, @patient_ID, @time)"
 
                 cmd = New MySqlCommand(stmnt, con)
                 cmd.Parameters.AddWithValue("@doctor_ID", 100)
