@@ -22,8 +22,10 @@ Public Class Ed_Institute_ListItem
                 Value = admPopUp.Value
                 If (SemOrClass) Then
                     Ed_GlobalDashboard.Ed_Profile.Ed_Sem = Value
+                    Ed_GlobalDashboard.Ed_Profile.Ed_Class = 0
                 Else
                     Ed_GlobalDashboard.Ed_Profile.Ed_Class = Value
+                    Ed_GlobalDashboard.Ed_Profile.Ed_Sem = 0
                 End If
                 ApplyToInstitute(studentID, instituteID)
                 ' Change the button text
