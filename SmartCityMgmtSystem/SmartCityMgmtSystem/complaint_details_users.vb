@@ -16,8 +16,8 @@ Public Class complaint_details_users
             Con.Open()
 
             ' Create a MySqlCommand object with the query and connection
-            cmd = New MySqlCommand("SELECT complaintid, priority, timestamp, ComplaintTitle, NatureOfcomplaint, Department_Name, ComplaintText, status FROM Complaints WHERE user_id = @userId", Con)
-            cmd.Parameters.AddWithValue("@userId", uid)
+            cmd = New MySqlCommand("SELECT complaintid, priority, timestamp, ComplaintTitle, NatureOfcomplaint, Department_Name, ComplaintText, status,Remarks FROM Complaints WHERE ComplaintID = @userId", Con)
+            cmd.Parameters.AddWithValue("@userId", pid)
             reader = cmd.ExecuteReader()
 
             ' Loop through the result set
@@ -31,6 +31,8 @@ Public Class complaint_details_users
                 RichTextBox6.Text = reader("Department_Name").ToString()
                 RichTextBox9.Text = reader("ComplaintText").ToString()
                 RichTextBox7.Text = reader("status").ToString()
+                RichTextBox8.Text = reader("Remarks").ToString()
+
 
                 ' Break the loop after the first row if you only want to display one record
                 Exit While
@@ -107,6 +109,9 @@ Public Class complaint_details_users
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim HomePageDashboard = New HomePageDashboard() With {
+            .uid = uid
+            }
         HomePageDashboard.Show()
         Me.Close()
     End Sub
@@ -120,6 +125,10 @@ Public Class complaint_details_users
     End Sub
 
     Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.TextChanged
+
+    End Sub
+
+    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
 
     End Sub
 End Class

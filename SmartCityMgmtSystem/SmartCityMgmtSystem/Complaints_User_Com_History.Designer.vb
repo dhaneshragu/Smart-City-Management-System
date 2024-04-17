@@ -35,8 +35,6 @@ Partial Class Complaints_User_Com_History
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.childformPanel = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -219,22 +217,6 @@ Partial Class Complaints_User_Com_History
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(1058, 56)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(76, 26)
-        Me.Label2.TabIndex = 34
-        Me.Label2.Text = "Search"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(1054, 102)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(233, 30)
-        Me.TextBox2.TabIndex = 33
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -249,8 +231,6 @@ Partial Class Complaints_User_Com_History
         '
         Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.childformPanel.Controls.Add(Me.DataGridView1)
-        Me.childformPanel.Controls.Add(Me.Label2)
-        Me.childformPanel.Controls.Add(Me.TextBox2)
         Me.childformPanel.Controls.Add(Me.Label4)
         Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.childformPanel.Location = New System.Drawing.Point(312, 51)
@@ -273,7 +253,7 @@ Partial Class Complaints_User_Com_History
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.DataGridView1.Size = New System.Drawing.Size(1047, 234)
+        Me.DataGridView1.Size = New System.Drawing.Size(1050, 234)
         Me.DataGridView1.TabIndex = 36
         '
         'Column4
@@ -372,8 +352,6 @@ Partial Class Complaints_User_Com_History
     End Sub
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Button6 As Button
     Friend WithEvents childformPanel As Panel
