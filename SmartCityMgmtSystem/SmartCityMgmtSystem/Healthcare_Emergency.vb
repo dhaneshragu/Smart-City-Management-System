@@ -40,7 +40,7 @@ Public Class Healthcare_Emergency
 
                 Dim apply_date As DateTime = DateTime.Now
 
-                Dim stmnt As String = "INSERT INTO AmbulanceAppointment VALUES (NULL, @hospital_ID, @Ambulance_id, @patient_ID, @time)"
+                Dim stmnt As String = "INSERT INTO AmbulanceAppointment VALUES (NULL,@Location, @hospital_ID, @Ambulance_id, @patient_ID, @time)"
 
                 cmd = New MySqlCommand(stmnt, con)
                 cmd.Parameters.AddWithValue("@doctor_ID", 100)
@@ -48,7 +48,7 @@ Public Class Healthcare_Emergency
                 cmd.Parameters.AddWithValue("@patient_ID", uid)
                 cmd.Parameters.AddWithValue("@time", Now())
                 cmd.Parameters.AddWithValue("@Ambulance_id", 100)
-
+                cmd.Parameters.AddWithValue("@Location", RichTextBox1.Text)
                 Try
                     con.Open()
                     cmd.ExecuteNonQuery()
