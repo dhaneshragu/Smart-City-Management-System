@@ -80,7 +80,7 @@ Public Class EventLoginWindow
 
 
 
-        Dim query As String = "SELECT COUNT(*) FROM eventBookings WHERE customerID = @CustomerID AND password = @Password"
+        Dim query As String = "SELECT COUNT(*) FROM eventbookings WHERE customerID = @CustomerID AND password = @Password"
         cmd = New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@CustomerID", CustomerID)
         cmd.Parameters.AddWithValue("@Password", Password)

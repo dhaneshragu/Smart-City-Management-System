@@ -29,10 +29,10 @@ Partial Class Complaints_Admin_Take_action
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
         'DataGridViewImageColumn4
@@ -52,7 +52,7 @@ Partial Class Complaints_Admin_Take_action
         Me.DataGridViewImageColumn4.Name = "DataGridViewImageColumn4"
         Me.DataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewImageColumn4.ToolTipText = "Delete"
-        Me.DataGridViewImageColumn4.Width = 6
+        Me.DataGridViewImageColumn4.Width = 150
         '
         'Button2
         '
@@ -89,14 +89,6 @@ Partial Class Complaints_Admin_Take_action
         Me.Label6.TabIndex = 27
         Me.Label6.Text = "Remark"
         '
-        'Panel7
-        '
-        Me.Panel7.BackColor = System.Drawing.Color.White
-        Me.Panel7.Location = New System.Drawing.Point(597, 47)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(276, 33)
-        Me.Panel7.TabIndex = 26
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -111,7 +103,7 @@ Partial Class Complaints_Admin_Take_action
         Me.ComboBox2.AllowDrop = True
         Me.ComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"IN PROCESS", "CLOSED"})
+        Me.ComboBox2.Items.AddRange(New Object() {"In Progress", "Resolved"})
         Me.ComboBox2.Location = New System.Drawing.Point(597, 131)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(276, 34)
@@ -126,17 +118,25 @@ Partial Class Complaints_Admin_Take_action
         Me.Label5.TabIndex = 23
         Me.Label5.Text = "Status"
         '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(595, 54)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(276, 32)
+        Me.RichTextBox1.TabIndex = 31
+        Me.RichTextBox1.Text = ""
+        '
         'Complaints_Admin_Take_action
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(15.0!, 26.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.ClientSize = New System.Drawing.Size(1270, 736)
+        Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label5)
@@ -155,8 +155,8 @@ Partial Class Complaints_Admin_Take_action
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents Panel7 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents RichTextBox1 As RichTextBox
 End Class

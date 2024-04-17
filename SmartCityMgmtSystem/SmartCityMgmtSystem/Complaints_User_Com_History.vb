@@ -2,7 +2,10 @@
 
 Public Class Complaints_User_Com_History
     Public Property uid As Integer = -1
+    Public Property pid As Integer = -1
     Public Property u_name As String = "Hello"
+
+    Public Property status_complaint As String = "Hello"
 
     Private Sub LoadandBindDataGridView()
         Dim Con = Globals.GetDBConnection()
@@ -14,9 +17,30 @@ Public Class Complaints_User_Com_History
             Con.Open()
 
             ' Create a MySqlCommand object with the query and connection
-            cmd = New MySqlCommand("SELECT * FROM Complaints WHERE user_id = @userid", Con)
-            cmd.Parameters.AddWithValue("@userId", uid)
+
+
+            Dim Status_now As String = "Now"
+
+            If status_complaint = ">  In Progress Complaints" Then
+                cmd = New MySqlCommand("SELECT * FROM Complaints WHERE user_id = @userid and status = @status_1", Con)
+                cmd.Parameters.AddWithValue("@userid", uid)
+                cmd.Parameters.AddWithValue("@status_1", "In Progress")
+
+            ElseIf status_complaint = ">  Open Complaints" Then
+                cmd = New MySqlCommand("SELECT * FROM Complaints WHERE user_id = @userid and status = @status_1", Con)
+                cmd.Parameters.AddWithValue("@userid", uid)
+                cmd.Parameters.AddWithValue("@status_1", "Open")
+            ElseIf status_complaint = ">  Resolved Complaints" Then
+                cmd = New MySqlCommand("SELECT * FROM Complaints WHERE user_id = @userid and status = @status_1", Con)
+                cmd.Parameters.AddWithValue("@userid", uid)
+                cmd.Parameters.AddWithValue("@status_1", "Resolved")
+            Else
+                cmd = New MySqlCommand("SELECT * FROM Complaints WHERE user_id = @userid", Con)
+                cmd.Parameters.AddWithValue("@userid", uid)
+
+            End If
             reader = cmd.ExecuteReader()
+
 
             ' Create a DataTable to store the data
             Dim dataTable As New DataTable()
@@ -102,14 +126,23 @@ Public Class Complaints_User_Com_History
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-            ' Get the clicked row
-            Dim clickedRow As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
+            ' Get the value of the clicked cell in the first column
+            pid = CInt(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
+            Dim complaint_details_users = New complaint_details_users() With {
+                .uid = uid,
+                .u_name = u_name,
+                .pid = pid
+            }
             complaint_details_users.Show()
-
+            Me.Close()
+            ' Open the Sach page and pass the parameters
         End If
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim HomePageDashboard = New HomePageDashboard() With {
+            .uid = uid
+            }
         HomePageDashboard.Show()
         Me.Close()
     End Sub

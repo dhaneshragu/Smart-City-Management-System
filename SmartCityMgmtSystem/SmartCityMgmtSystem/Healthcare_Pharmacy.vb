@@ -31,7 +31,7 @@ Public Class Healthcare_Pharmacy
                 label.BackColor = Color.LightSkyBlue
                 label.Width = 700
                 label.Height = 100
-                label.Location = New Point(150, 50 + i)
+                label.Location = New Point(230, 50 + i)
 
                 ' Create a label for the hospital name
                 Dim lblHospital As New Windows.Forms.Label()
@@ -55,7 +55,7 @@ Public Class Healthcare_Pharmacy
                 lblBuy.BackColor = Color.FromArgb(0, 180, 0)
                 lblBuy.Width = 100
                 lblBuy.Height = 100
-                lblBuy.Location = New Point(860, 50 + i)
+                lblBuy.Location = New Point(940, 50 + i)
                 lblBuy.Name = Value2 & "_" & Value3
                 AddHandler lblBuy.Click, AddressOf Buy_Click
                 i += 120
@@ -65,6 +65,8 @@ Public Class Healthcare_Pharmacy
                 'button.Text = Value & Environment.NewLine & Value1
 
             End While
+        Else
+            MessageBox.Show(RichTextBox1.Text & " not available")
         End If
         Con.Close()
     End Sub
@@ -96,5 +98,13 @@ Public Class Healthcare_Pharmacy
     Private Sub d1_Click(sender As Object, e As EventArgs) Handles d1.Click
         ClearPanel(Panel1)
         LoadandBindDataGridView()
+    End Sub
+
+    Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.TextChanged
+
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
     End Sub
 End Class
