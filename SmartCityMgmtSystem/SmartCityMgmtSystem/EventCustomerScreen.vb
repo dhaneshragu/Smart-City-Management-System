@@ -6,15 +6,49 @@ Public Class EventCustomerScreen
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         ' Check if the clicked cell is in the "EditBut" column and not a header cell
         If e.ColumnIndex = DataGridView1.Columns("EditBut").Index AndAlso e.RowIndex >= 0 Then
-            ' Change this to DB logic later
-            MessageBox.Show("Edit button clicked for row " & e.RowIndex.ToString(), "Edit Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' Prompt the user to enter the rating
+            Dim ratingInput As String = InputBox("Enter the rating (0-5):", "Edit Rating")
+
+            ' Validate the rating
+            Dim rating As Integer
+            If Integer.TryParse(ratingInput, rating) AndAlso rating >= 0 AndAlso rating <= 5 Then
+                ' Get the vendor name from the DataGridView
+                Dim vendorName As String = DataGridView1.Rows(e.RowIndex).Cells("Column2").Value.ToString()
+                ' Update the corresponding vendor's rating in the vendor table
+                UpdateVendorRating(vendorName, rating)
+                MessageBox.Show("Rating updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBox.Show("Please enter a valid rating between 0 and 5.", "Invalid Rating", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
 
             ' Check if the clicked cell is in the "DeleteBut" column and not a header cell
         ElseIf e.ColumnIndex = DataGridView1.Columns("DeleteBut").Index AndAlso e.RowIndex >= 0 Then
             ' Perform the action for the "DeleteButton" column
             MessageBox.Show("Delete button clicked for row " & e.RowIndex.ToString(), "Delete Entry", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
         End If
+    End Sub
+
+
+    Private Sub UpdateVendorRating(ByVal vendorName As String, ByVal rating As Integer)
+        ' Get connection from globals
+        Dim con As MySqlConnection = Globals.GetDBConnection()
+
+        Try
+            con.Open()
+
+            ' Query to update the rating column of the vendor table based on vendor name
+            Dim query As String = "UPDATE vendor SET rating = @Rating WHERE vendorName = @VendorName;"
+            Dim cmd As New MySqlCommand(query, con)
+            cmd.Parameters.AddWithValue("@Rating", rating)
+            cmd.Parameters.AddWithValue("@VendorName", vendorName)
+
+            ' Execute the query to update the rating
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
     End Sub
 
     Private Sub LoadandBindDataGridView()
