@@ -92,11 +92,17 @@ Public Class Ed_Coursera_CourseContent
         Dim Rate As Integer
 
         If Integer.TryParse(TextBox1.Text, Rate) Then
-            handler.RateCourse(Ed_GlobalDashboard.userID, CourseItem.CourseID, Rate)
+            If Rate >= 0 AndAlso Rate <= 5 Then
+                handler.RateCourse(Ed_GlobalDashboard.userID, CourseItem.CourseID, Rate)
+            Else
+                ' Integer is not within the valid range
+                MessageBox.Show("Please enter an integer between 0 and 5.")
+            End If
         Else
             ' Conversion failed, handle the case where TextBox1.Text is not a valid integer
-            MessageBox.Show("Please enter a valid integer for the student ID.")
+            MessageBox.Show("Please enter a valid integer between 0 and 5.")
         End If
+
 
     End Sub
 End Class
