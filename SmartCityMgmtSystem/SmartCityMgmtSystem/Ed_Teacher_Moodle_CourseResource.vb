@@ -60,7 +60,7 @@ Public Class Ed_Teacher_Moodle_CourseResource
         Dim form As New Ed_Teacher_Moodle_CourseContent(callingPanel)
         form.CourseContent = course
         Globals.viewChildForm(callingPanel, form)
-
+        Me.Close()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -78,5 +78,6 @@ Public Class Ed_Teacher_Moodle_CourseResource
         Dim form As New Ed_Teacher_Moodle_CourseContent(callingPanel)
         form.CourseContent = course
         Globals.viewChildForm(callingPanel, form)
+        Me.Close()
     End Sub
 End Class
