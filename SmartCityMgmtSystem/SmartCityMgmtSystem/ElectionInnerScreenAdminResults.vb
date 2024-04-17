@@ -123,7 +123,7 @@ Public Class ElectionInnerScreenAdminResults
             reader.Close()
 
             If announced = 0 Then
-                Dim current_date As String = "2024-04-11"
+                Dim current_date As String = "2024-04-27"
                 Dim resultAnnouncementDate As DateTime = DateTime.MinValue
 
                 ' Retrieve the value of nomination_start from the last row of the election_time table

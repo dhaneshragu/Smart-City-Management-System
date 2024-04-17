@@ -51,7 +51,7 @@ Public Class ElectionInnerScreenAdminTimeline
         'Dim month As Integer = dt.Month
         'Dim day As Integer = dt.Day
         'Dim current_date As String = year.ToString + "-" + month.ToString + "-" + day.ToString
-        Dim current_date As String = "2024-01-03"
+        Dim current_date As String = "2024-04-15"
 
         Dim selectedDateTime2 As DateTime = DateTimePicker2.Value
         Dim nomination_start As String = selectedDateTime2.ToString("yyyy-MM-dd")
