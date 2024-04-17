@@ -277,6 +277,7 @@ Public Class TransportDrivingLicenseReq
                                     command.Parameters.AddWithValue("@Value5", "fresh")
                                 End If
                                 command.ExecuteNonQuery()
+                                Globals.ExecuteUpdateQuery("update admin_records set reg_dl_revenue = reg_dl_revenue + 100")
                                 connection.Close()
                             End Using
                         End If
@@ -290,6 +291,7 @@ Public Class TransportDrivingLicenseReq
                                 command.Parameters.AddWithValue("@a", id)
                                 command.ExecuteNonQuery()
                             End Using
+                            Globals.ExecuteUpdateQuery("update admin_records set reg_dl_revenue = reg_dl_revenue + 100")
                             connection.Close()
                             renewal = False
                         End If

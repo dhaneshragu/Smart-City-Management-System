@@ -216,6 +216,7 @@ Public Class TransportVehicleRegReq
                         command.Parameters.AddWithValue("@Value5", "requested")
                         command.ExecuteNonQuery()
                     End Using
+                    Globals.ExecuteUpdateQuery("update admin_records set reg_dl_revenue = reg_dl_revenue + 100")
                     reqProceed = False
                 End If
                 Con.Close()

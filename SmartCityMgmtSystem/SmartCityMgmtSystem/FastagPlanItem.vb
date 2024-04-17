@@ -94,9 +94,12 @@ Public Class FastagPlanItem
                         connection.Open()
                         If command.ExecuteNonQuery() > 0 Then
                             MessageBox.Show("Fastag purchased successfully", "Fastag Purchased", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Globals.ExecuteUpdateQuery("UPDATE admin_records set toll_revenue = toll_revenue + " & fare_)
                         End If
                     Catch ex As Exception
                         MessageBox.Show("Error purchasing fastag: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Finally
+                        connection.Close()
                     End Try
                 End Using
             End Using
