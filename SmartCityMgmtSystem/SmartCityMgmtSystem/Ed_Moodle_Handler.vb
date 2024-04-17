@@ -353,7 +353,10 @@ Public Class Ed_Moodle_Handler
         cmdSeqNo.Parameters.AddWithValue("@roomID", roomID)
         Dim result As Object = cmdSeqNo.ExecuteScalar()
         Dim seqNo As Integer = 0
-        If result IsNot Nothing Then
+        'check if result is null'
+        If result Is DBNull.Value Then
+            seqNo = 1
+        ElseIf result IsNot Nothing Then
             seqNo = Convert.ToInt32(result) + 1
         End If
         cmd.Parameters.AddWithValue("@seqNo", seqNo)

@@ -346,7 +346,7 @@ Public Class Ed_Coursera_Handler
         cmd2.Parameters.AddWithValue("@courseId", courseId)
         Dim reader As MySqlDataReader = cmd2.ExecuteReader()
         If reader.Read() Then
-            seqNo = If(reader("MAX(Seq_no)") IsNot DBNull.Value, Convert.ToInt32(reader("MAX(Seq_no)")) + 1, 100)
+            seqNo = If(reader("MAX(Seq_no)") IsNot DBNull.Value, Convert.ToInt32(reader("MAX(Seq_no)")) + 1, 1)
         End If
         reader.Close()
 
