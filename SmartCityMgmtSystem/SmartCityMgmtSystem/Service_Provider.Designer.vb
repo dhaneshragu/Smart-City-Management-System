@@ -23,6 +23,7 @@ Partial Class Service_Provider
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -52,7 +53,6 @@ Partial Class Service_Provider
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.childformPanel.SuspendLayout()
@@ -76,6 +76,26 @@ Partial Class Service_Provider
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(282, 783)
         Me.Panel1.TabIndex = 0
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Tahoma", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_reject_64
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.Button1.Location = New System.Drawing.Point(-8, 686)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button1.Size = New System.Drawing.Size(294, 82)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "      Leave                   Scheduler"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Button7
         '
@@ -224,9 +244,11 @@ Partial Class Service_Provider
         'RichTextBox15
         '
         Me.RichTextBox15.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox15.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox15.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox15.Location = New System.Drawing.Point(452, 422)
         Me.RichTextBox15.Name = "RichTextBox15"
+        Me.RichTextBox15.ReadOnly = True
         Me.RichTextBox15.Size = New System.Drawing.Size(178, 42)
         Me.RichTextBox15.TabIndex = 11
         Me.RichTextBox15.Text = "On the Day"
@@ -234,19 +256,22 @@ Partial Class Service_Provider
         'RichTextBox14
         '
         Me.RichTextBox14.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox14.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox14.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox14.Location = New System.Drawing.Point(111, 422)
         Me.RichTextBox14.Name = "RichTextBox14"
         Me.RichTextBox14.Size = New System.Drawing.Size(313, 42)
         Me.RichTextBox14.TabIndex = 10
-        Me.RichTextBox14.Text = "Placeholder"
+        Me.RichTextBox14.Text = ".............."
         '
         'RichTextBox13
         '
         Me.RichTextBox13.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox13.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox13.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox13.Location = New System.Drawing.Point(802, 340)
         Me.RichTextBox13.Name = "RichTextBox13"
+        Me.RichTextBox13.ReadOnly = True
         Me.RichTextBox13.Size = New System.Drawing.Size(210, 42)
         Me.RichTextBox13.TabIndex = 9
         Me.RichTextBox13.Text = "for Customer"
@@ -254,19 +279,22 @@ Partial Class Service_Provider
         'RichTextBox12
         '
         Me.RichTextBox12.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox12.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox12.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox12.Location = New System.Drawing.Point(544, 340)
         Me.RichTextBox12.Name = "RichTextBox12"
         Me.RichTextBox12.Size = New System.Drawing.Size(227, 42)
         Me.RichTextBox12.TabIndex = 8
-        Me.RichTextBox12.Text = "Placeholder"
+        Me.RichTextBox12.Text = "................"
         '
         'RichTextBox11
         '
         Me.RichTextBox11.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox11.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox11.Location = New System.Drawing.Point(52, 340)
         Me.RichTextBox11.Name = "RichTextBox11"
+        Me.RichTextBox11.ReadOnly = True
         Me.RichTextBox11.Size = New System.Drawing.Size(475, 42)
         Me.RichTextBox11.TabIndex = 7
         Me.RichTextBox11.Text = "your next scheduled service is"
@@ -274,9 +302,11 @@ Partial Class Service_Provider
         'RichTextBox10
         '
         Me.RichTextBox10.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox10.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox10.Location = New System.Drawing.Point(52, 98)
         Me.RichTextBox10.Name = "RichTextBox10"
+        Me.RichTextBox10.ReadOnly = True
         Me.RichTextBox10.Size = New System.Drawing.Size(511, 42)
         Me.RichTextBox10.TabIndex = 6
         Me.RichTextBox10.Text = "your current scheduled service is"
@@ -291,9 +321,11 @@ Partial Class Service_Provider
         'RichTextBox6
         '
         Me.RichTextBox6.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox6.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox6.Location = New System.Drawing.Point(452, 177)
         Me.RichTextBox6.Name = "RichTextBox6"
+        Me.RichTextBox6.ReadOnly = True
         Me.RichTextBox6.Size = New System.Drawing.Size(178, 42)
         Me.RichTextBox6.TabIndex = 4
         Me.RichTextBox6.Text = "On the Day"
@@ -301,19 +333,22 @@ Partial Class Service_Provider
         'RichTextBox7
         '
         Me.RichTextBox7.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox7.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox7.Location = New System.Drawing.Point(111, 179)
         Me.RichTextBox7.Name = "RichTextBox7"
         Me.RichTextBox7.Size = New System.Drawing.Size(313, 42)
         Me.RichTextBox7.TabIndex = 3
-        Me.RichTextBox7.Text = "Placeholder"
+        Me.RichTextBox7.Text = "..............."
         '
         'RichTextBox8
         '
         Me.RichTextBox8.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox8.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox8.Location = New System.Drawing.Point(824, 98)
         Me.RichTextBox8.Name = "RichTextBox8"
+        Me.RichTextBox8.ReadOnly = True
         Me.RichTextBox8.Size = New System.Drawing.Size(210, 42)
         Me.RichTextBox8.TabIndex = 2
         Me.RichTextBox8.Text = "for Customer"
@@ -321,12 +356,13 @@ Partial Class Service_Provider
         'RichTextBox9
         '
         Me.RichTextBox9.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.RichTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox9.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox9.Location = New System.Drawing.Point(577, 98)
         Me.RichTextBox9.Name = "RichTextBox9"
         Me.RichTextBox9.Size = New System.Drawing.Size(227, 42)
         Me.RichTextBox9.TabIndex = 1
-        Me.RichTextBox9.Text = "Placeholder"
+        Me.RichTextBox9.Text = "..............."
         '
         'DateTimePicker1
         '
@@ -428,26 +464,6 @@ Partial Class Service_Provider
         Me.Button6.TabIndex = 7
         Me.Button6.Text = "      Home Page"
         Me.Button6.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.NavajoWhite
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Tahoma", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_reject_64
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button1.Location = New System.Drawing.Point(-8, 686)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Button1.Size = New System.Drawing.Size(294, 82)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "      Leave                   Scheduler"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'Service_Provider
         '

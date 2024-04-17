@@ -12,8 +12,8 @@ Public Class Ed_CertificateList
 
 
         Label1.Text = "Marksheets"
-        Label2.Text = "Extra-Curricular Certificates"
-        Label3.Text = "Entrance Exam Results"
+        Label3.Text = "Extra-Curricular Certificates"
+        Label2.Text = "Entrance Exam Results"
 
         ' Adjust layout if EC_Insti is Coursera
         If EC_Insti = "Coursera" Then
@@ -39,8 +39,8 @@ Public Class Ed_CertificateList
             ' Configure FlowLayoutPanel3
             ConfigureFlowLayoutPanel(FlowLayoutPanel3)
             Add_ButtonsByType(FlowLayoutPanel1, "Marksheet")
-            Add_ButtonsByType(FlowLayoutPanel1, "Entrance-Result")
-            Add_ButtonsByType(FlowLayoutPanel1, "Extra-Curricular")
+            Add_ButtonsByType(FlowLayoutPanel2, "Entrance-Result")
+            Add_ButtonsByType(FlowLayoutPanel3, "Extra-Curricular")
 
         End If
 

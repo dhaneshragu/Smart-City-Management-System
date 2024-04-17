@@ -146,6 +146,7 @@ Partial Class Ed_admissionPopUp
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label6)
         Me.Name = "Ed_admissionPopUp"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ed_admissionPopUp"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

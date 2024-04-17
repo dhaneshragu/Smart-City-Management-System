@@ -46,17 +46,29 @@ Public Class HomePage
     End Sub
 
     Private Sub lib_dept_Click(sender As Object, e As EventArgs) Handles lib_dept.Click
-        Dim library = New lib_dash() With {
+
+        If uid = 9 Then
+            Dim library = New lib_adminDash()
+            library.Show()
+            Me.ParentForm.Close()
+            Me.Close()
+        Else
+            Dim library = New lib_dash() With {
             .uid = uid,
             .u_name = u_name
-        }
-        library.Show()
-        Me.ParentForm.Close()
-        Me.Close()
+            }
+            library.Show()
+            Me.ParentForm.Close()
+            Me.Close()
+        End If
+
+
     End Sub
 
     Private Sub bankDept_Click(sender As Object, e As EventArgs) Handles bankDept.Click
-        Dim bank = New BankingLogin()
+        Dim bank = New BankingLogin() With {
+                .uid = uid
+            }
         bank.Show()
         Me.ParentForm.Close()
         Me.Close()

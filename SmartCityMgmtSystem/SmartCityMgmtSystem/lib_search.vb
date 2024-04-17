@@ -57,6 +57,7 @@ Public Class lib_search
 
     Private Sub lib_search_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label2.Text = u_name
+        Label9.Text = uid
         LoadAllBooks()
         PopulateTable()
 
@@ -297,11 +298,39 @@ Public Class lib_search
                 statusLabel.ForeColor = Color.Red
             End If
 
+            Dim ratingPanel As New Panel()
+            ratingPanel.AutoSize = True
+            ratingPanel.Anchor = AnchorStyles.None ' Ensure the panel is not anchored to any side
+            ratingPanel.Location = New Point((searchBooksTablePanel.Width - ratingPanel.Width) / 2, (searchBooksTablePanel.Height - ratingPanel.Height) / 2)
+            searchBooksTablePanel.Controls.Add(ratingPanel, 5, rowIndex)
+
+            Dim ratingPictureBox As New PictureBox()
+            ratingPictureBox.Image = SmartCityMgmtSystem.My.Resources.Resources.icons8_star_48
+            ratingPictureBox.SizeMode = PictureBoxSizeMode.Zoom
+            ratingPictureBox.Size = New Size(30, 30)  ' Set the size of the PictureBox
+            ratingPictureBox.Margin = New Padding(0, 0, 0, 0) ' Set margin to 0 to ensure the image is not pushed away
+            ratingPanel.Controls.Add(ratingPictureBox)
+
             Dim ratingLabel As New Label()
-            ratingLabel.Text = entry.Rating
-            searchBooksTablePanel.Controls.Add(ratingLabel, 5, rowIndex)
-            ratingLabel.TextAlign = ContentAlignment.MiddleCenter ' Center the label
-            ratingLabel.Anchor = AnchorStyles.None ' Set Anchor to None
+            ratingLabel.Text = entry.Rating & "/5"
+            ratingLabel.AutoSize = True
+            ratingLabel.Padding = New Padding(35, (ratingPanel.Height - ratingLabel.Height) / 2, 0, 0) ' Vertically center the text
+            ratingPanel.Controls.Add(ratingLabel)
+
+
+
+
+
+
+
+
+
+            'Dim ratingLabel As New Label()
+            'ratingLabel.Text = entry.Rating
+            'searchBooksTablePanel.Controls.Add(ratingLabel, 5, rowIndex)
+            'ratingLabel.TextAlign = ContentAlignment.MiddleCenter ' Center the label
+            'ratingLabel.Anchor = AnchorStyles.None ' Set Anchor to None
+
 
             ' Add radio button for options
             'searchBooksTablePanel.Controls.Add(allBooks(rowIndex).RadioButton, 5, rowIndex)
@@ -383,5 +412,13 @@ Public Class lib_search
         }
         HomePageDashboard.Show()
         Me.Close()
+    End Sub
+
+    Private Sub searchBooksTablePanel_Paint(sender As Object, e As PaintEventArgs) Handles searchBooksTablePanel.Paint
+
+    End Sub
+
+    Private Sub childformPanel_Paint(sender As Object, e As PaintEventArgs) Handles childformPanel.Paint
+
     End Sub
 End Class

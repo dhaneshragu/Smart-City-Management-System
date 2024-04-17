@@ -1,14 +1,16 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports MySql.Data.MySqlClient
+Imports Mysqlx.XDevAPI.Common
 Imports Mysqlx.XDevAPI.Relational
 
 Public Class TransportDrivingLicenseReq
     Public Property uid As Integer
     Public Property u_name As String
-    Private currentDlId As Integer
     Private payClicked As Boolean = False
     Private userDlId As Integer
+    Private highestValidTill As DateTime
+    Private renewal As Boolean = False
     Private Sub LoadAndBindData()
         Try
             Using connection As MySqlConnection = Globals.GetDBConnection()
@@ -82,7 +84,7 @@ Public Class TransportDrivingLicenseReq
                             LabelDLID.Text = ""
                         End If
                         Dim lowestissuedOn As DateTime = If(Not IsDBNull(row("issued_on")), DirectCast(row("issued_on"), DateTime), DateTime.MaxValue)
-                        Dim highestvalidTill As DateTime = If(Not IsDBNull(row("valid_till")), DirectCast(row("valid_till"), DateTime), DateTime.MinValue)
+                        highestValidTill = If(Not IsDBNull(row("valid_till")), DirectCast(row("valid_till"), DateTime), DateTime.MinValue)
                         VTypeLB.Items.Clear()
                         For Each dr As DataRow In dataTable2.Rows
                             If Convert.ToInt32(dr("fee_paid")) = 1 And Convert.ToString(dr("test_status")) = "pass" Then
@@ -96,8 +98,8 @@ Public Class TransportDrivingLicenseReq
                                 Dim validTill As DateTime = If(Not IsDBNull(dr("valid_till")), DirectCast(dr("valid_till"), DateTime), DateTime.MinValue)
                                 ' Update the highest valid_till date
                                 If Not IsDBNull(dr("issued_on")) Then
-                                    If validTill > highestvalidTill Then
-                                        highestvalidTill = validTill
+                                    If validTill > highestValidTill Then
+                                        highestValidTill = validTill
                                     End If
                                 End If
 
@@ -115,25 +117,13 @@ Public Class TransportDrivingLicenseReq
                         Else
                             LabelIssuedD.Text = ""
                         End If
-                        If highestvalidTill <> DateTime.MinValue Then
-                            LabelValidTill.Text = highestvalidTill.ToString()
+                        If highestValidTill <> DateTime.MinValue Then
+                            LabelValidTill.Text = highestValidTill.ToString()
                         Else
                             LabelValidTill.Text = ""
                         End If
                     End If
                 End Using
-
-
-                ' Load current driver's license ID
-                Dim dlIdQuery As String = "SELECT MAX(dl_id) as max_dl_id FROM dl_entries "
-                Using dlIdCmd As New MySqlCommand(dlIdQuery, connection)
-                    Dim reader As MySqlDataReader = dlIdCmd.ExecuteReader()
-                    If reader.Read() Then
-                        currentDlId = If(Not IsDBNull(reader("max_dl_id")), Convert.ToInt32(reader("max_dl_id")), 0)
-                    End If
-                    reader.Close()
-                End Using
-
                 connection.Close()
 
                 If payClicked Then
@@ -179,8 +169,30 @@ Public Class TransportDrivingLicenseReq
 
                                     ' Process the test status
                                     If testStatus = "pass" Then
-                                        MessageBox.Show("You already have a driving license for the vehicle type " & vtype, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                        isValid = False
+                                        If highestValidTill < DateTime.Today Then
+                                            Dim Result As DialogResult = MessageBox.Show("Your Driving License has Expired!!.Do you want to renew now?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+                                            If Result = DialogResult.OK Then
+                                                Dim pay = New PaymentGateway() With {
+                                                        .uid = uid,
+                                                        .readonly_prop = True
+                                                }
+                                                pay.TextBox1.Text = 5
+                                                pay.TextBox2.Text = 100
+                                                pay.TextBox3.Text = $"Driving License Renewal Fee "
+                                                If (pay.ShowDialog() = DialogResult.OK) Then
+                                                    'MessageBox.Show("Payment Successful!")
+                                                    renewal = True
+                                                Else
+                                                    MessageBox.Show("payment failed!")
+                                                    Exit Sub
+                                                End If
+                                            Else
+                                                isValid = False
+                                            End If
+                                        Else
+                                            MessageBox.Show("You already have a driving license for the vehicle type " & vtype, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                            isValid = False
+                                        End If
                                     ElseIf testStatus = "fail" Then
                                         Dim result As DialogResult = MessageBox.Show("Your previous request for this vehicle type was rejected. Do you want to apply again?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
                                         If result = DialogResult.OK Then
@@ -252,15 +264,24 @@ Public Class TransportDrivingLicenseReq
                                     command.Parameters.AddWithValue("@Value1", dataTable2.Rows(0)("dl_id"))
                                     command.Parameters.AddWithValue("@Value5", "renew")
                                 Else
-                                    currentDlId += 1
-                                    command.Parameters.AddWithValue("@Value1", currentDlId)
+                                    command.Parameters.AddWithValue("@Value1", GenerateRandomId())
                                     command.Parameters.AddWithValue("@Value5", "fresh")
                                 End If
-
                                 command.ExecuteNonQuery()
                                 connection.Close()
-
                             End Using
+                        End If
+
+                        Dim id As Integer = dataTable2.Rows(0)("dl_id")
+                        Dim renewStatement As String = "UPDATE dl_entries SET valid_till = @Value1 WHERE dl_id = @a"
+                        If renewal Then
+                            connection.Open()
+                            Using command As New MySqlCommand(renewStatement, connection)
+                                command.Parameters.AddWithValue("@Value1", DateTime.Today.AddYears(10))
+                                command.Parameters.AddWithValue("@a", id)
+                                command.ExecuteNonQuery()
+                            End Using
+                            connection.Close()
                         End If
                     End If
                     payClicked = False
@@ -273,6 +294,39 @@ Public Class TransportDrivingLicenseReq
         End Try
     End Sub
 
+    Private Shared RandomGenerator As New Random()
+
+    Private Function GenerateRandomId() As String
+        Dim id As String
+        Dim idExists As Boolean
+
+        Do
+            ' Generate random five-digit number for the postfix
+            id = RandomGenerator.Next(10000, 100000)
+            ' Check if the generated ID exists in the database
+            idExists = CheckIdExists(id)
+        Loop While idExists
+
+        Return id
+    End Function
+
+    Private Function CheckIdExists(id As String) As Boolean
+        ' Get connection from globals
+        Dim Con = Globals.GetDBConnection()
+        Dim command As New MySqlCommand("SELECT COUNT(*) FROM dl_entries WHERE dl_id = @id ", Con)
+
+        Try
+            Con.Open()
+            command.Parameters.AddWithValue("@id", id)
+            Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
+            Return count > 0
+        Catch ex As Exception
+            MessageBox.Show("Error checking ID existence: " & ex.Message)
+            Return True ' Assume ID exists to avoid inserting duplicates (you may handle this differently based on your application's requirements)
+        Finally
+            Con.Close()
+        End Try
+    End Function
 
     Private Sub TransportationInnerScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Panel7.Visible = False

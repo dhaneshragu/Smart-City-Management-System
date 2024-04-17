@@ -182,7 +182,6 @@ Public Class Ed_EntranceInnerScreen
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim resultCard As New Ed_ExamResultCard()
-        resultCard.ShowDialog()
         resultCard.UserID = Ed_GlobalDashboard.Ed_Profile.Ed_User_ID
         resultCard.UserName = Ed_GlobalDashboard.Ed_Profile.Ed_Name
         resultCard.ExamName = details.Name

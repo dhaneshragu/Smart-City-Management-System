@@ -241,28 +241,33 @@ Public Class Ed_Institute_Handler
     End Function
 
     Public Sub InsertCertificate(certData As CertificateData)
-        ' SQL query to insert data into the database
-        Using Con = Globals.GetDBConnection()
-            Con.Open()
-            Dim query As String = "INSERT INTO ed_certificates (CertName, Inst_ID, Student_ID, Type, Class, Sem, Year, Certificate) " &
-                                  "VALUES (@CertName, @Inst_ID, @Student_ID, @Type, @Class, @Sem, @Year, @Certificate)"
+        Try
+            ' SQL query to insert data into the database
+            Using Con = Globals.GetDBConnection()
+                Con.Open()
+                Dim query As String = "INSERT INTO ed_certificates (CertName, Inst_ID, Student_ID, Type, Class, Sem, Year, Certificate) " &
+                                    "VALUES (@CertName, @Inst_ID, @Student_ID, @Type, @Class, @Sem, @Year, @Certificate)"
 
-            ' Create a MySqlCommand object with the SQL query and connection
-            Using command As New MySqlCommand(query, Con)
-                ' Add parameters to the command
-                command.Parameters.AddWithValue("@CertName", certData.CertName)
-                command.Parameters.AddWithValue("@Inst_ID", certData.Inst_ID)
-                command.Parameters.AddWithValue("@Student_ID", certData.Student_ID)
-                command.Parameters.AddWithValue("@Type", certData.Type)
-                command.Parameters.AddWithValue("@Class", certData.sClass)
-                command.Parameters.AddWithValue("@Sem", certData.sSem)
-                command.Parameters.AddWithValue("@Year", certData.Year)
-                command.Parameters.AddWithValue("@Certificate", certData.Certificate)
-                Dim rowsAffected As Integer = command.ExecuteNonQuery()
-
+                ' Create a MySqlCommand object with the SQL query and connection
+                Using command As New MySqlCommand(query, Con)
+                    ' Add parameters to the command
+                    command.Parameters.AddWithValue("@CertName", certData.CertName)
+                    command.Parameters.AddWithValue("@Inst_ID", certData.Inst_ID)
+                    command.Parameters.AddWithValue("@Student_ID", certData.Student_ID)
+                    command.Parameters.AddWithValue("@Type", certData.Type)
+                    command.Parameters.AddWithValue("@Class", certData.sClass)
+                    command.Parameters.AddWithValue("@Sem", certData.sSem)
+                    command.Parameters.AddWithValue("@Year", certData.Year)
+                    command.Parameters.AddWithValue("@Certificate", certData.Certificate)
+                    Dim rowsAffected As Integer = command.ExecuteNonQuery()
+                End Using
             End Using
-        End Using
+        Catch ex As Exception
+            ' Display error message if the institute is not registered
+            MessageBox.Show("Institute not registered. Please check the institute ID and try again.")
+        End Try
     End Sub
+
 
     Public Function GetCertificatesByType(ByVal studentID As Integer, TypeOfCert As String) As List(Of CertificateData)
         ' Get the database connection

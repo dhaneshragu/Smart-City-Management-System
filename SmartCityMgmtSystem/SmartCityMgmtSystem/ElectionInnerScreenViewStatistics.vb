@@ -6,10 +6,22 @@ Public Class ElectionInnerScreenViewStatistics
 
     Public Property uid As Integer = 8
     Public Property u_name As String = "admin"
+
     Public Property innerPanel As Panel
+    Dim electionInnerScreen1 As ElectionInnerScreen1 = Nothing
+    Dim ElectionInnerScreenViewStatisticsMinistry As ElectionInnerScreenViewStatisticsMinistry = Nothing
+    Dim ElectionInnerScreenViewStatisticsMinistry2 As ElectionInnerScreenViewStatisticsMinistry2 = Nothing
+    Dim ElectionInnerScreenViewStatisticsMinistry3 As ElectionInnerScreenViewStatisticsMinistry3 = Nothing
+    Dim ElectionInnerScreenViewStatisticsMinistry4 As ElectionInnerScreenViewStatisticsMinistry4 = Nothing
+    Dim ElectionInnerScreenViewStatisticsMinistry5 As ElectionInnerScreenViewStatisticsMinistry5 = Nothing
+    Dim ElectionInnerScreenViewStatisticsMinistry6 As ElectionInnerScreenViewStatisticsMinistry6 = Nothing
+    Dim ElectionInnerScreenViewStatisticsMinistry7 As ElectionInnerScreenViewStatisticsMinistry7 = Nothing
+    Dim ElectionInnerScreenViewStatisticsMinistry8 As ElectionInnerScreenViewStatisticsMinistry8 = Nothing
+    Dim ElectionInnerScreenViewStatisticsMinistry9 As ElectionInnerScreenViewStatisticsMinistry9 = Nothing
+
 
     Public Property lastElectionID As Integer
-    Public Property totalVoted As Integer
+    Public Property totalVoted As Integer = 0
     Dim turnoutPercentage As Double
     Dim Male As Integer
     Private Sub Chart_Init()
@@ -95,11 +107,12 @@ Public Class ElectionInnerScreenViewStatistics
         If totalVoters <> 0 Then
             turnoutPercentage = (totalVoted / totalVoters) * 100
 
-            ' Display the turnout in Panel 2
-            Label20.Text = turnoutPercentage & "%"
+            ' Display the turnout in Panel 2 with up to 2 decimal places
+            Label20.Text = turnoutPercentage.ToString("0.##") & "%"
         Else
             Label20.Text = "No voters"
         End If
+
 
         ' Query to find the ministry with the maximum votes_received
         cmd = New MySqlCommand("SELECT ministries.ministry_name FROM ministries INNER JOIN turnout ON ministries.ministry_id = turnout.ministry_id WHERE turnout.election_id = @electionId ORDER BY turnout.votes_received DESC LIMIT 1", Con)
@@ -109,6 +122,7 @@ Public Class ElectionInnerScreenViewStatistics
         If reader.Read() Then
             Dim ministryName As String = reader("ministry_name").ToString()
             Label6.Text = ministryName.Replace("Ministry of ", "")
+            'Label6.Text = totalVoted
         Else
             Label6.Text = "No data found"
         End If
@@ -123,6 +137,7 @@ Public Class ElectionInnerScreenViewStatistics
         If reader.Read() Then
             Dim ministryName As String = reader("ministry_name").ToString()
             Label7.Text = ministryName.Replace("Ministry of ", "")
+            'Label7.Text = totalVoters
         Else
             Label7.Text = "No data found"
         End If
@@ -138,51 +153,132 @@ Public Class ElectionInnerScreenViewStatistics
     End Sub
 
     Private Sub Panel7_Click(sender As Object, e As EventArgs) Handles Panel7.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry2)
+        ElectionInnerScreenViewStatisticsMinistry2?.Dispose()
+        ElectionInnerScreenViewStatisticsMinistry2 = New ElectionInnerScreenViewStatisticsMinistry2 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name,
+            .lastElectionID = lastElectionID,
+            .totalVoted = totalVoted
+        }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatisticsMinistry2)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry2)
 
     End Sub
 
     Private Sub Panel8_Click(sender As Object, e As EventArgs) Handles Panel8.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
+        ElectionInnerScreenViewStatisticsMinistry?.Dispose()
+        ElectionInnerScreenViewStatisticsMinistry = New ElectionInnerScreenViewStatisticsMinistry With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name,
+            .lastElectionID = lastElectionID,
+                        .totalVoted = totalVoted
+        }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatisticsMinistry)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry)
     End Sub
 
     Private Sub Panel9_Click(sender As Object, e As EventArgs) Handles Panel9.Click
+        ElectionInnerScreenViewStatisticsMinistry5?.Dispose()
+        ElectionInnerScreenViewStatisticsMinistry5 = New ElectionInnerScreenViewStatisticsMinistry5 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name,
+            .lastElectionID = lastElectionID,
+                        .totalVoted = totalVoted
+        }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatisticsMinistry5)
 
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry5)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry5)
     End Sub
 
     Private Sub Panel10_Click(sender As Object, e As EventArgs) Handles Panel10.Click
-
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry7)
+        ElectionInnerScreenViewStatisticsMinistry7?.Dispose()
+        ElectionInnerScreenViewStatisticsMinistry7 = New ElectionInnerScreenViewStatisticsMinistry7 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name,
+            .lastElectionID = lastElectionID
+        }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatisticsMinistry7)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry7)
     End Sub
 
     Private Sub Panel11_Click(sender As Object, e As EventArgs) Handles Panel11.Click
-
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry4)
+        ElectionInnerScreenViewStatisticsMinistry4?.Dispose()
+        ElectionInnerScreenViewStatisticsMinistry4 = New ElectionInnerScreenViewStatisticsMinistry4 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name,
+            .lastElectionID = lastElectionID,
+            .totalVoted = totalVoted
+        }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatisticsMinistry4)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry4)
     End Sub
 
     Private Sub Panel12_Click(sender As Object, e As EventArgs) Handles Panel12.Click
-
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry6)
+        ElectionInnerScreenViewStatisticsMinistry6?.Dispose()
+        ElectionInnerScreenViewStatisticsMinistry6 = New ElectionInnerScreenViewStatisticsMinistry6 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name,
+            .lastElectionID = lastElectionID,
+            .totalVoted = totalVoted
+        }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatisticsMinistry6)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry6)
     End Sub
 
     Private Sub Panel13_Click(sender As Object, e As EventArgs) Handles Panel13.Click
-
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry3)
+        ElectionInnerScreenViewStatisticsMinistry3?.Dispose()
+        ElectionInnerScreenViewStatisticsMinistry3 = New ElectionInnerScreenViewStatisticsMinistry3 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name,
+            .lastElectionID = lastElectionID,
+            .totalVoted = totalVoted
+        }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatisticsMinistry3)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry3)
     End Sub
 
     Private Sub Panel14_Click(sender As Object, e As EventArgs) Handles Panel14.Click
-
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry8)
+        ElectionInnerScreenViewStatisticsMinistry8?.Dispose()
+        ElectionInnerScreenViewStatisticsMinistry8 = New ElectionInnerScreenViewStatisticsMinistry8 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name,
+            .lastElectionID = lastElectionID,
+            .totalVoted = totalVoted
+        }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatisticsMinistry8)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry8)
     End Sub
 
     Private Sub Panel15_Click(sender As Object, e As EventArgs) Handles Panel15.Click
-
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry9)
+        ElectionInnerScreenViewStatisticsMinistry9?.Dispose()
+        ElectionInnerScreenViewStatisticsMinistry9 = New ElectionInnerScreenViewStatisticsMinistry9 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name,
+            .lastElectionID = lastElectionID,
+            .totalVoted = totalVoted
+        }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatisticsMinistry9)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatisticsMinistry9)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreen1)
+        ElectionInnerScreen1?.Dispose()
+        electionInnerScreen1 = New ElectionInnerScreen1 With {
+            .innerPanel = innerPanel,
+            .uid = uid,
+            .u_name = u_name
+           }
+        Globals.viewChildForm(innerPanel, ElectionInnerScreen1)
+        'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreen1)
     End Sub
 
 End Class

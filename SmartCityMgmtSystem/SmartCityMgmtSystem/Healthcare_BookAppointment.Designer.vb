@@ -35,10 +35,8 @@ Partial Class Healthcare_BookAppointment
         Me.Button1 = New System.Windows.Forms.Button()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridViewImageColumn1
@@ -115,29 +113,29 @@ Partial Class Healthcare_BookAppointment
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Image = CType(resources.GetObject("Label4.Image"), System.Drawing.Image)
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label4.Location = New System.Drawing.Point(119, 9)
+        Me.Label4.Location = New System.Drawing.Point(38, 9)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(434, 46)
+        Me.Label4.Size = New System.Drawing.Size(520, 58)
         Me.Label4.TabIndex = 4
-        Me.Label4.Text = " Book an Appointment"
+        Me.Label4.Text = "      Book an Appointment"
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Button1.BackColor = System.Drawing.SystemColors.Highlight
         Me.Button1.Font = New System.Drawing.Font("MS Reference Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(718, 632)
+        Me.Button1.Location = New System.Drawing.Point(830, 638)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(122, 60)
+        Me.Button1.Size = New System.Drawing.Size(134, 76)
         Me.Button1.TabIndex = 33
-        Me.Button1.Text = "Enter"
+        Me.Button1.Text = "Submit"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'RichTextBox1
@@ -147,7 +145,7 @@ Partial Class Healthcare_BookAppointment
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.RichTextBox1.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox1.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.RichTextBox1.Location = New System.Drawing.Point(226, 506)
+        Me.RichTextBox1.Location = New System.Drawing.Point(316, 528)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(487, 186)
         Me.RichTextBox1.TabIndex = 32
@@ -158,31 +156,20 @@ Partial Class Healthcare_BookAppointment
         Me.Label3.BackColor = System.Drawing.SystemColors.Highlight
         Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label3.Location = New System.Drawing.Point(226, 455)
+        Me.Label3.Location = New System.Drawing.Point(316, 470)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(487, 39)
         Me.Label3.TabIndex = 31
         Me.Label3.Text = "Please write the Symptoms below"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_appointment_time_64
-        Me.PictureBox1.Location = New System.Drawing.Point(46, 1)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(66, 69)
-        Me.PictureBox1.TabIndex = 42
-        Me.PictureBox1.TabStop = False
-        '
         'Panel2
         '
         Me.Panel2.AutoScroll = True
         Me.Panel2.BackColor = System.Drawing.Color.Transparent
-        Me.Panel2.Location = New System.Drawing.Point(46, 70)
+        Me.Panel2.Location = New System.Drawing.Point(46, 84)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1138, 187)
+        Me.Panel2.Size = New System.Drawing.Size(1138, 185)
         Me.Panel2.TabIndex = 46
         '
         'Panel1
@@ -204,7 +191,6 @@ Partial Class Healthcare_BookAppointment
         Me.ClientSize = New System.Drawing.Size(1270, 736)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Label3)
@@ -214,9 +200,7 @@ Partial Class Healthcare_BookAppointment
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Healthcare_BookAppointment"
         Me.Text = "Home Page"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents DataGridViewImageColumn1 As System.Windows.Forms.DataGridViewImageColumn
@@ -227,7 +211,6 @@ Partial Class Healthcare_BookAppointment
     Friend WithEvents Button1 As Button
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel
 End Class

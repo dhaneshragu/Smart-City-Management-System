@@ -36,10 +36,10 @@ Partial Class Ed_Teacher_Course_Resource
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox1.Font = New System.Drawing.Font("Tahoma", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.RichTextBox1.Location = New System.Drawing.Point(36, 508)
+        Me.RichTextBox1.Location = New System.Drawing.Point(126, 508)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(1213, 216)
+        Me.RichTextBox1.Size = New System.Drawing.Size(1029, 216)
         Me.RichTextBox1.TabIndex = 42
         Me.RichTextBox1.Text = ""
         '
@@ -47,19 +47,19 @@ Partial Class Ed_Teacher_Course_Resource
         '
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(294, 44)
+        Me.Label1.Location = New System.Drawing.Point(210, 50)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(542, 43)
+        Me.Label1.Size = New System.Drawing.Size(663, 43)
         Me.Label1.TabIndex = 39
         Me.Label1.Text = "{ Resource Name }"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'WebBrowser1
         '
-        Me.WebBrowser1.Location = New System.Drawing.Point(36, 90)
+        Me.WebBrowser1.Location = New System.Drawing.Point(130, 110)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(1213, 392)
+        Me.WebBrowser1.Size = New System.Drawing.Size(1025, 392)
         Me.WebBrowser1.TabIndex = 38
         '
         'Button6

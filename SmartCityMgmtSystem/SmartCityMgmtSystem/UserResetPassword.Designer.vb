@@ -27,6 +27,8 @@ Partial Class UserResetPassword
         Me.childformPanel = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -85,6 +87,8 @@ Partial Class UserResetPassword
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.TextBox2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
@@ -95,6 +99,24 @@ Partial Class UserResetPassword
         Me.GroupBox1.Size = New System.Drawing.Size(501, 424)
         Me.GroupBox1.TabIndex = 16
         Me.GroupBox1.TabStop = False
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(465, 250)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(18, 17)
+        Me.CheckBox2.TabIndex = 11
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(465, 143)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(18, 17)
+        Me.CheckBox1.TabIndex = 10
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'TextBox2
         '
@@ -184,4 +206,6 @@ Partial Class UserResetPassword
     Friend WithEvents Button9 As Button
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents CheckBox1 As CheckBox
 End Class
