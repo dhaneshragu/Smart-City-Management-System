@@ -162,7 +162,7 @@ Public Class Healthcare_BookAppointment
                     cmd.Parameters.AddWithValue("@doctor_ID", 100)
                     cmd.Parameters.AddWithValue("@hospital_ID", hos_id)
                     cmd.Parameters.AddWithValue("@patient_ID", uid)
-                    cmd.Parameters.AddWithValue("@time", Now())
+                    cmd.Parameters.AddWithValue("@time", DateTimePicker1.Value)
                     cmd.Parameters.AddWithValue("@symtoms", RichTextBox1.Text)
                     cmd.Parameters.AddWithValue("@status", "pending")
 
