@@ -14,6 +14,14 @@ Public Class Request_Cancel_Service
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
+
+        If String.IsNullOrWhiteSpace(TextBox1.Text) OrElse
+        String.IsNullOrWhiteSpace(TextBox2.Text) OrElse
+        String.IsNullOrWhiteSpace(TextBox3.Text) Then
+            MessageBox.Show("Please fill in all the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub ' Exit the event handler if inputs are missing
+        End If
+
         Dim entereddDate As Date = DateTimePicker1.Value.Date
 
         Dim difference As TimeSpan = entereddDate - DateTime.Now.Date
@@ -323,5 +331,6 @@ Public Class Request_Cancel_Service
 
         ' Bind the data to DataGridView
         DataGridView1.DataSource = dataTable
+        DataGridView1.AllowUserToAddRows = False
     End Sub
 End Class

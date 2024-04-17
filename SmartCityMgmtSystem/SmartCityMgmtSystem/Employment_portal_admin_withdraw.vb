@@ -1,11 +1,13 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports Microsoft.VisualBasic.ApplicationServices
+Imports MySql.Data.MySqlClient
 
 Public Class Employment_portal_admin_withdraw
 
     Public uid As Integer
     Public u_name As String
 
-    Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Public Sub pageload()
+        DataGridView1.AllowUserToAddRows = False
         Me.Text = "Employment Portal"
         Label2.Text = u_name
         Label3.Text = uid
@@ -22,7 +24,7 @@ Public Class Employment_portal_admin_withdraw
 
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
                         dataTable.Load(reader)
-                        MessageBox.Show("Read Success")
+                        'MessageBox.Show("Read Success")
                     End Using
                 End Using
             End Using
@@ -45,6 +47,10 @@ Public Class Employment_portal_admin_withdraw
         DataGridView1.Visible = True
     End Sub
 
+    Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        pageload()
+    End Sub
+
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Me.Close()
 
@@ -65,6 +71,12 @@ Public Class Employment_portal_admin_withdraw
                 jobid = row.Cells("Column1").Value
             End If
         Next
+
+
+        If jobid = -1 Then
+            MessageBox.Show("Please select a job to remove")
+            Return
+        End If
 
         Dim cmd1 As New MySqlCommand
         Dim cmd2 As New MySqlCommand
@@ -90,6 +102,8 @@ Public Class Employment_portal_admin_withdraw
             End Try
 
         End Using
+
+        pageload()
 
     End Sub
 End Class

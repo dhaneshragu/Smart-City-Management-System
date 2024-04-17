@@ -28,6 +28,16 @@ Public Class Service_Post
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
+        If String.IsNullOrEmpty(TextBox1.Text) OrElse
+        String.IsNullOrEmpty(TextBox2.Text) OrElse
+        String.IsNullOrEmpty(TextBox3.Text) OrElse
+        String.IsNullOrEmpty(TextBox4.Text) OrElse
+        String.IsNullOrEmpty(TextBox5.Text) OrElse
+        String.IsNullOrEmpty(ComboBox1.Text) Then
+            MessageBox.Show("Please fill in all the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub ' Exit the event handler if any input field is null or empty
+        End If
+
         Try
             Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
                 con.Open()

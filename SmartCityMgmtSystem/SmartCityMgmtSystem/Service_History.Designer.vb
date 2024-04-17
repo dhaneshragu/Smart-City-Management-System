@@ -79,6 +79,10 @@ Partial Class Service_History
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.BlanchedAlmond
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
@@ -95,6 +99,7 @@ Partial Class Service_History
         Me.Column1.HeaderText = "Service ID"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
         Me.Column1.Width = 250
         '
         'Column2
@@ -102,6 +107,7 @@ Partial Class Service_History
         Me.Column2.HeaderText = "Service offered"
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
         Me.Column2.Width = 300
         '
         'Column3
@@ -109,6 +115,7 @@ Partial Class Service_History
         Me.Column3.HeaderText = "Department"
         Me.Column3.MinimumWidth = 6
         Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
         Me.Column3.Width = 250
         '
         'Column4
@@ -116,6 +123,7 @@ Partial Class Service_History
         Me.Column4.HeaderText = "Charge/Hr"
         Me.Column4.MinimumWidth = 6
         Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
         Me.Column4.Width = 150
         '
         'Column5
@@ -123,6 +131,7 @@ Partial Class Service_History
         Me.Column5.HeaderText = "Date"
         Me.Column5.MinimumWidth = 6
         Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
         Me.Column5.Width = 250
         '
         'Column6
@@ -130,6 +139,7 @@ Partial Class Service_History
         Me.Column6.HeaderText = "Start Time"
         Me.Column6.MinimumWidth = 6
         Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
         Me.Column6.Width = 230
         '
         'PictureBox1

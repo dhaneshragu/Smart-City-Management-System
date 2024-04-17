@@ -7,8 +7,8 @@ Imports Mysqlx.XDevAPI.Relational
 Imports Org.BouncyCastle.Crypto.Prng
 
 Public Class TransportVehicleRegReq
-    Public Property uid As Integer = 13
-    Public Property u_name As String = "Adarsh Anumula"
+    Public Property uid As Integer
+    Public Property u_name As String
     Private payClicked As Boolean = False
     Private pdfBytes As Byte()
     Private row1 As Integer = 0

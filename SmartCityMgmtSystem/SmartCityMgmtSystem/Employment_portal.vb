@@ -1,4 +1,6 @@
-﻿Public Class Employment_portal
+﻿Imports MySql.Data.MySqlClient
+
+Public Class Employment_portal
     Public uid As Integer
     Public u_name As String
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -39,13 +41,37 @@
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Me.Close()
 
-        Dim employmentadmin = New Employment_portal_admin() With {
-            .uid = uid,
-            .u_name = u_name
-        }
-        employmentadmin.Show()
+        Dim dataTable As New DataTable()
+        Try
+            Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
+                con.Open()
+
+                Dim sql As String = "SELECT user_id 
+                         FROM employment_admins
+                         WHERE user_id = @user"
+
+
+                Using cmd As New MySqlCommand(sql, con)
+                    cmd.Parameters.AddWithValue("@user", uid)
+                    Dim reader As MySqlDataReader = cmd.ExecuteReader
+                    If reader.Read Then
+                        MessageBox.Show("Login Successfull")
+                        Me.Close()
+                        Dim employmentadmin = New Employment_portal_admin() With {
+                        .uid = uid,
+                        .u_name = u_name
+                    }
+                        employmentadmin.Show()
+                    Else
+                        MessageBox.Show("You're not authorized to be a recruiter")
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
+
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click

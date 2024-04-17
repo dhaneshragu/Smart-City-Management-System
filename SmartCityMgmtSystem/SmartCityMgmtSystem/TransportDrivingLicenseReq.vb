@@ -6,7 +6,6 @@ Imports Mysqlx.XDevAPI.Relational
 Public Class TransportDrivingLicenseReq
     Public Property uid As Integer
     Public Property u_name As String
-    Private currentDlId As Integer
     Private payClicked As Boolean = False
     Private userDlId As Integer
     Private Sub LoadAndBindData()
@@ -122,18 +121,6 @@ Public Class TransportDrivingLicenseReq
                         End If
                     End If
                 End Using
-
-
-                ' Load current driver's license ID
-                Dim dlIdQuery As String = "SELECT MAX(dl_id) as max_dl_id FROM dl_entries "
-                Using dlIdCmd As New MySqlCommand(dlIdQuery, connection)
-                    Dim reader As MySqlDataReader = dlIdCmd.ExecuteReader()
-                    If reader.Read() Then
-                        currentDlId = If(Not IsDBNull(reader("max_dl_id")), Convert.ToInt32(reader("max_dl_id")), 0)
-                    End If
-                    reader.Close()
-                End Using
-
                 connection.Close()
 
                 If payClicked Then
@@ -252,8 +239,7 @@ Public Class TransportDrivingLicenseReq
                                     command.Parameters.AddWithValue("@Value1", dataTable2.Rows(0)("dl_id"))
                                     command.Parameters.AddWithValue("@Value5", "renew")
                                 Else
-                                    currentDlId += 1
-                                    command.Parameters.AddWithValue("@Value1", currentDlId)
+                                    command.Parameters.AddWithValue("@Value1", GenerateRandomId())
                                     command.Parameters.AddWithValue("@Value5", "fresh")
                                 End If
 
@@ -273,6 +259,39 @@ Public Class TransportDrivingLicenseReq
         End Try
     End Sub
 
+    Private Shared RandomGenerator As New Random()
+
+    Private Function GenerateRandomId() As String
+        Dim id As String
+        Dim idExists As Boolean
+
+        Do
+            ' Generate random five-digit number for the postfix
+            id = RandomGenerator.Next(10000, 100000)
+            ' Check if the generated ID exists in the database
+            idExists = CheckIdExists(id)
+        Loop While idExists
+
+        Return id
+    End Function
+
+    Private Function CheckIdExists(id As String) As Boolean
+        ' Get connection from globals
+        Dim Con = Globals.GetDBConnection()
+        Dim command As New MySqlCommand("SELECT COUNT(*) FROM dl_entries WHERE dl_id = @id ", Con)
+
+        Try
+            Con.Open()
+            command.Parameters.AddWithValue("@id", id)
+            Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
+            Return count > 0
+        Catch ex As Exception
+            MessageBox.Show("Error checking ID existence: " & ex.Message)
+            Return True ' Assume ID exists to avoid inserting duplicates (you may handle this differently based on your application's requirements)
+        Finally
+            Con.Close()
+        End Try
+    End Function
 
     Private Sub TransportationInnerScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Panel7.Visible = False

@@ -1,7 +1,9 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ListView
 Imports MySql.Data.MySqlClient
 
 Public Class BankingLogin
+    Public Property uid As Integer = -1
     Private Sub TransportationDashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         TextBox3.PasswordChar = "*"
     End Sub
@@ -17,8 +19,9 @@ Public Class BankingLogin
         createAccountForm.Show()
     End Sub
 
+    Dim userid As String
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim userid As String = TextBox1.Text.Trim()
+        userid = TextBox1.Text.Trim()
         Dim accountNumber As String = TextBox2.Text.Trim()
         Dim password As String = TextBox3.Text.Trim()
 
@@ -64,5 +67,47 @@ Public Class BankingLogin
         End Try
     End Sub
 
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Me.Close()
+        Dim createAccountForm = New HomePageDashboard With
+            {
+                .uid = uid
+            }
+        createAccountForm.Show()
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Dim query As String = "SELECT email FROM users WHERE user_id = @UserId"
+        Dim emailid As String = ""
+
+        If String.IsNullOrWhiteSpace(TextBox1.Text) Then
+            MessageBox.Show("Please enter your user ID.")
+        Else
+            Dim userid As String = TextBox1.Text.Trim()
+
+            Using conn As MySqlConnection = Globals.GetDBConnection()
+                conn.Open()
+
+                Using command As New MySqlCommand(query, conn)
+                    command.Parameters.AddWithValue("@UserId", userid)
+                    command.Parameters.AddWithValue("@email", emailid)
+
+                    Using reader As MySqlDataReader = command.ExecuteReader()
+                        If reader.Read() Then
+                            emailid = reader.GetString("email")
+                        Else
+                            MessageBox.Show("User not found.")
+                        End If
+                    End Using
+                End Using
+            End Using
+
+            If Not String.IsNullOrEmpty(emailid) Then
+                Dim getForm As New UserGetOtp(emailid, "", 2)
+                getForm.Show()
+                Me.Close()
+            End If
+        End If
+    End Sub
 
 End Class

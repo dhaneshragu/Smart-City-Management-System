@@ -52,6 +52,7 @@ Public Class lib_borrowed
 
     Private Sub lib_borrowed_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label2.Text = u_name
+        Label9.Text = uid
         Panel6.Visible = False
         LoadBorrowedBooks()
         PopulateTable()
@@ -180,8 +181,8 @@ Public Class lib_borrowed
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         Dim ratingInput As Integer
         If Integer.TryParse(TextBox2.Text, ratingInput) AndAlso ratingInput >= 0 AndAlso ratingInput <= 5 Then
-            Dim queryCheck As String = "SELECT COUNT(*) FROM lib_book_ratings WHERE book_ID = @rateID"
-            Dim queryUpdate As String = "UPDATE lib_book_ratings SET rating = @ratingInput WHERE book_ID = @rateID"
+            Dim queryCheck As String = "SELECT COUNT(*) FROM lib_book_ratings WHERE book_ID = @rateID and book_type = 0 and uid = @uid"
+            Dim queryUpdate As String = "UPDATE lib_book_ratings SET rating = @ratingInput WHERE book_ID = @rateID and book_type = 0 and uid = @uid "
             Dim queryInsert As String = "INSERT INTO lib_book_ratings (book_ID, uid, book_type, rating) VALUES (@rateID, @uid, @book_type, @ratingInput)"
 
             Dim Con = Globals.GetDBConnection()
@@ -189,6 +190,7 @@ Public Class lib_borrowed
                 Con.Open()
                 Dim cmdCheck As New MySqlCommand(queryCheck, Con)
                 cmdCheck.Parameters.AddWithValue("@rateID", rateID)
+                cmdCheck.Parameters.AddWithValue("@uid", uid)
 
                 Dim count As Integer = Convert.ToInt32(cmdCheck.ExecuteScalar())
 
@@ -197,6 +199,7 @@ Public Class lib_borrowed
                     Dim cmdUpdate As New MySqlCommand(queryUpdate, Con)
                     cmdUpdate.Parameters.AddWithValue("@rateID", rateID)
                     cmdUpdate.Parameters.AddWithValue("@ratingInput", ratingInput)
+                    cmdUpdate.Parameters.AddWithValue("@uid", uid)
                     cmdUpdate.ExecuteNonQuery()
                 Else
                     ' If no row exists with the given book_ID, insert a new row
@@ -207,6 +210,12 @@ Public Class lib_borrowed
                     cmdInsert.Parameters.AddWithValue("@book_type", 0)
                     cmdInsert.ExecuteNonQuery()
                 End If
+
+                ' Calculate and update the average rating in the lib_books table
+                Dim queryAvgRating As String = "UPDATE lib_books SET rating = (SELECT AVG(rating) FROM lib_book_ratings WHERE book_ID = @rateID AND book_type = 0) WHERE book_ID = @rateID"
+                Dim cmdAvgRating As New MySqlCommand(queryAvgRating, Con)
+                cmdAvgRating.Parameters.AddWithValue("@rateID", rateID)
+                cmdAvgRating.ExecuteNonQuery()
 
             Catch ex As Exception
                 MessageBox.Show("Error: " & ex.Message)
@@ -297,6 +306,14 @@ Public Class lib_borrowed
             lib_borrowed.Show()
             Me.Close()
         End If
+
+    End Sub
+
+    Private Sub heading_Click(sender As Object, e As EventArgs) Handles heading.Click
+
+    End Sub
+
+    Private Sub Panel7_Paint(sender As Object, e As PaintEventArgs) Handles Panel7.Paint
 
     End Sub
 End Class
