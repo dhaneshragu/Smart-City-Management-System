@@ -47,7 +47,7 @@ Public Class Ed_Teacher_Moodle_AddResource
 
 
         handler.AddCourseContent(CourseItem.RoomID, resourceName, "Resource", videoLink, textContent)
-
+        MsgBox("Resource Added Successfully")
 
         Me.Close()
 
