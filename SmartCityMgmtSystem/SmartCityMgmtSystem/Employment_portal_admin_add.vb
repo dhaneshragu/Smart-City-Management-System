@@ -62,6 +62,6 @@ Public Class Employment_portal_admin_add
         Job_desc.Clear()
         Salary.Clear()
         DateTimePicker1.Value = DateTime.Now
-        Qualification.Items.Clear()
+        Qualification.SelectedIndex = -1
     End Sub
 End Class
