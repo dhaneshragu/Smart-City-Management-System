@@ -28,51 +28,54 @@ Public Class ElectionInnerScreenAdminViolation
 
         Try
             Con.Open()
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
 
-        ' Execute query to count rows in election_time table
-        cmd = New MySqlCommand("SELECT COUNT(*) FROM election_time;", Con)
-        Dim electionTimeRowCount As Integer = Convert.ToInt32(cmd.ExecuteScalar())
-        'MessageBox.Show("election time row count " & electionTimeRowCount)
+            ' Execute query to count rows in election_time table
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM election_time;", Con)
+            Dim electionTimeRowCount As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+            'MessageBox.Show("election time row count " & electionTimeRowCount)
 
-        If electionTimeRowCount = 0 Then
-            MessageBox.Show("No elections have been scheduled yet.")
-            Exit Sub
-        End If
+            If electionTimeRowCount = 0 Then
+                MessageBox.Show("No elections have been scheduled yet.")
+                Exit Sub
+            End If
 
-        ' Retrieve the value of the election_id column from the last row of the election_time table
-        Dim lastElectionID As Integer = electionTimeRowCount ' Default value in case there are no rows in election_time
+            ' Retrieve the value of the election_id column from the last row of the election_time table
+            Dim lastElectionID As Integer = electionTimeRowCount ' Default value in case there are no rows in election_time
 
-        cmd = New MySqlCommand("SELECT v.report_id, v.reporter_uid, reporter.name AS reporter_name, v.candidate_uid, candidate.name AS candidate_name, v.violation_text, v.response
+            cmd = New MySqlCommand("SELECT v.report_id, v.reporter_uid, reporter.name AS reporter_name, v.candidate_uid, candidate.name AS candidate_name, v.violation_text, v.response
                                     FROM violations_reported v
                                     JOIN users reporter ON v.reporter_uid = reporter.user_id
                                     JOIN users candidate ON v.candidate_uid = candidate.user_id
                                     WHERE election_id = @lastElectionID;", Con)
-        cmd.Parameters.AddWithValue("@lastElectionID", lastElectionID)
-        reader = cmd.ExecuteReader()
+            cmd.Parameters.AddWithValue("@lastElectionID", lastElectionID)
+            reader = cmd.ExecuteReader()
 
-        ' Create a DataTable to store the data
-        Dim dataTable As New DataTable()
+            ' Create a DataTable to store the data
+            Dim dataTable As New DataTable()
 
-        'Fill the DataTable with data from the SQL table
-        dataTable.Load(reader)
-        reader.Close()
-        Con.Close()
+            'Fill the DataTable with data from the SQL table
+            dataTable.Load(reader)
+            reader.Close()
+            Con.Close()
 
-        'IMP: Specify the Column Mappings from DataGridView to SQL Table
-        DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "report_id"
-        DataGridView1.Columns(1).DataPropertyName = "reporter_uid"
-        DataGridView1.Columns(2).DataPropertyName = "reporter_name"
-        DataGridView1.Columns(3).DataPropertyName = "candidate_uid"
-        DataGridView1.Columns(4).DataPropertyName = "candidate_name"
-        DataGridView1.Columns(5).DataPropertyName = "violation_text"
-        DataGridView1.Columns(6).DataPropertyName = "response"
+            'IMP: Specify the Column Mappings from DataGridView to SQL Table
+            DataGridView1.AutoGenerateColumns = False
+            DataGridView1.Columns(0).DataPropertyName = "report_id"
+            DataGridView1.Columns(1).DataPropertyName = "reporter_uid"
+            DataGridView1.Columns(2).DataPropertyName = "reporter_name"
+            DataGridView1.Columns(3).DataPropertyName = "candidate_uid"
+            DataGridView1.Columns(4).DataPropertyName = "candidate_name"
+            DataGridView1.Columns(5).DataPropertyName = "violation_text"
+            DataGridView1.Columns(6).DataPropertyName = "response"
 
-        ' Bind the data to DataGridView
-        DataGridView1.DataSource = dataTable
+            ' Bind the data to DataGridView
+            DataGridView1.DataSource = dataTable
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
     End Sub
 
     Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
@@ -104,12 +107,13 @@ Public Class ElectionInnerScreenAdminViolation
 
             Try
                 Con.Open()
+                cmd = New MySqlCommand("UPDATE violations_reported SET response = " + """" + selectedValue + """" + " WHERE report_id = " & DataGridView1.Rows(e.RowIndex).Cells(0).Value & ";", Con)
+                reader = cmd.ExecuteReader
             Catch ex As Exception
                 MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
 
-            cmd = New MySqlCommand("UPDATE violations_reported SET response = " + """" + selectedValue + """" + " WHERE report_id = " & DataGridView1.Rows(e.RowIndex).Cells(0).Value & ";", Con)
-            reader = cmd.ExecuteReader
+
 
         End If
 
