@@ -33,36 +33,37 @@ Public Class ElectionInnerScreenAdminRTI
 
         Try
             Con.Open()
+            Dim cmd As New MySqlCommand("SELECT query_id, citizen_uid, name, ministry_name, query, status, response 
+                                    FROM rti_queries_table
+                                    JOIN ministries ON ministries.ministry_id = rti_queries_table.ministry
+                                    JOIN users ON users.user_id = rti_queries_table.citizen_uid;", Con)
+            Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+            ' Create a DataTable to store the data
+            Dim dataTable As New DataTable()
+
+            'Fill the DataTable with data from the SQL table
+            dataTable.Load(reader)
+            reader.Close()
+            Con.Close()
+
+            'IMP: Specify the Column Mappings from DataGridView to SQL Table
+            DataGridView1.AutoGenerateColumns = False
+            DataGridView1.Columns(0).DataPropertyName = "query_id"
+            DataGridView1.Columns(1).DataPropertyName = "citizen_uid"
+            DataGridView1.Columns(2).DataPropertyName = "name"
+            DataGridView1.Columns(3).DataPropertyName = "ministry_name"
+            DataGridView1.Columns(4).DataPropertyName = "query"
+            DataGridView1.Columns(5).DataPropertyName = "status"
+            DataGridView1.Columns(6).DataPropertyName = "response"
+
+            ' Bind the data to DataGridView
+            DataGridView1.DataSource = dataTable
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-        Dim cmd As New MySqlCommand("SELECT query_id, citizen_uid, name, ministry_name, query, status, response 
-                                    FROM rti_queries_table
-                                    JOIN ministries ON ministries.ministry_id = rti_queries_table.ministry
-                                    JOIN users ON users.user_id = rti_queries_table.citizen_uid;", Con)
-        Dim reader As MySqlDataReader = cmd.ExecuteReader()
 
-        ' Create a DataTable to store the data
-        Dim dataTable As New DataTable()
-
-        'Fill the DataTable with data from the SQL table
-        dataTable.Load(reader)
-        reader.Close()
-        Con.Close()
-
-        'IMP: Specify the Column Mappings from DataGridView to SQL Table
-        DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "query_id"
-        DataGridView1.Columns(1).DataPropertyName = "citizen_uid"
-        DataGridView1.Columns(2).DataPropertyName = "name"
-        DataGridView1.Columns(3).DataPropertyName = "ministry_name"
-        DataGridView1.Columns(4).DataPropertyName = "query"
-        DataGridView1.Columns(5).DataPropertyName = "status"
-        DataGridView1.Columns(6).DataPropertyName = "response"
-
-        ' Bind the data to DataGridView
-        DataGridView1.DataSource = dataTable
     End Sub
 
 

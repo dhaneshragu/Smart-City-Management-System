@@ -24,44 +24,44 @@ Partial Class Complaint_admin_complaints_details
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Complaint_admin_complaints_details))
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel9 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.childformPanel = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.RichTextBox9 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox8 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox7 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox6 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox5 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox4 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.childformPanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -82,16 +82,6 @@ Partial Class Complaint_admin_complaints_details
         Me.Button3.Text = "Department Name"
         Me.Button3.UseVisualStyleBackColor = False
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Trebuchet MS", 10.76271!, System.Drawing.FontStyle.Bold)
-        Me.Label1.Location = New System.Drawing.Point(84, 29)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(212, 27)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "> Complaint details"
-        '
         'Button6
         '
         Me.Button6.CausesValidation = False
@@ -110,13 +100,164 @@ Partial Class Complaint_admin_complaints_details
         Me.Button6.Text = "Home"
         Me.Button6.UseVisualStyleBackColor = False
         '
-        'Panel11
+        'childformPanel
         '
-        Me.Panel11.BackColor = System.Drawing.Color.White
-        Me.Panel11.Location = New System.Drawing.Point(659, 575)
-        Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(429, 141)
-        Me.Panel11.TabIndex = 22
+        Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.childformPanel.Controls.Add(Me.Panel2)
+        Me.childformPanel.Controls.Add(Me.Label1)
+        Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.childformPanel.Location = New System.Drawing.Point(312, 51)
+        Me.childformPanel.Margin = New System.Windows.Forms.Padding(4)
+        Me.childformPanel.Name = "childformPanel"
+        Me.childformPanel.Size = New System.Drawing.Size(1436, 925)
+        Me.childformPanel.TabIndex = 30
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Button4)
+        Me.Panel2.Controls.Add(Me.Button2)
+        Me.Panel2.Controls.Add(Me.RichTextBox9)
+        Me.Panel2.Controls.Add(Me.RichTextBox8)
+        Me.Panel2.Controls.Add(Me.RichTextBox7)
+        Me.Panel2.Controls.Add(Me.RichTextBox6)
+        Me.Panel2.Controls.Add(Me.RichTextBox5)
+        Me.Panel2.Controls.Add(Me.RichTextBox4)
+        Me.Panel2.Controls.Add(Me.RichTextBox3)
+        Me.Panel2.Controls.Add(Me.RichTextBox2)
+        Me.Panel2.Controls.Add(Me.RichTextBox1)
+        Me.Panel2.Controls.Add(Me.Label11)
+        Me.Panel2.Controls.Add(Me.Label10)
+        Me.Panel2.Controls.Add(Me.Label2)
+        Me.Panel2.Controls.Add(Me.Label8)
+        Me.Panel2.Controls.Add(Me.Label7)
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.Label5)
+        Me.Panel2.Controls.Add(Me.Label4)
+        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Location = New System.Drawing.Point(100, 63)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1236, 840)
+        Me.Panel2.TabIndex = 7
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(836, 760)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(232, 47)
+        Me.Button4.TabIndex = 33
+        Me.Button4.Text = "View User Details"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(84, 760)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(254, 47)
+        Me.Button2.TabIndex = 32
+        Me.Button2.Text = "Take Action"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'RichTextBox9
+        '
+        Me.RichTextBox9.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox9.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.RichTextBox9.Location = New System.Drawing.Point(43, 478)
+        Me.RichTextBox9.Name = "RichTextBox9"
+        Me.RichTextBox9.ReadOnly = True
+        Me.RichTextBox9.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
+        Me.RichTextBox9.Size = New System.Drawing.Size(492, 257)
+        Me.RichTextBox9.TabIndex = 31
+        Me.RichTextBox9.Text = ""
+        '
+        'RichTextBox8
+        '
+        Me.RichTextBox8.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox8.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.RichTextBox8.Location = New System.Drawing.Point(659, 577)
+        Me.RichTextBox8.Name = "RichTextBox8"
+        Me.RichTextBox8.ReadOnly = True
+        Me.RichTextBox8.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
+        Me.RichTextBox8.Size = New System.Drawing.Size(429, 141)
+        Me.RichTextBox8.TabIndex = 30
+        Me.RichTextBox8.Text = ""
+        '
+        'RichTextBox7
+        '
+        Me.RichTextBox7.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox7.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.RichTextBox7.Location = New System.Drawing.Point(662, 474)
+        Me.RichTextBox7.Name = "RichTextBox7"
+        Me.RichTextBox7.ReadOnly = True
+        Me.RichTextBox7.Size = New System.Drawing.Size(429, 36)
+        Me.RichTextBox7.TabIndex = 29
+        Me.RichTextBox7.Text = ""
+        '
+        'RichTextBox6
+        '
+        Me.RichTextBox6.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox6.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.RichTextBox6.Location = New System.Drawing.Point(662, 340)
+        Me.RichTextBox6.Name = "RichTextBox6"
+        Me.RichTextBox6.ReadOnly = True
+        Me.RichTextBox6.Size = New System.Drawing.Size(429, 36)
+        Me.RichTextBox6.TabIndex = 28
+        Me.RichTextBox6.Text = ""
+        '
+        'RichTextBox5
+        '
+        Me.RichTextBox5.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox5.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.RichTextBox5.Location = New System.Drawing.Point(43, 340)
+        Me.RichTextBox5.Name = "RichTextBox5"
+        Me.RichTextBox5.ReadOnly = True
+        Me.RichTextBox5.Size = New System.Drawing.Size(429, 36)
+        Me.RichTextBox5.TabIndex = 27
+        Me.RichTextBox5.Text = ""
+        '
+        'RichTextBox4
+        '
+        Me.RichTextBox4.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox4.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.RichTextBox4.Location = New System.Drawing.Point(659, 217)
+        Me.RichTextBox4.Name = "RichTextBox4"
+        Me.RichTextBox4.ReadOnly = True
+        Me.RichTextBox4.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal
+        Me.RichTextBox4.Size = New System.Drawing.Size(429, 36)
+        Me.RichTextBox4.TabIndex = 26
+        Me.RichTextBox4.Text = ""
+        '
+        'RichTextBox3
+        '
+        Me.RichTextBox3.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox3.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.RichTextBox3.Location = New System.Drawing.Point(43, 217)
+        Me.RichTextBox3.Name = "RichTextBox3"
+        Me.RichTextBox3.ReadOnly = True
+        Me.RichTextBox3.Size = New System.Drawing.Size(429, 36)
+        Me.RichTextBox3.TabIndex = 25
+        Me.RichTextBox3.Text = ""
+        '
+        'RichTextBox2
+        '
+        Me.RichTextBox2.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox2.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.RichTextBox2.Location = New System.Drawing.Point(659, 80)
+        Me.RichTextBox2.Name = "RichTextBox2"
+        Me.RichTextBox2.ReadOnly = True
+        Me.RichTextBox2.Size = New System.Drawing.Size(429, 36)
+        Me.RichTextBox2.TabIndex = 24
+        Me.RichTextBox2.Text = ""
+        '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox1.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.RichTextBox1.Location = New System.Drawing.Point(43, 80)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.ReadOnly = True
+        Me.RichTextBox1.Size = New System.Drawing.Size(429, 36)
+        Me.RichTextBox1.TabIndex = 23
+        Me.RichTextBox1.Text = ""
         '
         'Label11
         '
@@ -126,14 +267,6 @@ Partial Class Complaint_admin_complaints_details
         Me.Label11.Size = New System.Drawing.Size(84, 26)
         Me.Label11.TabIndex = 21
         Me.Label11.Text = "Remark"
-        '
-        'Panel10
-        '
-        Me.Panel10.BackColor = System.Drawing.Color.White
-        Me.Panel10.Location = New System.Drawing.Point(659, 470)
-        Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(429, 32)
-        Me.Panel10.TabIndex = 20
         '
         'Label10
         '
@@ -153,79 +286,6 @@ Partial Class Complaint_admin_complaints_details
         Me.Label2.TabIndex = 18
         Me.Label2.Text = "Complaint Details"
         '
-        'Panel9
-        '
-        Me.Panel9.BackColor = System.Drawing.Color.FloralWhite
-        Me.Panel9.Location = New System.Drawing.Point(43, 459)
-        Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(492, 257)
-        Me.Panel9.TabIndex = 17
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(52, 749)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(196, 49)
-        Me.Button1.TabIndex = 16
-        Me.Button1.Text = "Take Action"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'childformPanel
-        '
-        Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.childformPanel.Controls.Add(Me.Panel2)
-        Me.childformPanel.Controls.Add(Me.Label1)
-        Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.childformPanel.Location = New System.Drawing.Point(312, 51)
-        Me.childformPanel.Margin = New System.Windows.Forms.Padding(4)
-        Me.childformPanel.Name = "childformPanel"
-        Me.childformPanel.Size = New System.Drawing.Size(1436, 925)
-        Me.childformPanel.TabIndex = 30
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.Panel11)
-        Me.Panel2.Controls.Add(Me.Label11)
-        Me.Panel2.Controls.Add(Me.Panel10)
-        Me.Panel2.Controls.Add(Me.Label10)
-        Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.Panel9)
-        Me.Panel2.Controls.Add(Me.Button1)
-        Me.Panel2.Controls.Add(Me.Button2)
-        Me.Panel2.Controls.Add(Me.Panel8)
-        Me.Panel2.Controls.Add(Me.Label8)
-        Me.Panel2.Controls.Add(Me.Panel7)
-        Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.Panel6)
-        Me.Panel2.Controls.Add(Me.Label6)
-        Me.Panel2.Controls.Add(Me.Label5)
-        Me.Panel2.Controls.Add(Me.Panel5)
-        Me.Panel2.Controls.Add(Me.Panel4)
-        Me.Panel2.Controls.Add(Me.Label4)
-        Me.Panel2.Controls.Add(Me.Panel3)
-        Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Location = New System.Drawing.Point(80, 71)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1236, 840)
-        Me.Panel2.TabIndex = 3
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(892, 749)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(196, 49)
-        Me.Button2.TabIndex = 15
-        Me.Button2.Text = "View User Details"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Panel8
-        '
-        Me.Panel8.BackColor = System.Drawing.Color.White
-        Me.Panel8.Location = New System.Drawing.Point(659, 351)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(429, 33)
-        Me.Panel8.TabIndex = 13
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -234,14 +294,6 @@ Partial Class Complaint_admin_complaints_details
         Me.Label8.Size = New System.Drawing.Size(126, 26)
         Me.Label8.TabIndex = 12
         Me.Label8.Text = "Department"
-        '
-        'Panel7
-        '
-        Me.Panel7.BackColor = System.Drawing.Color.White
-        Me.Panel7.Location = New System.Drawing.Point(43, 214)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(429, 33)
-        Me.Panel7.TabIndex = 11
         '
         'Label7
         '
@@ -252,22 +304,14 @@ Partial Class Complaint_admin_complaints_details
         Me.Label7.TabIndex = 10
         Me.Label7.Text = "Reg Date"
         '
-        'Panel6
-        '
-        Me.Panel6.BackColor = System.Drawing.Color.White
-        Me.Panel6.Location = New System.Drawing.Point(43, 351)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(429, 33)
-        Me.Panel6.TabIndex = 9
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(38, 301)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(193, 26)
+        Me.Label6.Size = New System.Drawing.Size(203, 26)
         Me.Label6.TabIndex = 8
-        Me.Label6.Text = "Last Updation Date"
+        Me.Label6.Text = "Nature Of complaint"
         '
         'Label5
         '
@@ -278,38 +322,14 @@ Partial Class Complaint_admin_complaints_details
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "Complaint Tiltle"
         '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.Color.White
-        Me.Panel5.Location = New System.Drawing.Point(659, 214)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(429, 33)
-        Me.Panel5.TabIndex = 6
-        '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.White
-        Me.Panel4.Location = New System.Drawing.Point(659, 80)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(429, 33)
-        Me.Panel4.TabIndex = 5
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(654, 38)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(189, 26)
+        Me.Label4.Size = New System.Drawing.Size(84, 26)
         Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Complainant Name"
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.White
-        Me.Panel3.Location = New System.Drawing.Point(43, 80)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(429, 33)
-        Me.Panel3.TabIndex = 3
+        Me.Label4.Text = "Priority"
         '
         'Label3
         '
@@ -320,52 +340,24 @@ Partial Class Complaint_admin_complaints_details
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Complaint Number"
         '
-        'Label12
+        'Label1
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(72, 517)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(242, 29)
-        Me.Label12.TabIndex = 17
-        Me.Label12.Text = "Manage Complaint "
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(8, 507)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(58, 50)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox6.TabIndex = 18
-        Me.PictureBox6.TabStop = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(8, 428)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(58, 50)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 14
-        Me.PictureBox4.TabStop = False
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(82, 440)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(141, 29)
-        Me.Label13.TabIndex = 12
-        Me.Label13.Text = "Dashboard"
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Trebuchet MS", 10.76271!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Location = New System.Drawing.Point(104, 21)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(212, 27)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "> Complaint details"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(73, 363)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(163, 29)
+        Me.Label9.Size = New System.Drawing.Size(185, 29)
         Me.Label9.TabIndex = 8
-        Me.Label9.Text = "User's Name"
+        Me.Label9.Text = "Admin's Name"
         '
         'PictureBox2
         '
@@ -378,10 +370,10 @@ Partial Class Complaint_admin_complaints_details
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.NavajoWhite
-        Me.Panel1.Controls.Add(Me.PictureBox6)
-        Me.Panel1.Controls.Add(Me.Label12)
+        Me.Panel1.Controls.Add(Me.Button5)
+        Me.Panel1.Controls.Add(Me.Button7)
+        Me.Panel1.Controls.Add(Me.PictureBox5)
         Me.Panel1.Controls.Add(Me.PictureBox4)
-        Me.Panel1.Controls.Add(Me.Label13)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Controls.Add(Me.PictureBox1)
@@ -392,6 +384,62 @@ Partial Class Complaint_admin_complaints_details
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(317, 979)
         Me.Panel1.TabIndex = 29
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Tahoma", 10.81356!, System.Drawing.FontStyle.Bold)
+        Me.Button5.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.Location = New System.Drawing.Point(95, 424)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Padding = New System.Windows.Forms.Padding(14, 0, 0, 0)
+        Me.Button5.Size = New System.Drawing.Size(169, 50)
+        Me.Button5.TabIndex = 50
+        Me.Button5.Text = "Dashboard"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'Button7
+        '
+        Me.Button7.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Button7.FlatAppearance.BorderSize = 0
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("Tahoma", 10.81356!, System.Drawing.FontStyle.Bold)
+        Me.Button7.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.Location = New System.Drawing.Point(69, 504)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Padding = New System.Windows.Forms.Padding(14, 0, 0, 0)
+        Me.Button7.Size = New System.Drawing.Size(237, 50)
+        Me.Button7.TabIndex = 51
+        Me.Button7.Text = "Account Setting"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.UseVisualStyleBackColor = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
+        Me.PictureBox5.Location = New System.Drawing.Point(11, 504)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(58, 50)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox5.TabIndex = 49
+        Me.PictureBox5.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(11, 424)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(58, 50)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox4.TabIndex = 48
+        Me.PictureBox4.TabStop = False
         '
         'PictureBox1
         '
@@ -423,47 +471,47 @@ Partial Class Complaint_admin_complaints_details
         Me.childformPanel.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Button3 As Button
-    Friend WithEvents Label1 As Label
     Friend WithEvents Button6 As Button
-    Friend WithEvents Panel11 As Panel
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Panel10 As Panel
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Panel9 As Panel
-    Friend WithEvents Button1 As Button
     Friend WithEvents childformPanel As Panel
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Panel8 As Panel
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Panel7 As Panel
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents PictureBox6 As PictureBox
-    Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents Label13 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents RichTextBox9 As RichTextBox
+    Friend WithEvents RichTextBox8 As RichTextBox
+    Friend WithEvents RichTextBox7 As RichTextBox
+    Friend WithEvents RichTextBox6 As RichTextBox
+    Friend WithEvents RichTextBox5 As RichTextBox
+    Friend WithEvents RichTextBox4 As RichTextBox
+    Friend WithEvents RichTextBox3 As RichTextBox
+    Friend WithEvents RichTextBox2 As RichTextBox
+    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
 End Class

@@ -44,21 +44,43 @@ Public Class HealthcareApproveAppointmentAdmin
             MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
-        If String.IsNullOrWhiteSpace(TextBox6.Text) Then
-            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
-        End If
 
 
-        Dim cmd As String
-        cmd = "UPDATE appointments SET Appointment_id = " & Convert.ToInt32(TextBox1.Text) & ", status = '" & TextBox6.Text & "'  WHERE Appointment_id =" & Convert.ToInt32(TextBox1.Text)
-        Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
-            If success Then
+        'Dim cmd As String
+        'Dim cbox As String = ComboBox1.SelectedValue
+        'cmd = "UPDATE appointments SET Appointment_id = " & Convert.ToInt32(TextBox1.Text) & ", status = @cbox  WHERE Appointment_id =" & Convert.ToInt32(TextBox1.Text)
+        'c
+        'Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
+        'If success Then
+        '        LoadandBindDataGridView()
+        '    End If
+        'ComboBox1.SelectedIndex = -1
+        'TextBox1.Clear()
+
+        Dim cmd As New MySqlCommand
+        Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
+
+
+            Dim stmnt As String = "UPDATE appointments SET Appointment_id = @value1  , status = @value2  WHERE Appointment_id = @value1"
+
+            cmd = New MySqlCommand(stmnt, con)
+            cmd.Parameters.AddWithValue("@value1", TextBox1.Text)
+            cmd.Parameters.AddWithValue("@value2", ComboBox1.SelectedItem.ToString)
+
+
+            Try
+                con.Open()
+                cmd.ExecuteNonQuery()
                 LoadandBindDataGridView()
-            End If
-            TextBox6.Clear()
-            TextBox1.Clear()
 
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message)
+            End Try
+            con.Close()
+
+        End Using
+        ComboBox1.SelectedIndex = -1
+        TextBox1.Clear()
     End Sub
 
 

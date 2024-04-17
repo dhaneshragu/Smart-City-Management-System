@@ -64,7 +64,7 @@ Public Class BankAdminTransactions
         ElseIf Not String.IsNullOrWhiteSpace(TextBox2.Text) AndAlso Not Integer.TryParse(TextBox2.Text, amt) Then
             MessageBox.Show("Invalid integer format. Please enter a valid amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-        MessageBox.Show(query)
+        'MessageBox.Show(query)
         LoadandBindDataGridView(query)
     End Sub
 End Class

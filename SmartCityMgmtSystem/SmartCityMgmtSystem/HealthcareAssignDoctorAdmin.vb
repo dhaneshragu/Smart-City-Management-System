@@ -12,7 +12,6 @@ Public Class HealthcareAssignDoctorAdmin
         TextBox2.Text = txt2
         TextBox1.Text = txt1
         TextBox5.Text = txt5
-        TextBox4.Text = txt4
         DateTimePicker1.Text = txt7
 
     End Sub
@@ -94,7 +93,6 @@ Public Class HealthcareAssignDoctorAdmin
         TextBox5.Clear()
         TextBox3.Clear()
         TextBox6.Clear()
-        TextBox4.Clear()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -119,14 +117,10 @@ Public Class HealthcareAssignDoctorAdmin
             MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
-        If String.IsNullOrWhiteSpace(TextBox4.Text) Then
-            MessageBox.Show("Please enter some input in the textbox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
-        End If
 
         If Button1.Text = "Update" Then
             Dim cmd As String
-            cmd = "UPDATE appointments SET Appointment_id = " & Convert.ToInt32(TextBox6.Text) & " , doctor_ID =" & Convert.ToInt32(TextBox3.Text) & " , hospital_ID = " & Convert.ToInt32(TextBox2.Text) & ", patient_ID = " & Convert.ToInt32(TextBox1.Text) & ", date = '" & DateTimePicker1.Value.Date.ToString("yyyyMMdd") & "', symptoms = '" & TextBox5.Text & "', status = '" & TextBox4.Text & "'  WHERE Appointment_id =" & primaryKeyEdit
+            cmd = "UPDATE appointments SET Appointment_id = " & Convert.ToInt32(TextBox6.Text) & " , doctor_ID =" & Convert.ToInt32(TextBox3.Text) & " , hospital_ID = " & Convert.ToInt32(TextBox2.Text) & ", patient_ID = " & Convert.ToInt32(TextBox1.Text) & ", date = '" & DateTimePicker1.Value.Date.ToString("yyyyMMdd") & "', symptoms = '" & TextBox5.Text & "', status = 'appointed'  WHERE Appointment_id =" & primaryKeyEdit
             Dim success As Boolean = Globals.ExecuteUpdateQuery(cmd)
             If success Then
                 LoadandBindDataGridView()
@@ -139,10 +133,9 @@ Public Class HealthcareAssignDoctorAdmin
             TextBox2.Clear()
             TextBox6.Clear()
             TextBox5.Clear()
-            TextBox4.Clear()
         Else
             Dim cmd As String
-            cmd = "INSERT into appointments(Appointment_id,doctor_ID,hospital_ID,patient_ID,date,symptoms,status) VALUES (" & Convert.ToInt32(TextBox6.Text) & "," & Convert.ToInt32(TextBox3.Text) & "," & Convert.ToInt32(TextBox2.Text) & "," & Convert.ToInt32(TextBox1.Text) & ",'" & DateTimePicker1.Value.Date.ToString("yyyyMMdd") & "','" & TextBox5.Text & "','" & TextBox4.Text & "')"
+            cmd = "INSERT into appointments(Appointment_id,doctor_ID,hospital_ID,patient_ID,date,symptoms,status) VALUES (" & Convert.ToInt32(TextBox6.Text) & "," & Convert.ToInt32(TextBox3.Text) & "," & Convert.ToInt32(TextBox2.Text) & "," & Convert.ToInt32(TextBox1.Text) & ",'" & DateTimePicker1.Value.Date.ToString("yyyyMMdd") & "','" & TextBox5.Text & "','appointed')"
             Dim success As Boolean = Globals.ExecuteInsertQuery(cmd)
             If success Then
                 LoadandBindDataGridView()
@@ -152,7 +145,6 @@ Public Class HealthcareAssignDoctorAdmin
             TextBox1.Clear()
             TextBox6.Clear()
             TextBox5.Clear()
-            TextBox4.Clear()
         End If
     End Sub
 

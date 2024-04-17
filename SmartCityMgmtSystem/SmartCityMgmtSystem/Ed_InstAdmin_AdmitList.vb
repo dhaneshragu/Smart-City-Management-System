@@ -22,10 +22,6 @@ Public Class Ed_InstAdmin_AdmitList
                 listItem.Label6.Text = admission.StudentName
             End If
 
-            If Not String.IsNullOrEmpty(admission.RecentActivity) AndAlso admission.RecentActivity.Length > 0 Then
-                listItem.Label1.Text = admission.RecentActivity
-            End If
-
             If admission.DateOfBirth <> DateTime.MinValue Then
                 listItem.Label4.Text = admission.DateOfBirth.ToString("yyyy-MM-dd")
             End If
