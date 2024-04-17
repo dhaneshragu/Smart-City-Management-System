@@ -336,7 +336,7 @@ Public Class TransportVehicleRegReq
     Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles Vehicle_picbtn.Click
         Dim openFileDialog As New OpenFileDialog()
 
-        openFileDialog.Filter = "Image Files (*.jpg, *.jpeg)|*.jpg;*.jpeg"
+        openFileDialog.Filter = "Image Files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png"
         If openFileDialog.ShowDialog() = DialogResult.OK Then
             ' Get the selected file path
             Dim imagePath As String = openFileDialog.FileName

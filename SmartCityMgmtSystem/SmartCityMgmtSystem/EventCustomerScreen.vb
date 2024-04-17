@@ -30,7 +30,7 @@ Public Class EventCustomerScreen
         End Try
 
         ' Use parameterized query to prevent SQL injection and handle dates properly
-        Dim query As String = "SELECT eb.startdate AS EventStartDate,  v.vendorName AS VendorName, eb.transactionID AS TransactionID FROM eventBookings AS eb INNER JOIN  Vendor AS v ON eb.vendorID = v.vendorID WHERE eb.customerID = @CustomerID  AND eb.password = @Password"
+        Dim query As String = "SELECT eb.startdate AS EventStartDate,  v.vendorName AS VendorName, eb.transactionID AS TransactionID FROM eventbookings AS eb INNER JOIN  vendor AS v ON eb.vendorID = v.vendorID WHERE eb.customerID = @CustomerID  AND eb.password = @Password"
 
         cmd = New MySqlCommand(query, Con)
         cmd.Parameters.AddWithValue("@CustomerID", uid)

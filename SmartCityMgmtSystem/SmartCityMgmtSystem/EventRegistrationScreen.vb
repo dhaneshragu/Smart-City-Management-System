@@ -44,7 +44,7 @@ Public Class EventRegistrationScreen
             Con.Open()
 
             ' Use parameterized query to prevent SQL injection
-            Dim query As String = "SELECT vendorID FROM Vendor WHERE vendorName = @VendorName;"
+            Dim query As String = "SELECT vendorID FROM vendor WHERE vendorName = @VendorName;"
             cmd = New MySqlCommand(query, Con)
             cmd.Parameters.AddWithValue("@VendorName", vendorName)
 
@@ -70,7 +70,7 @@ Public Class EventRegistrationScreen
             Con.Open()
 
             ' Use parameterized query to prevent SQL injection
-            Dim query As String = "SELECT serviceCost FROM Vendor WHERE vendorName = @VendorName;"
+            Dim query As String = "SELECT serviceCost FROM vendor WHERE vendorName = @VendorName;"
             cmd = New MySqlCommand(query, Con)
             cmd.Parameters.AddWithValue("@VendorName", vendorName)
 
@@ -98,7 +98,7 @@ Public Class EventRegistrationScreen
             Con.Open()
 
             ' Use parameterized query to prevent SQL injection
-            Dim query As String = "SELECT vendor_UID FROM Vendor WHERE vendorID = @VendorID;"
+            Dim query As String = "SELECT vendor_UID FROM vendor WHERE vendorID = @VendorID;"
             cmd = New MySqlCommand(query, Con)
             cmd.Parameters.AddWithValue("@VendorID", vendorID)
 
@@ -127,9 +127,9 @@ Public Class EventRegistrationScreen
         End Try
 
         ' Use parameterized query to prevent SQL injection and handle dates properly
-        Dim query As String = "SELECT v.vendorID, v.vendorName, v.specialisation, v.rating, v.experience " &
-                          "FROM Vendor v " &
-                          "LEFT JOIN eventBookings eb ON v.vendorID = eb.vendorID " &
+        Dim query As String = "SELECT DISTINCT v.vendorID, v.vendorName, v.specialisation, v.rating, v.experience " &
+                          "FROM vendor v " &
+                          "LEFT JOIN eventbookings eb ON v.vendorID = eb.vendorID " &
                           "WHERE v.specialisation = @EventType " &
                           "AND (eb.startdate IS NULL OR eb.enddate < @EventEndDate OR eb.startdate > @EventStartDate);"
 
@@ -192,7 +192,7 @@ Public Class EventRegistrationScreen
 
 
             ' Use parameterized query to prevent SQL injection
-            Dim query As String = "INSERT INTO eventBookings (specialisation, startdate, enddate, vendorID, customerID, password,transactionID) " &
+            Dim query As String = "INSERT INTO eventbookings (specialisation, startdate, enddate, vendorID, customerID, password,transactionID) " &
                               "VALUES (@Specialisation, @StartDate, @EndDate, @VendorID, @CustomerID, @Password,@TransactionID);"
 
             cmd = New MySqlCommand(query, Con)

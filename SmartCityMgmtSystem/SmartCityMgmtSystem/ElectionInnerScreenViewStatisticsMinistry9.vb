@@ -120,13 +120,13 @@ Public Class ElectionInnerScreenViewStatisticsMinistry9
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        ElectionInnerScreenViewStatistics?.Dispose()
-        ElectionInnerScreenViewStatistics = New ElectionInnerScreenViewStatistics With {
+        electionInnerScreenViewStatistics?.Dispose()
+        electionInnerScreenViewStatistics = New ElectionInnerScreenViewStatistics With {
             .innerPanel = innerPanel,
             .uid = uid,
             .u_name = u_name
         }
-        Globals.viewChildForm(innerPanel, ElectionInnerScreenViewStatistics)
+        Globals.viewChildForm(innerPanel, electionInnerScreenViewStatistics)
         'Globals.viewChildForm(ElectionDashboard.childformPanel, ElectionInnerScreenViewStatistics)
     End Sub
 
