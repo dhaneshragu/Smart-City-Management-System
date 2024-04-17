@@ -11,6 +11,7 @@ Public Class TransportDrivingLicenseReq
     Private userDlId As Integer
     Private highestValidTill As DateTime
     Private renewal As Boolean = False
+    Private newReq As Boolean = False
     Private Sub LoadAndBindData()
         Try
             Using connection As MySqlConnection = Globals.GetDBConnection()
@@ -194,12 +195,16 @@ Public Class TransportDrivingLicenseReq
                                             isValid = False
                                         End If
                                     ElseIf testStatus = "fail" Then
+                                        If r("req_type") = "fresh" Then
+                                            newReq = True
+                                        End If
+
                                         Dim result As DialogResult = MessageBox.Show("Your previous request for this vehicle type was rejected. Do you want to apply again?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
                                         If result = DialogResult.OK Then
                                             Dim pay = New PaymentGateway() With {
-                                                    .uid = uid,
-                                                    .readonly_prop = True
-                                            }
+                                                        .uid = uid,
+                                                        .readonly_prop = True
+                                                }
                                             pay.TextBox1.Text = 5
                                             pay.TextBox2.Text = 100
                                             pay.TextBox3.Text = $"Driving License Registration Fee for Vehicle Type : {vtype}"
@@ -214,7 +219,7 @@ Public Class TransportDrivingLicenseReq
                                             isValid = False
                                         End If
                                     Else
-                                        MessageBox.Show("You Already placed a request for vehicle type :" & vtype, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                            MessageBox.Show("You Already placed a request for vehicle type :" & vtype, "", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                         isValid = False
                                     End If
                                 End If
@@ -262,7 +267,11 @@ Public Class TransportDrivingLicenseReq
                                 Dim reqProceed1 As Boolean = False
                                 If dataTable2.Rows.Count > 0 Then
                                     command.Parameters.AddWithValue("@Value1", dataTable2.Rows(0)("dl_id"))
-                                    command.Parameters.AddWithValue("@Value5", "renew")
+                                    If newReq Then
+                                        command.Parameters.AddWithValue("@Value5", "fresh")
+                                    Else
+                                        command.Parameters.AddWithValue("@Value5", "renew")
+                                    End If
                                 Else
                                     command.Parameters.AddWithValue("@Value1", GenerateRandomId())
                                     command.Parameters.AddWithValue("@Value5", "fresh")
@@ -272,9 +281,9 @@ Public Class TransportDrivingLicenseReq
                             End Using
                         End If
 
-                        Dim id As Integer = dataTable2.Rows(0)("dl_id")
                         Dim renewStatement As String = "UPDATE dl_entries SET valid_till = @Value1 WHERE dl_id = @a"
                         If renewal Then
+                            Dim id As Integer = dataTable2.Rows(0)("dl_id")
                             connection.Open()
                             Using command As New MySqlCommand(renewStatement, connection)
                                 command.Parameters.AddWithValue("@Value1", DateTime.Today.AddYears(10))
@@ -282,6 +291,7 @@ Public Class TransportDrivingLicenseReq
                                 command.ExecuteNonQuery()
                             End Using
                             connection.Close()
+                            renewal = False
                         End If
                     End If
                     payClicked = False
