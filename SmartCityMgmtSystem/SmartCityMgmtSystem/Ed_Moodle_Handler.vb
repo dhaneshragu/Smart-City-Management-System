@@ -465,6 +465,7 @@ Public Class Ed_Moodle_Handler
         Public Property FileData As Byte()
         Public Property Submit_Time As Date
         Public Property Marks As Integer
+        Public Property AssName As String
     End Class
 
     Public Function AssStatus(ByVal studentID As Integer, ByVal Roomid As Integer, ByVal seno As Integer) As StudentAssRecord
@@ -473,8 +474,11 @@ Public Class Ed_Moodle_Handler
         Dim submitTime As New DateTime(2024, 4, 14, 12, 30, 0)
 
         Dim AssRec As New StudentAssRecord()
+        Dim query As String = "SELECT sc.*, cc.Content_Name " &
+                      "FROM moodle_studentcourse AS sc " &
+                      "LEFT JOIN moodle_coursecontent AS cc ON sc.Room_ID = cc.Room_ID " &
+                      "WHERE sc.Room_ID = @roomid AND sc.Seq_no = @seqno AND sc.Student_ID = @Stuid"
 
-        Dim query As String = "SELECT * FROM moodle_studentcourse WHERE Room_ID = @roomid AND Seq_no = @seqno AND Student_ID = @Stuid"
         Using cmd As New MySqlCommand(query, Con)
             cmd.Parameters.AddWithValue("@roomid", Roomid)
             cmd.Parameters.AddWithValue("@seqno", seno)
@@ -487,6 +491,7 @@ Public Class Ed_Moodle_Handler
                     AssRec.FileData = If(reader.IsDBNull(reader.GetOrdinal("File")), Nothing, DirectCast(reader("File"), Byte()))
                     AssRec.Submit_Time = If(reader.IsDBNull(reader.GetOrdinal("Submit_Time")), DateTime.MinValue, Convert.ToDateTime(reader("Submit_Time")))
                     AssRec.Marks = If(reader.IsDBNull(reader.GetOrdinal("Marks")), -1, Convert.ToInt32(reader("Marks")))
+                    AssRec.AssName = If(Not reader.IsDBNull(reader.GetOrdinal("Content_Name")), reader.GetString(reader.GetOrdinal("Content_Name")), AssRec.Seq_no.ToString())
 
                 End If
 
@@ -533,7 +538,10 @@ Public Class Ed_Moodle_Handler
         Dim assignments As New List(Of StudentAssRecord)()
 
         ' Query to fetch assignments of courses the student is enrolled in
-        Dim query As String = "Select * from moodle_studentcourse where Student_ID = @studentID and Room_ID = @roomid"
+        Dim query As String = "SELECT sc.*, cc.Content_Name " &
+                      "FROM moodle_studentcourse AS sc " &
+                      "LEFT JOIN moodle_coursecontent AS cc ON sc.Room_ID = cc.Room_ID and sc.Seq_no = cc.Seq_no " &
+                      "WHERE sc.Room_ID = @roomid AND sc.Student_ID = @studentID and cc.Content_Type = 'Assignment'"
 
         Using cmd As New MySqlCommand(query, Con)
             cmd.Parameters.AddWithValue("@studentID", stuid)
@@ -547,6 +555,7 @@ Public Class Ed_Moodle_Handler
                     AssRec.FileData = If(reader.IsDBNull(reader.GetOrdinal("File")), Nothing, DirectCast(reader("File"), Byte()))
                     AssRec.Submit_Time = If(reader.IsDBNull(reader.GetOrdinal("Submit_Time")), DateTime.MinValue, Convert.ToDateTime(reader("Submit_Time")))
                     AssRec.Marks = If(reader.IsDBNull(reader.GetOrdinal("Marks")), -1, Convert.ToInt32(reader("Marks")))
+                    AssRec.AssName = If(Not reader.IsDBNull(reader.GetOrdinal("Content_Name")), reader.GetString(reader.GetOrdinal("Content_Name")), AssRec.Seq_no.ToString())
 
                     assignments.Add(AssRec)
                 End While

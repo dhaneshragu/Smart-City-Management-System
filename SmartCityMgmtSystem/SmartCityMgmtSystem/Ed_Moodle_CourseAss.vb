@@ -85,6 +85,7 @@ Public Class Ed_Moodle_CourseAss
         course = handler.LoadCourseDetails(RoomID)
         handler.AssLoad(content.RoomID, content.SeqNo, Ed_GlobalDashboard.userID)
         AssStatus = handler.AssStatus(Ed_GlobalDashboard.userID, content.RoomID, content.SeqNo)
+        Button1.Text = "Turn-In"
 
         If Not AssStatus.FileData Is Nothing Then
             Button1.Text = "Undo Turn-In"

@@ -16,22 +16,20 @@ Public Class ElectionInnerScreenAdminResults
 
         Try
             Con.Open()
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
 
-        Dim lastElectionID As Integer = 0 ' Default value in case there are no rows in election_time
-        Dim lastElectionIDQuery As String = "SELECT election_id FROM election_time ORDER BY election_id DESC LIMIT 1;"
-        cmd = New MySqlCommand(lastElectionIDQuery, Con)
-        Dim reader As MySqlDataReader = cmd.ExecuteReader()
-        If reader.Read() Then
-            lastElectionID = Convert.ToInt32(reader("election_id"))
-        End If
-        reader.Close()
 
-        MessageBox.Show(lastElectionID)
+            Dim lastElectionID As Integer = 0 ' Default value in case there are no rows in election_time
+            Dim lastElectionIDQuery As String = "SELECT election_id FROM election_time ORDER BY election_id DESC LIMIT 1;"
+            cmd = New MySqlCommand(lastElectionIDQuery, Con)
+            Dim reader As MySqlDataReader = cmd.ExecuteReader()
+            If reader.Read() Then
+                lastElectionID = Convert.ToInt32(reader("election_id"))
+            End If
+            reader.Close()
 
-        Dim updateCmd As New MySqlCommand("SELECT users.name, m.ministry_name, cr.votes, t.votes_received, cr.status
+            MessageBox.Show(lastElectionID)
+
+            Dim updateCmd As New MySqlCommand("SELECT users.name, m.ministry_name, cr.votes, t.votes_received, cr.status
                                             FROM candidate_register cr
                                             JOIN ministries m ON cr.ministry_id = m.ministry_id
                                             JOIN turnout t ON cr.election_id = t.election_id AND cr.ministry_id = t.ministry_id
@@ -43,25 +41,31 @@ Public Class ElectionInnerScreenAdminResults
                                                 GROUP BY ministry_id
                                             ) max_votes_per_ministry ON cr.ministry_id = max_votes_per_ministry.ministry_id AND cr.votes = max_votes_per_ministry.max_votes
                                             WHERE cr.election_id = @electionID and cr.status = 'Approved';", Con)
-        updateCmd.Parameters.AddWithValue("@electionID", lastElectionID)
-        reader = updateCmd.ExecuteReader
-        ' Create a DataTable to store the data
-        Dim dataTable As New DataTable()
+            updateCmd.Parameters.AddWithValue("@electionID", lastElectionID)
+            reader = updateCmd.ExecuteReader
+            ' Create a DataTable to store the data
+            Dim dataTable As New DataTable()
 
-        'Fill the DataTable with data from the SQL table
-        dataTable.Load(reader)
-        reader.Close()
-        Con.Close()
+            'Fill the DataTable with data from the SQL table
+            dataTable.Load(reader)
+            reader.Close()
+            Con.Close()
 
-        'IMP: Specify the Column Mappings from DataGridView to SQL Table
-        DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "ministry_name"
-        DataGridView1.Columns(1).DataPropertyName = "name"
-        DataGridView1.Columns(2).DataPropertyName = "votes"
-        DataGridView1.Columns(3).DataPropertyName = "votes_received"
+            'IMP: Specify the Column Mappings from DataGridView to SQL Table
+            DataGridView1.AutoGenerateColumns = False
+            DataGridView1.Columns(0).DataPropertyName = "ministry_name"
+            DataGridView1.Columns(1).DataPropertyName = "name"
+            DataGridView1.Columns(2).DataPropertyName = "votes"
+            DataGridView1.Columns(3).DataPropertyName = "votes_received"
 
-        ' Bind the data to DataGridView
-        DataGridView1.DataSource = dataTable
+            ' Bind the data to DataGridView
+            DataGridView1.DataSource = dataTable
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
     End Sub
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'For i As Integer = 1 To 8

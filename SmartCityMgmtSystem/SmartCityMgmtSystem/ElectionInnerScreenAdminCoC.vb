@@ -13,21 +13,22 @@ Public Class ElectionInnerScreenAdminCoC
 
         Try
             Con.Open()
+            ' Retrieve the value of the code_of_conduct_text column from the last row of the code_of_conduct table
+            Dim textCoC As String = "" ' Initialize with an empty string
+            cmd = New MySqlCommand("SELECT code_of_conduct_text FROM code_of_conduct ORDER BY election_id DESC LIMIT 1;", Con)
+            reader = cmd.ExecuteReader()
+
+            If reader.Read() Then
+                textCoC = Convert.ToString(reader("code_of_conduct_text")) ' Read the code_of_conduct_text column
+            End If
+            reader.Close()
+
+            RichTextBox1.Text = textCoC
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-        ' Retrieve the value of the code_of_conduct_text column from the last row of the code_of_conduct table
-        Dim textCoC As String = "" ' Initialize with an empty string
-        cmd = New MySqlCommand("SELECT code_of_conduct_text FROM code_of_conduct ORDER BY election_id DESC LIMIT 1;", Con)
-        reader = cmd.ExecuteReader()
 
-        If reader.Read() Then
-            textCoC = Convert.ToString(reader("code_of_conduct_text")) ' Read the code_of_conduct_text column
-        End If
-        reader.Close()
-
-        RichTextBox1.Text = textCoC
 
     End Sub
 

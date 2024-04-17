@@ -34,7 +34,7 @@ Partial Class Healthcare_Emergency
         '
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label1.Location = New System.Drawing.Point(156, 664)
+        Me.Label1.Location = New System.Drawing.Point(145, 673)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(616, 38)
         Me.Label1.TabIndex = 50
@@ -42,10 +42,10 @@ Partial Class Healthcare_Emergency
         '
         'd1
         '
-        Me.d1.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.d1.BackColor = System.Drawing.SystemColors.Highlight
         Me.d1.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.d1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.d1.Location = New System.Drawing.Point(761, 487)
+        Me.d1.Location = New System.Drawing.Point(752, 487)
         Me.d1.Margin = New System.Windows.Forms.Padding(2)
         Me.d1.Name = "d1"
         Me.d1.Size = New System.Drawing.Size(179, 119)
@@ -55,9 +55,11 @@ Partial Class Healthcare_Emergency
         '
         'RichTextBox1
         '
+        Me.RichTextBox1.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.RichTextBox1.Font = New System.Drawing.Font("Verdana", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox1.Location = New System.Drawing.Point(149, 246)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(781, 222)
+        Me.RichTextBox1.Size = New System.Drawing.Size(782, 236)
         Me.RichTextBox1.TabIndex = 48
         Me.RichTextBox1.Text = ""
         '
@@ -80,7 +82,7 @@ Partial Class Healthcare_Emergency
         Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Image = CType(resources.GetObject("Label2.Image"), System.Drawing.Image)
         Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label2.Location = New System.Drawing.Point(30, 0)
+        Me.Label2.Location = New System.Drawing.Point(55, 9)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(331, 101)

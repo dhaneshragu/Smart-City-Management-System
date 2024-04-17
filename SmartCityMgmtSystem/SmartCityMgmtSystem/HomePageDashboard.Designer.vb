@@ -45,18 +45,18 @@ Partial Class HomePageDashboard
         Me.Panel1.Font = New System.Drawing.Font("Tahoma", 11.8209!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.ForeColor = System.Drawing.Color.SaddleBrown
         Me.Panel1.Location = New System.Drawing.Point(0, -1)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(320, 979)
+        Me.Panel1.Size = New System.Drawing.Size(284, 783)
         Me.Panel1.TabIndex = 0
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.SMART_CITY___GUWAHATI
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(330, 215)
+        Me.PictureBox1.Size = New System.Drawing.Size(293, 172)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
@@ -70,11 +70,11 @@ Partial Class HomePageDashboard
         Me.Button4.ForeColor = System.Drawing.Color.Black
         Me.Button4.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_edit_40
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button4.Location = New System.Drawing.Point(0, 390)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button4.Location = New System.Drawing.Point(0, 312)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button4.Name = "Button4"
-        Me.Button4.Padding = New System.Windows.Forms.Padding(14, 0, 0, 0)
-        Me.Button4.Size = New System.Drawing.Size(320, 76)
+        Me.Button4.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button4.Size = New System.Drawing.Size(284, 61)
         Me.Button4.TabIndex = 4
         Me.Button4.Text = "Update Profile"
         Me.Button4.UseVisualStyleBackColor = False
@@ -88,11 +88,11 @@ Partial Class HomePageDashboard
         Me.Button3.ForeColor = System.Drawing.Color.Black
         Me.Button3.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_push_notifications_48
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(-11, 306)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button3.Location = New System.Drawing.Point(-10, 245)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button3.Name = "Button3"
-        Me.Button3.Padding = New System.Windows.Forms.Padding(14, 0, 0, 0)
-        Me.Button3.Size = New System.Drawing.Size(363, 76)
+        Me.Button3.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button3.Size = New System.Drawing.Size(323, 61)
         Me.Button3.TabIndex = 3
         Me.Button3.Text = "    Important Notices"
         Me.Button3.UseVisualStyleBackColor = False
@@ -106,11 +106,11 @@ Partial Class HomePageDashboard
         Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.home_final
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(0, 222)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Location = New System.Drawing.Point(0, 178)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button2.Name = "Button2"
-        Me.Button2.Padding = New System.Windows.Forms.Padding(14, 0, 0, 0)
-        Me.Button2.Size = New System.Drawing.Size(315, 76)
+        Me.Button2.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button2.Size = New System.Drawing.Size(280, 61)
         Me.Button2.TabIndex = 2
         Me.Button2.Text = "    Home"
         Me.Button2.UseVisualStyleBackColor = False
@@ -119,22 +119,22 @@ Partial Class HomePageDashboard
         '
         Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.childformPanel.Location = New System.Drawing.Point(313, 56)
-        Me.childformPanel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.childformPanel.Location = New System.Drawing.Point(278, 45)
+        Me.childformPanel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.childformPanel.Name = "childformPanel"
-        Me.childformPanel.Size = New System.Drawing.Size(1436, 921)
+        Me.childformPanel.Size = New System.Drawing.Size(1276, 737)
         Me.childformPanel.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.CausesValidation = False
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Agency FB", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Ivory
-        Me.Label2.Location = New System.Drawing.Point(339, 6)
+        Me.Label2.Location = New System.Drawing.Point(301, 5)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(119, 33)
+        Me.Label2.Size = New System.Drawing.Size(72, 28)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "{Name}"
         '
@@ -142,12 +142,12 @@ Partial Class HomePageDashboard
         '
         Me.Label3.AutoSize = True
         Me.Label3.CausesValidation = False
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Agency FB", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Ivory
-        Me.Label3.Location = New System.Drawing.Point(970, 5)
+        Me.Label3.Location = New System.Drawing.Point(862, 4)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(90, 33)
+        Me.Label3.Size = New System.Drawing.Size(54, 28)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "{UID}"
         '
@@ -156,32 +156,32 @@ Partial Class HomePageDashboard
         Me.Button6.CausesValidation = False
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Font = New System.Drawing.Font("Agency FB", 14.0339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.ForeColor = System.Drawing.Color.Ivory
         Me.Button6.Image = Global.SmartCityMgmtSystem.My.Resources.Resources.icons8_back_arrow_25
         Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(1562, 0)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button6.Location = New System.Drawing.Point(1388, 0)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button6.Name = "Button6"
-        Me.Button6.Padding = New System.Windows.Forms.Padding(14, 0, 0, 0)
-        Me.Button6.Size = New System.Drawing.Size(183, 49)
+        Me.Button6.Padding = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.Button6.Size = New System.Drawing.Size(163, 39)
         Me.Button6.TabIndex = 7
         Me.Button6.Text = "Logout"
         Me.Button6.UseVisualStyleBackColor = False
         '
         'HomePageDashboard
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.ClientSize = New System.Drawing.Size(1746, 974)
+        Me.ClientSize = New System.Drawing.Size(1552, 779)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.childformPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.MaximizeBox = False
         Me.Name = "HomePageDashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

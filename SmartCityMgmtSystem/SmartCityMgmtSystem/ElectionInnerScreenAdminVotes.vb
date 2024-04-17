@@ -18,34 +18,35 @@ Public Class ElectionInnerScreenAdminVotes
 
         Try
             Con.Open()
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-
-        cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name,votes
+            cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name,votes
                                 FROM candidate_register
                                 JOIN users ON users.user_id = candidate_register.candidate_uid
                                 JOIN ministries ON ministries.ministry_id = candidate_register.ministry_id
                                 WHERE status = ""Approved"";", Con)
-        reader = cmd.ExecuteReader
-        ' Create a DataTable to store the data
-        Dim dataTable As New DataTable()
+            reader = cmd.ExecuteReader
+            ' Create a DataTable to store the data
+            Dim dataTable As New DataTable()
 
-        'Fill the DataTable with data from the SQL table
-        dataTable.Load(reader)
-        reader.Close()
-        Con.Close()
+            'Fill the DataTable with data from the SQL table
+            dataTable.Load(reader)
+            reader.Close()
+            Con.Close()
 
-        'IMP: Specify the Column Mappings from DataGridView to SQL Table
-        DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "election_id"
-        DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
-        DataGridView1.Columns(2).DataPropertyName = "name"
-        DataGridView1.Columns(3).DataPropertyName = "ministry_name"
-        DataGridView1.Columns(4).DataPropertyName = "votes"
+            'IMP: Specify the Column Mappings from DataGridView to SQL Table
+            DataGridView1.AutoGenerateColumns = False
+            DataGridView1.Columns(0).DataPropertyName = "election_id"
+            DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
+            DataGridView1.Columns(2).DataPropertyName = "name"
+            DataGridView1.Columns(3).DataPropertyName = "ministry_name"
+            DataGridView1.Columns(4).DataPropertyName = "votes"
 
-        ' Bind the data to DataGridView
-        DataGridView1.DataSource = dataTable
+            ' Bind the data to DataGridView
+            DataGridView1.DataSource = dataTable
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
     End Sub
 
     Private Sub ElectionInnerScreen1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -97,34 +98,35 @@ Public Class ElectionInnerScreenAdminVotes
 
             Try
                 Con.Open()
-            Catch ex As Exception
-                MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-
-            cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name, agenda, status 
+                cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name, agenda, status 
                                     FROM candidate_register
                                     JOIN users ON users.user_id = candidate_register.candidate_uid
                                     JOIN ministries ON ministries.ministry_id = candidate_register.ministry_id
                                     WHERE status = ""Approved"" and ministries.ministry_id = " & ministryToId(position) & ";", Con)
-            reader = cmd.ExecuteReader
-            ' Create a DataTable to store the data
-            Dim dataTable As New DataTable()
+                reader = cmd.ExecuteReader
+                ' Create a DataTable to store the data
+                Dim dataTable As New DataTable()
 
-            'Fill the DataTable with data from the SQL table
-            dataTable.Load(reader)
-            reader.Close()
-            Con.Close()
+                'Fill the DataTable with data from the SQL table
+                dataTable.Load(reader)
+                reader.Close()
+                Con.Close()
 
-            'IMP: Specify the Column Mappings from DataGridView to SQL Table
-            DataGridView1.AutoGenerateColumns = False
-            DataGridView1.Columns(0).DataPropertyName = "election_id"
-            DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
-            DataGridView1.Columns(2).DataPropertyName = "name"
-            DataGridView1.Columns(3).DataPropertyName = "ministry_name"
-            DataGridView1.Columns(4).DataPropertyName = "votes"
+                'IMP: Specify the Column Mappings from DataGridView to SQL Table
+                DataGridView1.AutoGenerateColumns = False
+                DataGridView1.Columns(0).DataPropertyName = "election_id"
+                DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
+                DataGridView1.Columns(2).DataPropertyName = "name"
+                DataGridView1.Columns(3).DataPropertyName = "ministry_name"
+                DataGridView1.Columns(4).DataPropertyName = "votes"
 
-            ' Bind the data to DataGridView
-            DataGridView1.DataSource = dataTable
+                ' Bind the data to DataGridView
+                DataGridView1.DataSource = dataTable
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+
+
         End If
     End Sub
 End Class
