@@ -24,7 +24,7 @@ Public Class Ed_AddECourse
         Dim courseName As String = TextBox2.Text
         Dim teacherName As String = Ed_GlobalDashboard.Ed_Profile.Ed_Name
         Dim fees As Integer = Integer.Parse(TextBox5.Text)
-        Dim category As String = TextBox3.Text
+        Dim category As String = ComboBox1.Text
         Dim introVidLink As String = TextBox7.Text
         Dim summary As String = Me.summary
 
@@ -34,7 +34,7 @@ Public Class Ed_AddECourse
 
         'Empty all textboxes'
         TextBox2.Text = ""
-        TextBox3.Text = ""
+        ComboBox1.Text = ""
         TextBox5.Text = ""
         TextBox7.Text = ""
         Me.summary = ""

@@ -198,7 +198,7 @@ Partial Class Complaints_admin_dashboard
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(695, 378)
+        Me.Label2.Location = New System.Drawing.Point(690, 378)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(108, 26)
         Me.Label2.TabIndex = 35
@@ -216,11 +216,11 @@ Partial Class Complaints_admin_dashboard
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(223, 378)
+        Me.Label1.Location = New System.Drawing.Point(217, 378)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 26)
+        Me.Label1.Size = New System.Drawing.Size(62, 26)
         Me.Label1.TabIndex = 33
-        Me.Label1.Text = "Total"
+        Me.Label1.Text = "Open"
         '
         'PictureBox7
         '

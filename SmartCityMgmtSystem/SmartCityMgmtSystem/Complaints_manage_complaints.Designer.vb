@@ -33,8 +33,6 @@ Partial Class Complaints_manage_complaints
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -76,8 +74,6 @@ Partial Class Complaints_manage_complaints
         Me.childformPanel.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.childformPanel.Controls.Add(Me.DataGridView1)
         Me.childformPanel.Controls.Add(Me.Label4)
-        Me.childformPanel.Controls.Add(Me.Label2)
-        Me.childformPanel.Controls.Add(Me.TextBox2)
         Me.childformPanel.Font = New System.Drawing.Font("Trebuchet MS", 9.762712!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.childformPanel.Location = New System.Drawing.Point(312, 51)
         Me.childformPanel.Margin = New System.Windows.Forms.Padding(4)
@@ -159,22 +155,6 @@ Partial Class Complaints_manage_complaints
         Me.Label4.Size = New System.Drawing.Size(378, 40)
         Me.Label4.TabIndex = 30
         Me.Label4.Text = ">In Progress Complaints"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(1067, 62)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(76, 26)
-        Me.Label2.TabIndex = 20
-        Me.Label2.Text = "Search"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(1063, 108)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(233, 30)
-        Me.TextBox2.TabIndex = 19
         '
         'PictureBox1
         '
@@ -326,8 +306,6 @@ Partial Class Complaints_manage_complaints
     Friend WithEvents Button6 As Button
     Friend WithEvents childformPanel As Panel
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button5 As Button

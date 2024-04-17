@@ -388,7 +388,7 @@ Public Class Ed_Institute_Handler
                     Dim semester As Integer = Convert.ToInt32(reader("Sem"))
                     Dim fee As Decimal = Convert.ToDecimal(reader("Fee"))
                     Dim year As Integer = Convert.ToInt32(reader("Year"))
-                    Dim paidOn As Date = Convert.ToDateTime(reader("Paid_On"))
+                    Dim paidOn As Date = Convert.ToDateTime(reader("Paid_On")).Date
 
                     Dim feeObj As New InstituteFeePaid(studentID, classNum, semester, fee, year, paidOn)
                     feeRecs.Add(feeObj)
@@ -447,7 +447,7 @@ Public Class Ed_Institute_Handler
 
         ' Close the database connection
         Con.Close()
-        Dim feeObj As New InstituteFeePaid(stuid, sclass, sSem, feeamt, DateTime.MinValue.Year, DateTime.MinValue.Date)
+        Dim feeObj As New InstituteFeePaid(stuid, sclass, sSem, feeamt, DateTime.Now.Year, DateTime.MinValue.Date)
         ' Return null if no records found
         Return feeObj
     End Function

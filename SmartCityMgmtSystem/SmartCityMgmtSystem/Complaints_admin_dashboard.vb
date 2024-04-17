@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Security.Cryptography
+Imports MySql.Data.MySqlClient
 
 Public Class Complaints_admin_dashboard
     Public Property uid As Integer = -1
@@ -24,17 +25,23 @@ Public Class Complaints_admin_dashboard
             ' Open the connection
             Con.Open()
 
-            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE Department_Name = @main_1", Con)
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE Department_Name = @main_1 and Status='Open'", Con)
             cmd.Parameters.AddWithValue("@main_1", department)
             count1 = Convert.ToInt32(cmd.ExecuteScalar())
             RichTextBox1.Text = count1
             RichTextBox1.SelectionAlignment = HorizontalAlignment.Center
 
-            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE Department_Name = @main_1 and Status='Open'", Con)
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE Department_Name = @main_1 and Status='In Progress'", Con)
             cmd.Parameters.AddWithValue("@main_1", department)
             count1 = Convert.ToInt32(cmd.ExecuteScalar())
             RichTextBox2.Text = count1
             RichTextBox2.SelectionAlignment = HorizontalAlignment.Center
+
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE Department_Name = @main_1 and Status='Resolved'", Con)
+            cmd.Parameters.AddWithValue("@main_1", department)
+            count1 = Convert.ToInt32(cmd.ExecuteScalar())
+            RichTextBox3.Text = count1
+            RichTextBox3.SelectionAlignment = HorizontalAlignment.Center
 
 
         Catch ex As Exception
@@ -66,6 +73,10 @@ Public Class Complaints_admin_dashboard
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim Complaint_Admin_details = New Complaint_Admin_details() With {
+            .uid = uid,
+            .u_name = u_name
+            }
         Complaint_Admin_details.Show()
 
     End Sub
@@ -73,7 +84,8 @@ Public Class Complaints_admin_dashboard
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Dim Complaints_manage_complaints = New Complaints_manage_complaints With {
             .uid = uid,
-            .u_name = u_name
+            .u_name = u_name,
+            .status_complaint = ">  Open Complaints"
         }
         Complaints_manage_complaints.Show()
 
@@ -85,11 +97,40 @@ Public Class Complaints_admin_dashboard
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim HomePageDashboard = New HomePageDashboard() With {
+            .uid = uid
+            }
         HomePageDashboard.Show()
         Me.Close()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim Complaints_manage_complaints = New Complaints_manage_complaints With {
+    .uid = uid,
+    .u_name = u_name,
+    .status_complaint = ">  In Progress Complaints"
+}
+        Complaints_manage_complaints.Show()
+
+        Me.Close()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim Complaints_manage_complaints = New Complaints_manage_complaints With {
+            .uid = uid,
+            .u_name = u_name,
+            .status_complaint = ">  Resolved Complaints"
+        }
+        Complaints_manage_complaints.Show()
+
+        Me.Close()
+    End Sub
+
+    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
 
     End Sub
 End Class
