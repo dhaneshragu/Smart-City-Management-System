@@ -32,7 +32,7 @@ Public Class Ed_EditECourse
 
         Dim courseName As String = TextBox2.Text
         Dim fees As Integer = Integer.Parse(TextBox5.Text)
-        Dim category As String = TextBox3.Text
+        Dim category As String = ComboBox1.Text
         Dim introVidLink As String = TextBox7.Text
         Dim summary As String = Me.summary
 
@@ -42,16 +42,18 @@ Public Class Ed_EditECourse
 
         MessageBox.Show("Successfully Updated the Course!")
 
+
+
         Dim form As New Ed_Teacher_Coursera_Course_Content(callingPanel)
         form.CourseItem = handler.GetCourseDetails(CourseItem.CourseID)
         Globals.viewChildForm(callingPanel, form)
-
+        Me.Close()
     End Sub
 
     Private Sub Ed_EditECourse_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Retrieve textbox values from the course item'
         TextBox2.Text = CourseItem.Name
-        TextBox3.Text = CourseItem.Category
+        ComboBox1.Text = CourseItem.Category
         TextBox5.Text = CourseItem.Fees
         TextBox7.Text = CourseItem.IntroVideoLink
         Me.summary = CourseItem.Syllabus

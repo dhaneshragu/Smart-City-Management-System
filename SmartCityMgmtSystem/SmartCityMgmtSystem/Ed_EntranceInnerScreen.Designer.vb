@@ -132,6 +132,7 @@ Partial Class Ed_EntranceInnerScreen
         '
         Me.RichTextBox1.Location = New System.Drawing.Point(27, 199)
         Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(494, 513)
         Me.RichTextBox1.TabIndex = 4
         Me.RichTextBox1.Text = ""
@@ -176,6 +177,7 @@ Partial Class Ed_EntranceInnerScreen
         '
         Me.RichTextBox2.Location = New System.Drawing.Point(617, 199)
         Me.RichTextBox2.Name = "RichTextBox2"
+        Me.RichTextBox2.ReadOnly = True
         Me.RichTextBox2.Size = New System.Drawing.Size(621, 160)
         Me.RichTextBox2.TabIndex = 8
         Me.RichTextBox2.Text = ""

@@ -32,6 +32,7 @@ Public Class Ed_Teacher_Course_Resource
             Dim form As New Ed_Teacher_Coursera_Course_Content(callingPanel)
             form.CourseItem = CourseItem
             Globals.viewChildForm(callingPanel, form)
+            Me.Close()
             'Else
             '    Globals.viewChildForm(callingPanel, New Ed_Moodle_CourseContent(CourseID, callingPanel))
         End If
@@ -79,6 +80,8 @@ Public Class Ed_Teacher_Course_Resource
         Dim form As New Ed_Teacher_Coursera_Course_Content(callingPanel)
         form.CourseItem = CourseItem
         Globals.viewChildForm(callingPanel, form)
+
+        Me.Close()
 
     End Sub
 End Class

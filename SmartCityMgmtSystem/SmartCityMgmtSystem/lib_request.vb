@@ -52,6 +52,7 @@ Public Class lib_request
 
     Private Sub lib_request_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label2.Text = u_name
+        Label9.Text = uid
         LoadrequestBooks()
         PopulateTable()
     End Sub
@@ -124,18 +125,12 @@ Public Class lib_request
                     Case "Rejected"
                         statusLabel.ForeColor = Color.Red
                     Case "Pending"
-                        statusLabel.ForeColor = Color.Yellow
+                        statusLabel.ForeColor = Color.Navy
                     Case "Approved"
                         statusLabel.ForeColor = Color.Green
                     Case Else
                         statusLabel.ForeColor = Color.Black
                 End Select
-
-                If entry.Status = "Available" Then
-
-                Else
-                    statusLabel.ForeColor = Color.Red
-                End If
 
                 Dim authorLabel As New Label()
                 authorLabel.Text = entry.Author

@@ -44,6 +44,7 @@ Partial Class lib_NewRequest
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.childformPanel.SuspendLayout()
@@ -198,7 +199,7 @@ Partial Class lib_NewRequest
         Me.btnAddBalance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddBalance.Font = New System.Drawing.Font("Agency FB", 20.0!)
         Me.btnAddBalance.ForeColor = System.Drawing.Color.White
-        Me.btnAddBalance.Location = New System.Drawing.Point(462, 560)
+        Me.btnAddBalance.Location = New System.Drawing.Point(477, 561)
         Me.btnAddBalance.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAddBalance.Name = "btnAddBalance"
         Me.btnAddBalance.Size = New System.Drawing.Size(297, 53)
@@ -229,17 +230,18 @@ Partial Class lib_NewRequest
         '
         Me.Panel4.BackColor = System.Drawing.Color.White
         Me.Panel4.Controls.Add(Me.TextBox3)
-        Me.Panel4.Location = New System.Drawing.Point(678, 420)
+        Me.Panel4.Location = New System.Drawing.Point(569, 409)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(393, 56)
+        Me.Panel4.Size = New System.Drawing.Size(393, 53)
         Me.Panel4.TabIndex = 65
         '
         'TextBox3
         '
+        Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox3.Font = New System.Drawing.Font("Agency FB", 16.0!)
         Me.TextBox3.Location = New System.Drawing.Point(4, 10)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(389, 39)
+        Me.TextBox3.Size = New System.Drawing.Size(386, 32)
         Me.TextBox3.TabIndex = 62
         Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -247,17 +249,18 @@ Partial Class lib_NewRequest
         '
         Me.Panel3.BackColor = System.Drawing.Color.White
         Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Location = New System.Drawing.Point(678, 305)
+        Me.Panel3.Location = New System.Drawing.Point(569, 294)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(393, 56)
+        Me.Panel3.Size = New System.Drawing.Size(393, 53)
         Me.Panel3.TabIndex = 64
         '
         'TextBox2
         '
+        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox2.Font = New System.Drawing.Font("Agency FB", 16.0!)
-        Me.TextBox2.Location = New System.Drawing.Point(-1, 10)
+        Me.TextBox2.Location = New System.Drawing.Point(3, 10)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(394, 39)
+        Me.TextBox2.Size = New System.Drawing.Size(386, 32)
         Me.TextBox2.TabIndex = 61
         Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -265,17 +268,18 @@ Partial Class lib_NewRequest
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.TextBox1)
-        Me.Panel2.Location = New System.Drawing.Point(677, 182)
+        Me.Panel2.Location = New System.Drawing.Point(568, 185)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(393, 56)
+        Me.Panel2.Size = New System.Drawing.Size(393, 53)
         Me.Panel2.TabIndex = 63
         '
         'TextBox1
         '
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox1.Font = New System.Drawing.Font("Agency FB", 16.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(0, 10)
+        Me.TextBox1.Location = New System.Drawing.Point(1, 10)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(394, 39)
+        Me.TextBox1.Size = New System.Drawing.Size(389, 32)
         Me.TextBox1.TabIndex = 60
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -287,7 +291,7 @@ Partial Class lib_NewRequest
         Me.Button10.Font = New System.Drawing.Font("Agency FB", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button10.ForeColor = System.Drawing.Color.White
         Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button10.Location = New System.Drawing.Point(389, 57)
+        Me.Button10.Location = New System.Drawing.Point(403, 57)
         Me.Button10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(420, 61)
@@ -302,12 +306,12 @@ Partial Class lib_NewRequest
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button9.Font = New System.Drawing.Font("Agency FB", 20.0!)
         Me.Button9.ForeColor = System.Drawing.Color.White
-        Me.Button9.Location = New System.Drawing.Point(224, 423)
+        Me.Button9.Location = New System.Drawing.Point(274, 409)
         Me.Button9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(297, 53)
         Me.Button9.TabIndex = 54
-        Me.Button9.Text = "Genere"
+        Me.Button9.Text = "Genre"
         Me.Button9.UseVisualStyleBackColor = False
         '
         'Button8
@@ -317,7 +321,7 @@ Partial Class lib_NewRequest
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button8.Font = New System.Drawing.Font("Agency FB", 20.0!)
         Me.Button8.ForeColor = System.Drawing.Color.White
-        Me.Button8.Location = New System.Drawing.Point(224, 186)
+        Me.Button8.Location = New System.Drawing.Point(274, 185)
         Me.Button8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(297, 53)
@@ -332,7 +336,7 @@ Partial Class lib_NewRequest
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button7.Font = New System.Drawing.Font("Agency FB", 20.0!)
         Me.Button7.ForeColor = System.Drawing.Color.White
-        Me.Button7.Location = New System.Drawing.Point(224, 305)
+        Me.Button7.Location = New System.Drawing.Point(274, 294)
         Me.Button7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(297, 53)
@@ -358,12 +362,26 @@ Partial Class lib_NewRequest
         Me.Button6.Text = "     Back"
         Me.Button6.UseVisualStyleBackColor = False
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.CausesValidation = False
+        Me.Label9.Font = New System.Drawing.Font("Agency FB", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Ivory
+        Me.Label9.Location = New System.Drawing.Point(840, 9)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(54, 28)
+        Me.Label9.TabIndex = 53
+        Me.Label9.Text = "{UID}"
+        '
         'lib_NewRequest
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(175, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1556, 783)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
@@ -407,4 +425,5 @@ Partial Class lib_NewRequest
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label9 As Label
 End Class
