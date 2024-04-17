@@ -82,7 +82,7 @@ Public Class Ed_Teacher_Moodle_CourseAss
     Private Sub Ed_Teacher_Moodle_CourseAss_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AutoScroll = True
         Label2.Text = content.ContentName
-        Label2.Text = "suck it"
+
         course = handler.LoadCourseDetails(RoomID)
 
         'TextContent = "Problem Statement: Implementing Binary Search" & vbCrLf & vbCrLf & "Description:" & vbCrLf & vbCrLf & "You are tasked with implementing the binary search algorithm in a programming language of your choice. Binary search is a fast and efficient searching algorithm used to find an element within a sorted array by repeatedly dividing the search interval in half. Your implementation should handle both sorted arrays of integers and floating-point numbers."
