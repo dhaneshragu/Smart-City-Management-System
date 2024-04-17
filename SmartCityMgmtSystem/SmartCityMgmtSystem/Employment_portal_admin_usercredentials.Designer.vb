@@ -321,6 +321,7 @@ Partial Class Employment_portal_admin_usercredentials
         Me.PictureBox1.Location = New System.Drawing.Point(475, 45)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(381, 329)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 9
         Me.PictureBox1.TabStop = False
         '

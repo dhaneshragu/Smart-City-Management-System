@@ -139,7 +139,7 @@ Public Class Employment_portal_search
             Using con As MySqlConnection = New MySqlConnection(Globals.getdbConnectionString())
                 con.Open()
 
-                Dim sql As String = "Select DISTINCT
+                Dim sql As String = "Select
                                   SUBSTRING_INDEX(SUBSTRING_INDEX(employment_jobs.job_desc, ' ', numbers.n), ' ', -1) desc_words FROM
                                   (SELECT 1 n UNION ALL SELECT 2
                                   UNION ALL SELECT 3 UNION ALL SELECT 4) numbers INNER JOIN employment_jobs
