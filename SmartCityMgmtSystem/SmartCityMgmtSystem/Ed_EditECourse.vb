@@ -42,10 +42,12 @@ Public Class Ed_EditECourse
 
         MessageBox.Show("Successfully Updated the Course!")
 
+
+
         Dim form As New Ed_Teacher_Coursera_Course_Content(callingPanel)
         form.CourseItem = handler.GetCourseDetails(CourseItem.CourseID)
         Globals.viewChildForm(callingPanel, form)
-
+        Me.Close()
     End Sub
 
     Private Sub Ed_EditECourse_Load(sender As Object, e As EventArgs) Handles MyBase.Load
