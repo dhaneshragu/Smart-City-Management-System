@@ -17,20 +17,20 @@ Public Class Complaint_User_Dashboard
             Con.Open()
 
             ' Count for status = 'open'
-            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE user_id = @userId AND status = 'Open'", Con)
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM complaints WHERE user_id = @userId AND status = 'Open'", Con)
             cmd.Parameters.AddWithValue("@userId", uid)
             count1 = Convert.ToInt32(cmd.ExecuteScalar())
             RichTextBox1.Text = count1
             RichTextBox1.SelectionAlignment = HorizontalAlignment.Center
 
             ' Count for status = 'inprocess'
-            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE user_id = @userId AND status = 'In Progress'", Con)
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM complaints WHERE user_id = @userId AND status = 'In Progress'", Con)
             cmd.Parameters.AddWithValue("@userId", uid)
             count2 = Convert.ToInt32(cmd.ExecuteScalar())
             RichTextBox2.Text = count2
             RichTextBox2.SelectionAlignment = HorizontalAlignment.Center
 
-            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE user_id = @userId AND status = 'Resolved'", Con)
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM complaints WHERE user_id = @userId AND status = 'Resolved'", Con)
             cmd.Parameters.AddWithValue("@userId", uid)
             count2 = Convert.ToInt32(cmd.ExecuteScalar())
             RichTextBox3.Text = count2

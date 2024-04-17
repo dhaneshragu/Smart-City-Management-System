@@ -28,7 +28,7 @@ Public Class Complaints_Admin_Take_action
                 ' Open the connection
                 Con.Open()
 
-                Dim query As String = "UPDATE Complaints SET Remarks = @newValue, Status = @newStatus WHERE ComplaintID = @userId"
+                Dim query As String = "UPDATE complaints SET Remarks = @newValue, Status = @newStatus WHERE ComplaintID = @userId"
                 Dim cmd As New MySqlCommand(query, Con)
 
                 ' Add parameters to the query

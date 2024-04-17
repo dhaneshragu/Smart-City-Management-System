@@ -25,19 +25,19 @@ Public Class Complaints_admin_dashboard
             ' Open the connection
             Con.Open()
 
-            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE Department_Name = @main_1 and Status='Open'", Con)
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM complaints WHERE Department_Name = @main_1 and Status='Open'", Con)
             cmd.Parameters.AddWithValue("@main_1", department)
             count1 = Convert.ToInt32(cmd.ExecuteScalar())
             RichTextBox1.Text = count1
             RichTextBox1.SelectionAlignment = HorizontalAlignment.Center
 
-            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE Department_Name = @main_1 and Status='In Progress'", Con)
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM complaints WHERE Department_Name = @main_1 and Status='In Progress'", Con)
             cmd.Parameters.AddWithValue("@main_1", department)
             count1 = Convert.ToInt32(cmd.ExecuteScalar())
             RichTextBox2.Text = count1
             RichTextBox2.SelectionAlignment = HorizontalAlignment.Center
 
-            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE Department_Name = @main_1 and Status='Resolved'", Con)
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM complaints WHERE Department_Name = @main_1 and Status='Resolved'", Con)
             cmd.Parameters.AddWithValue("@main_1", department)
             count1 = Convert.ToInt32(cmd.ExecuteScalar())
             RichTextBox3.Text = count1

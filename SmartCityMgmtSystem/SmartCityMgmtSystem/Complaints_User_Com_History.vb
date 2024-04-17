@@ -22,20 +22,20 @@ Public Class Complaints_User_Com_History
             Dim Status_now As String = "Now"
 
             If status_complaint = ">  In Progress Complaints" Then
-                cmd = New MySqlCommand("SELECT * FROM Complaints WHERE user_id = @userid and status = @status_1", Con)
+                cmd = New MySqlCommand("SELECT * FROM complaints WHERE user_id = @userid and status = @status_1", Con)
                 cmd.Parameters.AddWithValue("@userid", uid)
                 cmd.Parameters.AddWithValue("@status_1", "In Progress")
 
             ElseIf status_complaint = ">  Open Complaints" Then
-                cmd = New MySqlCommand("SELECT * FROM Complaints WHERE user_id = @userid and status = @status_1", Con)
+                cmd = New MySqlCommand("SELECT * FROM complaints WHERE user_id = @userid and status = @status_1", Con)
                 cmd.Parameters.AddWithValue("@userid", uid)
                 cmd.Parameters.AddWithValue("@status_1", "Open")
             ElseIf status_complaint = ">  Resolved Complaints" Then
-                cmd = New MySqlCommand("SELECT * FROM Complaints WHERE user_id = @userid and status = @status_1", Con)
+                cmd = New MySqlCommand("SELECT * FROM complaints WHERE user_id = @userid and status = @status_1", Con)
                 cmd.Parameters.AddWithValue("@userid", uid)
                 cmd.Parameters.AddWithValue("@status_1", "Resolved")
             Else
-                cmd = New MySqlCommand("SELECT * FROM Complaints WHERE user_id = @userid", Con)
+                cmd = New MySqlCommand("SELECT * FROM complaints WHERE user_id = @userid", Con)
                 cmd.Parameters.AddWithValue("@userid", uid)
 
             End If

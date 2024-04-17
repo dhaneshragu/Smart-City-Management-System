@@ -28,7 +28,7 @@ Public Class Complaints_manage_complaints
             Con.Open()
 
             ' Create a MySqlCommand object with the query and connection
-            cmd = New MySqlCommand("SELECT * FROM Complaints WHERE Department_Name = @name and status=@status_1", Con)
+            cmd = New MySqlCommand("SELECT * FROM complaints WHERE Department_Name = @name and status=@status_1", Con)
             ' Add parameter for Department_Name
             cmd.Parameters.AddWithValue("@name", department)
 
@@ -88,7 +88,7 @@ Public Class Complaints_manage_complaints
         Globals.viewChildForm(childformPanel, TransportationAdminHome)
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
 
     End Sub
 

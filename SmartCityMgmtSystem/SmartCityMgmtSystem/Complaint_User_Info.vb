@@ -17,7 +17,7 @@ Public Class Complaint_User_Info
 
             ' Create and execute the command to retrieve user_id
 
-            Using cmd As New MySqlCommand("SELECT user_id FROM Complaints WHERE ComplaintID = @userId", Con)
+            Using cmd As New MySqlCommand("SELECT user_id FROM complaints WHERE ComplaintID = @userId", Con)
                 cmd.Parameters.AddWithValue("@userId", uid)
                 Dim reader As MySqlDataReader = cmd.ExecuteReader()
 

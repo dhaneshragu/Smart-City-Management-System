@@ -66,7 +66,7 @@ Public Class Complaints_Lodge_Complaint
                 Con.Open()
 
                 ' SQL query to insert data into columns
-                Dim query As String = "INSERT INTO Complaints (user_id,Department_Name,ComplaintText,ComplaintTitle,NatureOfcomplaint,Priority) VALUES (@value1,@value2,@value3,@value4,@value5,@value6)"
+                Dim query As String = "INSERT INTO complaints (user_id,Department_Name,ComplaintText,ComplaintTitle,NatureOfcomplaint,Priority) VALUES (@value1,@value2,@value3,@value4,@value5,@value6)"
 
                 ' Create a MySqlCommand object with the query and connection
                 Dim cmd As New MySqlCommand(query, Con)

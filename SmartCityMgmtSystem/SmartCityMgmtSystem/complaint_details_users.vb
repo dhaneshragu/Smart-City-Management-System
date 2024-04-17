@@ -16,7 +16,7 @@ Public Class complaint_details_users
             Con.Open()
 
             ' Create a MySqlCommand object with the query and connection
-            cmd = New MySqlCommand("SELECT complaintid, priority, timestamp, ComplaintTitle, NatureOfcomplaint, Department_Name, ComplaintText, status,Remarks FROM Complaints WHERE ComplaintID = @userId", Con)
+            cmd = New MySqlCommand("SELECT complaintid, priority, timestamp, ComplaintTitle, NatureOfcomplaint, Department_Name, ComplaintText, status,Remarks FROM complaints WHERE ComplaintID = @userId", Con)
             cmd.Parameters.AddWithValue("@userId", pid)
             reader = cmd.ExecuteReader()
 

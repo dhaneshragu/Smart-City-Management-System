@@ -252,8 +252,7 @@ Partial Class Complaints_User_Com_History
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.DataGridView1.Size = New System.Drawing.Size(1050, 234)
+        Me.DataGridView1.Size = New System.Drawing.Size(1193, 439)
         Me.DataGridView1.TabIndex = 36
         '
         'Column4
