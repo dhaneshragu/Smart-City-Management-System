@@ -42,7 +42,9 @@ Public Class Ed_Teacher_Coursera_Course_Content
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+
         Globals.viewChildForm(Ed_GlobalDashboard.innerpanel, New Ed_ManageECourse())
+        Me.Close()
     End Sub
 
 
