@@ -28,6 +28,16 @@ Public Class Healthcare_Emergency
         Con.Close()
     End Sub
 
+    Private Sub d1_MouseEnter(sender As Object, e As EventArgs) Handles d1.MouseEnter
+        ' Change the background color of d1 when mouse enters
+        d1.BackColor = SystemColors.MenuHighlight ' Change to your desired color
+    End Sub
+
+    Private Sub d1_MouseLeave(sender As Object, e As EventArgs) Handles d1.MouseLeave
+        ' Change the background color of d1 when mouse leaves
+        d1.BackColor = SystemColors.Highlight ' Change to your default color
+    End Sub
+
     Private Sub d1_Click(sender As Object, e As EventArgs) Handles d1.Click
 
         If String.IsNullOrWhiteSpace(RichTextBox1.Text) Then
