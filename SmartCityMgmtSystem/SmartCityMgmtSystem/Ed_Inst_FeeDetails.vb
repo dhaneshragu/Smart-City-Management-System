@@ -17,7 +17,7 @@ Public Class Ed_Inst_FeeDetails
                 ' If semester is not 0, set ClassSem to "Semester {semester}"
                 ClassSem = "Semester " & fee.Semester.ToString()
             End If
-            DataGridView1.Rows.Add(ClassSem, fee.Year, fee.Fee, fee.PaidOn.ToString(), "View")
+            DataGridView1.Rows.Add(ClassSem, fee.Year, fee.Fee, fee.PaidOn.Date.ToString("yyyy-MM-dd"), "View")
         Next
         Dim currentYear As Integer = DateTime.Now.Year
         Dim paycheckas As Boolean = feeRecs.Any(Function(fee) fee.ClassNum = Ed_GlobalDashboard.Ed_Profile.Ed_Class) AndAlso feeRecs.Any(Function(fee) fee.Semester = Ed_GlobalDashboard.Ed_Profile.Ed_Sem)
