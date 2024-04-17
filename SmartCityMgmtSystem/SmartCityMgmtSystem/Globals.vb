@@ -6,6 +6,7 @@ Imports MySql.Data.MySqlClient
 Public Class Globals
     'Deployed Database
     Private Shared dbConnectionString As String = "server=mysql9001.site4now.net;user id=aa69bc_sghy;password=swelab123;database=db_aa69bc_sghy;"
+    'Private Shared dbConnectionString As String = "server=172.17.1.127;port=3306;user id=scuser;password=swelab@123;database=smartcity_db;"
 
 
     'To get the dbString
