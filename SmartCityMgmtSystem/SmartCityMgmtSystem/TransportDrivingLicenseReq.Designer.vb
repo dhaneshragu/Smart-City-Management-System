@@ -366,10 +366,10 @@ Partial Class TransportDrivingLicenseReq
         '
         Me.LabelAddress.BackColor = System.Drawing.Color.WhiteSmoke
         Me.LabelAddress.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelAddress.Location = New System.Drawing.Point(234, 34)
+        Me.LabelAddress.Location = New System.Drawing.Point(234, 10)
         Me.LabelAddress.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelAddress.Name = "LabelAddress"
-        Me.LabelAddress.Size = New System.Drawing.Size(333, 107)
+        Me.LabelAddress.Size = New System.Drawing.Size(333, 100)
         Me.LabelAddress.TabIndex = 19
         Me.LabelAddress.Text = "{Address}"
         '
@@ -379,16 +379,16 @@ Partial Class TransportDrivingLicenseReq
         Me.VTypeLB.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VTypeLB.FormattingEnabled = True
         Me.VTypeLB.ItemHeight = 26
-        Me.VTypeLB.Location = New System.Drawing.Point(234, 175)
+        Me.VTypeLB.Location = New System.Drawing.Point(234, 120)
         Me.VTypeLB.Name = "VTypeLB"
-        Me.VTypeLB.Size = New System.Drawing.Size(333, 134)
+        Me.VTypeLB.Size = New System.Drawing.Size(333, 186)
         Me.VTypeLB.TabIndex = 18
         '
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Maroon
-        Me.Label5.Location = New System.Drawing.Point(32, 34)
+        Me.Label5.Location = New System.Drawing.Point(31, 16)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(168, 27)
@@ -412,10 +412,10 @@ Partial Class TransportDrivingLicenseReq
         '
         Me.Label15.Font = New System.Drawing.Font("Trebuchet MS", 12.20339!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.Maroon
-        Me.Label15.Location = New System.Drawing.Point(32, 175)
+        Me.Label15.Location = New System.Drawing.Point(41, 120)
         Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(195, 65)
+        Me.Label15.Size = New System.Drawing.Size(175, 65)
         Me.Label15.TabIndex = 14
         Me.Label15.Text = "Vehicle Type :"
         '
