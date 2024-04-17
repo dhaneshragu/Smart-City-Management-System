@@ -39,7 +39,9 @@ Public Class ElectionInnerScreenViewStatisticsMinistry6
         Label2.Text = "Total Votes : " & votesReceived
         ' Calculate the turnout only if totalVoters is not zero to avoid division by zero error
         If totalVoted <> 0 Then
-            Label3.Text = "Turnout : " & (votesReceived / totalVoted) * 100 & "%"
+            Dim turnoutPercentage As Double = (votesReceived / totalVoted) * 100
+            Label3.Text = "Turnout : " & turnoutPercentage.ToString("0.##") & "%"
+            'Label3.Text = "Turnout : " & (votesReceived / totalVoted) * 100 & "%"
         Else
             Label3.Text = "No voters"
         End If
@@ -75,7 +77,7 @@ Public Class ElectionInnerScreenViewStatisticsMinistry6
             Dim votePercent As Double = (votes / votesReceived) * 100
 
             ' Add row to the DataTable
-            dataTable.Rows.Add(candidateName, votes, votePercent.ToString() & "%")
+            dataTable.Rows.Add(candidateName, votes, votePercent.ToString("0.##") & "%")
         End While
         ' Specify the Column Mappings from DataTable to DataGridView
         DataGridView1.Columns(0).DataPropertyName = "Candidate Name"

@@ -56,6 +56,8 @@ Public Class lib_ebooks
 
     Private Sub lib_ebooks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label2.Text = u_name
+        Label12.Text = uid
+        Panel9.Visible = False
         LoadAlleBooks()
         PopulateTable()
     End Sub
@@ -284,11 +286,24 @@ Public Class lib_ebooks
             genreLabel.AutoSize = True
 
 
+            Dim ratingPanel As New Panel()
+            ratingPanel.AutoSize = True
+            ratingPanel.Anchor = AnchorStyles.None ' Ensure the panel is not anchored to any side
+            ratingPanel.Location = New Point((eBooksTablePanel.Width - ratingPanel.Width) / 2, (eBooksTablePanel.Height - ratingPanel.Height) / 2)
+            eBooksTablePanel.Controls.Add(ratingPanel, 4, rowIndex)
+
+            Dim ratingPictureBox As New PictureBox()
+            ratingPictureBox.Image = SmartCityMgmtSystem.My.Resources.Resources.icons8_star_48
+            ratingPictureBox.SizeMode = PictureBoxSizeMode.Zoom
+            ratingPictureBox.Size = New Size(30, 30)  ' Set the size of the PictureBox
+            ratingPictureBox.Margin = New Padding(0, 0, 0, 0) ' Set margin to 0 to ensure the image is not pushed away
+            ratingPanel.Controls.Add(ratingPictureBox)
+
             Dim ratingLabel As New Label()
-            ratingLabel.Text = entry.Rating
-            eBooksTablePanel.Controls.Add(ratingLabel, 4, rowIndex)
-            ratingLabel.TextAlign = ContentAlignment.MiddleCenter ' Center the label
-            ratingLabel.Anchor = AnchorStyles.None ' Set Anchor to None
+            ratingLabel.Text = entry.Rating & "/5"
+            ratingLabel.AutoSize = True
+            ratingLabel.Padding = New Padding(30, (ratingPanel.Height - ratingLabel.Height) / 2, 0, 0) ' Vertically center the text
+            ratingPanel.Controls.Add(ratingLabel)
 
             'Dim ratingLabel As New Label()
             'eBooksTablePanel.Controls.Add(ratingLabel, 4, rowIndex)
@@ -419,5 +434,105 @@ Public Class lib_ebooks
         }
         HomePageDashboard.Show()
         Me.Close()
+    End Sub
+
+    Private Sub childformPanel_Paint(sender As Object, e As PaintEventArgs) Handles childformPanel.Paint
+
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Dim ratingInput As Integer
+        If Integer.TryParse(TextBox2.Text, ratingInput) AndAlso ratingInput >= 0 AndAlso ratingInput <= 5 Then
+            Dim queryCheck As String = "SELECT COUNT(*) FROM lib_book_ratings WHERE book_ID = @rateID and book_type = 1 and uid = @uid"
+            Dim queryUpdate As String = "UPDATE lib_book_ratings SET rating = @ratingInput WHERE book_ID = @rateID and book_type = 1 and uid = @uid"
+            Dim queryInsert As String = "INSERT INTO lib_book_ratings (book_ID, uid, book_type, rating) VALUES (@rateID, @uid, @book_type, @ratingInput)"
+
+            Dim Con = Globals.GetDBConnection()
+            Try
+                Con.Open()
+                Dim cmdCheck As New MySqlCommand(queryCheck, Con)
+                cmdCheck.Parameters.AddWithValue("@rateID", rateID)
+                cmdCheck.Parameters.AddWithValue("@uid", uid)
+
+                Dim count As Integer = Convert.ToInt32(cmdCheck.ExecuteScalar())
+
+                If count > 0 Then
+                    ' If a row exists with the given book_ID, update the rating
+                    Dim cmdUpdate As New MySqlCommand(queryUpdate, Con)
+                    cmdUpdate.Parameters.AddWithValue("@rateID", rateID)
+                    cmdUpdate.Parameters.AddWithValue("@ratingInput", ratingInput)
+                    cmdUpdate.Parameters.AddWithValue("@uid", uid)
+                    cmdUpdate.ExecuteNonQuery()
+                Else
+                    ' If no row exists with the given book_ID, insert a new row
+                    Dim cmdInsert As New MySqlCommand(queryInsert, Con)
+                    cmdInsert.Parameters.AddWithValue("@rateID", rateID)
+                    cmdInsert.Parameters.AddWithValue("@ratingInput", ratingInput)
+                    cmdInsert.Parameters.AddWithValue("@uid", uid)
+                    cmdInsert.Parameters.AddWithValue("@book_type", 1)
+                    cmdInsert.ExecuteNonQuery()
+                End If
+
+                ' Calculate and update the average rating in the lib_books table
+                Dim queryAvgRating As String = "UPDATE lib_ebooks SET rating = (SELECT AVG(rating) FROM lib_book_ratings WHERE book_ID = @rateID AND book_type = 1) WHERE book_ID = @rateID"
+                Dim cmdAvgRating As New MySqlCommand(queryAvgRating, Con)
+                cmdAvgRating.Parameters.AddWithValue("@rateID", rateID)
+                cmdAvgRating.ExecuteNonQuery()
+
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message)
+            Finally
+                If Con.State = ConnectionState.Open Then
+                    Con.Close() ' Close the connection in the finally block to ensure it's closed even if an exception occurs
+                End If
+                MessageBox.Show("Rating Successful")
+            End Try
+            Panel9.Visible = False
+            TextBox2.Text = "Enter your Rating"
+        Else
+            ' If TextBox2.Text is not a valid integer or not within the range, display an error message
+            MessageBox.Show("Please enter a valid integer between 0 and 5")
+            Return ' Exit the method if input is invalid
+        End If
+
+        LoadAlleBooks()
+        PopulateTable()
+
+
+    End Sub
+
+    Dim rateID As Integer
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim count As Integer = 0
+        For Each entry As Entry In alleBooks
+            If entry.RadioButton.Checked Then
+                count = count + 1
+                rateID = entry.BookID
+
+            End If
+        Next
+        If count = 0 Then
+            MessageBox.Show("No book selected.")
+            rateID = -1
+        Else
+            Panel9.Visible = True
+        End If
+    End Sub
+
+    Private Sub TextBox2_GotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles TextBox2.GotFocus
+        ' When the textbox gains focus, clear the placeholder text if it's present
+        If TextBox2.Text = "Enter your Rating" Then
+            TextBox2.Text = ""
+            TextBox2.ForeColor = Color.Black ' Set text color back to black
+        End If
+    End Sub
+
+    Private Sub TextBox2_LostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles TextBox2.LostFocus
+        ' When the textbox loses focus and it's empty, display the placeholder text
+        If TextBox2.Text = "" Then
+            TextBox2.Text = "Enter your Rating"
+            TextBox2.ForeColor = Color.Gray ' Set text color to gray for placeholder text
+        End If
     End Sub
 End Class

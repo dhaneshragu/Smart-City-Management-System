@@ -43,6 +43,7 @@ Public Class lib_NewRequest
 
     Private Sub lib_NewRequest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label2.Text = u_name
+        Label9.Text = uid
     End Sub
 
 
@@ -70,7 +71,7 @@ Public Class lib_NewRequest
             ' Add parameters to the command
             cmd.Parameters.AddWithValue("@title", TextBox2.Text)
             cmd.Parameters.AddWithValue("@author", TextBox1.Text)
-            cmd.Parameters.AddWithValue("@date", DateTime.Now.Date)
+            cmd.Parameters.AddWithValue("@date", DateTime.Now)
             cmd.Parameters.AddWithValue("@status", 0) ' Default status to 0
             cmd.Parameters.AddWithValue("@uid", uid)
 
