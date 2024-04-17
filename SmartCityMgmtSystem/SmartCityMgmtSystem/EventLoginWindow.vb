@@ -9,6 +9,7 @@ Public Class EventLoginWindow
 
     Private Sub EventLoginWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBox1.Text = uid
+        TextBox1.ReadOnly = True
         TextBox2.PasswordChar = "*"
 
         ' Get connection from globals

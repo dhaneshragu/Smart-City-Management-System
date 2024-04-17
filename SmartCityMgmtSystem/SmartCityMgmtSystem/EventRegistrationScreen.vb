@@ -346,6 +346,27 @@ Public Class EventRegistrationScreen
         Return password
     End Function
 
+    Public Sub UpdateVendorExperience(ByVal vendorId As Integer)
+        ' Get connection from globals
+        Dim con As MySqlConnection = Globals.GetDBConnection()
+
+        Try
+            con.Open()
+
+            ' Query to update the experience column of the vendor table
+            Dim query As String = "UPDATE vendor SET experience = experience + 1 WHERE vendorID = @VendorId;"
+            Dim cmd As New MySqlCommand(query, con)
+            cmd.Parameters.AddWithValue("@VendorId", vendorId)
+
+            ' Execute the query to update the experience
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
     Private Sub EventRegistrationScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
         ' Add options to the ComboBox
@@ -511,6 +532,7 @@ Public Class EventRegistrationScreen
         End If
 
         If isPaymentSuccessful Then
+            UpdateVendorExperience(VendorIDINT)
             InsertEventBooking(EventType, EventStartDate, EventEndDate, CInt(VendorID), CInt(CustomerID), Password)
             'EventDashboard.Show()
             Me.Close()
