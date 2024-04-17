@@ -46,7 +46,7 @@ Public Class Ed_Moodle_CourseContent
             Dim submitTimeValue As String = If(record.Submit_Time <> DateTime.MinValue, record.Submit_Time.ToString(), "N/A")
 
             ' Add a new row to the DataGridView and populate it with data from each StudentAssRecord
-            DataGridView1.Rows.Add(record.Seq_no, submitTimeValue, marksValue)
+            DataGridView1.Rows.Add(record.AssName, submitTimeValue, marksValue)
         Next
 
         ' Check if there are any contents

@@ -28,46 +28,50 @@ Public Class ElectionInnerScreenAdminNomination
 
         Try
             Con.Open()
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
 
-        ' Retrieve the value of the election_id column from the last row of the election_time table
-        Dim lastElectionID As Integer = -1 ' Default value in case there are no rows in election_time
-        cmd = New MySqlCommand("SELECT election_id FROM election_time ORDER BY election_id DESC LIMIT 1;", Con)
-        reader = cmd.ExecuteReader()
-        If reader.Read() Then
-            lastElectionID = Convert.ToInt32(reader("election_id"))
-        End If
-        reader.Close()
 
-        ' Use the last election_id value to filter rows in the candidate_register table
-        cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name, agenda, status 
+            ' Retrieve the value of the election_id column from the last row of the election_time table
+            Dim lastElectionID As Integer = -1 ' Default value in case there are no rows in election_time
+            cmd = New MySqlCommand("SELECT election_id FROM election_time ORDER BY election_id DESC LIMIT 1;", Con)
+            reader = cmd.ExecuteReader()
+            If reader.Read() Then
+                lastElectionID = Convert.ToInt32(reader("election_id"))
+            End If
+            reader.Close()
+
+            ' Use the last election_id value to filter rows in the candidate_register table
+            cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name, agenda, status 
                         FROM candidate_register
                         JOIN users ON users.user_id = candidate_register.candidate_uid
                         JOIN ministries ON ministries.ministry_id = candidate_register.ministry_id
                         WHERE election_id = @electionID;", Con)
-        cmd.Parameters.AddWithValue("@electionID", lastElectionID)
-        reader = cmd.ExecuteReader()
+            cmd.Parameters.AddWithValue("@electionID", lastElectionID)
+            reader = cmd.ExecuteReader()
 
-        ' Create a DataTable to store the data
-        Dim dataTable As New DataTable()
-        ' Fill the DataTable with data from the SQL table
-        dataTable.Load(reader)
-        reader.Close()
-        Con.Close()
+            ' Create a DataTable to store the data
+            Dim dataTable As New DataTable()
+            ' Fill the DataTable with data from the SQL table
+            dataTable.Load(reader)
+            reader.Close()
+            Con.Close()
 
-        ' Specify the Column Mappings from DataGridView to SQL Table
-        DataGridView1.AutoGenerateColumns = False
-        DataGridView1.Columns(0).DataPropertyName = "election_id"
-        DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
-        DataGridView1.Columns(2).DataPropertyName = "name"
-        DataGridView1.Columns(3).DataPropertyName = "ministry_name"
-        DataGridView1.Columns(4).DataPropertyName = "agenda"
-        DataGridView1.Columns(5).DataPropertyName = "status"
+            ' Specify the Column Mappings from DataGridView to SQL Table
+            DataGridView1.AutoGenerateColumns = False
+            DataGridView1.Columns(0).DataPropertyName = "election_id"
+            DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
+            DataGridView1.Columns(2).DataPropertyName = "name"
+            DataGridView1.Columns(3).DataPropertyName = "ministry_name"
+            DataGridView1.Columns(4).DataPropertyName = "agenda"
+            DataGridView1.Columns(5).DataPropertyName = "status"
 
-        ' Bind the data to DataGridView
-        DataGridView1.DataSource = dataTable
+            ' Bind the data to DataGridView
+            DataGridView1.DataSource = dataTable
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
 
     End Sub
 
@@ -153,44 +157,47 @@ Public Class ElectionInnerScreenAdminNomination
 
         Try
             Con.Open()
+
+            ' You can access the selected date and time like this:
+            'Dim dt As DateTime = DateTime.Now
+            'Dim year As Integer = dt.Year
+            'Dim month As Integer = dt.Month
+            'Dim day As Integer = dt.Day
+            'Dim current_date As String = year.ToString + "-" + month.ToString + "-" + day.ToString
+            Dim current_date As String = "2024-03-04"
+
+            Dim resultAnnouncementDate As DateTime = DateTime.MinValue
+
+            ' Retrieve the value of nomination_start from the last row of the election_time table
+            Dim selectQuery As String = "SELECT campaigning_start FROM election_time ORDER BY election_id DESC LIMIT 1;"
+            cmd = New MySqlCommand(selectQuery, Con)
+            Dim result As Object = cmd.ExecuteScalar()
+
+            ' Check if the result is not null and assign it to nominationStartDate
+            If result IsNot Nothing AndAlso Not IsDBNull(result) Then
+                resultAnnouncementDate = Convert.ToDateTime(result)
+            End If
+
+            Dim dates() As String = {current_date, resultAnnouncementDate}
+
+            Dim canwe As Boolean = AreDatesIncreasing(dates)
+
+            Return canwe
+
+            MessageBox.Show(canwe)
+            'If canwe Then
+            'Else
+            '    If DataGridView1.Columns.Contains("Status") Then
+            '        DataGridView1.Columns("Status").ReadOnly = True
+            '    End If
+            'End If
+
+
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
 
-        ' You can access the selected date and time like this:
-        'Dim dt As DateTime = DateTime.Now
-        'Dim year As Integer = dt.Year
-        'Dim month As Integer = dt.Month
-        'Dim day As Integer = dt.Day
-        'Dim current_date As String = year.ToString + "-" + month.ToString + "-" + day.ToString
-        Dim current_date As String = "2024-03-04"
-
-        Dim resultAnnouncementDate As DateTime = DateTime.MinValue
-
-        ' Retrieve the value of nomination_start from the last row of the election_time table
-        Dim selectQuery As String = "SELECT campaigning_start FROM election_time ORDER BY election_id DESC LIMIT 1;"
-        cmd = New MySqlCommand(selectQuery, Con)
-        Dim result As Object = cmd.ExecuteScalar()
-
-        ' Check if the result is not null and assign it to nominationStartDate
-        If result IsNot Nothing AndAlso Not IsDBNull(result) Then
-            resultAnnouncementDate = Convert.ToDateTime(result)
-        End If
-
-        Dim dates() As String = {current_date, resultAnnouncementDate}
-
-        Dim canwe As Boolean = AreDatesIncreasing(dates)
-
-        MessageBox.Show(canwe)
-        'If canwe Then
-        'Else
-        '    If DataGridView1.Columns.Contains("Status") Then
-        '        DataGridView1.Columns("Status").ReadOnly = True
-        '    End If
-        'End If
-
-        Return canwe
     End Function
 
     Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
@@ -244,139 +251,142 @@ Public Class ElectionInnerScreenAdminNomination
 
         Try
             Con.Open()
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
 
-        ' Retrieve the value of the election_id column from the last row of the election_time table
-        Dim lastElectionID As Integer = -1 ' Default value in case there are no rows in election_time
-        cmd = New MySqlCommand("SELECT election_id FROM election_time ORDER BY election_id DESC LIMIT 1;", Con)
-        reader = cmd.ExecuteReader()
-        If reader.Read() Then
-            lastElectionID = Convert.ToInt32(reader("election_id"))
-        End If
-        reader.Close()
+            ' Retrieve the value of the election_id column from the last row of the election_time table
+            Dim lastElectionID As Integer = -1 ' Default value in case there are no rows in election_time
+            cmd = New MySqlCommand("SELECT election_id FROM election_time ORDER BY election_id DESC LIMIT 1;", Con)
+            reader = cmd.ExecuteReader()
+            If reader.Read() Then
+                lastElectionID = Convert.ToInt32(reader("election_id"))
+            End If
+            reader.Close()
 
-        If selectedValue1 Is Nothing And selectedValue2 IsNot Nothing Then
-            Dim status As String = selectedValue2.ToString()
-            'Get connection from globals
-            'Dim Con = Globals.GetDBConnection()
-            'Dim reader As MySqlDataReader
-            'Dim cmd As MySqlCommand
+            If selectedValue1 Is Nothing And selectedValue2 IsNot Nothing Then
+                Dim status As String = selectedValue2.ToString()
+                'Get connection from globals
+                'Dim Con = Globals.GetDBConnection()
+                'Dim reader As MySqlDataReader
+                'Dim cmd As MySqlCommand
 
-            'Try
-            '    Con.Open()
-            'Catch ex As Exception
-            '    MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            'End Try
+                'Try
+                '    Con.Open()
+                'Catch ex As Exception
+                '    MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                'End Try
 
-            cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name, agenda, status 
+                cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name, agenda, status 
                                     FROM candidate_register
                                     JOIN users ON users.user_id = candidate_register.candidate_uid
                                     JOIN ministries ON ministries.ministry_id = candidate_register.ministry_id
                                     WHERE status = """ + status + " and election_id = @electionID;"";", Con)
-            cmd.Parameters.AddWithValue("@electionID", lastElectionID)
-            reader = cmd.ExecuteReader
-            ' Create a DataTable to store the data
-            Dim dataTable As New DataTable()
+                cmd.Parameters.AddWithValue("@electionID", lastElectionID)
+                reader = cmd.ExecuteReader
+                ' Create a DataTable to store the data
+                Dim dataTable As New DataTable()
 
-            'Fill the DataTable with data from the SQL table
-            dataTable.Load(reader)
-            reader.Close()
-            Con.Close()
+                'Fill the DataTable with data from the SQL table
+                dataTable.Load(reader)
+                reader.Close()
+                Con.Close()
 
-            'IMP: Specify the Column Mappings from DataGridView to SQL Table
-            DataGridView1.AutoGenerateColumns = False
-            DataGridView1.Columns(0).DataPropertyName = "election_id"
-            DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
-            DataGridView1.Columns(2).DataPropertyName = "name"
-            DataGridView1.Columns(3).DataPropertyName = "ministry_name"
-            DataGridView1.Columns(4).DataPropertyName = "agenda"
-            DataGridView1.Columns(5).DataPropertyName = "status"
+                'IMP: Specify the Column Mappings from DataGridView to SQL Table
+                DataGridView1.AutoGenerateColumns = False
+                DataGridView1.Columns(0).DataPropertyName = "election_id"
+                DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
+                DataGridView1.Columns(2).DataPropertyName = "name"
+                DataGridView1.Columns(3).DataPropertyName = "ministry_name"
+                DataGridView1.Columns(4).DataPropertyName = "agenda"
+                DataGridView1.Columns(5).DataPropertyName = "status"
 
-            ' Bind the data to DataGridView
-            DataGridView1.DataSource = dataTable
-        ElseIf selectedValue1 IsNot Nothing And selectedValue2 Is Nothing Then
-            Dim position As String = selectedValue1.ToString()
-            ''Get connection from globals
-            'Dim Con = Globals.GetDBConnection()
-            'Dim reader As MySqlDataReader
-            'Dim cmd As MySqlCommand
+                ' Bind the data to DataGridView
+                DataGridView1.DataSource = dataTable
+            ElseIf selectedValue1 IsNot Nothing And selectedValue2 Is Nothing Then
+                Dim position As String = selectedValue1.ToString()
+                ''Get connection from globals
+                'Dim Con = Globals.GetDBConnection()
+                'Dim reader As MySqlDataReader
+                'Dim cmd As MySqlCommand
 
-            'Try
-            '    Con.Open()
-            'Catch ex As Exception
-            '    MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            'End Try
+                'Try
+                '    Con.Open()
+                'Catch ex As Exception
+                '    MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                'End Try
 
-            cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name, agenda, status 
+                cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name, agenda, status 
                                     FROM candidate_register
                                     JOIN users ON users.user_id = candidate_register.candidate_uid
                                     JOIN ministries ON ministries.ministry_id = candidate_register.ministry_id
                                     WHERE ministries.ministry_id = " & ministryToId(position) & " AND election_id = @electionID;", Con)
-            cmd.Parameters.AddWithValue("@electionID", lastElectionID)
-            reader = cmd.ExecuteReader
-            ' Create a DataTable to store the data
-            Dim dataTable As New DataTable()
+                cmd.Parameters.AddWithValue("@electionID", lastElectionID)
+                reader = cmd.ExecuteReader
+                ' Create a DataTable to store the data
+                Dim dataTable As New DataTable()
 
-            'Fill the DataTable with data from the SQL table
-            dataTable.Load(reader)
-            reader.Close()
-            Con.Close()
+                'Fill the DataTable with data from the SQL table
+                dataTable.Load(reader)
+                reader.Close()
+                Con.Close()
 
-            'IMP: Specify the Column Mappings from DataGridView to SQL Table
-            DataGridView1.AutoGenerateColumns = False
-            DataGridView1.Columns(0).DataPropertyName = "election_id"
-            DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
-            DataGridView1.Columns(2).DataPropertyName = "name"
-            DataGridView1.Columns(3).DataPropertyName = "ministry_name"
-            DataGridView1.Columns(4).DataPropertyName = "agenda"
-            DataGridView1.Columns(5).DataPropertyName = "status"
+                'IMP: Specify the Column Mappings from DataGridView to SQL Table
+                DataGridView1.AutoGenerateColumns = False
+                DataGridView1.Columns(0).DataPropertyName = "election_id"
+                DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
+                DataGridView1.Columns(2).DataPropertyName = "name"
+                DataGridView1.Columns(3).DataPropertyName = "ministry_name"
+                DataGridView1.Columns(4).DataPropertyName = "agenda"
+                DataGridView1.Columns(5).DataPropertyName = "status"
 
-            ' Bind the data to DataGridView
-            DataGridView1.DataSource = dataTable
-        ElseIf selectedValue1 IsNot Nothing And selectedValue2 IsNot Nothing Then
-            Dim status As String = selectedValue2.ToString()
-            Dim position As String = selectedValue1.ToString()
+                ' Bind the data to DataGridView
+                DataGridView1.DataSource = dataTable
+            ElseIf selectedValue1 IsNot Nothing And selectedValue2 IsNot Nothing Then
+                Dim status As String = selectedValue2.ToString()
+                Dim position As String = selectedValue1.ToString()
 
-            ''Get connection from globals
-            'Dim Con = Globals.GetDBConnection()
-            'Dim reader As MySqlDataReader
-            'Dim cmd As MySqlCommand
+                ''Get connection from globals
+                'Dim Con = Globals.GetDBConnection()
+                'Dim reader As MySqlDataReader
+                'Dim cmd As MySqlCommand
 
-            'Try
-            '    Con.Open()
-            'Catch ex As Exception
-            '    MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            'End Try
+                'Try
+                '    Con.Open()
+                'Catch ex As Exception
+                '    MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                'End Try
 
-            cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name, agenda, status 
+                cmd = New MySqlCommand("SELECT election_id, candidate_uid, name, ministry_name, agenda, status 
                                     FROM candidate_register
                                     JOIN users ON users.user_id = candidate_register.candidate_uid
                                     JOIN ministries ON ministries.ministry_id = candidate_register.ministry_id
                                     WHERE status = """ + status + """ AND " + "ministries.ministry_id = " & ministryToId(position) & " AND election_id = @electionID;", Con)
-            cmd.Parameters.AddWithValue("@electionID", lastElectionID)
-            reader = cmd.ExecuteReader
-            ' Create a DataTable to store the data
-            Dim dataTable As New DataTable()
+                cmd.Parameters.AddWithValue("@electionID", lastElectionID)
+                reader = cmd.ExecuteReader
+                ' Create a DataTable to store the data
+                Dim dataTable As New DataTable()
 
-            'Fill the DataTable with data from the SQL table
-            dataTable.Load(reader)
-            reader.Close()
-            Con.Close()
+                'Fill the DataTable with data from the SQL table
+                dataTable.Load(reader)
+                reader.Close()
+                Con.Close()
 
-            'IMP: Specify the Column Mappings from DataGridView to SQL Table
-            DataGridView1.AutoGenerateColumns = False
-            DataGridView1.Columns(0).DataPropertyName = "election_id"
-            DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
-            DataGridView1.Columns(2).DataPropertyName = "name"
-            DataGridView1.Columns(3).DataPropertyName = "ministry_name"
-            DataGridView1.Columns(4).DataPropertyName = "agenda"
-            DataGridView1.Columns(5).DataPropertyName = "status"
+                'IMP: Specify the Column Mappings from DataGridView to SQL Table
+                DataGridView1.AutoGenerateColumns = False
+                DataGridView1.Columns(0).DataPropertyName = "election_id"
+                DataGridView1.Columns(1).DataPropertyName = "candidate_uid"
+                DataGridView1.Columns(2).DataPropertyName = "name"
+                DataGridView1.Columns(3).DataPropertyName = "ministry_name"
+                DataGridView1.Columns(4).DataPropertyName = "agenda"
+                DataGridView1.Columns(5).DataPropertyName = "status"
 
-            ' Bind the data to DataGridView
-            DataGridView1.DataSource = dataTable
-        End If
+                ' Bind the data to DataGridView
+                DataGridView1.DataSource = dataTable
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged

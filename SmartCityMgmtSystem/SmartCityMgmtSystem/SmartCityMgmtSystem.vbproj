@@ -950,6 +950,12 @@
     <Compile Include="HealthcareMedicineInventoryAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HealthcareSendNotiff.Designer.vb">
+      <DependentUpon>HealthcareSendNotiff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HealthcareSendNotiff.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Healthcare_BookAppointment.Designer.vb">
       <DependentUpon>Healthcare_BookAppointment.vb</DependentUpon>
     </Compile>
@@ -2083,6 +2089,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HealthcareMedicineInventoryAdmin.resx">
       <DependentUpon>HealthcareMedicineInventoryAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HealthcareSendNotiff.resx">
+      <DependentUpon>HealthcareSendNotiff.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Healthcare_BookAppointment.resx">
       <DependentUpon>Healthcare_BookAppointment.vb</DependentUpon>

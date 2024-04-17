@@ -25,10 +25,10 @@ Public Class FastagPurchase
             Dim res As DialogResult = MessageBox.Show("Your fastag has expired. Do you want to renew your Fastag with a surcharge of ₹100?", "Renew Fastag", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If res = DialogResult.Yes Then
                 Dim paymentGateway As New PaymentGateway() With
-               {
-               .uid = uid,
-               .readonly_prop = True
-               }
+           {
+           .uid = uid,
+           .readonly_prop = True
+           }
                 paymentGateway.TextBox1.Text = 5 'Transport minister UID
                 paymentGateway.TextBox2.Text = 100 'Renewal Rupees
                 paymentGateway.TextBox3.Text = "Fastag Renewal for driving license: " & lbldrv.Text.Trim()
@@ -38,14 +38,15 @@ Public Class FastagPurchase
                     Dim query As String = "UPDATE fastag_purchases SET bought_on = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE purchase_id = " & ftid & " AND uid = " & uid
                     If Globals.ExecuteUpdateQuery(query) Then
                         MessageBox.Show("Fastag renewed successfully", "Fastag Renewed", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Globals.ExecuteUpdateQuery("UPDATE admin_records set toll_revenue = toll_revenue + " & 100)
                     Else
                         MessageBox.Show("Error renewing fastag", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
                 End If
-                End If
-            Else
-                'Show Yes or no messagebox and ask whether if they want to top up it and if yes, open the payment gateway
-                Dim res As DialogResult = MessageBox.Show("Your fastag is still valid. Do you want to top up your Fastag?", "Top Up Fastag", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            End If
+        Else
+            'Show Yes or no messagebox and ask whether if they want to top up it and if yes, open the payment gateway
+            Dim res As DialogResult = MessageBox.Show("Your fastag is still valid. Do you want to top up your Fastag?", "Top Up Fastag", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If res = DialogResult.Yes Then
                 'Ask the user for topup amount from Transport_Enter_Fee Form
                 Dim topup As Integer = 0
@@ -59,10 +60,10 @@ Public Class FastagPurchase
                     Return
                 End If
                 Dim paymentGateway As New PaymentGateway() With
-                {
-                .uid = uid,
-                .readonly_prop = True
-                }
+            {
+            .uid = uid,
+            .readonly_prop = True
+            }
                 paymentGateway.TextBox1.Text = 5 'Transport minister UID
 
                 'Check if topoup is greater than 0 rupees
@@ -75,11 +76,13 @@ Public Class FastagPurchase
                     If Globals.ExecuteUpdateQuery(query) Then
                         MessageBox.Show("Fastag topped up successfully", "Fastag Topped Up", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Me.Refresh()
+                        Globals.ExecuteUpdateQuery("UPDATE admin_records set toll_revenue = toll_revenue + " & topup)
                     Else
                         MessageBox.Show("Error topping up fastag", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End
                     End If
-                End If
 
+                End If
             End If
         End If
     End Sub
