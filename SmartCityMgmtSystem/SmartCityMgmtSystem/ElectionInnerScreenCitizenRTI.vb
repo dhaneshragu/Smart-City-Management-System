@@ -54,25 +54,26 @@ Public Class ElectionInnerScreenCitizenRTI
 
         Try
             Con.Open()
+            ' Execute query to count rows in election_time table
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM rti_queries_table;", Con)
+            Dim electionTimeRowCount As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+            Dim queryid = electionTimeRowCount + 1
+
+            Dim insertQuery As String = "INSERT INTO rti_queries_table(query_id, citizen_uid, ministry, 
+                                    query, status) VALUES(" & queryid & "," & uid & "," & ministryToId(selectedValue.ToString) & ", """ & TextBox1.Text & """, ""Pending"" )"
+
+            Dim inserted As Boolean = Globals.ExecuteInsertQuery(insertQuery)
+
+            If inserted Then
+                MessageBox.Show("Successful")
+            Else
+                MessageBox.Show("Failed to insert a row")
+            End If
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-        ' Execute query to count rows in election_time table
-        cmd = New MySqlCommand("SELECT COUNT(*) FROM rti_queries_table;", Con)
-        Dim electionTimeRowCount As Integer = Convert.ToInt32(cmd.ExecuteScalar())
-        Dim queryid = electionTimeRowCount + 1
 
-        Dim insertQuery As String = "INSERT INTO rti_queries_table(query_id, citizen_uid, ministry, 
-                                    query, status) VALUES(" & queryid & "," & uid & "," & ministryToId(selectedValue.ToString) & ", """ & TextBox1.Text & """, ""Pending"" )"
-
-        Dim inserted As Boolean = Globals.ExecuteInsertQuery(insertQuery)
-
-        If inserted Then
-            MessageBox.Show("Successful")
-        Else
-            MessageBox.Show("Failed to insert a row")
-        End If
 
     End Sub
 End Class
