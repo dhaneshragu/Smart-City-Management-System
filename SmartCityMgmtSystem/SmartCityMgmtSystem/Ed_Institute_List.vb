@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports SmartCityMgmtSystem.Ed_Institute_Handler
 Public Class Ed_Institute_List
 
@@ -15,20 +16,14 @@ Public Class Ed_Institute_List
         callingPanel = panel
         user_type = usertype
     End Sub
+    Public Property status As String
+    Public Property instituteID As Integer
+    Dim institutes As EdInstitution()
+    Private Sub DisplayInst(institutes As EdInstitution())
+        ' Clear existing institute items from the FlowLayoutPanel
+        FlowLayoutPanel1.Controls.Clear()
 
-    Private Sub Ed_Stud_Coursera_Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Get the database connection string
-        Dim connectionString As String = Globals.getdbConnectionString()
 
-        ' Fetch institutes data from the database
-        Dim institutes As EdInstitution() = handler.GetAllInstitutions()
-        Dim result = handler.GetLastStudentRequest(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID)
-
-        ' Now you can access the status and institute ID from the result
-        Dim status As String = result.Status
-        Dim instituteID As Integer = result.InstituteID
-
-        ' Create and populate Ed_Institute_ListItem controls
         For Each institute As EdInstitution In institutes
             Dim listItem As New Ed_Institute_ListItem()
             listItem.instituteID = institute.Inst_ID
@@ -77,11 +72,37 @@ Public Class Ed_Institute_List
             FlowLayoutPanel1.Controls.Add(listItem)
         Next
     End Sub
+    Private Sub Ed_Stud_Coursera_Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        ' Fetch institutes data from the database
+        institutes = handler.GetAllInstitutions()
+        Dim result = handler.GetLastStudentRequest(Ed_GlobalDashboard.Ed_Profile.Ed_User_ID)
+        Dim selectedInstitute As String = ""
+
+        For Each inst In institutes
+            If inst.Inst_ID = Ed_GlobalDashboard.Ed_Profile.Ed_Affiliation Then
+                selectedInstitute = inst.Inst_Name
+                Exit For
+            End If
+        Next
+
+        ' Set Label2.Text to the name of the selected institute
+        Label2.Text = selectedInstitute
+        status = result.Status
+        instituteID = result.InstituteID
+        DisplayInst(institutes)
+    End Sub
     Private Sub Edit_Label_Click(sender As Object, e As EventArgs)
         'Globals.viewChildForm(callingPanel, New Ed_Institute_Edit(callingPanel))
     End Sub
 
-    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
 
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        Dim searchText As String = TextBox1.Text.Trim() ' Get the search text from the textbox
+
+        ' Filter institues based on the matching institute  name'
+        Dim filteredInstitutes As EdInstitution() = institutes.Where(Function(institute) institute.Inst_Name.Contains(searchText)).ToArray()
+        DisplayInst(filteredInstitutes)
     End Sub
+
 End Class
