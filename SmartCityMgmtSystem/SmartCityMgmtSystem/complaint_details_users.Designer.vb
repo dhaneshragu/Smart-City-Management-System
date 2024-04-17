@@ -291,6 +291,7 @@ Partial Class complaint_details_users
         Me.RichTextBox9.Location = New System.Drawing.Point(43, 478)
         Me.RichTextBox9.Name = "RichTextBox9"
         Me.RichTextBox9.ReadOnly = True
+        Me.RichTextBox9.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
         Me.RichTextBox9.Size = New System.Drawing.Size(492, 257)
         Me.RichTextBox9.TabIndex = 31
         Me.RichTextBox9.Text = ""
@@ -302,6 +303,7 @@ Partial Class complaint_details_users
         Me.RichTextBox8.Location = New System.Drawing.Point(659, 577)
         Me.RichTextBox8.Name = "RichTextBox8"
         Me.RichTextBox8.ReadOnly = True
+        Me.RichTextBox8.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
         Me.RichTextBox8.Size = New System.Drawing.Size(429, 141)
         Me.RichTextBox8.TabIndex = 30
         Me.RichTextBox8.Text = ""
@@ -346,6 +348,7 @@ Partial Class complaint_details_users
         Me.RichTextBox4.Location = New System.Drawing.Point(659, 217)
         Me.RichTextBox4.Name = "RichTextBox4"
         Me.RichTextBox4.ReadOnly = True
+        Me.RichTextBox4.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal
         Me.RichTextBox4.Size = New System.Drawing.Size(429, 36)
         Me.RichTextBox4.TabIndex = 26
         Me.RichTextBox4.Text = ""

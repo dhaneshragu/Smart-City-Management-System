@@ -24,11 +24,17 @@ Public Class Complaint_User_Dashboard
             RichTextBox1.SelectionAlignment = HorizontalAlignment.Center
 
             ' Count for status = 'inprocess'
-            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE user_id = @userId AND status = 'Resolved'", Con)
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE user_id = @userId AND status = 'In Progress'", Con)
             cmd.Parameters.AddWithValue("@userId", uid)
             count2 = Convert.ToInt32(cmd.ExecuteScalar())
             RichTextBox2.Text = count2
             RichTextBox2.SelectionAlignment = HorizontalAlignment.Center
+
+            cmd = New MySqlCommand("SELECT COUNT(*) FROM Complaints WHERE user_id = @userId AND status = 'Resolved'", Con)
+            cmd.Parameters.AddWithValue("@userId", uid)
+            count2 = Convert.ToInt32(cmd.ExecuteScalar())
+            RichTextBox3.Text = count2
+            RichTextBox3.SelectionAlignment = HorizontalAlignment.Center
 
 
         Catch ex As Exception
@@ -105,29 +111,47 @@ Public Class Complaint_User_Dashboard
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim Complaints_User_Com_History = New Complaints_User_Com_History() With {
-            .uid = uid,
-            .u_name = u_name
-        }
+        Dim Complaints_User_Com_History = New Complaints_User_Com_History With {
+    .uid = uid,
+    .u_name = u_name,
+    .status_complaint = ">  In Progress Complaints"
+}
         Complaints_User_Com_History.Show()
+
         Me.Close()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim Complaints_User_Com_History = New Complaints_User_Com_History() With {
+        Dim Complaints_User_Com_History = New Complaints_User_Com_History With {
             .uid = uid,
-            .u_name = u_name
+            .u_name = u_name,
+            .status_complaint = ">  Resolved Complaints"
         }
         Complaints_User_Com_History.Show()
+
         Me.Close()
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim HomePageDashboard = New HomePageDashboard() With {
+            .uid = uid
+            }
         HomePageDashboard.Show()
         Me.Close()
     End Sub
 
     Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.TextChanged
 
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim Complaints_User_Com_History = New Complaints_User_Com_History With {
+            .uid = uid,
+            .u_name = u_name,
+            .status_complaint = ">  Open Complaints"
+        }
+        Complaints_User_Com_History.Show()
+
+        Me.Close()
     End Sub
 End Class
