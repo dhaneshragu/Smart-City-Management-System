@@ -39,7 +39,9 @@ Public Class Ed_Stud_MyCourses
                 labels(i).ProgressBar1.Value = 0
             Else
                 labels(i).ProgressBar1.Value = comp / total * 100
+
             End If
+
 
         Next
 
@@ -53,7 +55,7 @@ Public Class Ed_Stud_MyCourses
                 ' Add the label to the new list
                 newList.Add(label)
             Else
-                handler.CompleteCourse(Ed_GlobalDashboard.userID, label.CourseID)
+                handler.CompleteCourse(label.CourseItem.Name, label.CourseItem.Affiliation, Ed_GlobalDashboard.userID, label.CourseID)
             End If
         Next
 

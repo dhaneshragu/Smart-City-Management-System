@@ -21,7 +21,7 @@ Public Class ElectionInnerScreenViewStatistics
 
 
     Public Property lastElectionID As Integer
-    Public Property totalVoted As Integer
+    Public Property totalVoted As Integer = 0
     Dim turnoutPercentage As Double
     Dim Male As Integer
     Private Sub Chart_Init()
@@ -122,6 +122,7 @@ Public Class ElectionInnerScreenViewStatistics
         If reader.Read() Then
             Dim ministryName As String = reader("ministry_name").ToString()
             Label6.Text = ministryName.Replace("Ministry of ", "")
+            'Label6.Text = totalVoted
         Else
             Label6.Text = "No data found"
         End If
@@ -136,6 +137,7 @@ Public Class ElectionInnerScreenViewStatistics
         If reader.Read() Then
             Dim ministryName As String = reader("ministry_name").ToString()
             Label7.Text = ministryName.Replace("Ministry of ", "")
+            'Label7.Text = totalVoters
         Else
             Label7.Text = "No data found"
         End If

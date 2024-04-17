@@ -558,12 +558,12 @@ Public Class Ed_Coursera_Handler
         ' SQL query to get course IDs and their completion counts for a particular student
         Dim query As String = "SELECT ec_studentcourse.Course_ID, COUNT(ec_coursecontent.Seq_no) AS TotalEntries " &
                           "FROM ec_studentcourse " &
-                          "LEFT JOIN ec_coursecontent ON ec_coursecontent.Course_ID = ec_studentcourse.Course_ID " &
+                          "LEFT JOIN ec_coursecontent ON ec_coursecontent.Course_ID = ec_studentcourse.Course_ID  where ec_studentcourse.Student_ID = @stuid " &
                           "GROUP BY ec_studentcourse.Course_ID " &
                           "ORDER BY ec_studentcourse.Course_ID"
 
         Using cmd As New MySqlCommand(query, Con)
-            cmd.Parameters.AddWithValue("@studentID", studentID)
+            cmd.Parameters.AddWithValue("@stuid", studentID)
             Using reader As MySqlDataReader = cmd.ExecuteReader()
                 While reader.Read()
                     Dim courseID As Integer = Convert.ToInt32(reader("Course_ID"))
@@ -578,7 +578,7 @@ Public Class Ed_Coursera_Handler
         Return completionCounts
     End Function
 
-    Public Function CompleteCourse(ByVal studentID As Integer, ByVal courseID As Integer)
+    Public Function CompleteCourse(ByVal certname As String, ByVal instid As Integer, ByVal studentID As Integer, ByVal courseID As Integer)
         Dim Con = Globals.GetDBConnection()
         Con.Open()
         Dim query As String = "UPDATE ec_studentcourse SET Completion_Status = 'Completed' WHERE Student_ID = @studentID AND Course_ID = @courseID"
@@ -587,7 +587,7 @@ Public Class Ed_Coursera_Handler
         cmd.Parameters.AddWithValue("@CourseID", courseID)
         cmd.ExecuteNonQuery()
         Con.Close()
-        GenerateCertificateAndSave(studentID, "E-Course", DateTime.Now.Year, courseID, "NO NAME")
+        GenerateCertificateAndSave(instid, studentID, "E-Course", DateTime.Now.Year, courseID, certname)
     End Function
 
     Public Function RateCourse(ByVal studentID As Integer, ByVal courseID As Integer, ByVal rating As Integer)
@@ -600,13 +600,47 @@ Public Class Ed_Coursera_Handler
         cmd.Parameters.AddWithValue("@Rate", rating)
         cmd.ExecuteNonQuery()
         Con.Close()
+        UpdateCourseRating(courseID)
     End Function
 
-    Public Sub GenerateCertificateAndSave(studentID As Integer, CertType As String, year As Integer, courseID As Integer, certName As String)
+    Public Function UpdateCourseRating(ByVal courseID As Integer)
+        Dim Con = Globals.GetDBConnection()
+        Con.Open()
+
+        ' Calculate the average rating for the course
+        Dim avgRating As Double = 0
+        Dim ratingCount As Integer = 0
+
+        Dim queryAvgRating As String = "SELECT AVG(Rating) AS AvgRating, COUNT(Rating) AS RatingCount FROM ec_studentcourse WHERE Course_ID = @CourseID AND Rating IS NOT NULL"
+        Using cmdAvgRating As New MySqlCommand(queryAvgRating, Con)
+            cmdAvgRating.Parameters.AddWithValue("@CourseID", courseID)
+            Using reader As MySqlDataReader = cmdAvgRating.ExecuteReader()
+                If reader.Read() Then
+                    avgRating = Convert.ToDouble(reader("AvgRating"))
+                    ratingCount = Convert.ToInt32(reader("RatingCount"))
+                End If
+            End Using
+        End Using
+
+        ' Update the ec_course table with the average rating and rating count
+        Dim queryUpdateRating As String = "UPDATE ec_course SET Rating = @AvgRating, Rating_Count = @RatingCount WHERE Course_ID = @CourseID"
+        Using cmdUpdateRating As New MySqlCommand(queryUpdateRating, Con)
+            cmdUpdateRating.Parameters.AddWithValue("@AvgRating", avgRating)
+            cmdUpdateRating.Parameters.AddWithValue("@RatingCount", ratingCount)
+            cmdUpdateRating.Parameters.AddWithValue("@CourseID", courseID)
+            cmdUpdateRating.ExecuteNonQuery()
+        End Using
+
+        Con.Close()
+    End Function
+
+
+    Public Sub GenerateCertificateAndSave(instid As Integer, studentID As Integer, CertType As String, year As Integer, courseID As Integer, certName As String)
         Using Con = Globals.GetDBConnection()
             Con.Open()
-            Dim query As String = "INSERT INTO ed_certificates (CeretName, Student_ID, Type, Year, Course_ID) VALUES (@certName, @studentID, @Type, @year, @courseID)"
+            Dim query As String = "INSERT INTO ed_certificates (Inst_ID, CertName, Student_ID, Type, Year, Course_ID) VALUES (@instid, @certName, @studentID, @Type, @year, @courseID)"
             Dim cmd As New MySqlCommand(query, Con)
+            cmd.Parameters.AddWithValue("@instid", instid)
             cmd.Parameters.AddWithValue("@certName", certName)
             cmd.Parameters.AddWithValue("@studentID", studentID)
             cmd.Parameters.AddWithValue("@courseID", courseID)
@@ -650,6 +684,7 @@ Public Class Ed_Coursera_Handler
                     certData.Year = If(Not IsDBNull(reader("Year")), Convert.ToInt32(reader("Year")), 0)
                     certData.Certificate = If(Not IsDBNull(reader("Certificate")), DirectCast(reader("Certificate"), Byte()), Nothing)
                     certData.Course_ID = If(Not IsDBNull(reader("Course_ID")), Convert.ToInt32(reader("Course_ID")), 0)
+                    certData.CertName = If(Not IsDBNull(reader("CertName")), reader("CertName").ToString(), "NO NAME")
 
 
                     ' Add the CertificateData object to the list
@@ -802,6 +837,36 @@ Public Class Ed_Coursera_Handler
         ' Return the success status
         Return success
     End Function
+
+    Public Function GetInstituteAndCourseName(courseID As Integer) As Tuple(Of String, String)
+        Dim instituteName As String = ""
+        Dim courseName As String = ""
+
+        Try
+            Using con As MySqlConnection = Globals.GetDBConnection()
+                con.Open()
+                Dim query As String = "SELECT ed_institution.Inst_Name, ec_course.Name " &
+                                  "FROM ec_course " &
+                                  "INNER JOIN ed_institution ON ec_course.Affiliation = ed_institution.Inst_ID " &
+                                  "WHERE ec_course.Course_ID = @CourseID"
+
+                Using command As New MySqlCommand(query, con)
+                    command.Parameters.AddWithValue("@CourseID", courseID)
+                    Using reader As MySqlDataReader = command.ExecuteReader()
+                        If reader.Read() Then
+                            instituteName = reader.GetString("Inst_Name")
+                            courseName = reader.GetString("Name")
+                        End If
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Could not fetch Course/Institute name")
+        End Try
+
+        Return New Tuple(Of String, String)(instituteName, courseName)
+    End Function
+
 
 
 
